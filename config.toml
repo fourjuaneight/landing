@@ -1,0 +1,30 @@
+baseURL = "https://www.juanvillela.dev/"
+enableEmoji = "true"
+enableRobotsTXT = "true"
+languageCode = "en-us"
+title = "Juan C Villela | Front-End Developer"
+
+FootnoteReturnLinkContents = "↩"
+SectionPagesMenu = "main"
+
+[permalinks]
+  blog = "/:filename/"
+
+[author]
+  name = "Juan C Villela"
+  email = "info@juanvillela.dev"
+
+[blackfriday]
+  hrefTargetBlank = true
+  plainIDAnchors = true
+
+[params]
+  description = "I'm Juan Villela. A Front-End developer with a focus on static sites based in Washington, DC."
+  social = "fourjuaneight"
+  OpenLinksInNewWindow = true
+
+[params.google]
+  analytics = ""
+
+[outputs]
+  home = ["html"]
