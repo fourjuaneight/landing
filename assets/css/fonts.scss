@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 400;
+  font-style: normal;
+  src: local(Rubik),
+       local(Rubik),
+       url("/fonts/Rubik.woff2") format("woff2"),
+       url("/fonts/Rubik.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 400;
+  font-style: italic;
+  src: local(Rubik-Italic),
+       local(Rubik-Italic),
+       url("/fonts/Rubik-Italic.woff2") format("woff2"),
+       url("/fonts/Rubik-Italic.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-weight: 700;
+  font-style: normal;
+  src: local(Rubik-Bold),
+       local(Rubik-Bold),
+       url("/fonts/Rubik-Bold.woff2") format("woff2"),
+       url("/fonts/Rubik-Bold.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Dyslexic';
+  font-weight: 400;
+  font-style: normal;
+  src: local(OpenDyslexic),
+       local(OpenDyslexic),
+       url("/fonts/OpenDyslexic.woff2") format("woff2"),
+       url("/fonts/OpenDyslexic.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Dyslexic';
+  font-weight: 700;
+  font-style: normal;
+  src: local(OpenDyslexic-Bold),
+       local(OpenDyslexic-Bold),
+       url("/fonts/OpenDyslexic-Bold.woff2") format("woff2"),
+       url("/fonts/OpenDyslexic-Bold.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-weight: 400;
+  font-style: normal;
+  src: local(FiraCode-Regular),
+       local(FiraCode-Regular),
+       url("/fonts/FiraCode-Regular.woff2") format("woff2"),
+       url("/fonts/FiraCode-Regular.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-weight: 300;
+  font-style: light;
+  src: local(FiraCode-Light),
+       local(FiraCode-Light),
+       url("/fonts/FiraCode-Light.woff2") format("woff2"),
+       url("/fonts/FiraCode-Light.woff") format("woff");
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-weight: 700;
+  font-style: normal;
+  src: local(FiraCode-Bold),
+       local(FiraCode-Bold),
+       url("/fonts/FiraCode-Bold.woff2") format("woff2"),
+       url("/fonts/FiraCode-Bold.woff") format("woff");
+  font-display: swap;
+}
