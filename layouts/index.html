@@ -21,11 +21,11 @@
           <li class="main__work-item">
             {{/*  Grab client name, replace space with dashes, change to lower case. This generates the image filename.  */}}
             {{ $clientImg := replaceRE " " "-" $client.name | lower }}
-            {{ $webp := resources.Get "img/{{ $clientImg }}.webp" }}
-            {{ $img := resources.Get "img/{{ $clientImg }}.jpg" }}
+            {{ $webp := resources.Get (print "img/" $clientImg ".webp") }}
+            {{ $img := resources.Get (print "img/" $clientImg ".png") }}
             <picture class="main__img main__img--client">
               <source data-srcset="{{ $webp.Permalink }}" type="image/webp">
-              <source data-srcset="{{ $img.Permalink }}" type="image/jpg">
+              <source data-srcset="{{ $img.Permalink }}" type="image/png">
               <img data-src="{{ $img.Permalink }}" alt="" class="lazy"/>
             </picture>
             <a href="{{ $client.website }}" class="main__client-name">{{ $client.name }}</a>
@@ -44,7 +44,7 @@
       {{ $writing := ($.Site.GetPage "section" "writing").Pages }}
       <ul class="main__writing-list">
         {{ range last 5 $writing }}
-          <li class="main__writing-entry">{{ .Render "li" }}</li>
+          <li class="main__writing-entry">{{ .Render "summary" }}</li>
         {{ end }}
       </ul>
       <a href='{{ "writting" | relURL }}' class="main__nav-link">Read more</a>

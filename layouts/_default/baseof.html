@@ -19,12 +19,12 @@
   <link rel="stylesheet" href="{{ $styles.Permalink }}">
 
   {{/*  Open Graph  */}}
-  <link rel="canonical" href="{{ .RelPermalink }}">
+  <link rel="canonical" href="{{ .Permalink }}">
   {{ template "_internal/twitter_cards.html" . }}
-  {{ $icon := resources.Get "icons/icon.png" }}
-  <meta name="twitter:image" content="{{ $icon.RelPermalink }}">
+  {{ $avatar := resources.Get "icons/avatar.png" }}
+  <meta name="twitter:image" content="{{ $avatar.Permalink }}">
   {{ template "_internal/opengraph.html" . }}
-  <meta property="og:image" content="{{ $icon.RelPermalink }}">
+  <meta property="og:image" content="{{ $avatar.Permalink }}">
   {{ template "_internal/schema.html" . }}
 
   {{/*  Favicon  */}}
