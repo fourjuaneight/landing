@@ -16,26 +16,27 @@
     <section class="main__section main__section--work">
       <h2 class="main__subtitle">{ Recent Work }</h2>
       <ul class="main__work-list">
-        {{/*  Loop over work data file and get client object values.  */}}
-        {{ range $i, $client := .Site.Data.work.recent }}
-        <li class="main__work-item">
-          {{/*  Grab client name, replace space with dashes, change to lower case. This generates the image filename.  */}}
-          {{ $clientImg := replaceRE " " "-" $client.name | lower }}
-          {{ $webp := resources.Get "img/{{ $clientImg }}.webp" }}
-          {{ $img := resources.Get "img/{{ $clientImg }}.jpg" }}
-          <picture class="main__img main__img--client">
-            <source data-srcset="{{ $webp.Permalink }}" type="image/webp">
-            <source data-srcset="{{ $img.Permalink }}" type="image/jpg">
-            <img data-src="{{ $img.Permalink }}" alt="" class="lazy"/>
-          </picture>
-          <a href="{{ $client.website }}" class="main__client-name">{{ $client.name }}</a>
-          <p class="main__client-description">{{ $client.description }}</p>
-          <time class="main__client-date" datetime="{{ $client.date }}">{{ $client.date }}</time>
-          <div class="main__skills-list">
-            <p class="main__skill"></p>
-          </div>
-        </li>
-      </ul>
+          {{/*  Loop over work data file and get client object values.  */}}
+          {{ range $i, $client := .Site.Data.work.recent }}
+          <li class="main__work-item">
+            {{/*  Grab client name, replace space with dashes, change to lower case. This generates the image filename.  */}}
+            {{ $clientImg := replaceRE " " "-" $client.name | lower }}
+            {{ $webp := resources.Get "img/{{ $clientImg }}.webp" }}
+            {{ $img := resources.Get "img/{{ $clientImg }}.jpg" }}
+            <picture class="main__img main__img--client">
+              <source data-srcset="{{ $webp.Permalink }}" type="image/webp">
+              <source data-srcset="{{ $img.Permalink }}" type="image/jpg">
+              <img data-src="{{ $img.Permalink }}" alt="" class="lazy"/>
+            </picture>
+            <a href="{{ $client.website }}" class="main__client-name">{{ $client.name }}</a>
+            <p class="main__client-description">{{ $client.description }}</p>
+            <time class="main__client-date" datetime="{{ $client.date }}">{{ $client.date }}</time>
+            <div class="main__skills-list">
+              <p class="main__skill"></p>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
     </section>
     <section class="main__section main__section--writing">
       <h2 class="main__subtitle">{ Latest Writing }</h2>

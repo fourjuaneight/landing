@@ -7,7 +7,7 @@
     {{/*  Loop over tags list in front-matter  */}}
     {{ range $key, $tag := .Params.tags }}
       {{- if ne $key 0 }}<span>, </span>{{ end }}
-      <a href="/{{ $s }}/category/{{ $cat }}">{{ $tag }}</a>
+      <a href="/{{ $s }}/tags/{{ $tag }}">{{ $tag }}</a>
     {{ end }}
   </div>
 </article>

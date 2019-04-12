@@ -2,3 +2,7 @@
 @import 'variables';
 @import 'extends';
 @import 'mixins';
+
+main {
+  @extend %full-width;
+}

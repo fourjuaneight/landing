@@ -6,10 +6,12 @@ title = "Juan C Villela"
 
 FootnoteReturnLinkContents = "↩"
 SectionPagesMenu = "main"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+disableFastRender = true
 
 [permalinks]
   section = "/:filename/"
-  blog = "/:filename/"
+  writing = "/:filename/"
 
 [author]
   name = "Juan C Villela"
@@ -23,9 +25,6 @@ SectionPagesMenu = "main"
   description = "I'm Juan Villela. A Front-End developer with a focus on static sites based in Washington, DC."
   social = "fourjuaneight"
   OpenLinksInNewWindow = true
-
-[params.google]
-  analytics = ""
 
 [outputs]
   home = ["html"]
