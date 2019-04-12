@@ -2,12 +2,13 @@ baseURL = "https://www.juanvillela.dev/"
 enableEmoji = "true"
 enableRobotsTXT = "true"
 languageCode = "en-us"
-title = "Juan C Villela | Front-End Developer"
+title = "Juan C Villela"
 
 FootnoteReturnLinkContents = "↩"
 SectionPagesMenu = "main"
 
 [permalinks]
+  section = "/:filename/"
   blog = "/:filename/"
 
 [author]
@@ -28,3 +29,4 @@ SectionPagesMenu = "main"
 
 [outputs]
   home = ["html"]
+  section = ["html"]

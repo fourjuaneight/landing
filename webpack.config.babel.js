@@ -1,3 +1,6 @@
+// Learn more about Webpack:
+// https://webpack.js.org/
+
 import path from 'path';
 
 export default {

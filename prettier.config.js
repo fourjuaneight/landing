@@ -1,3 +1,6 @@
+// Learn more about Prettier:
+// https://prettier.io/
+
 module.exports = {
   arrowParens: 'avoid',
   bracketSpacing: false,

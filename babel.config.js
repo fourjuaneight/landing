@@ -1,3 +1,6 @@
+// Learn more about Babel:
+// https://babeljs.io/
+
 module.exports = api => {
   const presets = [
     [

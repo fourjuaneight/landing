@@ -1,8 +1,10 @@
 # Ignoring as following the linter rules will break some of the rules
-webpack.config.babel.js
+.eslintrc.js
+babel.config.js
 gulpfile.js
 postcss.config.js
 prettier.config.js
-.eslintrc.js
+stylelint.config.js
+webpack.config.babel.js
 # Ignoring bundle JS to avoid undoing minification
 assets/js/bundle.js

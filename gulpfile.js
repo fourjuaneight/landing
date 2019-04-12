@@ -1,3 +1,6 @@
+// Learn more about Gulp:
+// https://gulpjs.com/
+
 'use strict';
 
 // Load Plugins
