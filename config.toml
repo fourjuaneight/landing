@@ -11,7 +11,11 @@ disableFastRender = true
 
 [permalinks]
   section = "/:filename/"
-  writing = "/:filename/"
+  writing = "/writing/:filename/"
+  tags = "/writing/:slug/"
+
+[taxonomies]
+  tags = "tags"
 
 [author]
   name = "Juan C Villela"
@@ -26,6 +30,12 @@ disableFastRender = true
   social = "fourjuaneight"
   OpenLinksInNewWindow = true
 
+[outputFormats.jsonfeed]
+  mediaType = "application/json"
+  baseName = "feed"
+  isPlainText = true
+
 [outputs]
   home = ["html"]
   section = ["html"]
+  writing = ["html", "jsonfeed"]
