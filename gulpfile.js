@@ -33,7 +33,7 @@ function critical() {
       .pipe(sass().on('error', sass.logError))
       .pipe(postcss(plugins))
       // wrap with style tags
-      .pipe(concat.header(`<style nonce="generateHash">`))
+      .pipe(concat.header(`<style`))
       .pipe(concat.footer('</style>'))
       // convert it to an include file
       .pipe(
@@ -139,7 +139,7 @@ gulp.task('cleanup', clean);
 gulp.task('watch', watchFiles);
 
 // Build
-gulp.task('build', gulp.series(['critical', 'optimize', 'webpack']));
+gulp.task('build', gulp.series(['critical', 'webpack']));
 
 // Build without optimization & minimization
 gulp.task('build-dev', gulp.series(['critical', 'webpack']));

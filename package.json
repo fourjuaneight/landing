@@ -2,17 +2,14 @@
   "name": "juan-dev",
   "version": "1.0.0",
   "description": "I'm Juan Villela. A Front-End developer with a focus on static sites based in Washington, DC",
-  "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp build --max_old_space_size=8000; node hash.js; hugo --environment=production; gulp cleanup",
-    "build-dev": "gulp build --max_old_space_size=8000; node hash.js; hugo --environment=development; gulp cleanup",
+    "start": "gulp build --max_old_space_size=8000; hugo -e development; hsd",
+    "build": "gulp build --max_old_space_size=8000; hugo -e production; gulp cleanup",
+    "build-dev": "gulp build --max_old_space_size=8000; hugo -e development; gulp cleanup",
     "clean": "rm -rf public resources",
-    "clean-node": "rm -rf node_modules package-lock.json",
-    "develop-gulp": "gulp build; gulp watch",
-    "develop-hugo": "hugo; hugo serve",
+    "clean-node": "rm -rf node_modules",
     "fix": "eslint --fix assets/**/*.js",
-    "format": "prettier --write assets/**/*.js",
-    "gulp-clean-test": "npm run clean; hugo; gulp cleanup"
+    "format": "prettier --write assets/**/*.js"
   },
   "repository": {
     "type": "git",
