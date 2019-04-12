@@ -1,0 +1,36 @@
+{
+  "recent": [
+    {
+      "name": "SignalPath",
+      "description": "In collaboration with their in-house designer, I redesigned and overhauled their existing Hugo site. A substantial code reduction was achieved. The site was also made more accessible and responsive while maintaining support for IE 11.",
+      "website": "https://www.signalpath.com/",
+      "date": "2019",
+      "skills": [
+        "Hugo",
+        "Sass",
+        "Webpack"
+      ]
+    },
+    {
+      "name": "Vitamin D",
+      "description": "The main focus for Insight was to have an interactive section where visitors cloud point out which area of their body was hurting and get a description of their symptoms. Using their existing jQuery stack, I create a library-free and responsive app.",
+      "website": "https://www.insightintoinjury.com/",
+      "date": "2018",
+      "skills": [
+        "Jekyll",
+        "jQuery",
+        "Sass"
+      ]
+    },
+    {
+      "name": "Internet Exposure",
+      "description": "This was my first time working with Rails. The back-end was already built, so I collaborated with their designers and developers to create a responsive front-end.",
+      "website": "https://www.culturallyresponsiveminds.com/",
+      "date": "2018",
+      "skills": [
+        "Rails",
+        "Sass"
+      ]
+    }
+  ]
+}
