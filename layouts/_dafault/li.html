@@ -1,0 +1,5 @@
+<article class="post__entry">
+  <h3 class="post__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+  <p class="post__summary">{{ .Summary }}</p>
+  <time class="post__date" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
+</article>
