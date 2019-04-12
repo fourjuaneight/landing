@@ -1,0 +1,14 @@
+{{ define "main" }}
+  {{ partial "header.html" . }}
+  <main class="single err__404">
+    <h1 class="single__title">{ 404 Not Found }</h1>
+    {{ $webp := resources.Get "img/err-404.webp" }}
+    {{ $img := resources.Get "img/err-404.png" }}
+    <picture class="single__err-img">
+      <source srcset="{{ $webp.Permalink }}" type="image/webp">
+      <source srcset="{{ $img.Permalink }}" type="image/png">
+      <img src="{{ $img.Permalink }}" alt="I found you."/>
+    </picture>
+  </main>
+  {{ partial "footer.html" . }}
+{{ end }}
