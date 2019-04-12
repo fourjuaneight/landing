@@ -1,0 +1,16 @@
+<footer class="footer">
+  <h2 class="footer__title">{ Contact }</h2>
+  <nav class="footer__nav">
+    <p class="footer__text">Email</p>
+    <a href="mailto:hello@juanvillela.dev" class="footer__link" target="_blank" rel="noreferrer noopener">hello@juanvillela.dev</a>
+    {{/*  Pull social handle from config.  */}}
+    {{ with .Site.Params.social }}
+      <p class="footer__text">Twitter</p>
+      <a href="https://www.twitter.com/{{.}}" class="footer__link" target="_blank" rel="noreferrer noopener">@fourjuaneight</a>
+      <p class="footer__text">Github</p>
+      <a href="https://www.github.com/{{.}}" class="footer__link" target="_blank" rel="noreferrer noopener">/fourjuaneight</a>
+    {{ end }}
+  </nav>
+  {{/*  Hugo is used to generate the current year without the need to update.  */}}
+  <p class="footer__copyright">&copy;&nbsp;{{ time.Now.Format "2006" }}&nbsp;{{ .Site.Copyright }}</p>
+</footer>
