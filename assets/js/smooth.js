@@ -95,7 +95,12 @@ const scrollIt = (destination, duration = 200, easing = `linear`, callback) => {
   scroll();
 };
 
-const scrollUp = document.querySelector(`button.scroll-up`);
-scrollUp.addEventListener(`click`, () => {
-  scrollIt(document.querySelector(`body`), 500, `easeOutQuad`);
+const navLinks = document.querySelectorAll(`a.header__link--nav`);
+
+navLinks.forEach(link => {
+  link.addEventListener(`click`, () => {
+    const target = link.getAttribute(`data-target`);
+    scrollIt(document.querySelector(`#${target}`), 500, `easeOutQuad`);
+  });
+  link.removeAttribute(`href`);
 });

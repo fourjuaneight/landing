@@ -1,10 +1,10 @@
 <header class="header">
   <a href="{{ .Site.BaseURL }}" class="header__link"> juan villela</a>
   <nav class="header__nav">
-    <a href='{{ "writting" | relURL }}' class="header__link">writting</a>
+    <a href='{{ "#writting" | relURL }}' class="header__link header__link--nav" data-target="main__section--writing">writting</a>
     <span class="header__separator">::</span>
-    <a href='{{ "#work" | relURL }}' class="header__link">work</a>
+    <a href='{{ "#work" | relURL }}' class="header__link header__link--nav" data-target="main__section--work">work</a>
     <span class="header__separator">::</span>
-    <a href='{{ "#contact" | relURL }}' class="header__link">contact</a>
+    <a href='{{ "#contact" | relURL }}' class="header__link header__link--nav" data-target="footer">contact</a>
   </nav>
 </header>
