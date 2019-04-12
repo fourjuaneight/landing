@@ -1,5 +1,5 @@
 ---
-title: 'On Comfort'
+title: On Comfort
 date: '2018-06-29'
 tags:
 - developement
