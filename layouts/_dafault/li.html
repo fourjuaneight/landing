@@ -1,5 +1,12 @@
 <article class="post__entry">
   <h3 class="post__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-  <p class="post__summary">{{ .Summary }}</p>
   <time class="post__date" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
+  {{ $s := .Section }}
+  <div class="post__tags">
+    <span aria-hidden="true" class="meta">#</span>
+    {{ range $key, $tag := .Params.tags }}
+      {{- if ne $key 0 }}<span>, </span>{{ end }}
+      <a href="/{{ $s }}/category/{{ $cat }}">{{ $tag }}</a>
+    {{ end }}
+  </div>
 </article>
