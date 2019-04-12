@@ -4,6 +4,7 @@
   {{ $s := .Section }}
   <div class="post__tags">
     <span aria-hidden="true" class="meta">#</span>
+    {{/*  Loop over tags list in front-matter  */}}
     {{ range $key, $tag := .Params.tags }}
       {{- if ne $key 0 }}<span>, </span>{{ end }}
       <a href="/{{ $s }}/category/{{ $cat }}">{{ $tag }}</a>
