@@ -1,31 +1,8 @@
-// Theme definitions
-$black: (
-  background: #000,
-  border: #6F697C,
-  button: #8F3A6D,
-  content: #73D5E9,
-  contentBG: #101116,
-  link: #8BE9FD,
-  meta: #CDAEF9,
-  text: #FEFFFE,
-);
-$dark: (
-  background: #111C2A,
-  border: #304361,
-  button: #503A88,
-  content: #BCA9E5,
-  contentBG: #172134,
-  link: #54C1DC,
-  meta: #C1A35C,
-  text: #F6F7EE,
-);
-$light: (
-  background: #FAFBFA,
-  border: #DCDDDC,
-  button: #414747,
-  content: #6AC9FB,
-  contentBG: #424242,
-  link: #D7373A,
-  meta: #424242,
-  text: #333,
-);
+// Colors
+$font: #333;
+$link: #d7373a;
+$meta: #424242;
+$white: #fff;
+
+// Transition Animations
+$timing: 200ms;
