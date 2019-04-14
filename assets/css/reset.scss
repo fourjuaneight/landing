@@ -1,108 +1,152 @@
+@import 'mixins';
+
 // Reset
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
+
 html {
+  @include transition(font-size);
+
   box-sizing: border-box;
+  font-size: 100%;
   -webkit-overflow-scrolling: touch;
+
+  @include media-query-max(560px) {
+    font-size: 80%;
+  }
 }
-html, body,
-h1, h2, h3, h4, h5, h6,
-a, p, span,
-em, small, strong,
-sub, sup,
-mark, del, ins, strike,
-abbr, dfn,
-blockquote, q, cite,
-code, pre,
-ol, ul, li, dl, dt, dd,
-div, section, article,
-main, aside, nav,
-header, hgroup, footer,
-img, figure, figcaption,
-address, time,
-audio, video,
-canvas, iframe,
-details, summary,
-fieldset, form, label, legend,
-table, caption,
-tbody, tfoot, thead,
-tr, th, td {
+
+body {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+em,
+small,
+strong,
+sub,
+sup,
+mark,
+del,
+ins,
+strike,
+abbr,
+dfn,
+blockquote,
+q,
+cite,
+code,
+pre,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+div,
+section,
+article,
+main,
+aside,
+nav,
+header,
+hgroup,
+footer,
+img,
+figure,
+figcaption,
+address,
+time,
+audio,
+video,
+canvas,
+iframe,
+details,
+summary,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  border: 0;
   margin: 0;
   padding: 0;
-  border: 0;
 }
+
 a,
-a:visited,
-article a {
+a:visited {
   color: inherit;
+  text-decoration: none;
 }
+
 footer,
 header {
   padding: 15px;
 }
-a:active,
-a:hover,
-article h2 a:active,
-article h2 a:hover {
-  color: $link;
-}
-hr,
-.meta {
-  color: $meta;
-}
-a.meta:active,
-a.meta:hover {
-  color: $accent;
-}
-article {
-  a {
-    color: $link;
-  }
-}
+
 article p {
   line-height: 27px;
 }
+
 article,
 main {
   @extend %full-width;
-  @extend %margin-center;
+  @extend %margin-horizontal-center;
 }
-blockquote {
-  border-left: 1px solid $link;
-  padding-left: 15px;
-}
+
 header,
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-weight: 600;
 }
-h1 {
-  font-size: 36px;
-}
-h2 {
-  font-size: 32px;
-}
-h3 {
-  font-size: 28px;
-}
+
+h2,
+h3,
 h4 {
-  font-size: 24px;
+  margin-bottom: 6px;
 }
-h2, h3, h4 {
-  margin-top: 10px;
-}
+
 img,
 svg,
 video {
   height: auto;
   width: 100%;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+input,
+textarea {
+  border: none;
+  padding: 5px;
+}
+
 [hidden] {
   display: none !important;
 }
@@ -114,16 +158,7 @@ table {
 :focus:not(:focus-visible) {
   outline: none;
 }
-.hidden {
-  @extend %visually-hidden;
-}
-.meta {
-  @include color(color, meta);
-}
-.none {
-  display: none !important;
-  visibility: hidden !important;
-}
+
 .sr-only {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
