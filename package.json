@@ -8,8 +8,10 @@
     "build-dev": "gulp build --max_old_space_size=8000; hugo -e development; gulp cleanup",
     "clean": "rm -rf public resources",
     "clean-node": "rm -rf node_modules",
-    "fix": "eslint --fix assets/**/*.js",
-    "format": "prettier --write assets/**/*.js"
+    "eslint": "eslint --fix assets/**/*.js",
+    "stylelint": "stylelint assets/**/*.scss --fix",
+    "lint": "eslint --fix assets/**/*.js; stylelint assets/**/*.scss --fix",
+    "format": "prettier --write assets/**/*.js assets/**/*.scss"
   },
   "repository": {
     "type": "git",
