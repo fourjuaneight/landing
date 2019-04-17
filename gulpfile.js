@@ -33,7 +33,7 @@ function critical() {
       .pipe(sass().on('error', sass.logError))
       .pipe(postcss(plugins))
       // wrap with style tags
-      .pipe(concat.header(`<style`))
+      .pipe(concat.header('<style>'))
       .pipe(concat.footer('</style>'))
       // convert it to an include file
       .pipe(
@@ -120,6 +120,7 @@ function watchFiles() {
   gulp.watch('assets/css/critical.scss', critical);
   gulp.watch('assets/css/extends.scss', critical);
   gulp.watch('assets/css/fonts.scss', critical);
+  gulp.watch('assets/css/header.scss', critical);
   gulp.watch('assets/css/mixins.scss', critical);
   gulp.watch('assets/css/reset.scss', critical);
   gulp.watch('assets/css/variables.scss', critical);
