@@ -1,5 +1,8 @@
 <header class="header">
-  <a href="{{ .Site.BaseURL }}" class="header__link"> juan villela</a>
+  <div class="header__link-wrapper">
+    <span class="header__prompt">$</span>
+    <a href="{{ .Site.BaseURL }}" class="header__link header__link--home">juan villela</a>
+  </div>
   <nav class="header__nav">
     <a href='{{ "#writing" | relURL }}' class="header__link header__link--nav" data-target="writing">writting</a>
     <span class="header__separator">::</span>

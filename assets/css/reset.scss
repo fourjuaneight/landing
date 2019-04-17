@@ -105,17 +105,12 @@ header {
   padding: 15px;
 }
 
-article p {
-  line-height: 27px;
-}
-
 article,
 main {
   @extend %full-width;
   @extend %margin-horizontal-center;
 }
 
-header,
 h1,
 h2,
 h3,
@@ -126,7 +121,7 @@ h4 {
 h2,
 h3,
 h4 {
-  margin-bottom: 6px;
+  margin: 5px 0 10px;
 }
 
 img,
