@@ -97,7 +97,7 @@ module.exports = {
       'error',
       {
         'arrowParens': 'avoid',
-        'bracketSpacing': false,
+        'bracketSpacing': true,
         'endOfLine': 'auto',
         'jsxBracketSameLine': false,
         'printWidth': 80,
