@@ -7,8 +7,9 @@ module.exports = api => {
       '@babel/preset-env',
       {
         targets: {
-          browsers: ['last 2 versions', 'safari >= 7'],
+          browsers: ['ie >= 11']
         },
+        'useBuiltIns': 'entry'
       },
     ],
   ];
