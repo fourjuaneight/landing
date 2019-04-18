@@ -4,10 +4,10 @@
   @extend %items-center;
   @extend %relative;
 
-  background-color: #424352;
-  background-image: linear-gradient(to bottom, rgba(91, 94, 113, 0.05), rgba(91, 113, 94, 0.15) 0.5em, rgba(91, 94, 113, 0.05) 2em, rgba(91, 94, 113, 0.05) 2em, rgba(91, 94, 113, 0)), linear-gradient(to bottom, #424352, #424352 50%, #21232e 50%, #21232e);
+  background-color: $meta;
+  background-image: linear-gradient(to bottom, rgba($meta, 0.05), rgba($screen, 0.15) 0.5em, rgba($meta, 0.05) 2em, rgba($meta, 0.05) 2em, rgba($meta, 0)), linear-gradient(to bottom, $meta, $meta 50%, $font 50%, $font);
   background-size: 100% 100%, 100% 2px;
-  box-shadow: inset 0 0 4em rgba(33, 35, 46, 0.5), 0 0.45em rgba(#21232e, 0.75);
+  box-shadow: inset 0 0 4em rgba(33, 35, 46, 0.5), 0 0.45em rgba($font, 0.75);
   font-family: 'Fira Code', monospace;
   font-size: 1.1rem;
   font-weight: 500;
@@ -33,14 +33,14 @@
     animation: scanline 10s linear infinite;
     background-image: linear-gradient(
       to bottom,
-      rgba(#57ec51, 0) 0,
-      rgba(#57ec51, 0) 1em,
-      rgba(#57ec51, 0.05) 3em,
-      rgba(#57ec51, 0.15) 3.1em,
-      rgba(#57ec51, 0.01) 3.11em,
-      rgba(#57ec51, 0.05) 3.2em,
-      rgba(#57ec51, 0) 3.3em,
-      rgba(#57ec51, 0) 10em
+      rgba($link, 0) 0,
+      rgba($link, 0) 1em,
+      rgba($link, 0.05) 3em,
+      rgba($link, 0.15) 3.1em,
+      rgba($link, 0.01) 3.11em,
+      rgba($link, 0.05) 3.2em,
+      rgba($link, 0) 3.3em,
+      rgba($link, 0) 10em
     );
     background-size: cover;
     border-radius: 15px;
@@ -69,11 +69,14 @@
   }
 
   .header__link {
-    color: #57ec87;
+    @include transition(all);
+
+    color: $bg;
     cursor: pointer;
     margin: 0 5px;
 
     &:hover {
+      color: $link;
       text-decoration: underline;
     }
   }
@@ -91,11 +94,11 @@
 
   .header__prompt,
   .header__separator {
-    color: #ff79c6;
+    color: $promt;
   }
 
   *::selection {
-    background-color: rgba(#57ec87, 0.4);
-    color: #fff;
+    background-color: rgba($link, 0.4);
+    color: $bg;
   }
 }
