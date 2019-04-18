@@ -1,0 +1,137 @@
+.footer {
+  @extend %content-center;
+  @extend %flex;
+  @extend %flex-column;
+  @extend %full-width;
+  @extend %items-center;
+
+  background-color: $font;
+  color: $bg;
+  padding: 30px 15px;
+
+  .contact__form {
+    @extend %content-center;
+    @extend %flex;
+    @extend %flex-column;
+    @extend %full-width;
+    @extend %items-center;
+
+    max-width: 400px;
+    min-height: 295px;
+  }
+
+  .contact__form,
+  .footer__copyright {
+    padding: 15px;
+  }
+
+  .contact__response {
+    font-size: 1.25rem;
+    line-height: 1.45rem;
+    text-align: center;
+  }
+
+  .contact__response,
+  .contact__input,
+  .contact__button {
+    &.active {
+      @extend %block;
+    }
+
+    &.hidden {
+      @extend %none;
+    }
+  }
+
+  .contact__input,
+  .contact__button {
+    @extend %full-width;
+
+    background-color: $font;
+    border: 2px solid $meta;
+    color: $bg;
+    height: 45px;
+    margin: 5px 0;
+    padding: 10px;
+  }
+
+  .contact__input {
+    @include transition(border-color);
+
+    font-family: 'Rubik', sans-serif;
+
+    &:focus {
+      border-color: $link;
+      outline: none;
+    }
+
+    &:active,
+    &:hover {
+      border-color: $bg;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $bg;
+      font-weight: bold;
+    }
+  }
+
+  .contact__input--message {
+    height: 90px;
+    resize: none;
+  }
+
+  .contact__button {
+    @include transition(all);
+
+    font-weight: bold;
+    padding: 5px 10px;
+
+    &:hover {
+      background-color: $link;
+      border-color: $link;
+      color: $font;
+    }
+  }
+
+  .social__nav {
+    @extend %content-center;
+    @extend %flex;
+    @extend %flex-wrap;
+    @extend %items-center;
+  }
+
+  .social__link {
+    @extend %content-center;
+    @extend %flex;
+    @extend %items-center;
+
+    border-radius: 50%;
+    height: 35px;
+    margin: 15px;
+    width: 35px;
+  }
+
+  .social__icon {
+    @include transition(fill);
+
+    fill: $bg;
+    height: 35px;
+    width: auto;
+
+    &:hover {
+      fill: $link;
+    }
+  }
+
+  .footer__copyright {
+    @extend %content-center;
+    @extend %flex;
+    @extend %items-center;
+  }
+
+  .copy__icon {
+    transform: rotateY(180deg);
+  }
+}

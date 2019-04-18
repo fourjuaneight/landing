@@ -1,16 +1,18 @@
 <footer id="contact" class="footer">
-  <h2 class="footer__title">{ Contact }</h2>
-  <nav class="footer__nav">
-    <p class="footer__text">Email</p>
-    <a href="mailto:hello@juanvillela.dev" class="footer__link" target="_blank" rel="noreferrer noopener">hello@juanvillela.dev</a>
-    {{/*  Pull social handle from config.  */}}
-    {{ with .Site.Params.social }}
-      <p class="footer__text">Twitter</p>
-      <a href="https://www.twitter.com/{{.}}" class="footer__link" target="_blank" rel="noreferrer noopener">@fourjuaneight</a>
-      <p class="footer__text">Github</p>
-      <a href="https://www.github.com/{{.}}" class="footer__link" target="_blank" rel="noreferrer noopener">/fourjuaneight</a>
-    {{ end }}
-  </nav>
+  <h2 class="main__subtitle footer__title">{ Contact }</h2>
+
+  <form name="Contact" class="contact__form" netlify>
+    <p class="contact__response hidden">Thanks for getting in contact! I'll reach out within 24 hours so we can connect.</p>
+    <input type="text" aria-label="Your name" placeholder="Name" name="name" class="contact__input active">
+    <input type="email" aria-label="Your email" placeholder="Email" name="email" class="contact__input active">
+    <textarea type="text" aria-label="Your message" placeholder="Message" name="message" class="contact__input contact__input--message active"></textarea>
+    <button type="submit" class="contact__button">Submit</button>
+  </form>
+
+  {{ partial "social.html" . }}
   {{/*  Hugo is used to generate the current year without the need to update.  */}}
-  <p class="footer__copyright">Copyleft&nbsp;{{ time.Now.Format "2006" }}&nbsp;&bull;&nbsp;{{ .Site.Copyright }}</p>
+  <div class="footer__copyright">
+    <p class="copy__icon">&copy;</p>
+    <p class="copy__content">&nbsp;{{ time.Now.Format "2006" }}&nbsp;&bull;&nbsp;{{ .Site.Title }}</p>
+  </div>
 </footer>
