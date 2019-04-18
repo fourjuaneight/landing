@@ -19,5 +19,5 @@ textarea:not([name]),
 form:not([name]):not([id]),
 a:empty,
 button:empty {
-  border: 5px solid red; /* Style to make the elements noticeable */
+  border: 5px solid $link; /* Style to make the elements noticeable */
 }
