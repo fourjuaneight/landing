@@ -25,6 +25,10 @@
     padding: 15px;
   }
 
+  .honey__hidden {
+    @extend %none;
+  }
+
   .contact__response {
     font-size: 1.25rem;
     line-height: 1.45rem;
@@ -59,21 +63,24 @@
     @include transition(border-color);
 
     font-family: 'Rubik', sans-serif;
+    outline: none;
 
-    &:focus {
-      border-color: $link;
-      outline: none;
+    &:invalid {
+      border-color: $meta;
     }
 
-    &:active,
-    &:hover {
+    &:hover,
+    &:valid {
       border-color: $bg;
-      outline: none;
     }
 
     &::placeholder {
       color: $bg;
       font-weight: bold;
+    }
+
+    &:valid {
+      border-color: $link;
     }
   }
 
@@ -85,6 +92,7 @@
   .contact__button {
     @include transition(all);
 
+    background-color: $meta;
     font-weight: bold;
     padding: 5px 10px;
 
