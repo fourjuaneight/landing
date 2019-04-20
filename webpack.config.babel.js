@@ -8,6 +8,7 @@ export default {
   entry: [
     "./assets/js/lazy.js",
     "./assets/js/smooth.js",
+    "./assets/js/contact.js",
   ],
   output: {
     path: path.resolve(__dirname, "assets", "js"),

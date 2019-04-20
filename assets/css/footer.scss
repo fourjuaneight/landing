@@ -96,10 +96,11 @@
     font-weight: bold;
     padding: 5px 10px;
 
-    &:hover {
+    &.active {
       background-color: $link;
       border-color: $link;
       color: $font;
+      cursor: pointer;
     }
   }
 
