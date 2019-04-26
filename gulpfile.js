@@ -116,7 +116,6 @@ function clean() {
 
 // Watch asset folder for changes
 function watchFiles() {
-  gulp.watch('assets/css/common.scss', critical);
   gulp.watch('assets/css/critical.scss', critical);
   gulp.watch('assets/css/extends.scss', critical);
   gulp.watch('assets/css/fonts.scss', critical);
@@ -124,9 +123,9 @@ function watchFiles() {
   gulp.watch('assets/css/mixins.scss', critical);
   gulp.watch('assets/css/reset.scss', critical);
   gulp.watch('assets/css/variables.scss', critical);
-  gulp.watch('assets/js/header.js', webpack);
+  gulp.watch('assets/js/contact.js', webpack);
   gulp.watch('assets/js/lazy.js', webpack);
-  gulp.watch('assets/js/webp.js', webpack);
+  gulp.watch('assets/js/smooth.js', webpack);
 }
 
 // Tasks

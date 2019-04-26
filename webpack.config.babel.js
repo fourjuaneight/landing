@@ -11,7 +11,7 @@ export default {
     "./assets/js/contact.js",
   ],
   output: {
-    path: path.resolve(__dirname, "assets", "js"),
+    path: path.resolve(__dirname, "assets"),
     filename: "bundle.js"
   },
   module: {

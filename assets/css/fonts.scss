@@ -4,10 +4,10 @@
   font-style: normal;
   font-weight: 400;
   src:
-    local(Rubik),
-    local(Rubik),
-    url('/fonts/Rubik.woff2') format('woff2'),
-    url('/fonts/Rubik.woff') format('woff');
+    local(Rubik-Regular),
+    local(Rubik-Regular),
+    url('/fonts/Rubik-Regular.woff2') format('woff2'),
+    url('/fonts/Rubik-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -40,10 +40,10 @@
   font-style: normal;
   font-weight: 400;
   src:
-    local(OpenDyslexic),
-    local(OpenDyslexic),
-    url('/fonts/OpenDyslexic.woff2') format('woff2'),
-    url('/fonts/OpenDyslexic.woff') format('woff');
+    local(OpenDyslexic-Regular),
+    local(OpenDyslexic-Regular),
+    url('/fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+    url('/fonts/OpenDyslexic-Regular.woff') format('woff');
 }
 
 @font-face {

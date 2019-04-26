@@ -1,8 +1,8 @@
 // Import Dependencies
-@import 'variables';
-@import 'extends';
-@import 'mixins';
-@import 'footer';
+@import '../assets/css/variables';
+@import '../assets/css/extends';
+@import '../assets/css/mixins';
+@import '../assets/css/footer';
 
 main {
   @extend %full-width;
