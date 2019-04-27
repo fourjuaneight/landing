@@ -9,6 +9,12 @@
   color: $bg;
   padding: 30px 15px;
 
+  .footer__title {
+    &::selection {
+      background-color: rgba($link, 0.4);
+    }
+  }
+
   .contact__form {
     @extend %content-center;
     @extend %flex;
