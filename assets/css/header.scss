@@ -12,10 +12,10 @@
   font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.25rem;
-  margin-bottom: 30px;
   padding: 15px;
   overflow: auto;
   overflow-y: hidden;
+  z-index: 10;
 
   &::after {
     @extend %absolute;

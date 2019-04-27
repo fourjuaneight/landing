@@ -2,16 +2,17 @@
   {{ partial "header.html" . }}
   <main class="main">
     <section id="intro" class="main__section main__section--intro">
-      <h1 class="main__title">{ Hi, I'm Juan. }</h1>
-      <p class="main__hero">I'm a web developer, automation and astronomy nerd living and working in Washington, DC.</p>
-      <p class="main__hero main__hero--sub">I currently work independently helping companies build accessible and performant static sites.</p>
-      {{ $webp := resources.Get "img/avatar.webp" }}
-      {{ $img := resources.Get "img/avatar.png" }}
+      {{ $webp := resources.Get "img/avatar-alt.webp" }}
+      {{ $img := resources.Get "img/avatar-alt.png" }}
       <picture class="main__img main__img--hero">
         <source srcset="{{ $webp.Permalink }}" type="image/webp">
         <source srcset="{{ $img.Permalink }}" type="image/png">
         <img src="{{ $img.Permalink }}" alt="Juan Villela"/>
       </picture>
+      <div class="main__hero">
+        <h1 class="main__title">{&nbsp;Hi, I'm Juan.&nbsp;}</h1>
+        <p class="main__copy">I'm a web developer, automation and astronomy nerd currently working independently helping businesses build accessible and performant static sites.</p>
+      </div>
     </section>
     <section id="work" class="main__section main__section--work">
       <h2 class="main__subtitle">{ Recent Work }</h2>
