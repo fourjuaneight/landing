@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "I'm Juan Villela. A Front-End developer with a focus on static sites based in Washington, DC",
   "scripts": {
-    "start": "gulp build --max_old_space_size=8000; hugo -e development; hsd",
+    "start": "gulp build --max_old_space_size=8000; hugo -e development; hugo serve --disableFastRender",
     "build": "gulp build --max_old_space_size=8000; hugo -e production; gulp cleanup",
     "build-dev": "gulp build --max_old_space_size=8000; hugo -e development; gulp cleanup",
     "clean": "rm -rf public resources",
