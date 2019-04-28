@@ -1,0 +1,50 @@
+.main__section--writing {
+  @extend %content-center;
+  @extend %flex-column;
+  @extend %items-center;
+
+  padding: 20px;
+
+  .main__writing-list {
+    @extend %content-center;
+    @extend %flex;
+    @extend %flex-column;
+    @extend %items-flex-start;
+
+    list-style: none;
+  }
+
+  .main__writing-list {
+    @extend %full-width;
+
+    max-width: 750px;
+  }
+
+  .main__writing-entry {
+    @extend %full-width;
+
+    &:nth-child(-n+2) {
+      border-bottom: 1px solid rgba($font, 0.5);
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .main__nav-link {
+    @include transition(all);
+
+    background-color: $meta;
+    color: $bg;
+    margin: 20px 0;
+    padding: 5px 10px;
+
+    &:hover {
+      background-color: $link;
+      color: $font;
+    }
+  }
+
+  *::selection {
+    background-color: rgba($link, 0.4);
+  }
+}

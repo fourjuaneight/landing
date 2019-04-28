@@ -20,6 +20,7 @@ html {
 }
 
 body {
+  color: $font;
   font-size: 1em;
   line-height: 1.2em;
 }
@@ -140,6 +141,10 @@ input,
 textarea {
   border: none;
   padding: 5px;
+}
+
+.meta {
+  color: $meta;
 }
 
 [hidden] {

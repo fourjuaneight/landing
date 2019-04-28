@@ -15,7 +15,7 @@
       </div>
     </section>
     <section id="work" class="main__section main__section--work">
-      <h2 class="main__subtitle">{ Recent Work }</h2>
+      <h2 class="main__subtitle">{&nbsp;Work&nbsp;}</h2>
       <ul class="main__work-list">
           {{/*  Loop over work data file and get client object values.  */}}
           {{ range $i, $client := .Site.Data.work.recent }}
@@ -40,7 +40,7 @@
         </ul>
     </section>
     <section id="writing" class="main__section main__section--writing">
-      <h2 class="main__subtitle">{ Latest Writing }</h2>
+      <h2 class="main__subtitle">{&nbsp;Latest&nbsp;}</h2>
       {{/*  Get last 5 writing post and range over them.  */}}
       {{ $writing := ($.Site.GetPage "section" "writing").Pages }}
       <ul class="main__writing-list">

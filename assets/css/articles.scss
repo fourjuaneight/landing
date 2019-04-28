@@ -1,0 +1,26 @@
+.post__entry {
+  @extend %content-center;
+  @extend %flex;
+  @extend %flex-column;
+  @extend %full-width;
+  @extend %items-flex-start;
+
+  .post__title--link,
+  .tag__link {
+    &:hover {
+      color: darken($link, 35%);
+    }
+  }
+
+  .post__summary {
+    margin: 0 0 15px;
+  }
+
+  .post__meta {
+    @extend %content-space-between;
+    @extend %flex;
+    @extend %flex-wrap;
+    @extend %full-width;
+    @extend %items-center;
+  }
+}

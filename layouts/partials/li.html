@@ -1,13 +1,16 @@
 <article class="post__entry">
-  <h3 class="post__title"><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-  <time class="post__date" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
-  {{ $s := .Section }}
-  <div class="post__tags">
-    <span aria-hidden="true" class="meta">#</span>
-    {{/*  Loop over tags list in front-matter  */}}
-    {{ range $key, $tag := .Params.tags }}
-      {{- if ne $key 0 }}<span>, </span>{{ end }}
-      <a href="/{{ $s }}/tags/{{ $tag }}">{{ $tag }}</a>
-    {{ end }}
+  <h3 class="post__title"><a class="post__title--link" href="{{ .Permalink }}">{{ .Title }}</a></h3>
+  <section class="post__summary">{{ .Summary }}</section>
+  <div class="post__meta">
+    <time class="post__date" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
+    {{ $s := .Section }}
+    <div class="post__tags">
+      <span aria-hidden="true" class="meta">#</span>
+      {{/*  Loop over tags list in front-matter  */}}
+      {{ range $key, $tag := .Params.tags }}
+        {{- if ne $key 0 }}<span>, </span>{{ end }}
+        <a class="tag__link" href="/{{ $s }}/tags/{{ $tag }}">{{ $tag }}</a>
+      {{ end }}
+    </div>
   </div>
 </article>
