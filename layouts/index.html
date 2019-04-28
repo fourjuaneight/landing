@@ -2,8 +2,8 @@
   {{ partial "header.html" . }}
   <main class="main">
     <section id="intro" class="main__section main__section--intro">
-      {{ $webp := resources.Get "img/avatar-alt.webp" }}
-      {{ $img := resources.Get "img/avatar-alt.png" }}
+      {{ $webp := resources.Get "img/avatar.webp" }}
+      {{ $img := resources.Get "img/avatar.png" }}
       <picture class="main__img main__img--hero">
         <source srcset="{{ $webp.Permalink }}" type="image/webp">
         <source srcset="{{ $img.Permalink }}" type="image/png">

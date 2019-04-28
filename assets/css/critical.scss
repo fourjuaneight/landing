@@ -19,9 +19,9 @@ body {
   &.main__section--intro {
     @include transition(flex-direction);
 
-    background-color: rgba(darken($promt, 45%), 0.5);
+    background-color: rgba(darken($link, 45%), 0.5);
     background-image: $hero-pattern;
-    border-bottom: 4px solid darken($promt, 55%);
+    border-bottom: 4px solid darken($link, 55%);
 
     @include media-query-max(500px) {
       flex-direction: column-reverse;
