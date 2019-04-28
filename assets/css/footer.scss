@@ -143,4 +143,8 @@
   .copy__icon {
     transform: rotateY(180deg);
   }
+
+  .copy__separator {
+    color: $prompt;
+  }
 }

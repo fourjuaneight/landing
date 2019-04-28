@@ -88,6 +88,11 @@ body {
     line-height: 1.65rem;
     margin: 10px 0 0;
     max-width: 550px;
+
+    @include media-query-min(1300px) {
+      font-size: 1.5rem;
+      line-height: 1.75rem;
+    }
   }
 
   .main__img {

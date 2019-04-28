@@ -14,8 +14,10 @@
 
   {{ partial "social.html" . }}
   {{/*  Hugo is used to generate the current year without the need to update.  */}}
-  <div class="footer__copyright">
+  <div class="meta--fira footer__copyright">
     <p class="copy__icon">&copy;</p>
-    <p class="copy__content">&nbsp;{{ time.Now.Format "2006" }}&nbsp;&bull;&nbsp;{{ .Site.Title }}</p>
+    <p class="copy__content">&nbsp;{{ time.Now.Format "2006" }}</p>
+    <p class="copy__separator">&nbsp;&bull;&nbsp;</p>
+    <p class="copy__content">{{ .Site.Title }}</p>
   </div>
 </footer>
