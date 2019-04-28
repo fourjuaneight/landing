@@ -20,12 +20,78 @@
     list-style: none;
     max-width: 750px;
     padding: 15px;
+
+    @include media-query-max(450px) {
+      padding: 10px;
+    }
   }
 }
 
 .main__section--work {
   background-color: rgba(darken($prompt, 45%), 0.5);
   border-bottom: 4px solid darken($prompt, 55%);
+  font-size: 100%;
+
+  .main__work-list {
+    @extend %flex-wrap;
+
+    flex-direction: row;
+  }
+
+  .main__work-item {
+    @extend %content-center;
+    @extend %flex;
+    @extend %flex-column;
+    @extend %full-width;
+    @extend %items-flex-start;
+
+    line-height: 1.25rem;
+    margin: 5px;
+    max-width: 350px;
+  }
+
+  .work__meta {
+    @extend %content-space-between;
+    @extend %flex;
+    @extend %full-width;
+    @extend %items-center;
+  }
+
+  .main__img--client {
+    border: 1px solid $font;
+  }
+
+  .main__client-name {
+    @include transition(color);
+
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      color: $link;
+    }
+  }
+
+  .work__meta,
+  .main__img--client,
+  .main__client-description {
+    margin-bottom: 10px;
+  }
+
+  .main__skills-list {
+    @extend %content-space-around;
+    @extend %flex;
+    @extend %flex-wrap;
+    @extend %items-center;
+
+    font-family: 'Fira Code', monospace;
+    list-style: none;
+  }
+
+  .skill__separator {
+    margin: 5px;
+    color: $prompt;
+  }
 }
 
 .main__section--writing {

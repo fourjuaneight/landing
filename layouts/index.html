@@ -24,17 +24,24 @@
             {{ $clientImg := replaceRE " " "-" $client.name | lower }}
             {{ $webp := resources.Get (print "img/" $clientImg ".webp") }}
             {{ $img := resources.Get (print "img/" $clientImg ".png") }}
-            <picture class="main__img main__img--client">
-              <source data-srcset="{{ $webp.Permalink }}" type="image/webp">
-              <source data-srcset="{{ $img.Permalink }}" type="image/png">
-              <img data-src="{{ $img.Permalink }}" alt="" class="lazy"/>
-            </picture>
-            <a href="{{ $client.website }}" class="main__client-name">{{ $client.name }}</a>
-            <p class="main__client-description">{{ $client.description }}</p>
-            <time class="main__client-date" datetime="{{ $client.date }}">{{ $client.date }}</time>
-            <div class="main__skills-list">
-              <p class="main__skill"></p>
+            <a href="{{ $client.website }}">
+              <picture class="main__img main__img--client">
+                <source data-srcset="{{ $webp.Permalink }}" type="image/webp">
+                <source data-srcset="{{ $img.Permalink }}" type="image/png">
+                <img data-src="{{ $img.Permalink }}" alt="" class="lazy"/>
+              </picture>
+            </a>
+            <div class="work__meta">
+              <a href="{{ $client.website }}" class="main__client-name">{{ $client.name }}</a>
+              <time class="main__client-date" datetime="{{ $client.date }}">{{ $client.date }}</time>
             </div>
+            <p class="main__client-description">{{ $client.description }}</p>
+            <ul class="main__skills-list">
+              {{ range $key, $skill := $client.skills }}
+                {{- if ne $key 0 }}<span class="skill__separator" aria-hidden="true">::</span>{{ end }}
+                <li class="main__skill">{{ $skill }}</li>
+              {{ end }}
+            </ul>
           </li>
           {{ end }}
         </ul>
