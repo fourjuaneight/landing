@@ -9,7 +9,9 @@
   color: $bg;
   padding: 30px 15px;
 
-  .footer__title {
+  .footer__title,
+  .copy__icon,
+  .copy__content {
     &::selection {
       background-color: rgba($link, 0.4);
     }
