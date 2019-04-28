@@ -17,6 +17,13 @@
   overflow-y: hidden;
   z-index: 10;
 
+  @supports (display:grid) {
+    display: grid !important;
+    grid-template-columns: minmax(15px, 1fr) minmax(210px, 2fr) minmax(270px, 2fr) minmax(15px, 1fr);
+    grid-template-rows: min-content;
+    padding: 15px 0;
+  }
+
   &::after {
     @extend %absolute;
     @extend %block;
@@ -61,6 +68,10 @@
 
     margin-left: auto;
     max-width: 270px;
+
+    @supports (display:grid) {
+      grid-column: 3/4;
+    }
   }
 
   .header__link-wrapper,
@@ -85,6 +96,13 @@
     margin: 0 50px 0 0;
     min-width: 160px;
     width: 160px;
+
+    @supports (display:grid) {
+      grid-column: 2/3;
+      margin: 0;
+      padding-right: 50px;
+      width: 210px;
+    }
   }
 
   .header__link--home {
