@@ -54,7 +54,6 @@
     background-color: $font;
     border: 2px solid $meta;
     color: $bg;
-    height: 45px;
     margin: 5px 0;
     padding: 10px;
   }
@@ -63,7 +62,12 @@
     @include transition(border-color);
 
     font-family: 'Rubik', sans-serif;
+    font-size: 1.15rem;
     outline: none;
+    transform-origin: top;
+    transform: scale(0.75);
+    height: 60px;
+    width: 133%;
 
     &:invalid {
       border-color: $meta;
@@ -94,6 +98,7 @@
 
     background-color: $meta;
     font-weight: bold;
+    height: 45px;
     padding: 5px 10px;
 
     &.active {
@@ -138,7 +143,7 @@
     @extend %content-center;
     @extend %flex;
     @extend %items-center;
-    
+
     font-size: 1rem;
     line-height: 1.15rem;
   }
@@ -150,7 +155,7 @@
   .copy__separator {
     color: $prompt;
   }
-  
+
   .copy__hugo {
     @include transition(color);
 
