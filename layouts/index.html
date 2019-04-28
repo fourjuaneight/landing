@@ -26,9 +26,9 @@
             {{ $img := resources.Get (print "img/" $clientImg ".png") }}
             <a href="{{ $client.website }}">
               <picture class="main__img main__img--client">
-                <source data-srcset="{{ $webp.Permalink }}" type="image/webp">
-                <source data-srcset="{{ $img.Permalink }}" type="image/png">
-                <img data-src="{{ $img.Permalink }}" alt="" class="lazy"/>
+                <source srcset="{{ $webp.Permalink }}" type="image/webp">
+                <source srcset="{{ $img.Permalink }}" type="image/png">
+                <img src="{{ $img.Permalink }}" alt="{{ $client.name }}"/>
               </picture>
             </a>
             <div class="work__meta">
