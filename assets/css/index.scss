@@ -25,6 +25,38 @@
     @include media-query-max(450px) {
       padding: 10px;
     }
+
+    @supports (display:grid) {
+      @include media-query-min(720px) {
+        max-width: 1500px;
+      }
+    }
+
+    @include media-query-max(720px) {
+      max-width: 400px;
+    }
+  }
+
+  @supports (display:grid) {
+    @include media-query-min(720px) {
+      display: grid !important;
+      grid-template-columns: minmax(15px, 1fr) 3fr minmax(15px, 1fr);
+      grid-template-rows: min-content;
+    }
+  }
+
+  .main__subtitle,
+  .main__nav-link,
+  .main__writing-list,
+  .main__work-list {
+    @supports (display:grid) {
+      grid-column: 2/3;
+    }
+  }
+
+  .main__subtitle,
+  .main__nav-link {
+    justify-self: center;
   }
 }
 
@@ -114,6 +146,8 @@
 
     background-color: $meta;
     color: $bg;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
     margin: 20px 0;
     padding: 5px 10px;
 
