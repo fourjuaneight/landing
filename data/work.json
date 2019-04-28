@@ -8,7 +8,8 @@
       "skills": [
         "Hugo",
         "Sass",
-        "Webpack"
+        "Webpack",
+        "Gulp"
       ]
     },
     {
@@ -24,12 +25,24 @@
     },
     {
       "name": "Internet Exposure",
-      "description": "This was my first time working with Rails. The back-end was already built, so I collaborated with their designers and developers to create a responsive front-end.",
+      "description": "This was my first time working with Rails. I collaborated with their designers and developers to create a responsive front-end for the marketing side and the admin/client console.",
       "website": "https://www.culturallyresponsiveminds.com/",
       "date": "2018",
       "skills": [
         "Rails",
         "Sass"
+      ]
+    },
+    {
+      "name": "Rustled Jimmies",
+      "description": "This is one of my favorite projects. It's a comic site that required some creative thinking for the navigation. Done purely with Hugo and HTML, the navigation links are generated automatically on build without the need of any plugins.",
+      "website": "https://www.rustledjimmies.net/",
+      "date": "2018",
+      "skills": [
+        "Hugo",
+        "Sass",
+        "Webpack",
+        "Gulp"
       ]
     }
   ]
