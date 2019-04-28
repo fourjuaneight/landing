@@ -8,6 +8,7 @@ FootnoteReturnLinkContents = "↩"
 SectionPagesMenu = "main"
 disableKinds = ["taxonomy", "taxonomyTerm"]
 disableFastRender = true
+summarylength = 20
 
 [permalinks]
   section = "/:filename/"
