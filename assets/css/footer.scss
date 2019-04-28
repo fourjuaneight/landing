@@ -150,4 +150,12 @@
   .copy__separator {
     color: $prompt;
   }
+  
+  .copy__hugo {
+    @include transition(color);
+
+    &:hover {
+      color: $link;
+    }
+  }
 }
