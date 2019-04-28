@@ -16,11 +16,24 @@ body {
   @extend %items-center;
   @extend %relative;
 
+  &.main__section--intro,
+  &.main__section--writing,
+  &.main__section--work {
+    background-image: $hero-pattern;
+  }
+
+  .main__hero,
+  .main__subtitle {
+    background-color: $meta;
+    box-shadow: 5px 5px 0 0 rgba(33, 35, 46, 0.5), 5px 5px 0 0 rgba($font, 0.75);
+    color: $bg;
+    padding: 10px;
+  }
+
   &.main__section--intro {
     @include transition(flex-direction);
 
     background-color: rgba(darken($link, 45%), 0.5);
-    background-image: $hero-pattern;
     border-bottom: 4px solid darken($link, 55%);
 
     @include media-query-max(500px) {
@@ -31,10 +44,7 @@ body {
   .main__hero {
     @include transition(margin);
 
-    background-color: $meta;
-    box-shadow: 5px 5px 0 0 rgba(33, 35, 46, 0.5), 5px 5px 0 0 rgba($font, 0.75);
     margin: 0 20px;
-    padding: 10px;
 
     @include media-query-max(500px) {
       margin: 20px;
