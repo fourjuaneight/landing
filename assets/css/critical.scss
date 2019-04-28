@@ -60,6 +60,11 @@ body {
     &::selection {
       color: $bg;
     }
+
+    @include media-query-min(1300px) {
+      font-size: 2.5rem;
+      line-height: 2.75rem;
+    }
   }
 
   .main__copy {

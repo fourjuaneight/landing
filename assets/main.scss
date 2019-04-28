@@ -18,4 +18,9 @@ main {
 .main__subtitle {
   font-size: 2.5rem;
   line-height: 2.75rem;
+  
+  @include media-query-min(1300px) {
+    font-size: 2.75rem;
+    line-height: 3rem;
+  }
 }
