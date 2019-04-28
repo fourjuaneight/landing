@@ -23,6 +23,10 @@ body {
   color: $font;
   font-size: 1em;
   line-height: 1.2em;
+
+  *::selection {
+    background-color: rgba($link, 0.4);
+  }
 }
 
 html,

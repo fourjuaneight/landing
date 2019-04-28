@@ -96,9 +96,4 @@
   .header__separator {
     color: $prompt;
   }
-
-  *::selection {
-    background-color: rgba($link, 0.4);
-    color: $bg;
-  }
 }
