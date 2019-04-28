@@ -138,6 +138,9 @@
     @extend %content-center;
     @extend %flex;
     @extend %items-center;
+    
+    font-size: 1rem;
+    line-height: 1.15rem;
   }
 
   .copy__icon {
