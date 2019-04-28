@@ -24,7 +24,7 @@
             {{ $clientImg := replaceRE " " "-" $client.name | lower }}
             {{ $webp := resources.Get (print "img/" $clientImg ".webp") }}
             {{ $img := resources.Get (print "img/" $clientImg ".png") }}
-            <a href="{{ $client.website }}">
+            <a href="{{ $client.website }}" target="_blank" rel="noopener noreferrer">
               <picture class="main__img main__img--client">
                 <source srcset="{{ $webp.Permalink }}" type="image/webp">
                 <source srcset="{{ $img.Permalink }}" type="image/png">
@@ -32,7 +32,7 @@
               </picture>
             </a>
             <div class="work__meta">
-              <a href="{{ $client.website }}" class="meta--fira main__client-name">{{ $client.name }}</a>
+              <a href="{{ $client.website }}" class="meta--fira main__client-name" target="_blank" rel="noopener noreferrer">{{ $client.name }}</a>
               <time class="meta--fira main__client-date" datetime="{{ $client.date }}">{{ $client.date }}</time>
             </div>
             <p class="main__client-description">{{ $client.description }}</p>

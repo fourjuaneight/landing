@@ -8,6 +8,11 @@
   .meta {
     color: $prompt;
   }
+  
+  .post__title,
+  .post__title--link {
+    @extend %full-width;
+  }
 
   .post__title--link,
   .tag__link {
