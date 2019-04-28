@@ -47,7 +47,7 @@
         </ul>
     </section>
     <section id="writing" class="main__section main__section--writing">
-      <h2 class="main__subtitle">{&nbsp;Latest&nbsp;}</h2>
+      <h2 class="main__subtitle">{&nbsp;Writing&nbsp;}</h2>
       {{/*  Get last 5 writing post and range over them.  */}}
       {{ $writing := ($.Site.GetPage "section" "writing").Pages }}
       <ul class="main__writing-list">
@@ -55,7 +55,7 @@
           <li class="main__writing-entry">{{ .Render "summary" }}</li>
         {{ end }}
       </ul>
-      <a href='{{ "writing" | relURL }}' class="main__nav-link">Read more</a>
+      <a href='{{ "writing" | relURL }}' class="meta--fira main__nav-link">Read more</a>
     </section>
   </main>
   {{ partial "footer.html" . }}

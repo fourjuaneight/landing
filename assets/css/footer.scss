@@ -5,7 +5,8 @@
   @extend %full-width;
   @extend %items-center;
 
-  background-color: $font;
+  background-color: rgba($font, 0.95);
+  background-image: $hero-pattern;
   color: $bg;
   padding: 30px 15px;
 

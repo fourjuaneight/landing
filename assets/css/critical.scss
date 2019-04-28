@@ -9,18 +9,17 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+.main {
+  background-image: $hero-pattern;
+  background-attachment: fixed;
+}
+
 .main__section {
   @extend %content-space-between;
   @extend %flex;
   @extend %full-width;
   @extend %items-center;
   @extend %relative;
-
-  &.main__section--intro,
-  &.main__section--writing,
-  &.main__section--work {
-    background-image: $hero-pattern;
-  }
 
   .main__hero,
   .main__subtitle {
