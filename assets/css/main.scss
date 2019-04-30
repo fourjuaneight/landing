@@ -181,6 +181,12 @@
   > * {
     margin-bottom: 15px;
   }
+  
+  p {
+    @include media-query-max(450px) {
+      line-height: 1.5rem;
+    }
+  }
 
   a {
     color: $link;
