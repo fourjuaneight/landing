@@ -18,7 +18,7 @@ body {
   padding: 20px 0;
 
   @include media-query-max(720px) {
-    grid-template-columns: 0.5fr minmax(366px, 3fr) 0.5fr;
+    grid-template-columns: 0.5fr minmax(350px, 3fr) 0.5fr;
   }
 }
 
@@ -46,9 +46,8 @@ body {
 
 .main__title,
 .single__title {
-  @include media-query-max(850px) {
-    font-size: 2.5rem;
-    line-height: 2.75rem;
+  @include media-query-max(450px) {
+    font-size: 8vw;
   }
 }
 
