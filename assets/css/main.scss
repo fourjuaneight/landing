@@ -228,3 +228,15 @@
   @extend %full-width;
   @extend %items-center;
 }
+
+.post__update {
+  background-color: $font;
+  border: 1.5px solid rgba(lighten($meta, 15%), 0.5);
+  color: darken($bg, 15%);
+  font-size: 1rem;
+  padding: 8px;
+
+  .update__heading {
+    margin-bottom: 4px;
+  }
+}
