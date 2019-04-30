@@ -9,6 +9,19 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+.content__container {
+  @extend %grid;
+  @extend %items-center;
+
+  grid-template-columns: minmax(10px, 1fr) 3fr minmax(10px, 1fr);
+  grid-template-rows: min-content;
+  padding: 20px 0;
+
+  @include media-query-max(720px) {
+    grid-template-columns: 0.5fr minmax(366px, 3fr) 0.5fr;
+  }
+}
+
 .main,
 .single,
 .list {
