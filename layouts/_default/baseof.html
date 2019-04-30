@@ -16,10 +16,12 @@
   {{ partial "critical.html" . }}
 
   {{/*  Avatar  */}}
-  {{ $webp := resources.Get "img/avatar.webp" }}
-  {{ $img := resources.Get "img/avatar.png" }}
-  <link rel="preload" href="{{ $webp.Permalink }}" as="image" type="image/webp">
-  <link rel="preload" href="{{ $img.Permalink }}" as="image" type="image/png">
+  {{ if .IsHome }}
+    {{ $webp := resources.Get "img/avatar.webp" }}
+    {{ $img := resources.Get "img/avatar.png" }}
+    <link rel="preload" href="{{ $webp.Permalink }}" as="image" type="image/webp">
+    <link rel="preload" href="{{ $img.Permalink }}" as="image" type="image/png">
+  {{ end }}
 
   {{/*  Fonts  */}}
   {{ $Rubik2 := resources.Get "fonts/Rubik-Regular.woff2" }}
