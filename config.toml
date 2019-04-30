@@ -7,7 +7,6 @@ title = "Juan C Villela"
 FootnoteReturnLinkContents = "↩"
 SectionPagesMenu = "main"
 disableKinds = ["taxonomy", "taxonomyTerm"]
-disableFastRender = true
 summarylength = 40
 
 [permalinks]
@@ -32,11 +31,12 @@ summarylength = 40
   OpenLinksInNewWindow = true
 
 [outputFormats.jsonfeed]
-  mediaType = "application/json"
-  baseName = "feed"
-  isPlainText = true
+  MediaType = "application/json"
+  BaseName = "feed"
+  suffix = "json"
+  IsHTML = false
+  IsPlainText = true
 
 [outputs]
   home = ["html"]
-  section = ["html"]
-  writing = ["html", "jsonfeed"]
+  section = ["html", "jsonfeed", "rss"]

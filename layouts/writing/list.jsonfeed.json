@@ -1,9 +1,9 @@
 {
   "version": "https://jsonfeed.org/version/1",
   "title": "{{ .Site.Title }}",
-  "description": "{{ .Site.Params.meta.description }}",
+  "description": "{{ .Site.Title }}",
   "home_page_url": "{{ .Site.BaseURL }}",
-  "feed_url": "{{ with .OutputFormats.Get "jsonfeed" -}}{{- .Permalink -}}{{- end }}",
+  "feed_url": "{{ with .OutputFormats.Get "json" -}}{{- .Permalink -}}{{- end }}",
   "author": {
     "name": "{{ .Site.Author.name }}",
     "url": "{{ .Site.BaseURL }}"

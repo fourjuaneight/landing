@@ -10,5 +10,9 @@
     <a href='{{ "#work" | relURL }}' class="header__link header__link--nav" data-target="work">work</a>
     <span class="header__separator" aria-hidden="true">::</span>
     <a href='{{ "#contact" | relURL }}' class="header__link header__link--nav" data-target="contact">contact</a>
+    {{ if eq .Type "writing" }}
+      <span class="header__separator" aria-hidden="true">::</span>
+      <a href='{{ "writing/index.xml" | relURL }}' class="header__link header__link--nav" data-target="contact">rss</a>
+    {{ end }}
   </nav>
 </header>
