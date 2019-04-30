@@ -183,8 +183,18 @@
 
 }
 
-.post__content > * {
-  margin-bottom: 15px;
+.post__content {
+  > * {
+    margin-bottom: 15px;
+  }
+
+  a {
+    color: $link;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .post__entry {
