@@ -1,17 +1,17 @@
 <footer id="contact" class="footer">
-  <h2 class="main__subtitle footer__title">{ Contact }</h2>
-
-  <form class="contact__form" name="Contact" netlify-honeypot="bot-field" netlify>
-    <p class="honey__hidden">
-      <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
-    </p>
-    <p class="contact__response hidden">Thanks for getting in contact! I'll reach out within 24 hours so we can connect.</p>
-    <input id="name" type="text" aria-label="Your name" placeholder="Name" name="name" class="contact__input active" required>
-    <input id="email" type="email" aria-label="Your email" placeholder="Email" name="email" class="contact__input active" required>
-    <textarea id="message" type="text" aria-label="Your message" placeholder="Message" name="message" class="contact__input contact__input--message active" required></textarea>
-    <button type="submit" class="meta--fira contact__button">Submit</button>
-  </form>
-
+  {{ if .IsHome }}
+    <h2 class="main__subtitle footer__title">{ Contact }</h2>
+    <form class="contact__form" name="Contact" netlify-honeypot="bot-field" netlify>
+      <p class="honey__hidden">
+        <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
+      </p>
+      <p class="contact__response hidden">Thanks for getting in contact! I'll reach out within 24 hours so we can connect.</p>
+      <input id="name" type="text" aria-label="Your name" placeholder="Name" name="name" class="contact__input active" required>
+      <input id="email" type="email" aria-label="Your email" placeholder="Email" name="email" class="contact__input active" required>
+      <textarea id="message" type="text" aria-label="Your message" placeholder="Message" name="message" class="contact__input contact__input--message active" required></textarea>
+      <button type="submit" class="meta--fira contact__button">Submit</button>
+    </form>
+  {{ end }}
   {{ partial "social.html" . }}
   {{/*  Hugo is used to generate the current year without the need to update.  */}}
   <div class="meta--fira footer__copyright">
