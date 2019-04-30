@@ -21,6 +21,10 @@
   transition: $property $timing ease;
 }
 
+@mixin border($loc) {
+  border-#{$loc}: 2px dashed rgba(lighten($meta, 15%), 0.5);
+}
+
 @mixin link-hover($color) {
   @extend %relative;
 

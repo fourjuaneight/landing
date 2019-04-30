@@ -109,7 +109,7 @@
   background-color: rgba(lighten($font, 45%), 0.5);
 
   .main__writing-entry {
-    @extend %border-bottom;
+    @include border(bottom);
 
     margin-bottom: 20px;
     padding-bottom: 20px;
@@ -121,8 +121,9 @@
   }
 
 .main__writing-entry {
-  @extend %border-bottom;
   @extend %full-width;
+
+  @include border(bottom);
 
   margin: 0 0 20px;
   padding: 0 0 20px;
@@ -238,5 +239,27 @@
 
   .update__heading {
     margin-bottom: 4px;
+  }
+}
+
+.footnote__ref {
+  font-size: 0.95rem;
+}
+
+.footnotes {
+  @extend %full-width;
+
+  @include border(top);
+
+  margin-top: 10px;
+  padding-top: 10px;
+
+  .footnotes__list {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .footnote__item {
+    margin: 0 0 10px;
   }
 }
