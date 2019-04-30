@@ -1,5 +1,5 @@
 ---
-title: On Procrastinating
+title: Procrastinating
 date: '2017-07-23'
 tags:
 - procrastination

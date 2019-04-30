@@ -1,5 +1,5 @@
 ---
-title: On Comfort
+title: Comfort Zone
 date: '2018-06-29'
 tags:
 - developement
