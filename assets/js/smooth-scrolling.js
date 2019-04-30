@@ -1,4 +1,9 @@
-function scrollIt(destination, duration = 200, easing = `linear`, callback) {
+const scrollIt = function(
+  destination,
+  duration = 200,
+  easing = `linear`,
+  callback
+) {
   const easings = {
     easeInCubic(time) {
       return time * time * time;
@@ -93,14 +98,6 @@ function scrollIt(destination, duration = 200, easing = `linear`, callback) {
     requestAnimationFrame(scroll);
   }
   scroll();
-}
+};
 
-const navLinks = document.querySelectorAll(`a.header__link--nav`);
-
-navLinks.forEach(link => {
-  const target = link.getAttribute(`data-target`);
-  link.addEventListener(`click`, () => {
-    scrollIt(document.querySelector(`#${target}`), 500, `easeOutQuad`);
-  });
-  link.removeAttribute(`href`);
-});
+export default scrollIt;
