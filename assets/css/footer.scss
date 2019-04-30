@@ -182,11 +182,6 @@
     transform: rotateY(180deg);
   }
 
-  .copy__separator,
-  .copy__code {
-    color: $prompt;
-  }
-
   .copy__separator:nth-child(4) {
     @include media-query-max(405px) {
       display: none;

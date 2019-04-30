@@ -10,11 +10,11 @@
         <img src="{{ $img.Permalink }}" alt="Juan Villela"/>
       </picture>
       <div class="main__hero">
-        <h1 class="main__title">{&nbsp;Hi, I'm Juan.&nbsp;}</h1>
+        <h1 class="main__title">{&nbsp;I'm Juan.&nbsp;}</h1>
         <p class="main__copy">I'm a web developer, automation and astronomy nerd currently working independently helping businesses build accessible and performant static sites.</p>
       </div>
     </section>
-    <section id="work" class="main__section main__section--work">
+    <section id="work" class="main__section main__section--work content__container">
       <h2 class="main__subtitle">{&nbsp;Work&nbsp;}</h2>
       <ul class="main__work-list">
           {{/*  Loop over work data file and get client object values.  */}}
@@ -38,7 +38,7 @@
             <p class="main__client-description">{{ $client.description }}</p>
             <ul class="main__skills-list">
               {{ range $key, $skill := $client.skills }}
-                {{- if ne $key 0 }}<span class="skill__separator" aria-hidden="true">::</span>{{ end }}
+                {{- if ne $key 0 }}<span class="meta" aria-hidden="true">::</span>{{ end }}
                 <li class="main__skill">{{ $skill }}</li>
               {{ end }}
             </ul>
@@ -46,7 +46,7 @@
           {{ end }}
         </ul>
     </section>
-    <section id="writing" class="main__section main__section--writing">
+    <section id="writing" class="main__section main__section--writing content__container">
       <h2 class="main__subtitle">{&nbsp;Writing&nbsp;}</h2>
       {{/*  Get last 5 writing post and range over them.  */}}
       {{ $writing := ($.Site.GetPage "section" "writing").Pages }}

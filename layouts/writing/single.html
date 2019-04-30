@@ -1,9 +1,23 @@
 {{ define "main" }}
   {{ partial "header.html" . }}
-  <main class="single">
+  <main class="single content__container">
     <h1 class="single__title">{ {{ .Title }} }</h1>
-    {{/*  Contact form will not be present in blog posts.  */}}
-    <section class="single__content">{{ .Content }}</section>
+    <article class="post">
+      <div class="post__meta">
+        <time class="meta--fira post__date" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
+        {{ $s := .Section }}
+        <div class="post__tags">
+          <span aria-hidden="true" class="meta meta--fira">#</span>
+          {{/*  Loop over tags list in front-matter  */}}
+          {{ range $key, $tag := .Params.tags }}
+            {{- if ne $key 0 }}<span class="meta" aria-hidden="true">::</span>{{ end }}
+            <a class="meta--fira tag__link" href="/{{ $s }}/tags/{{ $tag }}">{{ $tag }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{/*  Contact form will not be present in blog posts.  */}}
+      <section class="post__content">{{ .Content }}</section>
+    </article>
   </main>
   {{ partial "footer.html" . }}
 {{ end }}

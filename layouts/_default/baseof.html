@@ -41,7 +41,7 @@
   <link rel="preload" href={{ $Firab.Permalink }} as="font" type="font/woff" crossorigin>
 
   {{/*  Stylesheets  */}}
-  {{ $styles := resources.Get "main.scss" | toCSS | postCSS | minify }}
+  {{ $styles := resources.Get "styles.scss" | toCSS | postCSS | minify }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}">
 
   {{/*  Open Graph  */}}
