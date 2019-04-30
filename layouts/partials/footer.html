@@ -1,6 +1,6 @@
 <footer id="contact" class="footer">
   {{ if .IsHome }}
-    <h2 class="main__subtitle footer__title">{ Contact }</h2>
+    <h2 class="main__subtitle footer__title">{&nbsp;Contact&nbsp;}</h2>
     <form class="contact__form" name="Contact" netlify-honeypot="bot-field" netlify>
       <p class="honey__hidden">
         <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
@@ -19,6 +19,6 @@
     <p class="meta copy__separator">::</p>
     <p class="copy__content copy__title">{{ .Site.Title }}</p>
     <p class="meta copy__separator">::</p>
-    <p class="copy__content copy__ssg"><span class="meta"></></span> with <a class="copy__hugo" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a></p>
+    <p class="copy__content copy__ssg"><span class="meta" aria-label="Coded"></></span> with <a class="copy__hugo" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a></p>
   </div>
 </footer>
