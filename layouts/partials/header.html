@@ -1,9 +1,9 @@
 <header class="header">
-  <div class="header__link-wrapper">
+  <div class="font--fira header__link-wrapper">
     <span class="meta header__prompt" aria-hidden="true">&lambda;</span>
     <a href="{{ .Site.BaseURL }}" class="header__link header__link--home">juan villela</a>
   </div>
-  <nav class="header__nav">
+  <nav class="font--fira header__nav">
     <span class="meta nav__prompt" aria-hidden="true">&lambda;</span>
     <a href='{{ if .IsHome }}{{ "#writing" | relURL }}{{ else }}{{ "writing" | relURL }}{{ end }}' class="header__link header__link--nav" data-target="writing">writting</a>
     <span class="header__separator" aria-hidden="true">::</span>

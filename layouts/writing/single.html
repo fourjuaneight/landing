@@ -4,14 +4,14 @@
     <h1 class="single__title">{&nbsp;{{ .Title }}&nbsp;}</h1>
     <article class="post">
       <div class="post__meta">
-        <time class="meta--fira post__date" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
+        <time class="font--fira post__date" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
         {{ $s := .Section }}
         <div class="post__tags">
-          <span aria-hidden="true" class="meta meta--fira">#</span>
+          <span aria-hidden="true" class="meta font--fira">#</span>
           {{/*  Loop over tags list in front-matter  */}}
           {{ range $key, $tag := .Params.tags }}
             {{- if ne $key 0 }}<span class="meta" aria-hidden="true">::</span>{{ end }}
-            <a class="meta--fira tag__link" href="/{{ $s }}/tags/{{ $tag }}">{{ $tag }}</a>
+            <a class="font--fira tag__link" href="/{{ $s }}/tags/{{ $tag }}">{{ $tag }}</a>
           {{ end }}
         </div>
       </div>

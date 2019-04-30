@@ -6,8 +6,8 @@
   src:
     local(Rubik-Regular),
     local(Rubik-Regular),
-    url('./fonts/Rubik-Regular.woff2') format('woff2'),
-    url('./fonts/Rubik-Regular.woff') format('woff');
+    url('/fonts/Rubik-Regular.woff2') format('woff2'),
+    url('/fonts/Rubik-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -18,8 +18,8 @@
   src:
     local(Rubik-Italic),
     local(Rubik-Italic),
-    url('./fonts/Rubik-Italic.woff2') format('woff2'),
-    url('./fonts/Rubik-Italic.woff') format('woff');
+    url('/fonts/Rubik-Italic.woff2') format('woff2'),
+    url('/fonts/Rubik-Italic.woff') format('woff');
 }
 
 @font-face {
@@ -30,8 +30,8 @@
   src:
     local(Rubik-Bold),
     local(Rubik-Bold),
-    url('./fonts/Rubik-Bold.woff2') format('woff2'),
-    url('./fonts/Rubik-Bold.woff') format('woff');
+    url('/fonts/Rubik-Bold.woff2') format('woff2'),
+    url('/fonts/Rubik-Bold.woff') format('woff');
 }
 
 @font-face {
@@ -42,8 +42,8 @@
   src:
     local(OpenDyslexic-Regular),
     local(OpenDyslexic-Regular),
-    url('./fonts/OpenDyslexic-Regular.woff2') format('woff2'),
-    url('./fonts/OpenDyslexic-Regular.woff') format('woff');
+    url('/fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+    url('/fonts/OpenDyslexic-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -54,8 +54,8 @@
   src:
     local(OpenDyslexic-Bold),
     local(OpenDyslexic-Bold),
-    url('./fonts/OpenDyslexic-Bold.woff2') format('woff2'),
-    url('./fonts/OpenDyslexic-Bold.woff') format('woff');
+    url('/fonts/OpenDyslexic-Bold.woff2') format('woff2'),
+    url('/fonts/OpenDyslexic-Bold.woff') format('woff');
 }
 
 @font-face {
@@ -66,8 +66,8 @@
   src:
     local(FiraCode-Regular),
     local(FiraCode-Regular),
-    url('./fonts/FiraCode-Regular.woff2') format('woff2'),
-    url('./fonts/FiraCode-Regular.woff') format('woff');
+    url('/fonts/FiraCode-Regular.woff2') format('woff2'),
+    url('/fonts/FiraCode-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -78,8 +78,8 @@
   src:
     local(FiraCode-Light),
     local(FiraCode-Light),
-    url('./fonts/FiraCode-Light.woff2') format('woff2'),
-    url('./fonts/FiraCode-Light.woff') format('woff');
+    url('/fonts/FiraCode-Light.woff2') format('woff2'),
+    url('/fonts/FiraCode-Light.woff') format('woff');
 }
 
 @font-face {
@@ -90,6 +90,6 @@
   src:
     local(FiraCode-Bold),
     local(FiraCode-Bold),
-    url('./fonts/FiraCode-Bold.woff2') format('woff2'),
-    url('./fonts/FiraCode-Bold.woff') format('woff');
+    url('/fonts/FiraCode-Bold.woff2') format('woff2'),
+    url('/fonts/FiraCode-Bold.woff') format('woff');
 }

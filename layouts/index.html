@@ -32,11 +32,11 @@
               </picture>
             </a>
             <div class="work__meta">
-              <a href="{{ $client.website }}" class="meta--fira main__client-name" target="_blank" rel="noopener noreferrer">{{ $client.name }}</a>
-              <time class="meta--fira main__client-date" datetime="{{ $client.date }}">{{ $client.date }}</time>
+              <a href="{{ $client.website }}" class="font--fira main__client-name" target="_blank" rel="noopener noreferrer">{{ $client.name }}</a>
+              <time class="font--fira main__client-date" datetime="{{ $client.date }}">{{ $client.date }}</time>
             </div>
             <p class="main__client-description">{{ $client.description }}</p>
-            <ul class="main__skills-list">
+            <ul class="font--fira main__skills-list">
               {{ range $key, $skill := $client.skills }}
                 {{- if ne $key 0 }}<span class="meta" aria-hidden="true">::</span>{{ end }}
                 <li class="main__skill">{{ $skill }}</li>
@@ -55,7 +55,7 @@
           <li class="main__writing-entry">{{ .Render "summary" }}</li>
         {{ end }}
       </ul>
-      <a href='{{ "writing" | relURL }}' class="meta--fira main__nav-link">Read more</a>
+      <a href='{{ "writing" | relURL }}' class="font--fira main__nav-link">Read more</a>
     </section>
   </main>
   {{ partial "footer.html" . }}
