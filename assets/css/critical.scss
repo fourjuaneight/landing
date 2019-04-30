@@ -22,6 +22,14 @@ body {
   }
 }
 
+.single {
+  min-height: calc(100vh - 223px);
+  
+  @include media-query-max(600px) {
+    min-height: calc(100vh - 250px);
+  }
+}
+
 .main,
 .single,
 .list {
@@ -46,6 +54,8 @@ body {
 
 .main__title,
 .single__title {
+  text-align: center;
+
   @include media-query-max(450px) {
     font-size: 8vw;
   }
@@ -143,6 +153,7 @@ body {
 }
 
 .single {
+  .single__content,
   .post {
     margin-top: 10px;
   }

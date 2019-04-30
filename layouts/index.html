@@ -1,5 +1,4 @@
 {{ define "main" }}
-  {{ partial "header.html" . }}
   <main class="main">
     <section id="intro" class="main__section main__section--intro">
       {{ $webp := resources.Get "img/avatar.webp" }}
@@ -58,5 +57,4 @@
       <a href='{{ "writing" | relURL }}' class="font--fira main__nav-link">Read more</a>
     </section>
   </main>
-  {{ partial "footer.html" . }}
 {{ end }}

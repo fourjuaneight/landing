@@ -151,6 +151,7 @@
   }
 }
 
+.single__content,
 .post {
   @extend %content-center;
   @extend %flex;
@@ -158,6 +159,7 @@
   @extend %full-width;
   @extend %items-flex-start;
 
+  align-self: start;
   background-color: $meta;
   box-shadow: 5px 5px 0 0 rgba(33, 35, 46, 0.5), 5px 5px 0 0 rgba($font, 0.75);
   color: $bg;
@@ -178,6 +180,7 @@
 
 }
 
+.single__content,
 .post__content {
   > * {
     margin-bottom: 15px;

@@ -1,5 +1,4 @@
 {{ define "main" }}
-  {{ partial "header.html" . }}
   <main class="single content__container">
     <h1 class="single__title">{&nbsp;{{ .Title }}&nbsp;}</h1>
     <article class="post">
@@ -19,5 +18,4 @@
       <section class="post__content">{{ .Content }}</section>
     </article>
   </main>
-  {{ partial "footer.html" . }}
 {{ end }}

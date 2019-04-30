@@ -1,9 +1,7 @@
 {{ define "main" }}
-  {{ partial "header.html" . }}
-  <main class="single">
+  <main class="single content__container">
     <h1 class="single__title">{&nbsp;{{ .Title }}&nbsp;}</h1>
     {{/*  Contact form will not be present in blog posts.  */}}
     <section class="single__content">{{ .Content }}</section>
   </main>
-  {{ partial "footer.html" . }}
 {{ end }}
