@@ -10,14 +10,21 @@ body {
 }
 
 .main,
-.single {
+.single,
+.list {
   background-image: $hero-pattern;
   background-attachment: fixed;
 }
 
+.single,
+.list {
+  background-color: rgba(lighten($font, 45%), 0.5);
+}
+
 .main__hero,
 .main__subtitle,
-.single__title {
+.single__title,
+.list__title {
   background-color: $meta;
   box-shadow: 5px 5px 0 0 rgba(33, 35, 46, 0.5), 5px 5px 0 0 rgba($font, 0.75);
   color: $bg;
@@ -117,12 +124,13 @@ body {
   }
 }
 
-.single {
-  .single__title {
-    grid-column: 2/3;
-    justify-self: center;
-  }
+.single__title,
+.list__title {
+  grid-column: 2/3;
+  justify-self: center;
+}
 
+.single {
   .post {
     margin-top: 10px;
   }

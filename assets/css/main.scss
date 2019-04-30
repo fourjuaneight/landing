@@ -11,45 +11,42 @@
   }
 }
 
-.main__section--writing,
-.main__section--work {
-  .main__writing-list,
-  .main__work-list {
-    @extend %content-center;
-    @extend %flex;
-    @extend %flex-column;
-    @extend %full-width;
-    @extend %items-flex-start;
+.main__writing-list,
+.main__work-list {
+  @extend %content-center;
+  @extend %flex;
+  @extend %flex-column;
+  @extend %full-width;
+  @extend %items-flex-start;
 
-    background-color: $meta;
-    box-shadow: 5px 5px 0 0 rgba(33, 35, 46, 0.5), 5px 5px 0 0 rgba($font, 0.75);
-    color: $bg;
-    justify-self: center;
-    list-style: none;
-    margin-bottom: 10px;
-    max-width: 850px;
-    padding: 15px;
+  background-color: $meta;
+  box-shadow: 5px 5px 0 0 rgba(33, 35, 46, 0.5), 5px 5px 0 0 rgba($font, 0.75);
+  color: $bg;
+  justify-self: center;
+  list-style: none;
+  margin-bottom: 10px;
+  max-width: 850px;
+  padding: 15px;
 
-    @include media-query-max(450px) {
-      padding: 10px;
-    }
-
-    @include media-query-min(720px) {
-      max-width: 1500px;
-    }
+  @include media-query-max(450px) {
+    padding: 10px;
   }
 
-  .main__subtitle,
-  .main__nav-link,
-  .main__writing-list,
-  .main__work-list {
-    grid-column: 2/3;
+  @include media-query-min(720px) {
+    max-width: 1500px;
   }
+}
 
-  .main__subtitle,
-  .main__nav-link {
-    justify-self: center;
-  }
+.main__subtitle,
+.main__nav-link,
+.main__writing-list,
+.main__work-list {
+  grid-column: 2/3;
+}
+
+.main__subtitle,
+.main__nav-link {
+  justify-self: center;
 }
 
 .main__section--work {
@@ -126,18 +123,29 @@
   background-color: rgba(lighten($font, 45%), 0.5);
 
   .main__writing-entry {
-    @extend %full-width;
+    @extend %border-bottom;
 
-    margin: 0;
-    padding: 0;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 
-    &:nth-child(-n+2) {
-      @extend %border-bottom;
-
-      margin-bottom: 20px;
-      padding-bottom: 20px;
+    &:last-child {
+      border: none;
+      margin-bottom: 0;
     }
   }
+
+.main__writing-entry {
+  @extend %border-bottom;
+  @extend %full-width;
+
+  margin: 0 0 20px;
+  padding: 0 0 20px;
+
+  &:last-child {
+    border: none;
+    margin-bottom: 0;
+  }
+}
 
   .main__nav-link {
     @include transition(all);

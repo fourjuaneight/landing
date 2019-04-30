@@ -1,19 +1,14 @@
 {{ define "main" }}
   {{ partial "header.html" . }}
-  <main class="list">
-    <h1 class="list__title">{ {{ .Title }} }</h1>
-    <p class="list__description">{{ .Params.description }}</p>
-    {{/*  Groupd posts by year  */}}
-    {{ range .Data.Pages.GroupByDate "2006" }}
-      <h2 class="list__date">{{ .Key }}</h3>
-      <ul class="main__writing-list">
-        {{/*  Loop over entries in Writing  */}}
-        {{ $writing := ($.Site.GetPage "section" "writing").Pages }}
-        {{ range last 5 $writing }}
-          <li class="main__writing-entry">{{ .Render "li" }}</li>
-        {{ end }}
-      </ul>
-    {{ end }}
+  <main class="list content__container">
+    <h1 class="list__title">{&nbsp;{{ .Title }}&nbsp;}</h1>
+    <ul class="main__writing-list">
+      {{/*  Loop over entries in Writing  */}}
+      {{ $writing := ($.Site.GetPage "section" "writing").Pages }}
+      {{ range last 10 $writing }}
+        <li class="main__writing-entry">{{ .Render "li" }}</li>
+      {{ end }}
+    </ul>
   </main>
   {{ partial "footer.html" . }}
 {{ end }}
