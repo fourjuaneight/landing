@@ -1,10 +1,15 @@
 .main__section--writing,
 .main__section--work {
-  @extend %content-center;
   @extend %flex-column;
   @extend %items-center;
 
-  padding: 20px;
+  grid-template-columns: minmax(15px, 1fr) 3fr minmax(15px, 1fr);
+  grid-template-rows: min-content;
+  padding: 20px 0;
+
+  @include media-query-max(720px) {
+  grid-template-columns: 0.5fr minmax(345px, 3fr) 0.5fr;
+  }
 
   .main__writing-list,
   .main__work-list {
@@ -17,6 +22,7 @@
     background-color: $meta;
     box-shadow: 5px 5px 0 0 rgba(33, 35, 46, 0.5), 5px 5px 0 0 rgba($font, 0.75);
     color: $bg;
+    justify-self: center;
     list-style: none;
     margin-bottom: 10px;
     max-width: 850px;
@@ -26,22 +32,8 @@
       padding: 10px;
     }
 
-    @supports (display:grid) {
-      @include media-query-min(720px) {
-        max-width: 1500px;
-      }
-    }
-
-    @include media-query-max(720px) {
-      max-width: 400px;
-    }
-  }
-
-  @supports (display:grid) {
     @include media-query-min(720px) {
-      display: grid !important;
-      grid-template-columns: minmax(15px, 1fr) 3fr minmax(15px, 1fr);
-      grid-template-rows: min-content;
+      max-width: 1500px;
     }
   }
 
@@ -49,9 +41,7 @@
   .main__nav-link,
   .main__writing-list,
   .main__work-list {
-    @supports (display:grid) {
-      grid-column: 2/3;
-    }
+    grid-column: 2/3;
   }
 
   .main__subtitle,

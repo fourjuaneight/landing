@@ -9,17 +9,16 @@
     <input id="name" type="text" aria-label="Your name" placeholder="Name" name="name" class="contact__input active" required>
     <input id="email" type="email" aria-label="Your email" placeholder="Email" name="email" class="contact__input active" required>
     <textarea id="message" type="text" aria-label="Your message" placeholder="Message" name="message" class="contact__input contact__input--message active" required></textarea>
-    <button type="submit" class="contact__button">Submit</button>
+    <button type="submit" class="meta--fira contact__button">Submit</button>
   </form>
 
   {{ partial "social.html" . }}
   {{/*  Hugo is used to generate the current year without the need to update.  */}}
   <div class="meta--fira footer__copyright">
-    <p class="copy__icon">&copy;</p>
-    <p class="copy__content">&nbsp;{{ time.Now.Format "2006" }}</p>
-    <p class="copy__separator">&nbsp;&bull;&nbsp;</p>
-    <p class="copy__content">{{ .Site.Title }}</p>
-    <p class="copy__separator">&nbsp;&bull;&nbsp;</p>
-    <p class="copy__content"><span class="copy__code"></></span> with <a class="copy__hugo" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a></p>
+    <p class="copy__content copy__date"><span class="copy__icon">&copy;</span>&nbsp;{{ time.Now.Format "2006" }}</p>
+    <p class="copy__separator">::</p>
+    <p class="copy__content copy__title">{{ .Site.Title }}</p>
+    <p class="copy__separator">::</p>
+    <p class="copy__content copy__ssg"><span class="copy__code"></></span> with <a class="copy__hugo" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a></p>
   </div>
 </footer>

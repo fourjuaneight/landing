@@ -1,6 +1,5 @@
 .footer {
-  @extend %content-center;
-  @extend %flex;
+  @extend %grid;
   @extend %flex-column;
   @extend %full-width;
   @extend %items-center;
@@ -8,7 +7,16 @@
   background-color: rgba($font, 0.95);
   background-image: $hero-pattern;
   color: $bg;
-  padding: 30px 15px;
+  grid-template-columns: minmax(15px, 1fr) minmax(345px, 410px) minmax(15px, 1fr);
+  padding: 30px 0;
+
+  .footer__title,
+  .contact__form,
+  .social__nav,
+  .footer__copyright {
+    grid-column: 2/3;
+    justify-self: center;
+  }
 
   .contact__form {
     @extend %content-center;
@@ -18,7 +26,7 @@
     @extend %items-center;
 
     max-width: 400px;
-    min-height: 295px;
+    min-height: 345px;
   }
 
   .contact__form,
@@ -81,6 +89,7 @@
 
     &::placeholder {
       color: $bg;
+      font-family: 'Fira Code', monospace;
       font-weight: 700;
     }
 
@@ -90,7 +99,7 @@
   }
 
   .contact__input--message {
-    height: 100px;
+    height: 140px;
     resize: none;
   }
 
@@ -114,7 +123,6 @@
   .social__nav {
     @extend %content-center;
     @extend %flex;
-    @extend %flex-wrap;
     @extend %items-center;
   }
 
@@ -142,21 +150,61 @@
   }
 
   .footer__copyright {
-    @extend %content-center;
+    @extend %grid;
+    @extend %items-center;
+
+    grid-column-gap: 5px;
+    grid-template-columns: minmax(54px,60px) 18px minmax(122px,135px) 18px minmax(116px,130px);
+    font-size: 1rem;
+    line-height: 1.15rem;
+
+    @include media-query-max(405px) {
+      grid-row-gap: 15px;
+      grid-template-columns: 54px 18px 122px;
+      grid-template-rows: repeat(2, 17px);
+    }
+  }
+
+  .copy__separator,
+  .copy__content {
+    justify-self: center;
+  }
+
+  .copy__date {
     @extend %flex;
     @extend %items-center;
 
-    font-size: 1rem;
-    line-height: 1.15rem;
+    grid-column: 1/2;
   }
 
   .copy__icon {
+    height: 15px;
     transform: rotateY(180deg);
   }
 
   .copy__separator,
   .copy__code {
     color: $prompt;
+  }
+
+  .copy__separator:nth-child(4) {
+    @include media-query-max(405px) {
+      display: none;
+    }
+  }
+
+  .copy__title {
+    grid-column: 3/4;
+  }
+
+  .copy__ssg {
+    grid-column: 5/6;
+
+    @include media-query-max(405px) {
+      grid-column: 1/4;
+      grid-row: 2/3;
+      justify-self: center;
+    }
   }
 
   .copy__code {
