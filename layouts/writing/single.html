@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ partial "header.html" . }}
   <main class="single content__container">
-    <h1 class="single__title">{ {{ .Title }} }</h1>
+    <h1 class="single__title">{&nbsp;{{ .Title }}&nbsp;}</h1>
     <article class="post">
       <div class="post__meta">
         <time class="meta--fira post__date" datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
