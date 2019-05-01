@@ -236,15 +236,15 @@
     @extend %full-width;
   }
 
-  .post__title--link,
-  .tag__link {
-    &:hover {
-      color: $link;
-    }
-  }
-
   .post__summary {
     margin: 0 0 15px;
+  }
+}
+
+.post__title--link,
+.tag__link {
+  &:hover {
+    color: $link;
   }
 }
 
