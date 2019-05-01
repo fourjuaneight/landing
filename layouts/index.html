@@ -50,7 +50,7 @@
       {{/*  Get last 5 writing post and range over them.  */}}
       {{ $writing := ($.Site.GetPage "section" "writing").Pages }}
       <ul class="main__writing-list">
-        {{ range last 5 $writing }}
+        {{ range last 4 $writing }}
           <li class="main__writing-entry">{{ .Render "summary" }}</li>
         {{ end }}
       </ul>
