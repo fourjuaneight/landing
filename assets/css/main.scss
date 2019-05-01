@@ -246,7 +246,11 @@
 }
 
 .footnote__ref {
+  display: inline-flex;
   font-size: 0.95rem;
+  margin: 0;
+  max-width: 28px;
+  width: 28px;
 }
 
 .footnotes {
