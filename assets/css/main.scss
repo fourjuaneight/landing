@@ -186,11 +186,12 @@
 
 .single__content,
 .post__content {
-  > * {
-    margin-bottom: 15px;
-  }
-  
-  p {
+  p,
+  li,
+  ul,
+  ol {
+    margin: 0 0 15px;
+
     @include media-query-max(450px) {
       line-height: 1.5rem;
     }

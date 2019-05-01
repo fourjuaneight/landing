@@ -4,11 +4,9 @@
 This site serves as a portfolio and contact point for my development efforts..
 
 ## Colophon
-* Made with [Hugo](https://gohugo.io).
-* Fonts are [Rubik](https://fonts.google.com/specimen/Rubik), [OpenDyslexic](https://www.opendyslexic.org/), and [Fira Code](https://github.com/tonsky/FiraCode).
-* The avatar was created by the amazing [Levitzo](https://instagram.com/levitzo?utm_source=ig_profile_share&igshid=1fmgb2w2c8dla).
-* The avatar was created by the amazing [Levitzo](https://instagram.com/levitzo?utm_source=ig_profile_share&igshid=1fmgb2w2c8dla).
-* Coded in [VSCode](https://code.visualstudio.com/).
+* Coded with [Hugo](https://gohugo.io).
+* Fonts by [Rubik](https://fonts.google.com/specimen/Rubik), [OpenDyslexic](https://www.opendyslexic.org/), and [Fira Code](https://github.com/tonsky/FiraCode).
+* Avatar by the amazing [Levitzo](https://instagram.com/levitzo?utm_source=ig_profile_share&igshid=1fmgb2w2c8dla).
 
 ## Text Content License
 Unless otherwise noted, the text content on this site is licensed under a Creative Commons Attribution-NoDerivatives 4.0 International License, “[CC-BY-ND](http://creativecommons.org/licenses/by-nd/4.0/)”.

@@ -206,11 +206,12 @@
     letter-spacing: 1px;
   }
 
+  .copy__title,
   .copy__hugo {
-    @include transition(color);
-
+    color: $link;
+    
     &:hover {
-      color: $link;
+      text-decoration: underline;
     }
   }
 }
