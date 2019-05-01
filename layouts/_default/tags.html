@@ -1,8 +1,8 @@
 {{ define "main" }}
   <main class="list content__container">
-    <h1 class="list__title">{&nbsp;{{ .Title }}&nbsp;}</h1>
+    <h1 class="list__title"><span class="meta">#</span> {{ .Name }}</h1>
     <ul class="main__writing-list">
-      {{/*  Loop over entries in Writing  */}}
+      {{/*  Loop over entries in Tag  */}}
       {{ range .Pages }}
         <li class="main__writing-entry">{{ .Render "li" }}</li>
       {{ end }}

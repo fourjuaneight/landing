@@ -6,16 +6,16 @@ title = "Juan C Villela"
 
 FootnoteReturnLinkContents = "↩"
 SectionPagesMenu = "main"
-disableKinds = ["taxonomy", "taxonomyTerm"]
+disableKinds = ["taxonomyTerm"]
 summarylength = 40
+
+[taxonomies]
+  tags = "tags"
 
 [permalinks]
   section = "/:filename/"
   writing = "/writing/:filename/"
-  tags = "/writing/:slug/"
-
-[taxonomies]
-  tags = "tags"
+  tags = "/writing/tags/:slug/"
 
 [author]
   name = "Juan C Villela"

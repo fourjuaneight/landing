@@ -1,3 +1,7 @@
+.main__writing-list {
+  align-self: start;
+}
+
 .main__writing-list,
 .main__work-list {
   @extend %content-center;
