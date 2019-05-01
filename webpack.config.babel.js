@@ -10,7 +10,7 @@ export default {
   ],
   output: {
     path: path.resolve(__dirname, "assets"),
-    filename: "bundle.js"
+    filename: "scripts.js"
   },
   module: {
     rules: [
