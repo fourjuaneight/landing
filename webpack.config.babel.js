@@ -7,6 +7,7 @@ export default {
   mode: process.env.NODE_ENV || 'production',
   entry: [
     "./assets/js/navbar.js",
+    "./assets/js/footnotes.js",
     "./assets/js/contact.js",
   ],
   output: {

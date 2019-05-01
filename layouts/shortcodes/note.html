@@ -1,2 +1,6 @@
 {{ $i := .Get 0 }}
-<li class="footnote__item" id="fn:{{ $i }}" data-item="{{ $i }}."><p class="note">{{ .Get 1 }}<a class="footnote__return" href="{{ .Page.RelPermalink }}#fnref:{{ $i }}" data-href="#fnref:{{ $i }}" title="Permalink to footnote {{ $i }}">↩</a></p></li>
+<li class="footnote__item" id="fn:{{ $i }}" data-item="{{ $i }}.">
+  <p class="note">{{ .Get 1 }}
+    <a class="footnote__return" href="{{ .Page.Permalink }}#fnref:{{ $i }}" data-note="fnref:{{ $i }}" title="Permalink to footnote {{ $i }}">↩</a>
+  </p>
+</li>
