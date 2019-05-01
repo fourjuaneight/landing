@@ -14,7 +14,7 @@ html {
   font-size: 100%;
   -webkit-overflow-scrolling: touch;
 
-  @include media-query-max(560px) {
+  @include media-query-max(600px) {
     font-size: 90%;
   }
 }

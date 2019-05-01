@@ -3,7 +3,7 @@
     <span class="meta header__prompt" aria-hidden="true">&lambda;</span>
     <a href="{{ .Site.BaseURL }}" class="header__link header__link--home">juan villela</a>
   </div>
-  <nav class="font--fira header__nav {{ if eq .Type "writing" }}writing{{ else if .IsHome }}home{{ end }}">
+  <nav class="font--fira header__nav {{ if eq .Type "writing" }}writing{{ end }}">
     <span class="meta nav__prompt" aria-hidden="true">&lambda;</span>
     <a href='{{ if .IsHome }}{{ "#writing" | relURL }}{{ else }}{{ "writing" | relURL }}{{ end }}' class="header__link header__link--nav" data-target="writing">writting</a>
     <span class="header__separator" aria-hidden="true">::</span>

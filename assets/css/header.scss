@@ -50,7 +50,6 @@
       rgba($link, 0) 10em
     );
     background-size: cover;
-    border-radius: 15px;
     bottom: 0;
     content: "";
     cursor: text;
@@ -61,33 +60,47 @@
   }
 
   .header__nav {
-    @extend %content-space-around;
-    @extend %flex;
     @extend %full-width;
     @extend %items-center;
 
     grid-column: 3/4;
+    grid-template-columns: 86px 18px 43px 18px 75px;
+    justify-content: end;
     margin-left: auto;
-    max-width: 330px;
+
+    &.writing {
+      grid-template-columns: 86px 18px 43px 18px 75px 18px 32px;
+    }
 
     @include media-query-max(600px) {
       grid-column: 2/3;
       grid-row: 2/3;
+      grid-template-columns: 15px 78px 18px 39px 18px 67px;
+      justify-content: start;
       margin: 0 auto 0 0;
-      max-width: 295px;
 
       &.writing {
-        max-width: 365px;
+        grid-template-columns: 15px 78px 18px 39px 18px 67px 18px 28px;
       }
     }
+  }
 
-    .nav__prompt {
-      margin-right: 10px;
+  .nav__prompt {
+    grid-column: 1/2;
+    margin-right: 5xp;
+    width: 9px;
 
-      @include media-query-min(600px) {
-        display: none;
-      }
+    @include media-query-min(600px) {
+      display: none;
     }
+  }
+
+  .header__link-wrapper,
+  .header__nav {
+    @extend %grid;
+    @extend %items-center;
+
+    grid-column-gap: 5px;
   }
 
   .header__link-wrapper,
@@ -105,7 +118,6 @@
 
     color: $bg;
     cursor: pointer;
-    margin: 0 5px;
 
     &:hover {
       color: $link;
@@ -115,15 +127,9 @@
 
   .header__link-wrapper {
     grid-column: 2/3;
+    grid-template-columns: 15px minmax(125px, 140px);
     margin: 0 50px 0 0;
     margin: 0;
-    min-width: 210px;
-    padding-right: 50px;
-    width: 210px;
-
-    @include media-query-min(1300px) {
-      width: 230px;
-    }
 
     @include media-query-max(600px) {
       grid-row: 1/2;
@@ -131,8 +137,7 @@
   }
 
   .header__link--home {
-    min-width: 103px;
-    width: 103px;
+    grid-column: 2/3;
   }
 
   .header__prompt,
