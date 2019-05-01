@@ -101,11 +101,14 @@ body {
   }
 
   .main__title {
-    color: $link;
     margin: 0 0 10px;
+  }
 
-    &::selection {
-      color: $bg;
+  .title__about {
+    color: $link;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
