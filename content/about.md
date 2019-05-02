@@ -14,6 +14,7 @@ I'm not an accessibility expert. My focus has always been fast and modular stati
 
 ## Technologies
 **TL;DR**
+
 - Hugo
 - Gatsby
 - Jekyll
@@ -45,12 +46,3 @@ There are many ways I could go about explaining who I am. But I feel a list is b
 
 ## Hire me
 If you'd like to work with me on your static site, fill out the form below and I'll get back to you in about 24 hours. If you're a recruiter and would like to connect about a potential job, feel free to get in touch as well. I'm always open to new opportunities.
-
-## Colophon
-I am not a designer. I take a lot of inspiration from developers I admire and appreciate their creative eye. So you will see a lot of "inspiration" from others here. Though I will say that the finished look of the site happened very organically as I was making it.
-
-The site's look and feel was heavily influenced by {{< link href="https://jeremy.codes/" content="Jeremy Wagner's" >}} site. The terminal looking header was lifted from {{< link href="http://adrianroselli.com/" content="Adrian Roselli's" >}} code blocks. The color scheme is 100% {{< link href="https://draculatheme.com//" content="Dracula Theme" >}}.
-
-* Coded with {{< link content="Hugo" href="https://gohugo.io" >}}.
-* Fonts by {{< link content="Rubik" href="https://fonts.google.com/specimen/Rubik" >}}, {{< link content="OpenDyslexic" href="https://www.opendyslexic.org/" >}}, and {{< link content="Fira Code" href="https://github.com/tonsky/FiraCode" >}}.
-* Avatar by the amazing {{< link content="Levitzo" href="https://instagram.com/levitzo?utm_source=ig_profile_share&igshid=1fmgb2w2c8dla" >}}.
