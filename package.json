@@ -1,7 +1,7 @@
 {
   "name": "juan-dev",
   "version": "1.0.0",
-  "description": "I'm Juan Villela. A Front-End developer with a focus on static sites based in Washington, DC",
+  "description": "I'm Juan Villela. I'm a web developer, automation and astronomy nerd currently working independently. I help businesses build accessible and performant static sites.",
   "scripts": {
     "start": "gulp build --max_old_space_size=8000; hugo -e development; hugo serve --disableFastRender",
     "build": "gulp build --max_old_space_size=8000; hugo -e production; gulp cleanup",

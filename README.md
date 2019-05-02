@@ -1,7 +1,7 @@
 # Juan C Villela | Front-End Developer
 [![Netlify Status](https://api.netlify.com/api/v1/badges/83da7076-09d4-4033-baa8-e2122decd6b6/deploy-status)](https://app.netlify.com/sites/juan-dev/deploys)
 
-This site serves as a portfolio and contact point for my development efforts..
+This site serves as a portfolio and contact point for my development efforts.
 
 ## Colophon
 * Coded with [Hugo](https://gohugo.io).

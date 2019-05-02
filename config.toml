@@ -26,7 +26,7 @@ summarylength = 40
   plainIDAnchors = true
 
 [params]
-  description = "I'm Juan Villela. A Front-End developer with a focus on static sites based in Washington, DC."
+  description = "I'm Juan Villela. I'm a web developer, automation and astronomy nerd currently working independently. I help businesses build accessible and performant static sites."
   social = "fourjuaneight"
   OpenLinksInNewWindow = true
 
