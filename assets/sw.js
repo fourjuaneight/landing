@@ -1,6 +1,6 @@
 /* global self */
 (function() {
-  const version = `v1`;
+  const version = `v2`;
   const cacheName = `:juanvilleladev:`;
   const staticCacheName = `${version}${cacheName}static`;
   const pagesCacheName = `${cacheName}pages`;
@@ -13,22 +13,14 @@
     `/img/avatar.webp`,
     `/fonts/Rubik-Regular.woff`,
     `/fonts/Rubik-Regular.woff2`,
-    `/fonts/Rubik-Italic.woff`,
-    `/fonts/Rubik-Italic.woff2`,
     `/fonts/Rubik-Bold.woff`,
     `/fonts/Rubik-Bold.woff2`,
-    `/fonts/OpenDyslexic-Regular.woff`,
-    `/fonts/OpenDyslexic-Regular.woff2`,
-    `/fonts/OpenDyslexic-Bold.woff`,
-    `/fonts/OpenDyslexic-Bold.woff2`,
     `/fonts/FiraCode-Regular.woff`,
     `/fonts/FiraCode-Regular.woff2`,
-    `/fonts/FiraCode-Light.woff`,
-    `/fonts/FiraCode-Light.woff2`,
     `/fonts/FiraCode-Bold.woff`,
     `/fonts/FiraCode-Bold.woff2`,
-    `/main.min.css`,
-    `/bundle.js`,
+    `/styles.min.css`,
+    `/scripts.js`,
   ];
   function updateStaticCache() {
     // These items must be cached for the Service Worker to complete installation
