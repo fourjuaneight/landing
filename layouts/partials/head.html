@@ -59,6 +59,10 @@
   {{ template "_internal/schema.html" . }}
 
   {{/*  Favicon  */}}
+  {{ $manifest := resources.Get "manifest.json" }}
+  <link rel="manifest" href="{{ $manifest.Permalink }}">
+
+  {{/*  Favicon  */}}
   {{ $favicon := resources.Get "icons/favicon.png" }}
   <link rel="shortcut icon" href="{{ $favicon.Permalink }}">
 
