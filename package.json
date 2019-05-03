@@ -1,16 +1,14 @@
 {
   "name": "juan-dev",
   "version": "1.0.0",
-  "description": "I'm Juan Villela. I'm a web developer, automation and astronomy nerd currently working independently. I help businesses build accessible and performant static sites.",
+  "description": "I'm Juan Villela. I'm a Front-End Developer, automation nerd, and astronomy lover currently working independently. I help businesses build accessible and performant static sites with the JAMstack.",
   "scripts": {
     "start": "gulp build --max_old_space_size=8000; hugo -e development; hugo serve --disableFastRender",
     "build": "gulp build --max_old_space_size=8000; hugo -e production; gulp cleanup",
-    "build-dev": "gulp build --max_old_space_size=8000; hugo -e development; gulp cleanup",
+    "development": "gulp build --max_old_space_size=8000; hugo -e development; gulp cleanup",
     "clean": "rm -rf public resources",
     "clean-node": "rm -rf node_modules",
-    "eslint": "eslint --fix assets/**/*.js",
-    "stylelint": "stylelint assets/**/*.scss --fix",
-    "lint": "eslint --fix assets/**/*.js; stylelint assets/**/*.scss --fix",
+    "lint": "eslint --fix assets/**/*.js",
     "format": "prettier --write assets/**/*.js assets/**/*.scss"
   },
   "repository": {
