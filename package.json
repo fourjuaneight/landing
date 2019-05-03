@@ -1,7 +1,7 @@
 {
   "name": "juan-dev",
   "version": "1.0.0",
-  "description": "I'm Juan Villela. I'm a Front-End Developer, automation nerd, and astronomy lover currently working independently. I help businesses build accessible and performant static sites with the JAMstack.",
+  "description": "I'm Juan Villela. I'm a Front-End Developer, automation nerd, and astronomy enthusiast currently working independently. I help businesses build accessible and performant static sites with the JAMstack.",
   "scripts": {
     "start": "gulp build --max_old_space_size=8000; hugo -e development; hugo serve --disableFastRender",
     "build": "gulp build --max_old_space_size=8000; hugo -e production; gulp cleanup",
