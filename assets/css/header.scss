@@ -64,12 +64,12 @@
     @extend %items-center;
 
     grid-column: 3/4;
-    grid-template-columns: 86px 18px 43px 18px 75px;
+    grid-template-columns: minmax(86px,96px) 18px minmax(43px,48px) 18px minmax(75px,84px);
     justify-content: end;
     margin-left: auto;
 
     &.writing {
-      grid-template-columns: 86px 18px 43px 18px 75px 18px 32px;
+      grid-template-columns: minmax(86px,96px) 18px minmax(43px,48px) 18px minmax(75px,84px) 18px minmax(32px,35px);
     }
 
     @include media-query-max(600px) {
@@ -118,6 +118,7 @@
 
     color: $bg;
     cursor: pointer;
+    justify-self: center;
 
     &:hover {
       color: $link;
@@ -127,7 +128,7 @@
 
   .header__link-wrapper {
     grid-column: 2/3;
-    grid-template-columns: 15px minmax(125px, 140px);
+    grid-template-columns: 15px minmax(125px, 145px);
     margin: 0 50px 0 0;
     margin: 0;
 
@@ -138,6 +139,7 @@
 
   .header__link--home {
     grid-column: 2/3;
+    justify-self: start;
   }
 
   .header__prompt,
