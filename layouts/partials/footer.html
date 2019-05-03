@@ -17,8 +17,8 @@
   <div class="font--fira footer__copyright">
     <p class="copy__content copy__date"><span class="copy__icon">&copy;</span>&nbsp;{{ time.Now.Format "2006" }}</p>
     <p class="meta copy__separator">::</p>
-    <a class="copy__content copy__title" href='{{ "colophon" | relURL }}'>{{ .Site.Title }}</a>
+    <p class="copy__content copy__title">{{ .Site.Title }}</p>
     <p class="meta copy__separator">::</p>
-    <p class="copy__content copy__ssg"><span class="meta" aria-label="Coded"></></span> with <a class="copy__hugo" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a></p>
+    <p class="copy__content copy__ssg"><span aria-label="Coded"></></span> with <a class="copy__hugo" href="https://gohugo.io" target="_blank" rel="noopener noreferrer">Hugo</a></p>
   </div>
 </footer>
