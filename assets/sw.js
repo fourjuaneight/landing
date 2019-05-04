@@ -1,6 +1,6 @@
 /* global self */
 (function() {
-  const version = `v2`;
+  const version = `v3`;
   const cacheName = `:juanvilleladev:`;
   const staticCacheName = `${version}${cacheName}static`;
   const pagesCacheName = `${cacheName}pages`;
@@ -11,6 +11,7 @@
     `/offline/`,
     `/img/juan.png`,
     `/img/juan.webp`,
+    `/broken.png`,
     `/fonts/Rubik-Regular.woff`,
     `/fonts/Rubik-Regular.woff2`,
     `/fonts/Rubik-Bold.woff`,
@@ -61,6 +62,12 @@
       );
     });
   }
+  // Check for broken images
+  function isImage(fetchRequest) {
+    return (
+      fetchRequest.method === `GET` && fetchRequest.destination === `image`
+    );
+  }
   // Events!
   self.addEventListener(`message`, event => {
     if (event.data.command === `trimCaches`) {
@@ -100,6 +107,9 @@
               stashInCache(staticCacheName, request, copy);
             } else {
               stashInCache(pagesCacheName, request, copy);
+            }
+            if (isImage(event.request)) {
+              return caches.match(`/broken.png`);
             }
             return response;
           })
