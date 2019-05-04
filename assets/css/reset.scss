@@ -147,10 +147,16 @@ h4 {
 }
 
 img,
+image,
 svg,
 video {
   height: auto;
   width: 100%;
+}
+
+image {
+  object-fit: contain;
+  object-position: left bottom;
 }
 
 table {
@@ -172,7 +178,8 @@ textarea {
   font-family: 'Fira Code', monospace;
 }
 
-[hidden] {
+[hidden],
+.hidden {
   display: none !important;
 }
 

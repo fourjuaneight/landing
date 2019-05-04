@@ -135,8 +135,11 @@ body {
   }
 
   .main__img--hero {
+    align-self: end;
     grid-column: 1/2;
-    margin: 0 auto 0 0;
+    justify-self: end;
+    margin: 20px auto 0 0;
+    max-height: 467px;
     max-width: 340px;
 
     @include media-query-max(620px) {
