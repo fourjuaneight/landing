@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://www.juanvillela.dev/"
 enableEmoji = "true"
 enableRobotsTXT = "true"
 languageCode = "en-us"
