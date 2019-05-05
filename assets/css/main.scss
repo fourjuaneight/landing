@@ -15,7 +15,7 @@
   color: $bg;
   justify-self: center;
   list-style: none;
-  margin-bottom: 10px;
+  margin: 0 5px 5px 0;
   max-width: 850px;
   padding: 15px;
 
@@ -38,6 +38,10 @@
 .main__subtitle,
 .main__nav-link {
   justify-self: center;
+}
+
+.main__subtitle {
+  margin: 0 0 5px;
 }
 
 .main__section--work {
@@ -145,7 +149,7 @@
     color: $bg;
     font-size: 1.5rem;
     line-height: 1.75rem;
-    margin: 20px 0;
+    margin-top: 10px;
     padding: 5px 10px;
 
     &:hover {
@@ -170,7 +174,7 @@
   grid-column: 2/3;
   justify-self: center;
   list-style: none;
-  margin-bottom: 10px;
+  margin: 0 5px 5px 0;
   max-width: 850px;
   padding: 15px;
 

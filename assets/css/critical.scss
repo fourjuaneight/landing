@@ -13,13 +13,10 @@ body {
   @extend %grid;
   @extend %items-center;
 
-  grid-template-columns: minmax(10px, 1fr) 3fr minmax(10px, 1fr);
+  grid-gap: 10px;
+  grid-template-columns: minmax(10px, 1fr) minmax(350px, 1200px) minmax(10px, 1fr);
   grid-template-rows: min-content;
   padding: 20px 0;
-
-  @include media-query-max(720px) {
-    grid-template-columns: 0.5fr minmax(350px, 3fr) 0.5fr;
-  }
 }
 
 .list,
@@ -38,7 +35,10 @@ body {
   background-attachment: fixed;
 }
 
-.single,
+.single {
+  background-color: $bg;
+}
+
 .list {
   background-color: rgba(lighten($font, 45%), 0.5);
 }
@@ -73,29 +73,21 @@ body {
 
     background-color: rgba(darken($link, 45%), 0.5);
     border-bottom: 4px solid darken($link, 55%);
-    grid-template-columns: 340px 3fr 0.5fr;
-
-    @include media-query-min(1250px) {
-      grid-template-columns: 340px 2fr minmax(20px, 1fr);
-    }
-
-    @include media-query-max(620px) {
-      grid-row-gap: 20px;
-      grid-template-columns: 1fr;
-      grid-template-rows: minmax(150px, min-content) 2fr;
-    }
+    grid-gap: 10px;
+    grid-template-columns: 340px minmax(340px, 2fr) minmax(10px, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    padding-top: 20px;
   }
 
   .main__hero {
     @include transition(margin);
 
-    grid-column: 2/3;
-    justify-self: end;
-    margin: 20px;
+    justify-self: center;
+    margin: 10px;
     max-width: 570px;
+    min-width: 330px;
 
-    @include media-query-max(620px) {
-      grid-column: 1/2;
+    @include media-query-max(710px) {
       grid-row: 1/2;
     }
   }
@@ -136,14 +128,12 @@ body {
 
   .main__img--hero {
     align-self: end;
-    grid-column: 1/2;
     justify-self: end;
-    margin: 20px auto 0 0;
+    margin: 0 auto 0 0;
     max-height: 467px;
     max-width: 340px;
 
-    @include media-query-max(620px) {
-      grid-column: 1/2;
+    @include media-query-max(710px) {
       grid-row: 2/3;
     }
 
@@ -157,14 +147,10 @@ body {
 .list__title {
   grid-column: 2/3;
   justify-self: center;
+  margin: 0 0 5px;
 }
 
 .single {
-  .single__content,
-  .post {
-    margin-top: 10px;
-  }
-
   .post__meta {
     @include border(bottom);
 

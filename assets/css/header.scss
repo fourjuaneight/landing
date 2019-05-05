@@ -8,20 +8,22 @@
   box-shadow: inset 0 0 4em rgba(33, 35, 46, 0.5), 0 0.45em rgba($font, 0.75);
   font-size: 1.1rem;
   font-weight: 600;
-  grid-template-columns: minmax(15px, 1fr) minmax(210px, 2fr) minmax(330px, 2fr) minmax(15px, 1fr);
-  grid-template-rows: min-content;
-  height: 50px;
+  grid-gap: 10px;
+  grid-template-areas: 'prompt heading navigation';
+  grid-template-columns: 10px repeat(2, 1fr);
+  max-height: 76px;
+  min-height: 54px;
   line-height: 1.25rem;
   overflow-y: hidden;
   overflow-x: auto;
-  padding: 15px 0;
+  padding: 15px;
   z-index: 10;
 
   @include media-query-max(600px) {
-    grid-row-gap: 10px;
-    grid-template-columns: 15px minmax(330px, 1fr) 15px;
-    grid-template-rows: repeat(2, 18px);
-    height: 76px;
+    grid-template-columns: 10px 1fr;
+    grid-template-areas: 
+      'prompt heading'
+      'prompt navigation';
   }
 
   &::after {
@@ -61,46 +63,31 @@
 
   .header__nav {
     @extend %full-width;
+    @extend %grid;
     @extend %items-center;
 
-    grid-column: 3/4;
-    grid-template-columns: minmax(86px,96px) 18px minmax(43px,48px) 18px minmax(75px,84px);
+    grid-area: navigation;
+    grid-column-gap: 5px;
+    grid-template-areas: 'writing separator1 work separator2 contact';
     justify-content: end;
-    margin-left: auto;
 
     &.writing {
-      grid-template-columns: minmax(86px,96px) 18px minmax(43px,48px) 18px minmax(75px,84px) 18px minmax(32px,35px);
+      grid-template-areas: 'writing separator1 work separator2 contact separator3 rss';
     }
 
     @include media-query-max(600px) {
-      grid-column: 2/3;
-      grid-row: 2/3;
-      grid-template-columns: 15px 78px 18px 39px 18px 67px;
       justify-content: start;
-      margin: 0 auto 0 0;
-
-      &.writing {
-        grid-template-columns: 15px 78px 18px 39px 18px 67px 18px 28px;
-      }
     }
   }
 
   .nav__prompt {
-    grid-column: 1/2;
+    grid-area: prompt;
     margin-right: 5xp;
-    width: 9px;
+    width: 10px;
 
     @include media-query-min(600px) {
       display: none;
     }
-  }
-
-  .header__link-wrapper,
-  .header__nav {
-    @extend %grid;
-    @extend %items-center;
-
-    grid-column-gap: 5px;
   }
 
   .header__link-wrapper,
@@ -127,19 +114,16 @@
   }
 
   .header__link-wrapper {
-    grid-column: 2/3;
-    grid-template-columns: 15px minmax(125px, 145px);
-    margin: 0 50px 0 0;
-    margin: 0;
-
-    @include media-query-max(600px) {
-      grid-row: 1/2;
-    }
+    grid-area: heading;
   }
 
   .header__link--home {
     grid-column: 2/3;
     justify-self: start;
+  }
+
+  .header__separator {
+    width: 18px;
   }
 
   .header__prompt,
