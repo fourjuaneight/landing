@@ -67,6 +67,7 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^7.0.0",
     "imagemin-svgo": "^7.0.0",
+    "imagemin-webp": "^5.0.0",
     "imagemin-webpack-plugin": "^2.4.2",
     "laggard": "^2.0.1",
     "npm": "6.7.0",

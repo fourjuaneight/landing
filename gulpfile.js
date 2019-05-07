@@ -17,6 +17,7 @@ const imagemin = require('gulp-imagemin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const imageminPNGquant = require('imagemin-pngquant');
 const imageminSVGo = require('imagemin-svgo');
+const imageminWebp = require('imagemin-webp');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const rename = require('gulp-rename');
@@ -71,20 +72,23 @@ function convert() {
 // Image Optimization
 function optimize() {
   return gulp
-    .src(['assets/img/*.jpg','assets/img/*.png','assets/img/*.svg'])
+    .src(['assets/img/*.jpg','assets/img/*.png','assets/img/*.svg','assets/img/*.webp'])
     .pipe(plumber())
     .pipe(
       cache(
         imagemin({
           use: [
             imageminMozjpeg({
-              quality: 80
+              quality: 90
             }),
             imageminPNGquant({
-              quality: [0.3, 0.5]
+              quality: [0.7, 0.9]
             }),
             imageminSVGo({
               removeViewBox: true
+            }),
+            imageminWebp({
+              quality: 90
             })
           ]
         })
