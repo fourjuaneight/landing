@@ -6,7 +6,6 @@ import path from 'path';
 export default {
   mode: process.env.NODE_ENV || 'production',
   entry: [
-    "./assets/js/webp.js",
     "./assets/js/contact.js",
   ],
   output: {
