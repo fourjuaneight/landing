@@ -2,9 +2,9 @@
   {{ if or (.IsHome) (eq .Params.Title "About") }}
     <h2 class="main__subtitle footer__title">{&nbsp;Contact&nbsp;}</h2>
     <form class="contact__form" name="Contact" netlify-honeypot="bot-field" action="/success/" netlify>
-      <p class="honey__hidden">
+      <div class="honey__hidden">
         <label>Don’t fill this out if you're human: <input name="bot-field"/></label>
-      </p>
+      </div>
       <input id="name" type="text" aria-label="Your name" placeholder="Name" name="name" class="contact__input active" required>
       <input id="email" type="email" aria-label="Your email" placeholder="Email" name="email" class="contact__input active" required>
       <textarea id="message" type="text" aria-label="Your message" placeholder="Message" name="message" class="contact__input contact__input--message active" required></textarea>
