@@ -59,8 +59,6 @@
 
   .contact__input,
   .contact__button {
-    @extend %full-width;
-
     background-color: $bg;
     border: 2px solid $meta;
     color: $white;
@@ -69,6 +67,8 @@
   }
 
   .contact__input {
+    @extend %full-width;
+
     @include transition(border-color);
 
     font-family: 'Rubik', sans-serif;
