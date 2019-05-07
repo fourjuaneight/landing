@@ -1,7 +1,13 @@
 {{ define "main" }}
   <main class="main">
     <section id="intro" class="main__section main__section--intro">
-      {{ partial "avatar.html" . }}
+      {{ $webp := resources.Get "img/juan.webp" }}
+      {{ $img := resources.Get "img/juan.png" }}
+      <picture class="main__img main__img--hero">
+        <source srcset="{{ $webp.Permalink }}" type="image/webp">
+        <source srcset="{{ $img.Permalink }}" type="image/png">
+        <img src="{{ $img.Permalink }}" alt="Juan Villela illustration wearing a dad hat and a Martian space suit."/>
+      </picture>
       <div class="boxed main__hero">
         <h1 class="main__title">{&nbsp;Hi, I'm <a href='{{ "about" | relURL }}' class="title__link">Juan</a>.&nbsp;}</h1>
         <p class="main__copy">I'm a Front-End Developer, automation nerd, and astronomy enthusiast currently working independently. I help businesses build accessible and performant static sites with the <a href="https://jamstack.org" class="title__link" target="_blank" rel="noopener noreferrer">JAMstack</a>.</p>
