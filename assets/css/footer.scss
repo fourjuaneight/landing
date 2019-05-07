@@ -4,18 +4,19 @@
   @extend %full-width;
   @extend %items-center;
 
-  background-color: rgba($font, 0.95);
+  background-color: rgba($bg, 0.95);
   background-image: $hero-pattern;
-  color: $bg;
-  grid-template-columns: minmax(15px, 1fr) minmax(345px, 410px) minmax(15px, 1fr);
+  color: $white;
+  grid-template-columns: minmax(10px, 1fr) minmax(345px, 410px) minmax(10px, 1fr);
   padding: 30px 0;
 
   .footer__title,
   .contact__form,
   .social__nav,
   .footer__copyright {
+    @extend %just-self-center;
+
     grid-column: 2/3;
-    justify-self: center;
   }
 
   .contact__form {
@@ -60,9 +61,9 @@
   .contact__button {
     @extend %full-width;
 
-    background-color: $font;
+    background-color: $bg;
     border: 2px solid $meta;
-    color: $bg;
+    color: $white;
     margin: 0;
     padding: 10px;
   }
@@ -84,11 +85,11 @@
 
     &:hover,
     &:valid {
-      border-color: $bg;
+      border-color: $white;
     }
 
     &::placeholder {
-      color: $bg;
+      color: $white;
       font-family: 'Fira Code', monospace;
       font-weight: 700;
     }
@@ -115,7 +116,7 @@
     &.active {
       background-color: $link;
       border-color: $link;
-      color: $font;
+      color: $bg;
       cursor: pointer;
     }
   }
@@ -140,7 +141,7 @@
   .social__icon {
     @include transition(fill);
 
-    fill: $bg;
+    fill: $white;
     height: 35px;
     width: auto;
 
@@ -153,28 +154,17 @@
     @extend %grid;
     @extend %items-center;
 
-    grid-column-gap: 5px;
-    grid-template-columns: minmax(54px,60px) 18px minmax(122px,135px) 18px minmax(116px,130px);
+    grid-gap: 5px;
+    grid-template-areas: 'date prompt1 title prompt2 hugo';
     font-size: 1rem;
+    justify-items: center;
     line-height: 1.15rem;
 
     @include media-query-max(405px) {
-      grid-row-gap: 15px;
-      grid-template-columns: 54px 18px 122px;
-      grid-template-rows: repeat(2, 17px);
+      grid-template-areas: 
+        'date prompt1 title'
+        'hugo hugo hugo';
     }
-  }
-
-  .copy__separator,
-  .copy__content {
-    justify-self: center;
-  }
-
-  .copy__date {
-    @extend %flex;
-    @extend %items-center;
-
-    grid-column: 1/2;
   }
 
   .copy__icon {
@@ -182,7 +172,7 @@
     transform: rotateY(180deg);
   }
 
-  .copy__separator:nth-child(4) {
+  .color--prompt:nth-child(4) {
     @include media-query-max(405px) {
       display: none;
     }
@@ -192,25 +182,12 @@
     grid-column: 3/4;
   }
 
-  .copy__ssg {
-    grid-column: 5/6;
+  .copy__hugo {
+    grid-area: hugo;
 
     @include media-query-max(405px) {
       grid-column: 1/4;
       grid-row: 2/3;
-      justify-self: center;
-    }
-  }
-
-  .copy__code {
-    letter-spacing: 1px;
-  }
-
-  .copy__hugo {
-    color: $link;
-    
-    &:hover {
-      text-decoration: underline;
     }
   }
 }

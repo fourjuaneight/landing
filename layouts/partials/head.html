@@ -2,7 +2,7 @@
   {{ hugo.Generator }}
   <meta charset="utf-8" />
   {{/*  Dynamic site title. Default site title is used on homepage. On any other page, the page title with the company name piped next to it is used.  */}}
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ if .Params.heading }}{{ .Params.heading }} | Front End Developer{{ else }}{{ .Title }} | Front End Developer{{ end }}{{ end }}</title>
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ if .Params.heading }}{{ .Params.heading }} | {{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}{{ end }}</title>
   <meta name="author" content="{{ .Site.Author.name }}">
   {{/*  Dynamic site description. Default site description is used on homepage. On any other page, the description found in the front matter is used.  */}}
   <meta name="description" content="{{ .Site.Params.description }}">

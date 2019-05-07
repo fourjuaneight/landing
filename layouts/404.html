@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ partial "header.html" . }}
-  <main class="single err__404">
-    <h1 class="single__title">{&nbsp;404 Not Found&nbsp;}</h1>
+  <main class="content__container single">
+    <h1 class="boxed single__title">{&nbsp;404 Not Found&nbsp;}</h1>
     {{ $webp := resources.Get "img/err-404.webp" }}
     {{ $img := resources.Get "img/err-404.png" }}
     <picture class="single__err-img">
