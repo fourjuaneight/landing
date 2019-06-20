@@ -1,34 +1,32 @@
 /* global self */
 (function() {
-  const version = `v3`;
-  const cacheName = `:juanvilleladev:`;
+  const version = 'v5';
+  const cacheName = ':juanvilleladev:';
   const staticCacheName = `${version}${cacheName}static`;
   const pagesCacheName = `${cacheName}pages`;
   const imagesCacheName = `${cacheName}images`;
   const staticAssets = [
-    `/`,
-    `/writing/`,
-    `/offline/`,
-    `/img/juan.png`,
-    `/img/juan.webp`,
-    `/broken.png`,
-    `/fonts/Rubik-Regular.woff`,
-    `/fonts/Rubik-Regular.woff2`,
-    `/fonts/Rubik-Bold.woff`,
-    `/fonts/Rubik-Bold.woff2`,
-    `/fonts/FiraCode-Regular.woff`,
-    `/fonts/FiraCode-Regular.woff2`,
-    `/fonts/FiraCode-Bold.woff`,
-    `/fonts/FiraCode-Bold.woff2`,
-    `/styles.min.css`,
-    `/scripts.js`,
+    '/',
+    '/about/',
+    '/offline/',
+    '/articles/',
+    '/fonts/Rubik-Regular.woff',
+    '/fonts/Rubik-Regular.woff2',
+    '/fonts/Rubik-Bold.woff',
+    '/fonts/Rubik-Bold.woff2',
+    '/fonts/FiraCode-Regular.woff',
+    '/fonts/FiraCode-Regular.woff2',
+    '/fonts/FiraCode-Bold.woff',
+    '/fonts/FiraCode-Bold.woff2',
+    '/styles.min.css',
+    '/scripts.min.js',
   ];
   function updateStaticCache() {
     // These items must be cached for the Service Worker to complete installation
     return caches.open(staticCacheName).then(cache => {
       return cache.addAll(
         staticAssets.map(url => {
-          return new Request(url, { credentials: `include` });
+          return new Request(url, { credentials: 'include' });
         })
       );
     });
@@ -62,40 +60,34 @@
       );
     });
   }
-  // Check for broken images
-  function isImage(fetchRequest) {
-    return (
-      fetchRequest.method === `GET` && fetchRequest.destination === `image`
-    );
-  }
   // Events!
-  self.addEventListener(`message`, event => {
-    if (event.data.command === `trimCaches`) {
+  self.addEventListener('message', event => {
+    if (event.data.command === 'trimCaches') {
       trimCache(pagesCacheName, 35);
       trimCache(imagesCacheName, 20);
     }
   });
-  self.addEventListener(`install`, event => {
+  self.addEventListener('install', event => {
     event.waitUntil(
       updateStaticCache().then(() => {
         return self.skipWaiting();
       })
     );
   });
-  self.addEventListener(`activate`, event => {
+  self.addEventListener('activate', event => {
     event.waitUntil(
       clearOldCaches().then(() => {
         return self.clients.claim();
       })
     );
   });
-  self.addEventListener(`fetch`, event => {
+  self.addEventListener('fetch', event => {
     const { request } = event;
     const url = new URL(request.url);
-    if (url.href.indexOf(`https://www.juanvillela.dev`) !== 0) return;
-    if (request.method !== `GET`) return;
-    if (url.href.indexOf(`?`) !== -1) return;
-    if (request.headers.get(`Accept`).includes(`text/html`)) {
+    if (url.href.indexOf('https://www.juanvillela.dev') !== 0) return;
+    if (request.method !== 'GET') return;
+    if (url.href.indexOf('?') !== -1) return;
+    if (request.headers.get('Accept').includes('text/html')) {
       event.respondWith(
         fetch(request)
           .then(response => {
@@ -108,15 +100,12 @@
             } else {
               stashInCache(pagesCacheName, request, copy);
             }
-            if (isImage(event.request)) {
-              return caches.match(`/broken.png`);
-            }
             return response;
           })
           .catch(() => {
             // CACHE or FALLBACK
             return caches.match(request).then(response => {
-              return response || caches.match(`/offline/`);
+              return response || caches.match('/offline/');
             });
           })
       );
@@ -125,7 +114,7 @@
     event.respondWith(
       fetch(request)
         .then(response => {
-          if (request.headers.get(`Accept`).includes(`image`)) {
+          if (request.headers.get('Accept').includes('image')) {
             const copy = response.clone();
             stashInCache(imagesCacheName, request, copy);
           }
