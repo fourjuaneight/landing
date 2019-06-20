@@ -1,34 +1,45 @@
-baseURL = "https://www.juanvillela.dev/"
+baseURL = "https://juanvillela.dev/"
 enableEmoji = "true"
 enableRobotsTXT = "true"
 languageCode = "en-us"
 title = "Juan Villela"
 
-FootnoteReturnLinkContents = "↩"
-SectionPagesMenu = "main"
 disableKinds = ["taxonomyTerm"]
+FootnoteReturnLinkContents = "↩"
+metaDataFormat = "yaml"
 summarylength = 40
+
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsOptions = "lineseparator=<br>"
+pygmentsStyle = "dracula"
+pygmentsUseClasses = true
+pygmentsUseClassic = false
+
+[author]
+  name = "Juan Villela"
+
+[blackfriday]
+  hrefTargetBlank = true
+  plainIDAnchors = true
+  OpenLinksInNewWindow = true
+
+[params]
+  description = "Hi, I'm Juan, an independent web developer from Florida. I help businesses build accessible and performant static sites with the JAMstack."
+  social = "fourjuaneight"
 
 [taxonomies]
   tags = "tags"
 
 [permalinks]
   section = "/:filename/"
-  writing = "/writing/:filename/"
-  tags = "/writing/tags/:slug/"
+  articles = "/articles/:filename/"
+  tags = "/tags/:slug/"
 
-[author]
-  name = "Juan Villela"
-  email = "info@juanvillela.dev"
-
-[blackfriday]
-  hrefTargetBlank = true
-  plainIDAnchors = true
-
-[params]
-  description = "I'm Juan Villela. I'm a Front-End Developer, automation nerd, and astronomy enthusiast currently working independently. I help businesses build accessible and performant static sites with the JAMstack."
-  social = "fourjuaneight"
-  OpenLinksInNewWindow = true
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
 
 [outputFormats.jsonfeed]
   MediaType = "application/json"

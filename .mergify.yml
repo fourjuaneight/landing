@@ -1,0 +1,23 @@
+pull_request_rules:
+  - name: automatic merge on CI success and review
+    conditions:
+      - "author=@fourjuaneight"
+      - status-success=continuous-integration/netlify/pr
+      - "#approved-reviews-by>=1"
+    actions:
+      merge:
+        method: merge
+  - name: automatic merge for Dependabot pull requests
+    conditions:
+      - author=dependabot[bot]
+      - status-success=continuous-integration/netlify/pr
+    actions:
+      merge:
+        method: merge
+  - name: automatic merge for ImgBot pull requests
+    conditions:
+      - author=imgbot[bot]
+      - status-success=continuous-integration/netlify/pr
+    actions:
+      merge:
+        method: merge
