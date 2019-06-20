@@ -1,0 +1,118 @@
+/*  Reset */
+a,
+a:hover,
+a:visited {
+  color: var(--font);
+}
+
+article a {
+  text-decoration-style: dashed;
+}
+
+article a:hover {
+  text-decoration-color: var(--link);
+  text-decoration-style: solid;
+}
+
+article,
+footer,
+header,
+image,
+img,
+main,
+svg {
+  margin: 0 auto;
+  width: 100%l
+}
+
+button {
+  background: none;
+  outline: none;
+}
+
+code,
+kbd,
+sup,
+time {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  font-style: normal;
+}
+
+header a:hover,
+footer a:hover {
+  text-decoration-color: var(--link);
+  text-decoration-style: solid;
+}
+
+h1,
+h2,*
+h3,
+h4 {
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+h2,
+h3,
+h4 {
+  margin: 2rem 0 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+image,
+img,
+svg,
+video {
+  height: auto;
+}
+
+img,
+image {
+  object-fit: contain;
+  object-position: left bottom;
+}
+
+input,
+textarea {
+  border: none;
+  padding: 0.5rem;
+}
+
+li,
+p {
+  margin: 0.75rem 0;
+}
+
+p code,
+kbd {
+  padding: 0.0625rem 0.5rem;
+}
+
+p code,
+kbd,
+.button {
+  border-radius: 0.125rem;
+  border: 2px solid var(--font);
+}
+
+kbd,
+.button {
+  box-shadow: var(--box);
+}
