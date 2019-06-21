@@ -1,12 +1,9 @@
-<div class="post__meta">
-  <time datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "2006-01-02" }}</time>
-  {{ $s := .Section }}
-  <div class="post__tags">
-    <span aria-hidden="true" class="color--prompt font--fira">#</span>
+<section>
+  <time datetime='{{ .Date.Format "2006-01-02" }}'><span aria-label="Posted on">&tau;</span>&nbsp;{{ .Date.Format "2006-01-02" }}</time>
+  <ul>
     {{/*  Loop over tags list in front-matter  */}}
     {{ range $key, $tag := .Params.tags }}
-      {{- if ne $key 0 }}<span>, </span>{{ end }}
-      <a class="meta__tag" href="/{{ $s }}/tags/{{ $tag }}">{{ $tag }}</a>
+      <li>#<a href="/tags/{{ $tag }}" itemprop="about">{{ $tag }}</a></li>
     {{ end }}
-  </div>
-</div>
+  </ul>
+</section>

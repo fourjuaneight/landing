@@ -1,11 +1,10 @@
 {{ define "main" }}
-  <main class="content__container single">
-    <h1 class="boxed single__title"><span class="color--prompt">#</span> {{ .Name }}</h1>
-    <ul class="boxed writing__list">
-      {{/*  Loop over entries in Tag  */}}
+  <main>
+    <h1><span aria-hidden="true">#</span> {{ .Name }}</h1>
+    <section>
       {{ range .Pages }}
-        <li class="writing__list--entry">{{ .Render "li" }}</li>
+        {{ .Render "li" }}
       {{ end }}
-    </ul>
+    </section>
   </main>
 {{ end }}

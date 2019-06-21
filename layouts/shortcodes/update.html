@@ -1,6 +1,4 @@
-{{ $d := .Get "date"}}
-{{ $c := .Get "content"}}
-<div class="post__update">
-  <p class="update__heading">Update <time class="color--prompt" datetime="{{ $d }}">{{ $d }}</time>:</p>
-  <p class="update__body">{{ $c }}</p>
-</div>
+<section>
+  <h2>Update <time datetime='{{ .Get "date" }}'>{{ .Get "date" }}</time>:</h2>
+  <p>{{ .Get "content" }}</p>
+</section>

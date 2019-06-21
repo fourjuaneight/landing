@@ -1,4 +1,4 @@
 {{ $i := .Get 0 }}
-<sup class="footnote__ref font--fira" id="fnref:{{ $i }}">
-  <a class="footnote__link" href="{{ .Page.Permalink }}#fn:{{ $i }}" rel="footnote" title="Link to footnote {{ $i }}" data-foot="fn:{{ $i }}">[{{ $i }}]</a>
+<sup>
+  <a href="{{ .Page.Permalink }}#fn:{{ $i }}" rel="footnote" title="Link to footnote {{ $i }}">[{{ $i }}]</a>
 </sup>

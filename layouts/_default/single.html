@@ -1,12 +1,11 @@
 {{ define "main" }}
-  <main class="content__container single">
-    <h1 class="boxed single__title">{&nbsp;{{ .Title }}&nbsp;}</h1>
-    <article class="boxed post">
-      {{ if eq .Type "writing" }}
+  <main>
+    <article>
+      <h1>{{ .Title }}</h1>
+      {{ if eq .Type "blog" }}
         {{ partial "meta.html" . }}
       {{ end }}
-      {{/*  Contact form will not be present in blog posts.  */}}
-      <section class="post__content">{{ .Content }}</section>
+      <section>{{ .Content }}</section>
     </article>
   </main>
 {{ end }}
