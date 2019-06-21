@@ -4,14 +4,17 @@
 module.exports = () => {
   return {
     plugins: {
-      'autoprefixer': { browsers: ['> 5%'] },
-      'cssnano': { preset: 'default' },
-      'postcss-calc': {},
-      'postcss-custom-properties': {},
-      'postcss-import': {},
-      'postcss-mixins': {},
-      'postcss-nested': {},
-      'postcss-simple-vars': {},
-    },
+      'postcss-preset-env': {
+        stage: 3,
+        autoprefixer: {
+          flexbox: true,
+          grid: 'autoplace'
+        },
+        browsers: [
+          '> 5%',
+          'IE 11'
+        ]
+      }
+    }
   };
 };

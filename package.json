@@ -3,11 +3,12 @@
   "version": "2.0.0",
   "description": "Hi, I'm Juan, an independent web developer from Florida. I help businesses build accessible and performant static sites with the JAMstack.",
   "scripts": {
-    "build": "hugo -e production && gulp post",
+    "build": "hugo -e production && npm run purge",
     "clean": "rm -rf public resources",
     "clean-node": "rm -rf node_modules",
-    "development": "hugo -e development && gulp post",
-    "start": "hugo --disableFastRender serve"
+    "development": "hugo -e development && npm run purge",
+    "purge": "purgecss --css public/css/*.css --content public/**/*.html --out public/css",
+    "start": "hugo -e development serve --disableFastRender"
   },
   "repository": {
     "type": "git",
@@ -26,18 +27,8 @@
     "natives": "1.1.3"
   },
   "devDependencies": {
-    "autoprefixer": "^9.5.1",
-    "cssnano": "^4.1.4",
-    "gulp": "^4.0.0",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-purgecss": "^1.2.0",
-    "gulp-replace": "^1.0.0",
-    "postcss-calc": "^7.0.1",
     "postcss-cli": "^6.0.0",
-    "postcss-custom-properties": "^8.0.10",
-    "postcss-import": "^12.0.1",
-    "postcss-mixins": "^6.2.1",
-    "postcss-nested": "^4.1.0",
-    "postcss-simple-vars": "^5.0.1"
+    "postcss-preset-env": "^6.6.0",
+    "purgecss": "^1.3.0"
   }
 }
