@@ -11,10 +11,11 @@
   <meta name="theme-color" content="#8F3A6D">
 
   {{/*  Stylesheets  */}}
-  {{ $critical := resources.Get "css/reset.css" }}
+  {{ $critical := resources.Get "css/critical.css" }}
   {{ $reset := resources.Get "css/reset.css" }}
   {{ $components := resources.Get "css/components.css" }}
-  {{ $styles := slice $critical $reset $components | resources.Concat "css/styles.css" | postCSS | minify }}
+  {{ $main := resources.Get "css/main.css" }}
+  {{ $styles := slice $critical $reset $components $main | resources.Concat "css/styles.css" | postCSS | minify }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}">
 
   {{/*  RSS  */}}
