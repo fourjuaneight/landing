@@ -33,7 +33,7 @@ pygmentsUseClassic = false
 
 [permalinks]
   section = "/:filename/"
-  articles = "/articles/:filename/"
+  blog = "/blog/:filename/"
   tags = "/tags/:slug/"
 
 [sitemap]
