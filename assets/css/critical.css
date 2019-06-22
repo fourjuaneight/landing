@@ -95,10 +95,11 @@
 }
 
 :root {
+  --accent: hsl(357, 48%, 51%);
+  --background: hsl(0, 0%, 95%);
   --font: hsl(0, 0%, 13%);
-  --link: hsl(2, 49%, 50%);
+  --font-strong: hsl(0, 0%, 0%);
   --meta: hsl(0, 0%, 43%);
-  --white: hsl(0, 0%, 95%);
 
   --box: 1px 1px 0 var(--font), 2px 2px 0 var(--font);
 
@@ -111,6 +112,14 @@
   --mobile: 375px;
 }
 
+html.dark {
+  --accent: hsl(212, 87%, 67%);
+  --background: hsl(210, 6%, 13%);
+  --font: hsl(0, 0%, 95%);
+  --font-strong: hsl(0, 0%, 100%);
+  --meta: hsl(0, 0%, 54%);
+}
+
 *,
 *::before,
 *::after {
@@ -118,8 +127,8 @@
 }
 
 *::selection {
-  background-color: rgba(var(--font), 0.4);
-  color: var(--white);
+  background-color: var(--font);
+  color: var(--background);
 }
 
 html {
@@ -129,7 +138,7 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
-@media screen and (max-width: var(--tablet)) {
+@media screen and (max-width: 768px) {
   html {
     font-size: 95%;
   }

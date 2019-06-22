@@ -5,24 +5,19 @@ a:visited {
   color: var(--font);
 }
 
-article a {
-  text-decoration-style: dashed;
-}
-
-article a:hover {
-  text-decoration-color: var(--link);
-  text-decoration-style: solid;
-}
-
 article,
 footer,
 header,
 image,
 img,
-main,
-svg {
+main {
   margin: 0 auto;
-  width: 100%l
+  width: 100%;
+}
+
+blockquote {
+  border-left: 0.125em solid var(--accent);
+  padding-left: 0.75rem;
 }
 
 button {
@@ -41,12 +36,12 @@ time {
 
 header a:hover,
 footer a:hover {
-  text-decoration-color: var(--link);
+  text-decoration-color: var(--accent);
   text-decoration-style: solid;
 }
 
 h1,
-h2,*
+h2,
 h3,
 h4 {
   font-weight: bold;
@@ -78,7 +73,6 @@ h4 {
 
 image,
 img,
-svg,
 video {
   height: auto;
 }
@@ -95,6 +89,7 @@ textarea {
   padding: 0.5rem;
 }
 
+blockquote,
 li,
 p {
   margin: 0.75rem 0;
@@ -109,7 +104,7 @@ p code,
 kbd,
 .button {
   border-radius: 0.125rem;
-  border: 2px solid var(--font);
+  border: 0.125em solid var(--font);
 }
 
 kbd,

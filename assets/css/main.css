@@ -1,0 +1,23 @@
+.ext,
+.int,
+.nav:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+.ext:hover {
+  color: var(--accent);
+}
+
+.home,
+.nav {
+  text-decoration: none;
+}
+
+.home:hover {
+  color: var(--font-strong) !important;
+}
+
+.int {
+  color: var(--font-strong) !important;
+}
