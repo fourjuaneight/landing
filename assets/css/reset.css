@@ -1,6 +1,7 @@
 /*  Reset */
 a {
   color: var(--font);
+  transition: color 150ms ease;
 }
 
 a:visited {

@@ -3,7 +3,7 @@
   <ul class="clean flex flex-wrap ma0 pa0">
     {{/*  Loop over tags list in front-matter  */}}
     {{ range $key, $tag := .Params.tags }}
-      <li class="f7 ma0 mr1"><span aria-hidden="true" class="meta">#</span><a href="/tags/{{ $tag }}" itemprop="about" class="meta none tag">{{ $tag }}</a></li>
+      <li class="f7 ma0 mr1 raise"><span aria-hidden="true" class="meta">#</span><a href="/tags/{{ $tag }}" itemprop="about" class="meta none">{{ $tag }}</a></li>
     {{ end }}
   </ul>
 </section>
