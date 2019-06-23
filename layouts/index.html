@@ -1,8 +1,8 @@
 {{ define "main" }}
-  {{ if .IsHome }}
-    {{ partial "hero.html" . }}
-  {{ end }}
   <main>
+    {{ if .IsHome }}
+      {{ partial "hero.html" . }}
+    {{ end }}
     <h2>Recent blog posts</h2>
     {{ $blog := ($.Site.GetPage "section" "blog").Pages }}
     {{ range last 4 $blog }}

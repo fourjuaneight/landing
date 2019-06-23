@@ -1,6 +1,6 @@
 {{ define "main" }}
   <main>
-    <h1><span aria-hidden="true">#</span> {{ .Name }}</h1>
+    <h1 class="ttc"><span aria-hidden="true">#</span> {{ .Name }}</h1>
     <section>
       {{ range .Pages }}
         {{ .Render "li" }}

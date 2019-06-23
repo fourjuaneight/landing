@@ -5,7 +5,7 @@
       {{ if eq .Type "blog" }}
         {{ partial "meta.html" . }}
       {{ end }}
-      <section>{{ .Content }}</section>
+      <section class="content">{{ .Content }}</section>
     </article>
   </main>
 {{ end }}

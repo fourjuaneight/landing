@@ -1,9 +1,9 @@
-<section>
-  <time datetime='{{ .Date.Format "2006-01-02" }}'><span aria-label="Posted on">&tau;</span>&nbsp;{{ .Date.Format "2006-01-02" }}</time>
-  <ul>
+<section class="flex flex-wrap justify-between w-100">
+  <time datetime='{{ .Date.Format "2006-01-02" }}' class="meta mra"><span aria-label="Posted on">&tau;</span>&nbsp;{{ .Date.Format "2006-01-02" }}</time>
+  <ul class="clean flex flex-wrap ma0 pa0">
     {{/*  Loop over tags list in front-matter  */}}
     {{ range $key, $tag := .Params.tags }}
-      <li>#<a href="/tags/{{ $tag }}" itemprop="about">{{ $tag }}</a></li>
+      <li class="f7 ma0 mr1"><span aria-hidden="true" class="meta">#</span><a href="/tags/{{ $tag }}" itemprop="about" class="meta none tag">{{ $tag }}</a></li>
     {{ end }}
   </ul>
 </section>

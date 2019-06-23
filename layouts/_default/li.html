@@ -1,6 +1,6 @@
-<article>
-  <a href="{{ .Permalink }}"><h3>{{ .Title }}</h3></a>
+<article class="flex flex-column items-start">
+  <a href="{{ .Permalink }}" class="none"><h3>{{ .Title }}</h3></a>
   {{ partial "meta.html" . }}
   <p>{{ .Summary }}</p>
-  <a href="{{ .Permalink }}">Continue reading</a>
+  <a href="{{ .Permalink }}" class="none continue">Continue reading<span aria-hidden="true" class="symbol">&xrarr;</span></a>
 </article>

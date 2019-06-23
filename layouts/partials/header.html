@@ -1,10 +1,4 @@
-<header>
-  <a href="{{ .Site.BaseURL }}" rel="me"><strong>Juan_Villela</strong><br>Front-End Developer</a>
-  <nav>
-    <a href='{{ "blog" | relURL }}'>blog</a>
-    <span aria-hidden="true">::</span>
-    <a href='{{ "work" | relURL }}'>Work</a>
-    <span aria-hidden="true">::</span>
-    <a href='{{ "about" | relURL }}'>About</a>
-  </nav>
+<header class="f5 flex flex-wrap pa1 w-100">
+  <a href="{{ .Site.BaseURL }}" rel="me" class="mra none pa1"><strong>Juan Villela</strong><br>Front-End Developer</a>
+  {{ partial "nav.html" . }}
 </header>

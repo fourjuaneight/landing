@@ -1,23 +1,66 @@
-.ext,
-.int,
-.nav:hover {
+@media screen and (max-width: 768px) {
+  .connect dl {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Styling */
+.cnt-lnk:hover svg {
+  fill: var(--accent);
+}
+
+.content a,
+.gen,
+.hero-lnk {
   text-decoration: underline;
   text-decoration-color: var(--accent);
 }
 
-.ext:hover {
-  color: var(--accent);
+.continue .symbol {
+  margin: 0 0.5rem;
 }
 
-.home,
-.nav {
-  text-decoration: none;
+.hero-lnk .symbol {
+  margin-left: -1px;
+}
+
+.fn-link,
+.symbol {
+  font-family: system-ui,sans-serif;
+  font-weight: 900;
+  line-height: .75;
+}
+
+.fn-link {
+  margin-left: -1px;
+}
+
+.fn-cont {
+  background-color: var(--meta);
+  border-radius: 50%;
+  height: 1rem;
+}
+
+.fn-cont:hover {
+  background-color: var(--accent);
+}
+
+.fn {
+  color: var(--background);
+  font-size: 0.65rem;
+  text-align: center;
+}
+
+.fn:hover,
+.fn:visited {
+  color: var(--background) !important;
 }
 
 .home:hover {
   color: var(--font-strong) !important;
 }
 
-.int {
-  color: var(--font-strong) !important;
+.tag:visited {
+  color: var(--meta);
 }
