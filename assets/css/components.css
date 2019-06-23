@@ -1,6 +1,6 @@
 /*  Accessibility */
 [hidden],
-.hdn {
+.hidden {
   display: none !important;
 }
 
@@ -87,6 +87,26 @@
   margin-top: 1rem;
 }
 
+.ma2 {
+  margin: 2rem;
+}
+
+.mb2 {
+  margin-bottom: 2rem;
+}
+
+.ml2 {
+  margin-left: 2rem;
+}
+
+.mr2 {
+  margin-right: 2rem;
+}
+
+.mt2 {
+  margin-top: 2rem;
+}
+
 .pa0 {
   padding: 0;
 }
@@ -154,6 +174,10 @@
 
 .flex {
   display: flex;
+}
+
+.flex-inline {
+  display: inline-flex;
 }
 
 .grid {
@@ -700,6 +724,21 @@
   line-height: 1.5;
 }
 
+.tac {
+  text-align: center;
+}
+
+.tae {
+  text-align: end;
+}
+
+.tas {
+  text-align: start;
+}
+
+.none {
+  text-decoration: none !important;
+}
 
 .strike {
   text-decoration: line-through;

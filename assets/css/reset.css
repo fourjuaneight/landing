@@ -1,8 +1,14 @@
 /*  Reset */
-a,
-a:hover,
-a:visited {
+a {
   color: var(--font);
+}
+
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  color: var(--accent);
 }
 
 article,
@@ -30,7 +36,7 @@ kbd,
 sup,
 time {
   font-family: var(--mono);
-  font-size: 0.85em;
+  font-size: 0.875rem;
   font-style: normal;
 }
 
