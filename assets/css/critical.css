@@ -96,12 +96,15 @@
 
 :root {
   --accent: hsl(357, 48%, 51%);
+  --accent-light: hsla(357, 48%, 51%, 0.45);
   --background: hsl(0, 0%, 100%);
   --font: hsl(0, 0%, 13%);
   --font-strong: hsl(0, 0%, 0%);
   --meta: hsl(0, 0%, 43%);
 
   --box: 1px 1px 0 var(--font), 2px 2px 0 var(--font);
+
+  --duration: 250ms;
 
   --dys: 'Dyslexic', sans-serif;
   --mono: 'Fira Code', monospace;
@@ -114,6 +117,7 @@
 
 html.dark {
   --accent: hsl(212, 87%, 67%);
+  --accent-light: hsla(212, 87%, 67%, 0.45);
   --background: hsl(210, 6%, 13%);
   --font: hsl(0, 0%, 95%);
   --font-strong: hsl(0, 0%, 100%);

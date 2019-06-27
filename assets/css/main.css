@@ -7,7 +7,7 @@
 
 /* Styling */
 .cnt-lnk svg {
-  transition: fill 150ms ease;
+  transition: fill var(--duration) ease;
 }
 
 .cnt-lnk:hover svg {
@@ -56,8 +56,24 @@
   border-top: 1px solid var(--meta);
 }
 
-.home:hover {
-  color: var(--font-strong) !important;
+.headshot {
+  transition: border-radius var(--duration) ease;
+}
+
+.home:hover .headshot,
+.home:hover .headshot img {
+  transition-delay: 0;
+}
+
+.headshot {
+  background-color: var(--accent);
+  border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
+  height: 70px;
+  width: 70px;
+}
+
+.home:hover .headshot {
+  border-radius: 43% 57% 43% 57%/36% 64% 36% 64%;
 }
 
 /* Layout */

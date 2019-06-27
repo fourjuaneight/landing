@@ -818,7 +818,7 @@
 /*  Custom */
 .button {
   padding: 0.5rem 1rem;
-  transition: all 150ms ease;
+  transition: all var(--duration) ease;
 }
 
 .button:hover {
@@ -834,7 +834,7 @@
   left: 0;
   position: absolute;
   right: 0;
-  transition: all 150ms ease;
+  transition: all var(--duration) ease;
   z-index: -1;
 }
 
