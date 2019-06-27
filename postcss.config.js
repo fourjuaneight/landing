@@ -8,7 +8,7 @@ module.exports = () => {
         stage: 3,
         autoprefixer: {
           flexbox: true,
-          grid: 'autoplace'
+          grid: false
         },
         browsers: [
           '> 5%',
