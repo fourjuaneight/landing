@@ -423,6 +423,18 @@
   grid-row-gap: 1rem;
 }
 
+.gap05 {
+  grid-gap: 0.5rem;
+}
+
+.gap-column05 {
+  grid-column-gap: 0.5rem;
+}
+
+.gap-row05 {
+  grid-row-gap: 0.5rem;
+}
+
 /*  Size */
 .h1 {
   height: 1rem;
@@ -814,3 +826,47 @@
   transform: translate(1px, 1px);
 }
 
+.fill::before,
+.under::before {
+  background-color: var(--accent);
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: all 150ms ease;
+  z-index: -1;
+}
+
+.fill::before {
+  top: 0;
+  transform-origin: bottom center;
+  transform: scaleY(0);
+}
+
+.fill:hover {
+  color: var(--background);
+}
+
+.fill:hover::before {
+  background-color: var(--accent);
+  transform: scaleY(1);
+}
+
+.marked {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 2.25rem 0.25rem;
+  background-repeat: no-repeat;
+  background-position: left 0 bottom -1px;
+}
+
+.under::before {
+  height: 0.15rem;
+  opacity: 0;
+  transform: translateY(3px);
+}
+
+.under:hover::before {
+  opacity: 1;
+  transform: translateY(1px);
+}

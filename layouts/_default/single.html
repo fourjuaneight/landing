@@ -1,7 +1,7 @@
 {{ define "main" }}
-  <main>
+  <main class="pa2">
     <article>
-      <h1>{{ .Title }}</h1>
+      <h1 class="marked">{{ .Title }}</h1>
       {{ if eq .Type "blog" }}
         {{ partial "meta.html" . }}
       {{ end }}

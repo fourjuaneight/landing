@@ -1,6 +1,6 @@
 {{ define "main" }}
-  <main>
-    <h1>Recent blog posts</h1>
+  <main class="pa2">
+    <h1 class="marked">Recent blog posts</h1>
     {{ $blog := .Paginate (where .Data.Pages "Type" "blog") 10 }}
     {{ range $blog.Pages }}
       {{ .Render "li"}}
