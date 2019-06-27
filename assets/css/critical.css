@@ -96,7 +96,7 @@
 
 :root {
   --accent: hsl(357, 48%, 51%);
-  --background: hsl(0, 0%, 95%);
+  --background: hsl(0, 0%, 100%);
   --font: hsl(0, 0%, 13%);
   --font-strong: hsl(0, 0%, 0%);
   --meta: hsl(0, 0%, 43%);

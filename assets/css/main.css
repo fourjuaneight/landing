@@ -17,20 +17,10 @@
 .content a,
 .ext {
   text-decoration: underline;
-  text-decoration-color: var(--accent);
 }
 
-.continue .symbol {
-  margin: 0 0.5rem;
-  transition: margin-left 150ms ease;
-}
-
-.continue:hover .symbol {
-  margin-left: 1rem;
-}
-
-.ext .symbol {
-  margin-left: -1px;
+.ext {
+  text-decoration-color: var(--accent) !important;
 }
 
 .fill::before,
@@ -60,8 +50,7 @@
   transform: scaleY(1);
 }
 
-.fn-link,
-.symbol {
+.fn-link {
   font-family: system-ui,sans-serif;
   font-weight: 900;
   line-height: .75;
@@ -105,12 +94,4 @@
 .under:hover::before {
   opacity: 1;
   transform: translateY(1px);
-}
-
-.raise {
-  transition: transform 150ms ease;
-}
-
-.raise:hover {
-  transform: scale(1.1);
 }
