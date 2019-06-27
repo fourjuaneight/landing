@@ -1,7 +1,7 @@
-<header class="f5 flex flex-wrap pa1 w-100">
+<header class="f5 flex flex-wrap pb1 pt1 w-100">
   {{ $webp := resources.Get "img/juan.webp" }}
   {{ $img := resources.Get "img/juan.png" }}
-  <a href="{{ .Site.BaseURL }}" rel="me" class="flex justify-flex-start items-center mra none pa1 home">
+  <a href="{{ .Site.BaseURL }}" rel="me" class="flex justify-flex-start items-center mra none pb1 pt1 home">
     <picture class="flex overflow-hidden mr1 relative headshot">
       <source srcset="{{ $webp.Permalink }}" type="image/webp">
       <source srcset="{{ $img.Permalink }}" type="image/png">
