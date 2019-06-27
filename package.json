@@ -3,11 +3,10 @@
   "version": "2.0.0",
   "description": "Hi, I'm Juan, an independent web developer from Florida. I help businesses build accessible and performant static sites with the JAMstack.",
   "scripts": {
-    "build": "hugo -e production && npm run purge",
+    "build": "hugo -e production",
     "clean": "rm -rf public resources",
     "clean-node": "rm -rf node_modules",
-    "development": "hugo -e development && npm run purge",
-    "purge": "purgecss --css public/css/*.css --content public/**/*.html --out public/css",
+    "development": "hugo -e development",
     "start": "hugo -e development serve --disableFastRender"
   },
   "repository": {
@@ -28,7 +27,6 @@
   },
   "devDependencies": {
     "postcss-cli": "^6.0.0",
-    "postcss-preset-env": "^6.6.0",
-    "purgecss": "^1.3.0"
+    "postcss-preset-env": "^6.6.0"
   }
 }
