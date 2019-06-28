@@ -1,10 +1,36 @@
 /* Styling */
+.cnt-lnk {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.cnt-lnk::before {
+  background-color: var(--accent);
+  border-radius: var(--border-radius);
+  content: '';
+  height: 2.5rem;
+  pointer-events: none;
+  position: absolute;
+  transform: scale(0);
+  transition: transform var(--duration) ease;
+  width: 2.5rem;
+  z-index: -1;
+}
+
 .cnt-lnk svg {
   transition: fill var(--duration) ease;
 }
 
+.cnt-lnk i {
+  height: 24px;
+}
+
+.cnt-lnk:hover::before {
+  transform: scale(1);
+}
+
 .cnt-lnk:hover svg {
-  fill: var(--accent);
+  fill: var(--background);
 }
 
 .content a,
@@ -55,7 +81,7 @@
 
 .headshot {
   background-color: var(--accent);
-  border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
+  border-radius: var(--border-radius);
   height: 6.5rem;
   width: 6.5rem;
 }
@@ -83,7 +109,7 @@ dd {
 footer {
   align-items: start;
   grid-row: 3/4;
-  grid-template-columns: 6.5rem minmax(10.5rem,48rem);
+  grid-template-columns: 6.5rem minmax(10.5rem,32rem);
   grid-template-rows: min-content 1.5rem;
 }
 

@@ -103,16 +103,13 @@
   --meta: hsl(0, 0%, 43%);
 
   --box: 1px 1px 0 var(--font), 2px 2px 0 var(--font);
+  --border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
 
-  --duration: 250ms;
+  --duration: 200ms;
 
   --dys: 'Dyslexic', sans-serif;
   --mono: 'Fira Code', monospace;
   --sans: 'Rubik', sans-serif;
-
-  --desktop: 1440px;
-  --tablet: 768px;
-  --mobile: 375px;
 }
 
 html.dark {
