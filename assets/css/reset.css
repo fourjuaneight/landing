@@ -33,10 +33,20 @@ button {
 }
 
 code,
+h1,
+h2,
+h3,
+h4,
 kbd,
 sup,
-time {
+time,
+.mono {
   font-family: var(--mono);
+}
+
+code,
+kbd,
+sup {
   font-size: 0.875rem;
   font-style: normal;
 }

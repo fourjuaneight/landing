@@ -724,6 +724,10 @@
   font-weight: bold;
 }
 
+.n {
+  font-weight: normal;
+}
+
 .lh-solid {
   line-height: 1;
 }
