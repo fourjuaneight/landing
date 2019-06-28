@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
   {{ partial "head.html" . }}
-  <body class="grid ma0">
+  <body class="grid ma0 pb2">
     {{ partial "header.html" . }}
 
-    {{ block "main" . }}{{ end }}
+    <main class="pb2 pt2">
+      {{ block "main" . }}{{ end }}
+    </main>
 
     {{ partial "footer.html" . }}
 

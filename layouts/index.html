@@ -1,12 +1,7 @@
 {{ define "main" }}
-  <main class="pb1 pt1">
-    {{ if .IsHome }}
-      {{ partial "hero.html" . }}
-    {{ end }}
-    <h2 class="marked">Recent blog posts</h2>
-    {{ $blog := ($.Site.GetPage "section" "blog").Pages }}
-    {{ range last 4 $blog }}
-      {{ .Render "li" }}
-    {{ end }}
-  </main>
+  <h2 class="marked">Recent blog posts</h2>
+  {{ $blog := ($.Site.GetPage "section" "blog").Pages }}
+  {{ range last 4 $blog }}
+    {{ .Render "li" }}
+  {{ end }}
 {{ end }}

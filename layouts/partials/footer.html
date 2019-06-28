@@ -1,10 +1,8 @@
-<footer class="flex flex-column items-center pb1 pt1">
-  {{ partial "connect.html" . }}
-  <section class="f7 flex justify-between mb1 mt1 w-100 footer-copy">
-    <p class="ma0">&copy;&nbsp;{{ time.Now.Format "2006" }}</p>
-    <span aria-hidden="true" class="meta">::</span>
-    <p class="ma0">{{ .Site.Title }}</p>
-    <span aria-hidden="true" class="meta">::</span>
-    <p class="ma0"><span aria-label="Coded"></></span> with <a href="https://gohugo.io" target="_blank" rel="noopener noreferrer" class="ext relative">Hugo</a></p>
+<footer class="grid gap1 justify-center pb2 pt2 w-100">
+  {{ partial "avatar.html" . }}
+  <section class="flex flex-column items-start mb1 mw7">
+    <p class="b f3 ma0 mb1 mono">{{ .Site.Title }}</p>
+    <p class="ma0 mw7 w-100">{{ .Site.Params.description }}</p>
   </section>
+  {{ partial "connect.html" . }}
 </footer>

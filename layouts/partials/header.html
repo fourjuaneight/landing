@@ -1,13 +1,6 @@
 <header class="f5 flex flex-wrap pb1 pt1 w-100">
-  {{ $webp := resources.Get "img/juan.webp" }}
-  {{ $img := resources.Get "img/juan.png" }}
   <a href="{{ .Site.BaseURL }}" rel="me" class="flex justify-flex-start items-center mra none pb1 pt1 home">
-    <picture class="flex overflow-hidden mr1 relative headshot">
-      <source srcset="{{ $webp.Permalink }}" type="image/webp">
-      <source srcset="{{ $img.Permalink }}" type="image/png">
-      <img src="{{ $img.Permalink }}" alt="Juan Villela avatar"/>
-    </picture>
-    <p><strong>Juan Villela</strong><br>Front-End Developer</p>
+    <h1 class="f5 ma0 mono n"><strong>Juan Villela</strong><br>Front-End Developer</h1>
   </a>
   {{ partial "nav.html" . }}
 </header>

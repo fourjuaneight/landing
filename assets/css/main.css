@@ -53,19 +53,14 @@
   transition: border-radius var(--duration) ease;
 }
 
-.home:hover .headshot,
-.home:hover .headshot img {
-  transition-delay: 0;
-}
-
 .headshot {
   background-color: var(--accent);
   border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
-  height: 70px;
-  width: 70px;
+  height: 6.5rem;
+  width: 6.5rem;
 }
 
-.home:hover .headshot {
+.headshot:hover {
   border-radius: 43% 57% 43% 57%/36% 64% 36% 64%;
 }
 
@@ -77,8 +72,24 @@
 
 /* Layout */
 body {
-  grid-template-columns: minmax(2rem,1fr) minmax(288px,1200px) minmax(2rem,1fr);
+  grid-template-columns: minmax(2rem,1fr) minmax(1rem,1200px) minmax(2rem,1fr);
   grid-template-rows: repeat(3, auto);
+}
+
+dd {
+  height: 1.5rem;
+}
+
+footer {
+  align-items: start;
+  grid-row: 3/4;
+  grid-template-columns: 6.5rem minmax(10.5rem,48rem);
+  grid-template-rows: min-content 1.5rem;
+}
+
+footer dl {
+  grid-column: 2/3;
+  justify-self: end;
 }
 
 header,
@@ -95,22 +106,11 @@ main {
   grid-row: 2/3;
 }
 
-footer {
-  grid-row: 3/4;
-}
-
 nav {
   max-height: 3.5rem;
-  max-width: 12rem;
+  max-width: 11rem;
 }
 
 .footer-copy {
   max-width: 16rem;
-}
-
-@media screen and (max-width: 768px) {
-  .connect dl {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 }

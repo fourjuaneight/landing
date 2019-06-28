@@ -1,5 +1,5 @@
 {{ $i := .Get 0 }}
 <li id="fn:{{ $i }}">
   <p class="inline ma0">{{ .Get 1 }}</p>
-  <a href="{{ .Page.Permalink }}#fnref:{{ $i }}" title="Permalink to footnote {{ $i }}" class="inline none w1 fn-link">&Hat;</a>
+  <a href="{{ .Page.Permalink }}#fnref:{{ $i }}" title="Permalink to footnote {{ $i }}" class="inline mono none w1 fn-link">&Hat;</a>
 </li>

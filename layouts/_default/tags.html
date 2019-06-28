@@ -1,10 +1,8 @@
 {{ define "main" }}
-  <main class="pb1 pt1">
-    <h1 class="marked ttc">{{ .Name }}</h1>
-    <section>
-      {{ range .Pages }}
-        {{ .Render "li" }}
-      {{ end }}
-    </section>
-  </main>
+  <h2 class="marked ttc">{{ .Name }}</h2>
+  <section>
+    {{ range .Pages }}
+      {{ .Render "li" }}
+    {{ end }}
+  </section>
 {{ end }}
