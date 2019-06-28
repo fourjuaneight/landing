@@ -71,10 +71,6 @@
   color: var(--background) !important;
 }
 
-.footnotes {
-  border-top: 1px solid var(--meta);
-}
-
 .headshot {
   transition: border-radius var(--duration) ease;
 }
