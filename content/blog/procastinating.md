@@ -13,11 +13,11 @@ Procrastination isn't optional; there's always that nagging voice in your head t
 ## Do all the things at once
 Attempting to do too much at once, as many of you may have figured out by now, is not the best approach. According to {{< link href="http://www.apa.org/research/action/multitask.aspx" content="David E. Meyer" >}}, "multitasking may seem efficient on the surface but may actually take more time in the end and involve more error." There are, however, ways around this. This site, for example, is hosted on {{< link href="https://github.com" content="GitHub" >}}. When any content is modified, {{< link href="https://www.netlify.com" content="Netlify" >}} detects these changes automatically, updating the site. A lot of the heavy lifting is done for me, thus letting me focus on the writing and not running the site. But let's take things a step further with a {{< link href="https://itunes.apple.com/us/app/workflow/id915249334?mt=8" content="Workflow" >}} I put together:
 
-1. A front matter is created with the title of the note and the correctly formatted date.
-2. The tags are chosen and placed accordingly.
-3. The front matter and body of the article are arranged properly.
-4. The whole document is then sent to {{< link href="https://itunes.apple.com/us/app/working-copy-enterprise/id965019520?mt=8" content="Working Copy" >}}.
-5. Finally, the changes are committed to the master repo on Github.
+0. A front matter is created with the title of the note and the correctly formatted date.
+1. The tags are chosen and placed accordingly.
+2. The front matter and body of the article are arranged properly.
+3. The whole document is then sent to {{< link href="https://itunes.apple.com/us/app/working-copy-enterprise/id965019520?mt=8" content="Working Copy" >}}.
+4. Finally, the changes are committed to the master repo on Github.
 
 A several minutes long, multiple steps task took Workflow only a few seconds. So now I simply go to Netlify and make sure the build went through successfully, right? How about just getting notified instead and skip all of that. Using webhooks and {{< link href="https://ifttt.com/maker_webhooks" content="IFTTT" >}}, I can make two applets that catch the outcome and send a notification to my phone confirming if the build passed or failed. I've now cut down my production time significantly and automated several repetitive tasks.
 
@@ -28,11 +28,11 @@ Productivity breaks down to a simple formula: "High-Quality Work Produced = (Tim
 
 Personally, I prefer to walk around in circles in my home office. I find it to be the perfect time to prepare myself for the day. There as several tools that can help with this; I'm a fan of {{< link href="https://itunes.apple.com/us/app/things-3/id904237743?mt=8" content="Things" >}} as it strikes a perfect balance between ease of use and functionality. The app has become an extension of my brain that keeps me focused throughout the day. My process looks something like this:
 
-1. I write down my goals for the day and collect previous data.
-2. Items are separated by actionable and not urgent.
+0. I write down my goals for the day and collect previous data.
+1. Items are separated by actionable and not urgent.
   * Actionable tasks are taken care of promptly.
   * Timely matters are scheduled accordingly.
-3. Once my day is organized, items are placed and tagged respectively in Todoist.
+2. Once my day is organized, items are placed and tagged respectively in Todoist.
 
 Relaxing after long periods of work is critical to a successful day as well. I make it a priority in my day to schedule regular breaks, both short and long ones. If you rob yourself of these small pockets of laziness, you sacrifice *Intensity of Focus*. We often think of ourselves as computers, which can run endlessly with a constant source of energy. We can't; we depend on a balanced cycle of work and rest. "Grey matter tires well before the body does," as {{< link href="https://www.entrepreneur.com/article/237446" content="Joe Robinson" >}} cleverly said it. Having scheduled breaks eliminates the ambiguity and guilt out of pausing for a breather, giving your brain to sort things out and regain focus.
 
