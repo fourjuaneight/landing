@@ -3,6 +3,10 @@ dd {
   height: 40px;
 }
 
+dl {
+  max-width: 8rem;
+}
+
 header,
 header a,
 header a:visited,
@@ -17,9 +21,14 @@ header::after {
   width: 100%;
 }
 
+header,
 header::before,
 header::after {
   left: 0;
+}
+
+header::before,
+header::after {
   right: 0;
   top: 0;
   min-height: 1rem;
@@ -27,10 +36,23 @@ header::after {
 
 header::before,
 header::after,
+.clip,
+.cnt-lnk::before,
+.home::before,
+.lang {
+  position: absolute;
+}
+
+header::before,
+header::after,
 .cnt-lnk::before {
   content: '';
-  position: absolute;
   z-index: -1;
+}
+
+header a,
+header h1 {
+  font-size: 1.15rem;
 }
 
 header {
@@ -38,6 +60,8 @@ header {
   border-color: var(--accent);
   border-style: solid;
   border-width: 0 0 1rem;
+  margin: 0 auto 0 0;
+  padding: 1rem 2rem;
 }
 
 header::before {
@@ -57,6 +81,7 @@ header::after {
 
 .banner {
   background-color: hsl(231, 15%, 18%);
+  padding: 1rem;
 }
 
 .cnt-lnk {
@@ -113,6 +138,7 @@ header::after {
 
 .fn {
   font-size: 0.65rem;
+  text-align: center;
 }
 
 .fn-link {
@@ -124,6 +150,8 @@ header::after {
 
 .fn-cont {
   background-color: var(--meta);
+  display: inline-flex;
+  height: 1rem;
   margin-left: 0.25rem;
 }
 
@@ -143,6 +171,7 @@ header::after {
 }
 
 .home {
+  justify-content: flex-start;
   width: 13.5rem;
 }
 
@@ -150,7 +179,6 @@ header::after {
   color: var(--meta);
   content: 'λ';
   left: -1rem;
-  position: absolute;
   top: 1rem;
 }
 
@@ -160,6 +188,20 @@ header::after {
   opacity: 0.012;
   pointer-events: none;
   z-index: 999;
+}
+
+.perma {
+  margin: 1rem 0;
+}
+
+.tags,
+.tags-wrap {
+  flex-wrap: wrap;
+}
+
+.tags {
+  list-style: none;
+  padding: 0;
 }
 
 @keyframes fade-in {
@@ -176,6 +218,7 @@ body {
 
 footer {
   align-items: start;
+  grid-gap: 1rem;
   grid-row: 3/4;
   grid-template-columns: 6.5rem minmax(10.5rem,32rem);
   grid-template-rows: min-content 1.5rem;

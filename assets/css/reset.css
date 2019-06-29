@@ -79,6 +79,7 @@ h3,
 h4 {
   font-weight: bold;
   line-height: 1.3;
+  text-transform: capitalize;
 }
 
 h2,
@@ -163,6 +164,10 @@ kbd,
 p code,
 kbd {
   padding: 0.0625rem 0.5rem;
+}
+
+picture {
+  overflow: hidden;
 }
 
 pre {

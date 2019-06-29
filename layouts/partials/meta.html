@@ -1,6 +1,6 @@
-<section class="flex flex-wrap justify-between w-100">
+<section class="flex justify-between w-100 tags-wrap">
   <time datetime='{{ .Date.Format "2006-01-02" }}' class="f7 meta mra"><span aria-label="Posted on">&tau;</span>{{ .Date.Format "2006-01-02" }}</time>
-  <ul class="clean flex flex-wrap ma0 pa0">
+  <ul class="flex ma0 tags">
     {{/*  Loop over tags list in front-matter  */}}
     {{ range $key, $tag := .Params.tags }}
       <li class="f7 ma0 mono mr1"><span aria-hidden="true" class="meta">#</span><a href="/tags/{{ $tag }}" itemprop="about" class="meta none tag">{{ $tag }}</a></li>

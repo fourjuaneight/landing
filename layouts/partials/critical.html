@@ -1,4 +1,28 @@
 <style>
+  :root {
+    --accent: hsl(265, 91%, 63%);
+    --accent-75: hsla(265, 91%, 63%, 0.75);
+    --accent-50: hsla(265, 91%, 63%, 0.5);
+    --background: hsl(60, 30%, 96%);
+    --font: hsl(231, 15%, 18%);
+    --meta: hsl(0, 0%, 43%);
+    --box: 0.1rem 0.1rem 0 var(--font), 0.125rem 0.125rem 0 var(--font);
+    --border-width: 0.075rem;
+    --border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
+    --noise-size: 64;
+    --duration: 200ms;
+    --dys: "Dyslexic", sans-serif;
+    --mono: "Fira Code", monospace;
+    --sans: "Rubik", sans-serif;
+  }
+  html.dark {
+    --accent: hsl(191, 97%, 77%);
+    --accent-75: hsla(191, 97%, 77%, 0.75);
+    --accent-50: hsla(191, 97%, 77%, 0.5);
+    --background: hsl(231, 15%, 18%);
+    --font: hsl(60, 30%, 96%);
+    --meta: hsl(0, 0%, 54%);
+  }
   @font-face {
     font-display: swap;
     font-family: rubik;
@@ -70,69 +94,5 @@
     src: local(FiraCode-Bold), local(FiraCode-Bold),
       url(/fonts/FiraCode-Bold.woff2) format("woff2"),
       url(/fonts/FiraCode-Bold.woff) format("woff");
-  }
-  :root {
-    --accent: hsl(265, 91%, 63%);
-    --accent-75: hsla(265, 91%, 63%, 0.75);
-    --accent-50: hsla(265, 91%, 63%, 0.5);
-    --background: hsl(60, 30%, 96%);
-    --font: hsl(231, 15%, 18%);
-    --meta: hsl(0, 0%, 43%);
-    --box: 0.1rem 0.1rem 0 var(--font), 0.125rem 0.125rem 0 var(--font);
-    --border-width: 0.075rem;
-    --border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
-    --noise-size: 64;
-    --duration: 200ms;
-    --dys: "Dyslexic", sans-serif;
-    --mono: "Fira Code", monospace;
-    --sans: "Rubik", sans-serif;
-  }
-  html.dark {
-    --accent: hsl(191, 97%, 77%);
-    --accent-75: hsla(191, 97%, 77%, 0.75);
-    --accent-50: hsla(191, 97%, 77%, 0.5);
-    --background: hsl(231, 15%, 18%);
-    --font: hsl(60, 30%, 96%);
-    --meta: hsl(0, 0%, 54%);
-  }
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-  *::selection {
-    background-color: #272935;
-    background-color: var(--font);
-    color: #f8f8f2;
-    color: var(--background);
-  }
-  html {
-    box-sizing: border-box;
-    font-size: 100%;
-    transition: font-size 200ms ease;
-    -webkit-overflow-scrolling: touch;
-  }
-  @media screen and (max-width: 48rem) {
-    html {
-      font-size: 95%;
-    }
-  }
-  body {
-    background-color: #f8f8f2;
-    background-color: var(--background);
-    border-bottom: calc(0.075rem * 2) solid #924bf7;
-    border-bottom: calc(var(--border-width) * 2) solid var(--accent);
-    color: #272935;
-    color: var(--font);
-    font-family: rubik, sans-serif;
-    font-family: var(--sans);
-    font-size: 1em;
-    line-height: 1.4;
-    overflow-x: hidden;
-  }
-  body.dyslexic {
-    font-family: dyslexic, sans-serif;
-    font-family: var(--dys);
-    font-size: 0.85em;
   }
 </style>
