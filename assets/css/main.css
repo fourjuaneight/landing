@@ -25,6 +25,10 @@
   height: 24px;
 }
 
+.cnt-lnk svg {
+  fill: var(--font);
+}
+
 .cnt-lnk:hover::before {
   transform: scale(1);
 }

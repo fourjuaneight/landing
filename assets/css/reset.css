@@ -38,6 +38,8 @@ h2,
 h3,
 h4,
 kbd,
+pre,
+pre code,
 sup,
 time,
 .mono {
@@ -46,7 +48,10 @@ time,
 
 code,
 kbd,
-sup {
+pre,
+pre code,
+sup,
+.highlight {
   font-size: 0.875rem;
   font-style: normal;
 }
@@ -113,8 +118,27 @@ textarea {
 
 blockquote,
 li,
-p {
+p,
+.highlight {
   margin: 0.75rem 0;
+}
+
+kbd,
+p code,
+pre,
+.button {
+  border-radius: 0.125rem;
+}
+
+kbd,
+p code,
+.button {
+  border: 0.125em solid var(--font);
+}
+
+kbd,
+.button {
+  box-shadow: var(--box);
 }
 
 p code,
@@ -122,14 +146,8 @@ kbd {
   padding: 0.0625rem 0.5rem;
 }
 
-p code,
-kbd,
-.button {
-  border-radius: 0.125rem;
-  border: 0.125em solid var(--font);
-}
-
-kbd,
-.button {
-  box-shadow: var(--box);
+pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 1rem;
 }

@@ -95,29 +95,27 @@
 }
 
 :root {
-  --accent: hsl(357, 48%, 51%);
-  --accent-light: hsla(357, 48%, 51%, 0.45);
-  --background: hsl(0, 0%, 100%);
-  --font: hsl(0, 0%, 13%);
-  --font-strong: hsl(0, 0%, 0%);
+  /* Primary Colors */
+  --accent: hsl(265, 91%, 62%);
+  --background: hsl(60, 30%, 96%);
+  --font: hsl(231, 15%, 18%);
   --meta: hsl(0, 0%, 43%);
-
+  /* Styling */
   --box: 1px 1px 0 var(--font), 2px 2px 0 var(--font);
   --border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
-
+  /* Animation */
   --duration: 200ms;
-
+  /* Type */
   --dys: 'Dyslexic', sans-serif;
   --mono: 'Fira Code', monospace;
   --sans: 'Rubik', sans-serif;
 }
 
 html.dark {
-  --accent: hsl(212, 87%, 67%);
-  --accent-light: hsla(212, 87%, 67%, 0.45);
-  --background: hsl(210, 6%, 13%);
-  --font: hsl(0, 0%, 95%);
-  --font-strong: hsl(0, 0%, 100%);
+  /* Primary Dark Colors */
+  --accent: hsl(191, 97%, 77%);
+  --background: hsl(231, 15%, 18%);
+  --font: hsl(60, 30%, 96%);
   --meta: hsl(0, 0%, 54%);
 }
 
@@ -146,6 +144,7 @@ html {
 }
 
 body {
+  background-color: var(--background);
   color: var(--font);
   font-family: var(--sans);
   font-size: 1em;
