@@ -130,6 +130,7 @@ header {
 
 main {
   grid-row: 2/3;
+  min-height: calc(100vh - 22rem);
 }
 
 nav {
