@@ -18,6 +18,10 @@
   {{ $syntax := resources.Get "css/syntax.css" }}
   {{ $styles := slice $critical $reset $components $main $syntax | resources.Concat "styles.css" | postCSS | minify }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}">
+  <link rel="prefetch" href="{{ $styles.Permalink }}" onload="this.rel = 'stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="{{ $styles.Permalink }}">
+  </noscript>
 
   {{/*  RSS  */}}
   {{ if eq .Type "writing" }}
