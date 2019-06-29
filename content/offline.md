@@ -1,8 +1,8 @@
----
-title: Offline
-showdate: false
-draft: false
----
+{
+  "title": "Offline",
+  "showdate": false,
+  "draft": false
+}
 
 It looks like you're offline right now.
 

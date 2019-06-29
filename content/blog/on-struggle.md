@@ -1,10 +1,9 @@
----
-title: On Struggle
-date: '2017-12-17'
-tags:
-- life
-draft: false
----
+{
+  "title": "On Struggle",
+  "date": "2017-12-17",
+  "tags": ["life"],
+  "draft": false
+}
 
 A few weeks ago I read a [blog post by Ash Furrow](https://ashfurrow.com/blog/normalizing-struggle/) about normalizing struggle. Everything was spot on, but there were a few things that resonated more with my life. preference
 

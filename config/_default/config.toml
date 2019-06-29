@@ -5,7 +5,7 @@ title = "Juan Villela"
 
 disableKinds = ["taxonomyTerm"]
 FootnoteReturnLinkContents = "&Hat;"
-metaDataFormat = "yaml"
+metaDataFormat = "json"
 summarylength = 40
 
 pygmentsCodeFences = true

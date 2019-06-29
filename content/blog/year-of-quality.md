@@ -1,10 +1,9 @@
----
-title: Quality
-date: '2019-01-01'
-tags:
-- yearly-theme
-draft: false
----
+{
+  "title": "Quality",
+  "date": "2019-01-01",
+  "tags": ["yearly-theme"],
+  "draft": false
+}
 
 Every year, the guys over at [Cortex](https://www.relay.fm/cortex) come up with a theme that sets an overarching idea guiding their decisions. There has been the "Year of Less" and "Year of Positivity" since 2017. Some people have begun to follow along with their own yearly themes, like [Quinn Rose](https://twitter.com/aspiringrobotfm/status/1076594940304601089) with her "Year of Quality".
 

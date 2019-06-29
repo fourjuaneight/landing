@@ -1,10 +1,9 @@
----
-title: Comfort Zone
-date: '2018-06-29'
-tags:
-- developement
-draft: false
----
+{
+  "title": "Comfort Zone",
+  "date": "2018-06-29",
+  "tags": ["developement"],
+  "draft": false
+}
 
 A few months ago a new client approached me about redesigning their Rails app. It was pretty straightforward; replace Bootstrap with Grid Layout and give the UI a modern look, something I’ve done several times before. But I knew nothing about Rails before this client reached out. So my gut reaction was to say no. But then I thought about what it would mean to take on a challenge like this. I’ve been feeling my work stagnate lately and wanted to branch out into something new. This was a risky move, but ultimately I agreed to do the job.
 
