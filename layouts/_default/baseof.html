@@ -3,20 +3,10 @@
   {{ partial "head.html" . }}
   <body class="grid ma0 pb2 relative">
     {{ partial "header.html" . }}
-
     <main class="pb2 pt2">
       {{ block "main" . }}{{ end }}
     </main>
-
     {{ partial "footer.html" . }}
-
-    {{ if hugo.Environment | eq "production" }}
-      {{ partial "sw.html" . }}
-    {{ end }}
-
-    {{ $noise := resources.Get "js/noise.js" }}
-    {{ $clip := resources.Get "js/clip.js" }}
-    {{ $js := slice $noise $clip | resources.Concat "scripts.js" | minify }}
-    <script src="{{ $js.Permalink }}"></script>
+    {{ partial "scripts.html" . }}
   </body>
 </html>

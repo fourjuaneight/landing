@@ -1,50 +1,25 @@
 <head>
-  {{ hugo.Generator }}
   <meta charset="utf-8" />
+  <base href="{{ .Site.BaseURL }}">
   {{/*  Dynamic site title. Default site title is used on homepage. On any other page, the page title with the company name piped next to it is used.  */}}
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ if .Params.heading }}{{ .Params.heading }} | {{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}{{ end }}</title>
-  <base href="{{ .Site.BaseURL }}">
-  <meta name="author" content="{{ .Site.Author.name }}">
+  {{ hugo.Generator }}
+  <meta name="author" content="{{ .Site.Title }}">
   {{/*  Dynamic site description. Default site description is used on homepage. On any other page, the description found in the front matter is used.  */}}
-  <meta name="description" content="{{ .Site.Params.description }}">
-  <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
+  {{/*  Theme for PWA  */}}
   <meta name="theme-color" content="#8F3A6D">
-
-  {{/*  Stylesheets  */}}
-  {{ $critical := resources.Get "css/critical.css" }}
-  {{ $reset := resources.Get "css/reset.css" }}
-  {{ $components := resources.Get "css/components.css" }}
-  {{ $main := resources.Get "css/main.css" }}
-  {{ $syntax := resources.Get "css/syntax.css" }}
-  {{ $styles := slice $critical $reset $components $main $syntax | resources.Concat "styles.css" | postCSS | minify }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}">
-  <link rel="prefetch" href="{{ $styles.Permalink }}" onload="this.rel = 'stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="{{ $styles.Permalink }}">
-  </noscript>
-
-  {{/*  RSS  */}}
-  {{ if eq .Type "writing" }}
-    <link href='{{ "writing/index.xml" | relURL }}' rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
-    <link href='{{ "writing/feed.json" | relURL }}' rel="alternate" type="application/json" title="{{ .Site.Title }}" />
-  {{ end }}
-
+  
   {{/*  Open Graph  */}}
-  <link rel="canonical" href="{{ .Permalink }}">
+  {{ template "_internal/schema.html" . }}
+  <meta name="twitter:site" content="@{{ .Site.Params.social }}">
   {{ template "_internal/twitter_cards.html" . }}
   {{ $avatar := resources.Get "icons/avatar.png" }}
   <meta name="twitter:image" content="{{ $avatar.Permalink }}">
   {{ template "_internal/opengraph.html" . }}
   <meta property="og:image" content="{{ $avatar.Permalink }}">
-  {{ template "_internal/schema.html" . }}
 
-  {{/*  Favicon  */}}
-  {{ $manifest := resources.Get "manifest.json" }}
-  <link rel="manifest" href="{{ $manifest.Permalink }}">
-
-  {{/*  Favicon  */}}
-  {{ $favicon := resources.Get "icons/favicon.png" }}
-  <link rel="shortcut icon" href="{{ $favicon.Permalink }}">
+  {{/*  Viewport  */}}
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover">
 
   {{/*  Webclip and Apple Touch Icon  */}}
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -66,4 +41,34 @@
   <link rel="icon" sizes="192x192" href="{{ $i192.Permalink }}">
   {{ $i512 := resources.Get "icons/icon-512x512.png" }}
   <link rel="icon" sizes="512x512" href="{{ $i512.Permalink }}">
+
+  {{/*  Favicon  */}}
+  {{ $favicon := resources.Get "icons/favicon.png" }}
+  <link rel="shortcut icon" href="{{ $favicon.Permalink }}">
+
+  {{/*  Site URL  */}}
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{/*  Manifest  */}}
+  {{ $manifest := resources.Get "manifest.json" }}
+  <link rel="manifest" href="{{ $manifest.Permalink }}">
+
+  {{/*  RSS  */}}
+  {{ if eq .Type "writing" }}
+  <link href='{{ "writing/index.xml" | relURL }}' rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  <link href='{{ "writing/feed.json" | relURL }}' rel="alternate" type="application/json" title="{{ .Site.Title }}" />
+  {{ end }}
+
+  {{/*  Stylesheets  */}}
+  {{ $critical := resources.Get "css/critical.css" }}
+  {{ $reset := resources.Get "css/reset.css" }}
+  {{ $components := resources.Get "css/components.css" }}
+  {{ $main := resources.Get "css/main.css" }}
+  {{ $syntax := resources.Get "css/syntax.css" }}
+  {{ $styles := slice $critical $reset $components $main $syntax | resources.Concat "styles.css" | postCSS | minify }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}">
+  <link rel="prefetch" href="{{ $styles.Permalink }}" onload="this.rel = 'stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="{{ $styles.Permalink }}">
+  </noscript>
 </head>

@@ -5,7 +5,7 @@
   "home_page_url": "{{ .Site.BaseURL }}",
   "feed_url": "{{ with .OutputFormats.Get "json" -}}{{- .Permalink -}}{{- end }}",
   "author": {
-    "name": "{{ .Site.Author.name }}",
+    "name": "{{ .Site.Title }}",
     "url": "{{ .Site.BaseURL }}"
   },
   "items": [
