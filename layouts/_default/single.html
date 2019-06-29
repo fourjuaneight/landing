@@ -6,7 +6,14 @@
     {{ end }}
     {{ $code := .Content | replaceRE "(\\<div class=\\D\\w+\\D\\>)(\\<pre class=\\D\\w+\\D\\>\\<code class=\\D\\w+\\D\\w+\\D data-lang=\\D)(\\w+)(\\D\\>)" "$1<span class='absolute b f7 mono lang'>$3</span><button class='absolute mono clip' aria-label='Copy to clipboard'>&#10064;</button>$2$3$4" | safeHTML }}
     {{ $ul := $code | replaceRE "\\<ol\\>" "<ol start='0'>" | safeHTML }}
-    {{ $content := $ul | replaceRE "noreferrer" "noopener noreferrer" | safeHTML }}
+    {{ $link := $ul | replaceRE "noreferrer" "noopener noreferrer" | safeHTML }}
+    {{ $sup := $link | replaceRE "footnote-ref" "brsh flex-inline h1 items-center justify-center ma0 w1 fn-cont" | safeHTML }}
+    {{ $fn := $sup | replaceRE "\\D#fn:(\\d)\\D{2}(\\d)\\D" "'#fn:$1' rel='footnote' title='Permalink to footnote $1' class='none tac w1 fn'>$1<" | safeHTML }}
+    {{ $nts := $fn | replaceRE "\\Ddiv\\sclass=\\Dfootnotes\\D{2}?[\\n\\s]+(\\Dhr\\s\\D{2})" "$1<div class='ma0'>" | safeHTML }}
+    {{ $p := $nts | replaceRE "(\\Dli\\sid=\\Dfn:\\d\\D{2})([A-za-z,.;'?!\\s]+)" "$1<p class='inline ma0'>$2" | safeHTML }}
+    {{ $rtn := $p | replaceRE "\\Da class\\D{2}footnote-return\\D" "</p><a class='inline mono none w1 fn-link'" | safeHTML }}
+    {{ $note := $rtn | replaceRE "(\\d)(\\D)>&Hat;" "$1$2 title='Permalink to footnote link $1'>&Hat;" | safeHTML }}
+    {{ $content := $note | replaceRE "noreferrer" "noopener noreferrer" | safeHTML }}
     <section class="content">{{ $content }}</section>
   </article>
 {{ end }}

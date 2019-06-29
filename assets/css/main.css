@@ -112,6 +112,7 @@ header::after {
 
 .fn-cont {
   background-color: var(--meta);
+  margin-left: 0.25rem;
 }
 
 .fn-cont:hover,
