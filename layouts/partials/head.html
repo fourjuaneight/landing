@@ -16,7 +16,7 @@
   {{ $components := resources.Get "css/components.css" }}
   {{ $main := resources.Get "css/main.css" }}
   {{ $syntax := resources.Get "css/syntax.css" }}
-  {{ $styles := slice $critical $reset $components $main $syntax | resources.Concat "css/styles.css" | postCSS | minify }}
+  {{ $styles := slice $critical $reset $components $main $syntax | resources.Concat "styles.css" | postCSS | minify }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}">
 
   {{/*  RSS  */}}

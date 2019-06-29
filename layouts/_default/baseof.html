@@ -16,7 +16,7 @@
 
     {{ $noise := resources.Get "js/noise.js" }}
     {{ $clip := resources.Get "js/clip.js" }}
-    {{ $js := slice $noise $clip | resources.Concat "js/bundle.min.js" | minify }}
+    {{ $js := slice $noise $clip | resources.Concat "scripts.js" | minify }}
     <script src="{{ $js.Permalink }}"></script>
   </body>
 </html>
