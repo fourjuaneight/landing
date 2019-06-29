@@ -58,6 +58,21 @@
   margin: 0;
   padding: 0;
 }
+.clip {
+  color: var(--txt);
+  font-size: 1.25rem;
+  padding: 0 0.25rem;;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  z-index: 5;
+}
+.clip:hover {
+  color: var(--attr);
+}
+.highlight {
+  position: relative;
+}
 /* Styling */
 .chroma {
   background-color: var(--bg);

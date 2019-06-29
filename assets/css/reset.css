@@ -123,6 +123,13 @@ p,
   margin: 0.75rem 0;
 }
 
+button {
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  outline: 0;
+}
+
 kbd,
 p code,
 pre,

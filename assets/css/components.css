@@ -685,35 +685,35 @@
 
 /*  Type */
 .f1 {
-  font-size: 3rem;
+  font-size: 3rem !important;
 }
 
 .f2 {
-  font-size: 2.25rem;
+  font-size: 2.25rem !important;
 }
 
 .f3 {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 }
 
 .f4 {
-  font-size: 1.25rem;
+  font-size: 1.25rem !important;
 }
 
 .f5 {
-  font-size: 1.15rem;
+  font-size: 1.15rem !important;
 }
 
 .f6 {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 .f7 {
-  font-size: .875rem;
+  font-size: .875rem !important;
 }
 
 .f8 {
-  font-size: .75rem;
+  font-size: .75rem !important;
 }
 
 .i {

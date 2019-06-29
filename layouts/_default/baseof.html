@@ -14,9 +14,7 @@
       {{ partial "sw.html" . }}
     {{ end }}
 
-    {{ if eq .Title "About Me" }}
-      {{ $js := resources.Get "js/contact.js" }}
-      <script src="{{ $js.Permalink }}"></script>
-    {{ end }}
+    {{ $js := resources.Get "js/clip.js" }}
+    <script src="{{ $js.Permalink }}"></script>
   </body>
 </html>
