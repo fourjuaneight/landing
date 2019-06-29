@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <h2 class="marked">Recent blog posts</h2>
+  <h2 class="marked mra relative">Recent blog posts</h2>
   {{ $blog := ($.Site.GetPage "section" "blog").Pages }}
   {{ range last 4 $blog }}
     {{ .Render "li" }}

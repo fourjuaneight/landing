@@ -60,13 +60,13 @@
   {{ end }}
 
   {{/*  Stylesheets  */}}
-  {{ $critical := resources.Get "css/critical.css" }}
+  {{ partial "critical.html" . }}
+  {{/*  {{ $critical := resources.Get "css/critical.css" }}  */}}
   {{ $reset := resources.Get "css/reset.css" }}
   {{ $components := resources.Get "css/components.css" }}
   {{ $main := resources.Get "css/main.css" }}
   {{ $syntax := resources.Get "css/syntax.css" }}
-  {{ $styles := slice $critical $reset $components $main $syntax | resources.Concat "styles.css" | postCSS | minify }}
-  <link rel="stylesheet" href="{{ $styles.Permalink }}">
+  {{ $styles := slice $reset $components $main $syntax | resources.Concat "styles.css" | postCSS | minify }}
   <link rel="prefetch" href="{{ $styles.Permalink }}" onload="this.rel = 'stylesheet'">
   <noscript>
     <link rel="stylesheet" href="{{ $styles.Permalink }}">

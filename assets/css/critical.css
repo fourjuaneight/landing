@@ -104,6 +104,7 @@
   --meta: hsl(0, 0%, 43%);
   /* Styling */
   --box: 0.1rem 0.1rem 0 var(--font), 0.125rem 0.125rem 0 var(--font);
+  --border-width: 0.075rem;
   --border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
   --noise-size: 64;
   /* Animation */
@@ -150,6 +151,7 @@ html {
 
 body {
   background-color: var(--background);
+  border-bottom: calc(var(--border-width) * 2) solid var(--accent);
   color: var(--font);
   font-family: var(--sans);
   font-size: 1em;

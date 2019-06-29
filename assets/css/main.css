@@ -4,6 +4,8 @@ dd {
 }
 
 header,
+header a,
+header a:visited,
 nav a:hover,
 .banner {
   color: hsl(60, 30%, 96%);
@@ -28,12 +30,6 @@ header::after,
 .cnt-lnk::before {
   content: '';
   position: absolute;
-  z-index: -1;
-}
-
-header::before,
-header::after,
-.cnt-lnk::before {
   z-index: -1;
 }
 
@@ -99,8 +95,14 @@ header::after {
 }
 
 .content a {
+  color: var(--font);
   text-decoration: underline;
   text-decoration-color: var(--accent) !important;
+}
+
+.content a:hover,
+.tag:hover {
+  color: var(--accent);
 }
 
 .fn,
@@ -142,6 +144,14 @@ header::after {
 
 .home {
   width: 13.5rem;
+}
+
+.home::before {
+  color: var(--meta);
+  content: 'λ';
+  left: -1rem;
+  position: absolute;
+  top: 1rem;
 }
 
 .noise {

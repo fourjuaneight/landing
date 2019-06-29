@@ -1,15 +1,10 @@
 /*  Reset */
 a {
-  color: var(--font);
   transition: color var(--duration) ease;
 }
 
 a:visited {
   color: inherit;
-}
-
-a:hover {
-  color: var(--accent);
 }
 
 article,
@@ -42,6 +37,7 @@ pre,
 pre code,
 sup,
 time,
+.home::before,
 .mono {
   font-family: var(--mono);
 }
@@ -56,6 +52,7 @@ body.dyslexic pre,
 body.dyslexic pre code,
 body.dyslexic sup,
 body.dyslexic time,
+body.dyslexic .home::before,
 body.dyslexic .mono {
   font-family: var(--dys);
 }
@@ -108,7 +105,7 @@ h4 {
 }
 
 hr {
-  border: 0.075rem solid var(--accent);
+  border: var(--border-width) solid var(--accent);
   margin: 1.5rem 0 0;
 }
 
