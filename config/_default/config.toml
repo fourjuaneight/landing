@@ -4,14 +4,13 @@ languageCode = "en-us"
 title = "Juan Villela"
 
 disableKinds = ["taxonomyTerm"]
-FootnoteReturnLinkContents = "↩"
+FootnoteReturnLinkContents = "&Hat;"
 metaDataFormat = "yaml"
 summarylength = 40
 
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsOptions = "lineseparator=<br>"
-pygmentsStyle = "dracula"
 pygmentsUseClasses = true
 pygmentsUseClassic = false
 
@@ -26,7 +25,7 @@ pygmentsUseClassic = false
   plainIDAnchors = true
 
 [params]
-  description = "Front-End Developer, automation nerd, and astronomy enthusiast."
+  description = "Front-End Developer, automation nerd, astronomy enthusiast, and amateur chef."
   social = "fourjuaneight"
 
 [taxonomies]
