@@ -13,11 +13,11 @@
 }
 
 .sr {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
+  height: 0.1rem;
   overflow: hidden;
   position: absolute !important;
-  width: 1px;
+  width: 0.1rem;
 }
 
 /* Custom */
@@ -775,27 +775,27 @@
 /*  Borders */
 .ba {
   border-style: solid;
-  border-width: 1px;
+  border-width: 0.1rem;
 }
 
 .bt {
   border-top-style: solid;
-  border-top-width: 1px;
+  border-top-width: 0.1rem;
 }
 
 .br {
   border-right-style: solid;
-  border-right-width: 1px;
+  border-right-width: 0.1rem;
 }
 
 .bb {
   border-bottom-style: solid;
-  border-bottom-width: 1px;
+  border-bottom-width: 0.1rem;
 }
 
 .bl {
   border-left-style: solid;
-  border-left-width: 1px;
+  border-left-width: 0.1rem;
 }
 
 .bn {
@@ -827,7 +827,7 @@
 
 .button:hover {
   box-shadow: none;
-  transform: translate(1px, 1px);
+  transform: translate(0.1rem, 0.1rem);
 }
 
 .fill::before,
@@ -861,16 +861,16 @@
   background-image: linear-gradient(var(--accent), var(--accent));
   background-size: 2.25rem 0.25rem;
   background-repeat: no-repeat;
-  background-position: left 0 bottom -1px;
+  background-position: left 0 bottom -0.1rem;
 }
 
 .under::before {
   height: 0.15rem;
   opacity: 0;
-  transform: translateY(3px);
+  transform: translateY(0.25rem);
 }
 
 .under:hover::before {
   opacity: 1;
-  transform: translateY(1px);
+  transform: translateY(0.1rem);
 }

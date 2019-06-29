@@ -90,7 +90,7 @@
   border-radius: 43% 57% 43% 57%/36% 64% 36% 64%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 48rem) {
   .hero-copy {
     font-size: 1.5rem;
   }
@@ -98,7 +98,7 @@
 
 /* Layout */
 body {
-  grid-template-columns: minmax(2rem,1fr) minmax(1rem,1200px) minmax(2rem,1fr);
+  grid-template-columns: minmax(2rem,1fr) minmax(1rem,75rem) minmax(2rem,1fr);
   grid-template-rows: repeat(3, auto);
 }
 

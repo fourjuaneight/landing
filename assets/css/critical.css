@@ -101,7 +101,7 @@
   --font: hsl(231, 15%, 18%);
   --meta: hsl(0, 0%, 43%);
   /* Styling */
-  --box: 1px 1px 0 var(--font), 2px 2px 0 var(--font);
+  --box: 0.1rem 0.1rem 0 var(--font), 0.125rem 0.125rem 0 var(--font);
   --border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
   /* Animation */
   --duration: 200ms;
@@ -137,7 +137,7 @@ html {
   -webkit-overflow-scrolling: touch;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 48rem) {
   html {
     font-size: 95%;
   }
