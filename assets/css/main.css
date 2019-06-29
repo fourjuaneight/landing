@@ -4,7 +4,8 @@ dd {
 }
 
 header,
-nav a:hover {
+nav a:hover,
+.banner {
   color: hsl(60, 30%, 96%);
 }
 
@@ -51,6 +52,15 @@ header::before {
 header::after {
   background-color: var(--accent-50);
   bottom: -3rem;
+}
+
+.banner,
+.chroma {
+  border: 0.125em solid hsl(232, 14%, 31%);
+}
+
+.banner {
+  background-color: hsl(231, 15%, 18%);
 }
 
 .cnt-lnk {

@@ -82,7 +82,6 @@
 }
 .chroma {
   background-color: var(--bg);
-  border: 0.125em solid hsl(232, 14%, 31%);
 }
 .chroma *::selection {
   background-color: var(--txt);

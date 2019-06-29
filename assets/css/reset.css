@@ -147,6 +147,7 @@ button {
 kbd,
 p code,
 pre,
+.banner,
 .button {
   border-radius: 0.125rem;
 }
