@@ -58,26 +58,31 @@
   margin: 0;
   padding: 0;
 }
-.clip {
-  color: var(--txt);
-  font-size: 1.25rem;
-  padding: 0 0.25rem;;
-  position: absolute;
-  right: 0.5rem;
+.clip,
+.lang {
+  padding: 0 0.25rem;
   top: 0.5rem;
   z-index: 5;
 }
-.clip:hover {
-  color: var(--attr);
+.clip {
+  font-size: 1.25rem;
+  right: 0.5rem;
 }
 .highlight {
   position: relative;
 }
+.lang {
+  left: 0.5rem;
+}
 /* Styling */
+.chroma,
+.clip,
+.lang {
+  color: var(--txt);
+}
 .chroma {
   background-color: var(--bg);
   border: 0.125em solid hsl(232, 14%, 31%);
-  color: var(--txt);
 }
 .chroma *::selection {
   background-color: var(--txt);
@@ -106,7 +111,8 @@
 .chroma .nv,
 .chroma .vc,
 .chroma .vg,
-.chroma .vi {
+.chroma .vi,
+.lang {
   color: var(--name);
 }
 .chroma .lnt,
@@ -115,7 +121,8 @@
 }
 .chroma .na,
 .chroma .nc,
-.chroma .nf {
+.chroma .nf,
+.clip:hover {
   color: var(--attr);
 }
 .chroma .s,

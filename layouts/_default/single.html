@@ -4,6 +4,6 @@
     {{ if eq .Type "blog" }}
       {{ partial "meta.html" . }}
     {{ end }}
-    <section class="content">{{ .Content }}</section>
+    <section class="content">{{ .Content | replaceRE "(\\<div class=\\D\\w+\\D\\>)(\\<pre class=\\D\\w+\\D\\>\\<code class=\\D\\w+\\D\\w+\\D data-lang=\\D)(\\w+)(\\D\\>)" "$1<span class='absolute b f7 mono lang'>$3</span><button class='absolute mono clip' aria-label='Copy to clipboard'>&#10064;</button>$2$3$4" | safeHTML }}</section>
   </article>
 {{ end }}

@@ -1,12 +1,3 @@
-
-const highlight = document.querySelectorAll('div.highlight');
-highlight.forEach(el => {
-  const button = document.createElement('button');
-  button.innerHTML = '&#10064;';
-  button.classList.add('clip', 'mono');
-  button.setAttribute('aria-label', 'Copy to clipboard');
-  el.prepend(button);
-});
 const label = document.querySelectorAll('button.clip');
 label.forEach(copy => {
   copy.addEventListener('click', () => {
@@ -21,10 +12,10 @@ label.forEach(copy => {
     try {
       document.execCommand('copy');
       selection.removeAllRanges();
-      copy.classList.toggle('f6');
+      copy.classList.toggle('f7');
       copy.innerHTML = 'Copied!';
       setTimeout(() => {
-        copy.classList.toggle('f6');
+        copy.classList.toggle('f7');
         copy.innerHTML = original;
       }, 1000);
     } catch {
