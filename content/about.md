@@ -24,7 +24,7 @@ I'm not an accessibility expert. My focus has always been fast and modular stati
 - ESLint
 - Prettier
 
-As I mentioned before, I focus on static sites. These means working with SSGs (static-site generators) like **{{< link href="https://gohugo.io" content="Hugo" >}}**, **{{< link href="https://www.gatsbyjs.org" content="Gatsby" >}}**, and **{{< link href="https://jekyllrb.com" content="Jekyll" >}}**. Most of my work is with Hugo. Businesses enjoy the speed and ease of use as it stays true to its "static site" nature and renders clean and semantic HTML/CSS/JS.
+As I mentioned before, I focus on static sites. These means working with SSGs (static-site generators) like **[Hugo](https://gohugo.io)**, **[Gatsby](https://www.gatsbyjs.org)**, and **[Jekyll](https://jekyllrb.com)**. Most of my work is with Hugo. Businesses enjoy the speed and ease of use as it stays true to its "static site" nature and renders clean and semantic HTML/CSS/JS.
 
 I tend to use **Webpack** + **Babel** for my JavaScript as it ensures compatibility across browsers. I favor **vanilla JavaScript** over third party libraries. **Gulp** also plays a big part in my work for critical CSS and **Sass**. These are always paired with **ESLint** and **Prettier**.
 

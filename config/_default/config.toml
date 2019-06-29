@@ -20,8 +20,10 @@ pygmentsUseClassic = false
 
 [blackfriday]
   hrefTargetBlank = true
-  plainIDAnchors = true
+  noreferrerLinks = true
+  noopenerLinks = true
   OpenLinksInNewWindow = true
+  plainIDAnchors = true
 
 [params]
   description = "Front-End Developer, automation nerd, and astronomy enthusiast."
