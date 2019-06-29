@@ -154,4 +154,5 @@ body {
 
 body.dyslexic {
   font-family: var(--dys);
+  font-size: 0.85em;
 }

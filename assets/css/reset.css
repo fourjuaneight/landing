@@ -46,6 +46,20 @@ time,
   font-family: var(--mono);
 }
 
+body.dyslexic code,
+body.dyslexic h1,
+body.dyslexic h2,
+body.dyslexic h3,
+body.dyslexic h4,
+body.dyslexic kbd,
+body.dyslexic pre,
+body.dyslexic pre code,
+body.dyslexic sup,
+body.dyslexic time,
+body.dyslexic .mono {
+  font-family: var(--dys);
+}
+
 code,
 kbd,
 pre,
