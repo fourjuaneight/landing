@@ -823,6 +823,55 @@
   border-style: none;
 }
 
+/* Colors */
+.c-accent {
+  color: var(--accent);
+}
+
+.c-accent-75 {
+  color: var(--accent-75);
+}
+
+.c-accent-50 {
+  color: var(--accent-50);
+}
+
+.c-background {
+  color: var(--background);
+}
+
+.c-font {
+  color: var(--font);
+}
+
+.c-meta {
+  color: var(--meta);
+}
+
+.b-accent {
+  background-color: var(--accent);
+}
+
+.b-accent-75 {
+  background-color: var(--accent-75);
+}
+
+.b-accent-50 {
+  background-color: var(--accent-50);
+}
+
+.b-background {
+  background-color: var(--background);
+}
+
+.b-font {
+  background-color: var(--font);
+}
+
+.b-meta {
+  background-color: var(--meta);
+}
+
 /*  Custom */
 .button {
   padding: 0.5rem 1rem;
@@ -843,13 +892,13 @@
   position: absolute;
   right: 0;
   transition: all var(--duration) ease;
-  z-index: -1;
 }
 
 .fill::before {
   top: 0;
   transform-origin: bottom center;
   transform: scaleY(0);
+  z-index: -1;
 }
 
 .fill:hover {
@@ -872,6 +921,7 @@
   height: 0.15rem;
   opacity: 0;
   transform: translateY(0.25rem);
+  z-index: 1;
 }
 
 .under:hover::before {
