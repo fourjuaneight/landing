@@ -803,6 +803,10 @@
   border-width: 0;
 }
 
+.brsh {
+  border-radius: var(--border-radius);
+}
+
 .b--dotted {
   border-style: dotted;
 }

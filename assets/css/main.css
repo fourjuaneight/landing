@@ -37,12 +37,8 @@
   fill: var(--background);
 }
 
-.content a,
-.ext {
+.content a {
   text-decoration: underline;
-}
-
-.ext {
   text-decoration-color: var(--accent) !important;
 }
 
@@ -56,7 +52,6 @@
 
 .fn-cont {
   background-color: var(--meta);
-  border-radius: 50%;
   height: 1rem;
 }
 
@@ -81,7 +76,6 @@
 
 .headshot {
   background-color: var(--accent);
-  border-radius: var(--border-radius);
   height: 6.5rem;
   width: 6.5rem;
 }
