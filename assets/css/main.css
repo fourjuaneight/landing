@@ -144,6 +144,20 @@ header::after {
   width: 13.5rem;
 }
 
+.noise {
+  animation: fade-in 4s;
+  background-size: calc(2px * var(--noise-size));
+  opacity: 0.012;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 /* Layout */
 body {
   grid-template-columns: minmax(2rem,1fr) minmax(1rem,75rem) minmax(2rem,1fr);

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
   {{ partial "head.html" . }}
-  <body class="grid ma0 pb2">
+  <body class="grid ma0 pb2 relative">
     {{ partial "header.html" . }}
 
     <main class="pb2 pt2">
@@ -14,7 +14,9 @@
       {{ partial "sw.html" . }}
     {{ end }}
 
-    {{ $js := resources.Get "js/clip.js" }}
+    {{ $noise := resources.Get "js/noise.js" }}
+    {{ $clip := resources.Get "js/clip.js" }}
+    {{ $js := slice $noise $clip | resources.Concat "js/bundle.min.js" | minify }}
     <script src="{{ $js.Permalink }}"></script>
   </body>
 </html>
