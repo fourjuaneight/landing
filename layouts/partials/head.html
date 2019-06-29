@@ -67,7 +67,7 @@
   {{ $main := resources.Get "css/main.css" }}
   {{ $syntax := resources.Get "css/syntax.css" }}
   {{ $styles := slice $reset $components $main $syntax | resources.Concat "styles.css" | postCSS | minify }}
-  <link rel="prefetch" href="{{ $styles.Permalink }}" onload="this.rel = 'stylesheet'">
+  <link rel="prefetch" as="style" onload="this.rel = 'stylesheet'" href="{{ $styles.Permalink }}">
   <noscript>
     <link rel="stylesheet" href="{{ $styles.Permalink }}">
   </noscript>
