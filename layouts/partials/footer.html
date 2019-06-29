@@ -1,8 +1,8 @@
 <footer class="grid gap1 justify-center pb2 pt2 w-100">
   {{ partial "avatar.html" . }}
   <section class="flex flex-column items-start mb1 mw6">
-    <p class="b f3 ma0 mb1 mono">{{ .Site.Title }}</p>
-    <p class="ma0 mw6 w-100">{{ .Site.Params.description }}</p>
+    <p class="b f3 ma0 mb1 mono">Hi, I'm Juan</p>
+    <p class="ma0 mw6 w-100">A {{ lower .Site.Params.description }}</p>
   </section>
   {{ partial "connect.html" . }}
 </footer>
