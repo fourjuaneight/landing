@@ -38,7 +38,6 @@ header::before,
 header::after,
 .clip,
 .cnt-lnk::before,
-.home::before,
 .lang {
   position: absolute;
 }
@@ -177,13 +176,6 @@ header::after {
 .home {
   justify-content: flex-start;
   width: 13.5rem;
-}
-
-.home::before {
-  color: var(--meta);
-  content: 'λ';
-  left: -1rem;
-  top: 1rem;
 }
 
 .noise {
