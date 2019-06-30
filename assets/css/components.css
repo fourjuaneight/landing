@@ -12,7 +12,8 @@
 }
 
 /* Color */
-.meta {
+.meta,
+.meta:visited {
   color: var(--meta);
 }
 
