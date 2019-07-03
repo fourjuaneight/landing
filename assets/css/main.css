@@ -16,21 +16,11 @@ nav a:hover,
 }
 
 header,
-header::before,
-header::after {
+header::before {
   left: 0;
 }
 
 header::before,
-header::after {
-  right: 0;
-  top: 0;
-  min-height: 1rem;
-  width: 100%;
-}
-
-header::before,
-header::after,
 .clip,
 .cnt-lnk::before,
 .lang {
@@ -38,7 +28,6 @@ header::after,
 }
 
 header::before,
-header::after,
 .cnt-lnk::before {
   content: '';
   z-index: -1;
@@ -54,7 +43,7 @@ header h1 span {
 }
 
 header {
-  background-color: hsl(231, 15%, 10%);
+  background-color: var(--header);
   border-color: var(--accent);
   border-style: solid;
   border-width: 0 0 1rem;
@@ -63,13 +52,12 @@ header {
 }
 
 header::before {
-  background-color: var(--accent-75);
+  background-color: var(--accent-light);
   bottom: -2rem;
-}
-
-header::after {
-  background-color: var(--accent-50);
-  bottom: -3rem;
+  min-height: 1rem;
+  right: 0;
+  top: 0;
+  width: 100%;
 }
 
 .banner,
@@ -267,11 +255,11 @@ nav {
 @media screen and (max-width: 30rem) {
   header {
     border-width: 0 1rem 1rem 0;
-    width: calc(100vw - 2rem) !important;
+    width: calc(100vw - 1rem) !important;
   }
 
   header::before {
-    width: calc(100vw - 1rem);
+    width: 100vw;
   }
 
   header::after {

@@ -126,7 +126,7 @@
 }
 
 .button:hover {
-  background-color: var(--accent-75);
+  background-color: var(--accent-light);
 }
 
 .fill::before,
