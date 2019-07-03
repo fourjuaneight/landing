@@ -11,17 +11,29 @@
     --border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
     --noise-size: 64;
     --duration: 200ms;
-    --dys: "Dyslexic", sans-serif;
-    --mono: "Fira Code", monospace;
-    --sans: "Rubik", sans-serif;
+    --dys: 'Dyslexic', sans-serif;
+    --mono: 'Fira Code', monospace;
+    --sans: 'Rubik', sans-serif;
   }
-  html.dark {
-    --accent: hsl(191, 97%, 77%);
-    --accent-light: hsl(191, 97%, 87%);
-    --background: hsl(231, 15%, 18%);
-    --header: hsl(231, 16%, 15%);
-    --font: hsl(60, 30%, 96%);
-    --meta: hsl(0, 0%, 54%);
+  @media(prefers-color-scheme:light) {
+    :root {
+      --accent: hsl(265, 91%, 62%);
+      --accent-light: hsl(265, 91%, 72%);
+      --background: hsl(60, 30%, 96%);
+      --font: hsl(231, 15%, 18%);
+      --header: hsl(233, 11%, 18%);
+      --meta: hsl(0, 0%, 43%);
+    }
+  }
+  @media(prefers-color-scheme:dark) {
+    :root {
+      --accent: hsl(191, 97%, 77%);
+      --accent-light: hsl(191, 97%, 87%);
+      --background: hsl(231, 15%, 18%);
+      --header: hsl(231, 16%, 15%);
+      --font: hsl(60, 30%, 96%);
+      --meta: hsl(0, 0%, 54%);
+    }
   }
   @font-face {
     font-display: swap;
@@ -29,8 +41,8 @@
     font-style: normal;
     font-weight: 400;
     src: local(Rubik-Regular), local(Rubik-Regular),
-      url(/fonts/Rubik-Regular.woff2) format("woff2"),
-      url(/fonts/Rubik-Regular.woff) format("woff");
+      url(/fonts/Rubik-Regular.woff2) format('woff2'),
+      url(/fonts/Rubik-Regular.woff) format('woff');
   }
   @font-face {
     font-display: swap;
@@ -38,8 +50,8 @@
     font-style: italic;
     font-weight: 400;
     src: local(Rubik-Italic), local(Rubik-Italic),
-      url(/fonts/Rubik-Italic.woff2) format("woff2"),
-      url(/fonts/Rubik-Italic.woff) format("woff");
+      url(/fonts/Rubik-Italic.woff2) format('woff2'),
+      url(/fonts/Rubik-Italic.woff) format('woff');
   }
   @font-face {
     font-display: swap;
@@ -47,8 +59,8 @@
     font-style: normal;
     font-weight: 700;
     src: local(Rubik-Bold), local(Rubik-Bold),
-      url(/fonts/Rubik-Bold.woff2) format("woff2"),
-      url(/fonts/Rubik-Bold.woff) format("woff");
+      url(/fonts/Rubik-Bold.woff2) format('woff2'),
+      url(/fonts/Rubik-Bold.woff) format('woff');
   }
   @font-face {
     font-display: swap;
@@ -56,8 +68,8 @@
     font-style: normal;
     font-weight: 400;
     src: local(OpenDyslexic-Regular), local(OpenDyslexic-Regular),
-      url(/fonts/OpenDyslexic-Regular.woff2) format("woff2"),
-      url(/fonts/OpenDyslexic-Regular.woff) format("woff");
+      url(/fonts/OpenDyslexic-Regular.woff2) format('woff2'),
+      url(/fonts/OpenDyslexic-Regular.woff) format('woff');
   }
   @font-face {
     font-display: swap;
@@ -65,8 +77,8 @@
     font-style: normal;
     font-weight: 700;
     src: local(OpenDyslexic-Bold), local(OpenDyslexic-Bold),
-      url(/fonts/OpenDyslexic-Bold.woff2) format("woff2"),
-      url(/fonts/OpenDyslexic-Bold.woff) format("woff");
+      url(/fonts/OpenDyslexic-Bold.woff2) format('woff2'),
+      url(/fonts/OpenDyslexic-Bold.woff) format('woff');
   }
   @font-face {
     font-display: swap;
@@ -74,8 +86,8 @@
     font-style: normal;
     font-weight: 400;
     src: local(FiraCode-Regular), local(FiraCode-Regular),
-      url(/fonts/FiraCode-Regular.woff2) format("woff2"),
-      url(/fonts/FiraCode-Regular.woff) format("woff");
+      url(/fonts/FiraCode-Regular.woff2) format('woff2'),
+      url(/fonts/FiraCode-Regular.woff) format('woff');
   }
   @font-face {
     font-display: swap;
@@ -83,8 +95,8 @@
     font-style: light;
     font-weight: 300;
     src: local(FiraCode-Light), local(FiraCode-Light),
-      url(/fonts/FiraCode-Light.woff2) format("woff2"),
-      url(/fonts/FiraCode-Light.woff) format("woff");
+      url(/fonts/FiraCode-Light.woff2) format('woff2'),
+      url(/fonts/FiraCode-Light.woff) format('woff');
   }
   @font-face {
     font-display: swap;
@@ -92,7 +104,7 @@
     font-style: normal;
     font-weight: 700;
     src: local(FiraCode-Bold), local(FiraCode-Bold),
-      url(/fonts/FiraCode-Bold.woff2) format("woff2"),
-      url(/fonts/FiraCode-Bold.woff) format("woff");
+      url(/fonts/FiraCode-Bold.woff2) format('woff2'),
+      url(/fonts/FiraCode-Bold.woff) format('woff');
   }
 </style>
