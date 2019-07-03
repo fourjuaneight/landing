@@ -23,7 +23,8 @@ header::before {
 header::before,
 .clip,
 .cnt-lnk::before,
-.lang {
+.lang,
+.noise {
   position: absolute;
 }
 

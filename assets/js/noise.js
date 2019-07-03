@@ -15,7 +15,7 @@ async function noise() {
   const png = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
   const url = URL.createObjectURL(png);
   const div = document.createElement('div');
-  div.classList.add('absolute', 'bottom-0', 'left-0', 'right-0', 'top-0', 'noise');
+  div.classList.add('noise');
   div.style = `background-image: url(${url})`;
   document.body.appendChild(div);
 }

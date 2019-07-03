@@ -185,6 +185,13 @@
   width: 3rem;
 }
 
+.noise {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
 .under::before {
   opacity: 0;
   transform: translateY(calc(var(--border-width) * 2));
