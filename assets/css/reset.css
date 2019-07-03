@@ -151,13 +151,11 @@ pre,
 }
 
 kbd,
-p code,
-.button {
+p code {
   border: 0.125em solid var(--font);
 }
 
-kbd,
-.button {
+kbd {
   box-shadow: var(--box);
 }
 

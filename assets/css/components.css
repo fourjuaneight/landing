@@ -118,13 +118,27 @@
 
 /*  Custom */
 .button {
-  padding: 0.5rem 1rem;
-  transition: all var(--duration) ease;
+  background-color: var(--accent);
+  color: var(--background) !important;
+  padding: 0.5rem;
+  transition: background-color var(--duration) ease;
+  width: 6rem;
 }
 
 .button:hover {
-  box-shadow: none;
-  transform: translate(0.1rem, 0.1rem);
+  background-color: var(--accent-75);
+}
+
+.fill::before,
+.fill:hover::before,
+.marked::before,
+.under::before {
+  background-color: var(--accent);
+}
+
+.fill::before,
+.under::before {
+  transition: all var(--duration) ease;
 }
 
 .fill,
@@ -135,7 +149,6 @@
 .fill::before,
 .marked::before,
 .under::before {
-  background-color: var(--accent);
   bottom: 0;
   content: '';
   left: 0;
@@ -145,11 +158,6 @@
 .fill::before,
 .under::before {
   right: 0;
-}
-
-.fill::before,
-.under::before {
-  transition: all var(--duration) ease;
 }
 
 .fill::before {
@@ -164,7 +172,6 @@
 }
 
 .fill:hover::before {
-  background-color: var(--accent);
   transform: scaleY(1);
 }
 
