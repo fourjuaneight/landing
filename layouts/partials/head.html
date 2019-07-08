@@ -69,13 +69,15 @@
     let color = localStorage.getItem('theme');
 
     window.addEventListener('DOMContentLoaded', (event) => {
-      if ((theme === 'dark') || (color === 'dark')) {
-        document.querySelector('html').setAttribute('data-theme', 'dark');
-        document.querySelector('#theme').checked = true;
-      }
-      if (color === 'light') {
-        document.querySelector('html').setAttribute('data-theme', 'light');
-        document.querySelector('#theme').checked = false;
+      switch (color || theme) {
+        case 'dark':
+          document.querySelector('html').setAttribute('data-theme', 'dark');
+          document.querySelector('#theme').checked = true;
+          break;
+        case 'light':
+          document.querySelector('html').setAttribute('data-theme', 'light');
+          document.querySelector('#theme').checked = false;
+          break;
       }
     });
   </script>
