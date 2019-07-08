@@ -11,21 +11,19 @@
   HUGO_ENV = "development"
 
 # Default config for branch deploys.
-[context.branch-deploy]
-  # Build without minification & optimization.
+[context.development]
   command = "npm run development"
 
-[context.branch-deploy.environment]
+[context.staging]
+  command = "npm run staging"
+
+[context.development.environment]
   HUGO_VERSION = "0.55.6"
   HUGO_ENV = "development"
 
-# Custom config for the staging branch.
-[context.staging]
-  # We want a production-like build.
-  command = "npm run build"
-
 [context.staging.environment]
-  HUGO_ENV = "development"
+  HUGO_VERSION = "0.55.6"
+  HUGO_ENV = "staging"
 
 # Production config.
 [context.production]

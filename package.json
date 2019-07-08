@@ -7,6 +7,7 @@
     "clean": "rm -rf public resources",
     "clean-node": "rm -rf node_modules",
     "development": "hugo -e development",
+    "staging": "hugo -e staging",
     "start": "hugo -e development serve --disableFastRender"
   },
   "repository": {
