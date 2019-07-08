@@ -175,7 +175,6 @@ header::before {
 }
 
 .noise {
-  animation: fade-in 4s;
   background-size: calc(2px * var(--noise-size));
   opacity: 0.012;
   pointer-events: none;
@@ -206,6 +205,12 @@ header::before {
 
 .toggle {
   cursor: pointer;
+}
+
+.toggle::after,
+.toggle::before,
+.noise {
+  animation: fade-in 4s;
 }
 
 .toggle::after {
@@ -285,7 +290,7 @@ main {
 nav {
   grid-column: 3/4;
   justify-self: end;
-  margin-right: 4rem;
+  margin-right: 3rem;
   max-height: 3.5rem;
   max-width: 11rem;
 }
