@@ -2,9 +2,14 @@ const toggle = document.querySelector('#theme');
 const root = document.querySelector('html');
 
 toggle.addEventListener('input', () => {
-  root.classList.toggle('dark');
-  localStorage.setItem('theme', 'dark');
   if (toggle.checked === false) {
-    localStorage.removeItem('theme');
+    localStorage.setItem('theme', 'light');
+  } else {
+    localStorage.setItem('theme', 'dark');
+  }
+  if (root.getAttribute('data-theme') === 'dark') {
+    root.setAttribute('data-theme', 'light');
+  } else {
+    root.setAttribute('data-theme', 'dark');
   }
 });

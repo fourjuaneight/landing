@@ -59,18 +59,28 @@
   <link href='{{ "writing/feed.json" | relURL }}' rel="alternate" type="application/json" title="{{ .Site.Title }}" />
   {{ end }}
 
+  {{/*  Critical CSS  */}}
+  {{ partial "critical.html" . }}
+
   {{/*  Theme  */}}
   <script>
+    const compStyles = window.getComputedStyle(document.querySelector('html'));
+    let theme = compStyles.getPropertyValue('--theme').replace(' ', '');
+    let color = localStorage.getItem('theme');
+
     window.addEventListener('DOMContentLoaded', (event) => {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.querySelector('html').classList.add('dark');
+      if ((theme === 'dark') || (color === 'dark')) {
+        document.querySelector('html').setAttribute('data-theme', 'dark');
         document.querySelector('#theme').checked = true;
+      }
+      if (color === 'light') {
+        document.querySelector('html').setAttribute('data-theme', 'light');
+        document.querySelector('#theme').checked = false;
       }
     });
   </script>
 
   {{/*  Stylesheets  */}}
-  {{ partial "critical.html" . }}
   {{ $critical := resources.Get "css/critical.css" }}
   {{ $reset := resources.Get "css/reset.css" }}
   {{ $components := resources.Get "css/components.css" }}

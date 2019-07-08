@@ -1,11 +1,21 @@
 <style>
-  html {
+  html[data-theme='light'] {
     --accent: hsl(265, 91%, 62%);
     --accent-light: hsl(265, 91%, 72%);
     --background: hsl(60, 30%, 96%);
     --font: hsl(231, 15%, 18%);
     --header: hsl(233, 11%, 18%);
     --meta: hsl(0, 0%, 43%);
+  }
+  html[data-theme='dark'] {
+    --accent: hsl(191, 97%, 77%);
+    --accent-light: hsl(191, 97%, 87%);
+    --background: hsl(231, 15%, 18%);
+    --header: hsl(231, 16%, 15%);
+    --font: hsl(60, 30%, 96%);
+    --meta: hsl(0, 0%, 54%);
+  }
+  html {
     --box: 0.1rem 0.1rem 0 var(--font), 0.125rem 0.125rem 0 var(--font);
     --border-width: 0.075rem;
     --border-radius: 57% 43% 57% 43%/48% 36% 64% 52%;
@@ -15,32 +25,14 @@
     --mono: 'Fira Code', monospace;
     --sans: 'Rubik', sans-serif;
   }
-  html.dark {
-    --accent: hsl(191, 97%, 77%);
-    --accent-light: hsl(191, 97%, 87%);
-    --background: hsl(231, 15%, 18%);
-    --header: hsl(231, 16%, 15%);
-    --font: hsl(60, 30%, 96%);
-    --meta: hsl(0, 0%, 54%);
-  }
   @media(prefers-color-scheme:light) {
     html {
-      --accent: hsl(265, 91%, 62%);
-      --accent-light: hsl(265, 91%, 72%);
-      --background: hsl(60, 30%, 96%);
-      --font: hsl(231, 15%, 18%);
-      --header: hsl(233, 11%, 18%);
-      --meta: hsl(0, 0%, 43%);
+      --theme: light;
     }
   }
   @media(prefers-color-scheme:dark) {
     html {
-      --accent: hsl(191, 97%, 77%);
-      --accent-light: hsl(191, 97%, 87%);
-      --background: hsl(231, 15%, 18%);
-      --header: hsl(231, 16%, 15%);
-      --font: hsl(60, 30%, 96%);
-      --meta: hsl(0, 0%, 54%);
+      --theme: dark;
     }
   }
   @font-face {
