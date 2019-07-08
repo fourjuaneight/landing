@@ -1,7 +1,7 @@
 {
   "name": "juan-dev",
   "version": "2.0.0",
-  "description": "Front-End Developer, automation nerd, astronomy enthusiast, and amateur chef.",
+  "description": "Front-End Developer, automation nerd, and astronomy enthusiast.",
   "scripts": {
     "build": "hugo -e production",
     "clean": "rm -rf public resources",
