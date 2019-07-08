@@ -59,6 +59,16 @@
   <link href='{{ "writing/feed.json" | relURL }}' rel="alternate" type="application/json" title="{{ .Site.Title }}" />
   {{ end }}
 
+  {{/*  Theme  */}}
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.querySelector('html').classList.add('dark');
+        document.querySelector('#theme').checked = true;
+      }
+    });
+  </script>
+
   {{/*  Stylesheets  */}}
   {{ partial "critical.html" . }}
   {{ $critical := resources.Get "css/critical.css" }}

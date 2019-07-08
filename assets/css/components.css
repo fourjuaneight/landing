@@ -137,6 +137,8 @@
 }
 
 .fill::before,
+.toggle::before,
+.toggle::after,
 .under::before {
   transition: all var(--duration) ease;
 }

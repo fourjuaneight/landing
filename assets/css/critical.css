@@ -12,14 +12,7 @@
 html {
   box-sizing: border-box;
   font-size: 100%;
-  transition: font-size 200ms ease;
   -webkit-overflow-scrolling: touch;
-}
-
-@media screen and (max-width: 48rem) {
-  html {
-    font-size: 95%;
-  }
 }
 
 body {

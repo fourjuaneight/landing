@@ -1,5 +1,5 @@
 <style>
-  :root {
+  html {
     --accent: hsl(265, 91%, 62%);
     --accent-light: hsl(265, 91%, 72%);
     --background: hsl(60, 30%, 96%);
@@ -15,8 +15,16 @@
     --mono: 'Fira Code', monospace;
     --sans: 'Rubik', sans-serif;
   }
+  html.dark {
+    --accent: hsl(191, 97%, 77%);
+    --accent-light: hsl(191, 97%, 87%);
+    --background: hsl(231, 15%, 18%);
+    --header: hsl(231, 16%, 15%);
+    --font: hsl(60, 30%, 96%);
+    --meta: hsl(0, 0%, 54%);
+  }
   @media(prefers-color-scheme:light) {
-    :root {
+    html {
       --accent: hsl(265, 91%, 62%);
       --accent-light: hsl(265, 91%, 72%);
       --background: hsl(60, 30%, 96%);
@@ -26,7 +34,7 @@
     }
   }
   @media(prefers-color-scheme:dark) {
-    :root {
+    html {
       --accent: hsl(191, 97%, 77%);
       --accent-light: hsl(191, 97%, 87%);
       --background: hsl(231, 15%, 18%);

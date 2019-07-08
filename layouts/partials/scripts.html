@@ -6,5 +6,6 @@
 {{/*  Bundled scripts.  */}}
 {{ $noise := resources.Get "js/noise.js" }}
 {{ $clip := resources.Get "js/clip.js" }}
-{{ $js := slice $noise $clip | resources.Concat "scripts.js" | minify }}
+{{ $theme := resources.Get "js/theme.js" }}
+{{ $js := slice $noise $clip $theme | resources.Concat "scripts.js" | minify }}
 <script src="{{ $js.Permalink }}"></script>
