@@ -95,6 +95,7 @@ header::before {
 }
 
 .button,
+.err,
 .fn {
   text-align: center;
 }
@@ -128,6 +129,11 @@ header::before {
 
 .cnt-lnk:hover svg {
   fill: var(--background);
+}
+
+.err {
+  margin: 2rem auto;
+  max-width: 21rem;
 }
 
 .fn,

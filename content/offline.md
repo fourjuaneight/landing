@@ -1,9 +1,8 @@
 {
-  "title": "Offline",
+  "title": "It looks like you're Offline",
   "showdate": false,
+  "center": true,
   "draft": false
 }
 
-It looks like you're offline right now.
-
-No worries; much of my site is available offline. Along with any other pages you've previously viewed.
+No worries. Any of the pages you've previously viewed are available offline.
