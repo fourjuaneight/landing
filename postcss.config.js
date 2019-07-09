@@ -14,7 +14,8 @@ module.exports = () => {
           '> 5%',
           'IE 11'
         ]
-      }
+      },
+      'cssnano': {}
     }
   };
 };
