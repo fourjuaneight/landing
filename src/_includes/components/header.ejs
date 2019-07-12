@@ -1,0 +1,15 @@
+<header class="grid relative w-100">
+  <a href="<%= meta.domain %>" rel="me" class="flex items-center mra none pb1 pt1 relative home">
+    <h1 class="ma0 mono n"><strong class="relative under"><%= meta.title %></strong><br><span>Front-End Developer</span></h1>
+  </a>
+  <nav class="flex justify-between mono pb1 pt1 w-100">
+    <a href="<%= meta.domain %>/posts/" class="none relative under"><strong>Archive</strong></a>
+    <span aria-hidden="true" class="meta">::</span>
+    <a href="<%= meta.domain %>/about/" class="none relative under"><strong>About</strong></a>
+  </nav>
+  <label for="theme" class="flex items-start justify-center theme-wrap">
+    <input type="checkbox" name="theme" id="theme"/>
+    <span class="sr">Theme Switcher</span>
+    <span aria-hidden="true" class="inline ma0 pa0 relative toggle"></span>
+  </label>
+</header>
