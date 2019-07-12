@@ -5,7 +5,7 @@
 
 const { resolve } = require('path'),
       CopyWebpackPlugin = require('copy-webpack-plugin'),
-      MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+      TerserPlugin = require('terser-webpack-plugin'),
       ImageminPlugin = require('imagemin-webpack-plugin'),
       imageminMozjpeg = require('imagemin-mozjpeg'),
       imageminPngquant = require('imagemin-pngquant'),
@@ -15,10 +15,14 @@ const { resolve } = require('path'),
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
   entry: [
-    '',
+    './src/static/js/clip.js',
+    './src/static/js/theme.js',
+    './src/static/js/noise.js',
+    './src/static/css/reset.scss',
+    './src/static/css/main.scss',
   ],
   output: {
-    path: resolve(__dirname, 'assets'),
+    path: resolve(__dirname, 'static'),
     filename: 'scripts.js'
   },
   module: {
@@ -26,16 +30,49 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: ['babel-loader'],
       },
       {
-        test: /styles.scss/,
+        test: /\.scss$/,
         use: [
-          'sass-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              name: '../styles.css',
+            }
+          },
+          {
+            loader: 'extract-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {url: false}
+          },
           'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['./src/static/css']
+            }
+          },
         ]
       }
     ]
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          output: {
+            comments: false,
+          },
+        },
+      }),
+    ],
+  },
+  watchOptions: {
+    ignored: /node_modules/,
+    aggregateTimeout: 500
   },
   plugins: [
     new CopyWebpackPlugin([
@@ -45,9 +82,6 @@ module.exports = {
         ignore: ['*.svg']
       }
     ]),
-    new MiniCssExtractPlugin({
-      filename: 'styles.css',
-    }),
     new ImageminPlugin({
       plugins: [
         imageminWebp({
