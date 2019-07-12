@@ -1,8 +1,0 @@
-{{ define "main" }}
-  <h2 class="marked mra relative">{{ .Name }}</h2>
-  <section>
-    {{ range .Pages }}
-      {{ .Render "li" }}
-    {{ end }}
-  </section>
-{{ end }}
