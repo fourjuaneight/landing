@@ -1,5 +1,6 @@
 // Learn more about Webpack:
 // https://webpack.js.org/
+// Dependencies: npm i -D babel-loader css-loader sass-loader postcss-loader extract-loader file-loader copy-webpack-plugin terser-webpack-plugin imagemin-webpack-plugin imagemin-mozjpeg imagemin-pngquant imagemin-webp workbox-webpack-plugin
 
 'use strict';
 
