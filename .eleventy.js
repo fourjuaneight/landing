@@ -7,9 +7,9 @@ const minifier = require('./src/config/minifier.js');
 const tags = require('./src/config/tags.js');
 
 // Markdown
-const markdown = require("markdown-it");
-let markdownLink = require("markdown-it-link-attributes");
-let markdownFN = require("markdown-it-footnote");
+const markdown = require('markdown-it');
+let markdownLink = require('markdown-it-link-attributes');
+let markdownFN = require('markdown-it-footnote');
 let options = {
   html: true,
   breaks: true,
@@ -37,11 +37,11 @@ const elConf = config => {
   config.addTransform('minifier', minifier);
 
   // Passthrough
-  config.addPassthroughCopy("src/css");
-  config.addPassthroughCopy("src/fonts");
-  config.addPassthroughCopy("src/icons");
-  config.addPassthroughCopy("src/img");
-  config.addPassthroughCopy("src/js");
+  config.addPassthroughCopy('src/css');
+  config.addPassthroughCopy('src/fonts');
+  config.addPassthroughCopy('src/icons');
+  config.addPassthroughCopy('src/img');
+  config.addPassthroughCopy('src/js');
 
   // Custom collections
   const now = new Date();
@@ -60,10 +60,10 @@ const elConf = config => {
 
   return {
     dir: {
-      data: "_data",
-      input: "src",
+      data: '_data',
+      input: 'src',
       output: 'dist',
-      includes: "_includes",
+      includes: '_includes',
     },
     passthroughFileCopy: true,
   };

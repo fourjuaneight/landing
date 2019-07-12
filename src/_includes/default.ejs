@@ -3,7 +3,7 @@
   <%- include("components/head") %>
   <body class="grid ma0 pb2 relative">
     <%- include("components/header") %>
-    <main class="pb2 pt2"><%- content %></main>
+    <main class="pb2 pt2"><%- content.replace(/\<ol\sclass=\"footnotes\-list\"\>/g, '<ol start="0" class="footnotes-list">') %></main>
     <%- include("components/footer") %>
     <script src="<%= meta.domain %>/scripts.js"></script>
   </body>
