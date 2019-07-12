@@ -1,8 +1,10 @@
+---json
 {
   "title": "About Me",
   "showdate": false,
   "draft": false
 }
+---
 
 I love the web. From the first time I got online around 2000 on my first Mac (G3 Grape!), I thought about the possibilities of having answers to anything at my fingertips. The early web had a sense of discovery and adventure. And although that's been mostly lost with today's infinite news feed, I do my best to experience the web through recommendations by bloggers and internet peoples.
 
