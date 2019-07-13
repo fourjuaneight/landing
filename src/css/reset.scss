@@ -1,4 +1,38 @@
-/*  Reset */
+@import 'extends';
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*::selection {
+  background-color: var(--font);
+  color: var(--background);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  @extend %overflow-x-hidden;
+
+  background-color: var(--background);
+  border-bottom: calc(var(--border-width) * 2) solid var(--accent);
+  color: var(--font);
+  font-family: var(--sans);
+  font-size: 1em;
+  line-height: 1.4;
+
+  .dyslexic {
+    font-family: var(--dys);
+    font-size: 0.85em;
+  }
+}
+
 a {
   transition: color var(--duration) ease;
 }
@@ -13,8 +47,8 @@ header,
 image,
 img,
 main {
-  margin: 0 auto;
-  width: 100%;
+  @extend %m--horizontal;
+  @extend %w-100;
 }
 
 blockquote {
@@ -42,19 +76,21 @@ time,
   font-family: var(--mono);
 }
 
-body.dyslexic code,
-body.dyslexic h1,
-body.dyslexic h2,
-body.dyslexic h3,
-body.dyslexic h4,
-body.dyslexic kbd,
-body.dyslexic pre,
-body.dyslexic pre code,
-body.dyslexic sup,
-body.dyslexic time,
-body.dyslexic .home::before,
-body.dyslexic .mono {
-  font-family: var(--dys);
+body.dyslexic {
+  code,
+  h1,
+  h2,
+  h3,
+  h4,
+  kbd,
+  pre,
+  pre code,
+  sup,
+  time,
+  .home::before,
+  .mono {
+    font-family: var(--dys);
+  }
 }
 
 code,
@@ -147,29 +183,26 @@ p code,
 pre,
 .banner,
 .button {
-  border-radius: 0.125rem;
+  @extend %border;
 }
 
 kbd,
 p code {
   border: 0.125em solid var(--font);
+  padding: 0.0625rem 0.5rem;
 }
 
 kbd {
   box-shadow: var(--box);
 }
 
-p code,
-kbd {
-  padding: 0.0625rem 0.5rem;
-}
-
 picture {
-  overflow: hidden;
+  @extend %overflow-hidden;
 }
 
 pre {
-  margin: 0;
-  overflow-x: auto;
+  @extend %ma0;
+  @extend %overflow-x-hidden;
+
   padding: 2.5rem 1rem 1rem;
 }
