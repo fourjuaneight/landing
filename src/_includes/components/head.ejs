@@ -49,6 +49,13 @@
   <link href="<%= meta.domain %>/index.xml" rel="alternate" type="application/rss+xml" title="<%= meta.title %>">
   <link href="<%= meta.domain %>/feed.json" rel="alternate" type="application/json" title="<%= meta.title %>" />
 
+  <link rel="preload" href="<%= meta.domain %>/fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/FiraCode-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/FiraCode-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/FiraCode-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Regular.woff" as="font" type="font/woff" crossorigin>
+
   <style>
     html[data-theme='light'] {
       <% for(const [name, color] of Object.entries(props.palette.light)) { %>
