@@ -34,7 +34,7 @@
   <link rel="apple-touch-icon" sizes="152x152" href="<%= meta.domain %>/icons/apple-touch-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="167x167" href="<%= meta.domain %>/icons/apple-touch-icon-167x167.png">
   <link rel="apple-touch-icon" sizes="180x180" href="<%= meta.domain %>/icons/apple-touch-icon-180x180.png">
-  <link rel="mask-icon" color="#8F3A6D" href="<%= meta.domain %>/icons/safari-pinned-tab.svg">
+  <link rel="mask-icon" color="#8f46f6" href="<%= meta.domain %>/icons/safari-pinned-tab.svg">
   <link rel="icon" sizes="128x128" href="<%= meta.domain %>/icons/icon-128x128.png">
   <link rel="icon" sizes="192x192" href="<%= meta.domain %>/icons/icon-192x192.png">
   <link rel="icon" sizes="512x512" href="<%= meta.domain %>/icons/icon-512x512.png">
@@ -59,6 +59,16 @@
       <% for(const [name, value] of Object.entries(props.base)) { %>
         --<%= name %>: <%- value %>;
       <% } %>
+    }
+    @media(prefers-color-scheme:light) {
+      html {
+        --theme: light;
+      }
+    }
+    @media(prefers-color-scheme:dark) {
+      html {
+        --theme: dark;
+      }
     }
   </style>
 

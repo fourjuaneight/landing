@@ -2,12 +2,12 @@
   const posts = items
   posts.forEach(item => {
 %>
-  <article class="flex flex-column items-start">
-    <a href="<%= item.url %>" class="none relative fill perma"><h3 class="ma0"><%= item.data.title %></h3></a>
+  <article>
+    <a href="<%= item.url %>" class="permalink"><h3><%= item.data.title %></h3></a>
     <p><%= item.data.summary %></p>
-    <section class="flex justify-between w-100 tags-wrap">
-      <time datetime="<%= item.date.toUTCString() %>" class="f7 meta mra"><span aria-label="Posted on">&tau;</span><%= item.date.toISOString().substring(0, 10) %></time>
-      <p class="f7 ma0 mono mr1"><span aria-hidden="true" class="meta">#</span><a href="/tags/<%= item.data.tags %>" itemprop="about" class="meta none tag"><%= item.data.tags %></a></p>
+    <section class="meta-wrap">
+      <time datetime="<%= item.date.toUTCString() %>"><span aria-label="Posted on">&tau;</span><%= item.date.toISOString().substring(0, 10) %></time>
+      <p class="tag"><span aria-hidden="true">#</span><a href="/tags/<%= item.data.tags %>" itemprop="about"><%= item.data.tags %></a></p>
     </section>
   </article>
 <% }) %>
