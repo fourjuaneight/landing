@@ -1,15 +1,15 @@
 <header>
   <h1 class="home">
-    <a href="<%= meta.domain %>" rel="me"><strong><%= meta.title %></strong></a>
-    <br><span>Front-End Developer</span>
+    <a href="<%= meta.domain %>" rel="me" class="home__link"><strong><%= meta.title %></strong></a>
+    <span>Front-End Developer</span>
   </h1>
   <nav>
-    <a href="<%= meta.domain %>/posts/"><strong>Archive</strong></a>
+    <a href="<%= meta.domain %>/posts/" class="nav__link"><strong>Archive</strong></a>
     <span aria-hidden="true" class="sep">::</span>
-    <a href="<%= meta.domain %>/about/"><strong>About</strong></a>
+    <a href="<%= meta.domain %>/about/" class="nav__link"><strong>About</strong></a>
   </nav>
-  <label for="theme" class="theme-wrap">
-    <input type="checkbox" name="theme" id="theme"/>
+  <label for="theme" class="theme__wrap">
+    <input type="checkbox" name="theme" id="theme" class="sr"/>
     <span class="sr">Theme Switcher</span>
     <span aria-hidden="true" class="toggle"></span>
   </label>
