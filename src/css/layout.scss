@@ -1,0 +1,388 @@
+@import './extends.scss';
+@import './mixins.scss';
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+article {
+  @extend %flex;
+  @extend %flex-column;
+  @extend %items-flex-start;
+  @extend %m--horizontal;
+  @extend %w-100;
+}
+
+body {
+  grid-template-columns: minmax(2rem,1fr) minmax(1rem,75rem) minmax(2rem,1fr);
+  grid-template-rows: repeat(3, auto);
+}
+
+footer {
+  @extend %content-center;
+  @extend %grid;
+  @extend %items-start;
+  @extend %m--horizontal;
+  @extend %pb2;
+  @extend %pt2;
+  @extend %w-100;
+
+  grid-gap: 1rem;
+  grid-row: 3/4;
+  grid-template-columns: 6.5rem minmax(10.5rem,32rem);
+  grid-template-rows: min-content 2.5rem;
+
+  dl {
+    @extend %content-between;
+    @extend %flex;
+    @extend %items-center;
+    @extend %j-self-end;
+    @extend %ma0;
+    @extend %w-100;
+
+    max-width: 8rem;
+  }
+
+  dd {
+    @extend %ma0;
+
+    height: 40px;
+  }
+}
+
+footer dl,
+.hire {
+  @extend %a-self-center;
+  
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+main,
+footer {
+  grid-column: 2/3;
+}
+
+header {
+  @extend %grid;
+  @extend %left-0;
+  @extend %relative;
+  @extend %w-100;
+
+  background-color: var(--header);
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0 0 1rem;
+  grid-column: 1/4;
+  grid-row: 1/2;
+  grid-template-columns: auto repeat(2, minmax(13.5rem,37.5rem)) auto;
+  margin: 0 auto 0 0;
+  padding: 1rem 2rem;
+
+  &:before {
+    @extend %absolute;
+    @extend %content;
+    @extend %left-0;
+    @extend %right-0;
+    @extend %top-0;
+    @extend %w-100;
+    @extend %z-under;
+
+    background-color: var(--accent-light);
+    bottom: -2rem;
+    min-height: 1rem;
+  }
+
+  a, a:hover {
+    color: hsl(60, 30%, 96%);
+  }
+
+  a, h1 {
+    font-size: 1.15rem;
+  }
+
+  h1 span {
+    font-weight: normal;
+  }
+
+  @include media-query-max(30rem) {
+    border-width: 0 1rem 1rem 0;
+    width: calc(100vw - 1rem);
+
+    &::after, &::before {
+      width: 100vw;
+    }
+  }
+}
+
+main {
+  @extend %m--horizontal;
+  @extend %pb2;
+  @extend %pt2;
+
+  grid-row: 2/3;
+  min-height: calc(100vh - 22rem);
+}
+
+nav {
+  @extend %content-between;
+  @extend %flex;
+  @extend %j-self-end;
+  @extend %pb1;
+  @extend %pt1;
+  @extend %w-100;
+
+  grid-column: 3/4;
+  margin-right: 3rem;
+  max-height: 3.5rem;
+  max-width: 11rem;
+
+  @include media-query-max(30rem) {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-self: start;
+    margin: 0;
+  }
+
+  .sep {
+    color: var(--meta);
+  }
+}
+
+time {
+  @extend %f7;
+  @extend %mra;
+}
+
+.avatar {
+  @extend %border--weird;
+  @extend %flex;
+  @extend %mr1;
+  @extend %relative;
+
+  background-color: var(--accent);
+  height: 6.5rem;
+  width: 6.5rem;
+}
+
+.error {
+  @extend %text-center;
+
+  margin: 2rem auto;
+  max-width: 21rem;
+}
+
+.foot__copy {
+  @extend %flex;
+  @extend %flex-column;
+  @extend %items-flex-start;
+  @extend %mb1;
+  @extend %w-100;
+
+  max-width: 32rem;
+}
+
+.foot__head {
+  @extend %ma0;
+  @extend %mb1;
+}
+
+.foot__body {
+  @extend %ma0;
+  @extend %w-100;
+
+  max-width: 32rem;
+}
+
+.hire {
+  @extend %border--curved;
+  @extend %j-self-start;
+  @extend %pa0;
+  @extend %text-center;
+
+  @include transition(background-color);
+
+  background-color: var(--accent);
+  color: var(--background) !important;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 6rem;
+
+  &:hover {
+    background-color: var(--accent-light);
+  }
+
+  @include media-query-max(30rem) {
+    grid-column: 1/2;
+  }
+}
+
+.home {
+  @extend %content-flex-start;
+  @extend %flex;
+  @extend %items-center;
+  @extend %mra;
+  @extend %no-underline;
+  @extend %pb1;
+  @extend %relative;
+
+  grid-column: 2/3;
+  width: 13.5rem;
+}
+
+.icon {
+  @extend %content-center;
+  @extend %flex;
+  @extend %items-center;
+  @extend %no-underline;
+  @extend %relative;
+
+  height: 2.5rem;
+  width: 2.5rem;
+
+  &:before {
+    @extend %absolute;
+    @extend %border--weird;
+    @extend %content;
+    @extend %z-under;
+
+    @include transition(transform);
+
+    background-color: var(--accent);
+    border-radius: var(--border-radius);
+    height: 2.5rem;
+    pointer-events: none;
+    transform: scale(0);
+    width: 2.5rem;
+  }
+
+  .icon__svg {
+    @include transition(fill);
+
+    fill: var(--font);
+  }
+
+  &:hover {
+    &:before {
+      transform: scale(1);
+    }
+
+    .icon__svg {
+      fill: var(--background);
+    }
+  }
+}
+
+.marked {
+  @extend %mra;
+  @extend %relative;
+
+  &:before {
+    @extend %absolute;
+    @extend %bottom-0;
+    @extend %content;
+    @extend %left-0;
+    @extend %z1;
+
+    background-color: var(--accent);
+    height: 0.15rem;
+    width: 3rem;
+  }
+}
+
+.meta__wrap {
+  @extend %content-between;
+  @extend %flex;
+  @extend %flex-wrap;
+  @extend %w-100;
+}
+
+.noise,
+.toggle::after,
+.toggle::before {
+  animation: fade-in 2s;
+}
+
+.noise {
+  @extend %absolute;
+  @extend %bottom-0;
+  @extend %left-0;
+  @extend %right-0;
+  @extend %top-0;
+  @extend %z20;
+
+  background-size: calc(2px * var(--noise-size));
+  opacity: 0.012;
+  pointer-events: none;
+}
+
+.permalink {
+  margin: 1rem 0;
+
+  h3 {
+    @extend %ma0;
+  }
+}
+
+.tag {
+  @extend %f7;
+  @extend %ma0;
+  @extend %mr1;
+
+  color: var(--meta);
+}
+
+.toggle {
+  cursor: pointer;
+
+  &:after {
+    @extend %absolute;
+    @extend %content;
+    @extend %ma0;
+    @extend %transition--all;
+
+    border-radius: 1rem;
+    display: inherit;
+    height: 1.5rem;
+    vertical-align: middle;
+    width: 1.3125rem;
+  }
+
+  &:before {
+    @extend %absolute;
+    @extend %bottom-0;
+    @extend %content;
+    @extend %right-0;
+    @extend %transition--all;
+    @extend %z5;
+
+    background-color: var(--accent-light);
+    border-radius: 100%;
+    height: 1rem;
+    margin: 0.25rem;
+    transform: rotate(-45deg);
+    width: 1rem;
+  }
+}
+
+.theme__wrap {
+  @extend %absolute;
+  @extend %content-center;
+  @extend %flex;
+  @extend %items-flex-start;
+  @extend %z-under;
+
+  height: 1.5rem;
+  right: 2rem;
+  top: 2rem;
+  width: 1.3125rem;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#theme:checked ~ .toggle::before {
+  background: transparent;
+  box-shadow: 0.3125rem 0.3125rem 0 0 var(--accent-light);
+  right: 0.5rem;
+}

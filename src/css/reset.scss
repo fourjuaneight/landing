@@ -1,4 +1,54 @@
-@import 'extends';
+@import './extends.scss';
+
+@font-face {
+  font-display: swap;
+  font-family: rubik;
+  font-style: normal;
+  font-weight: 400;
+  src: local(Rubik-Regular), local(Rubik-Regular),
+    url(/fonts/Rubik-Regular.woff2) format('woff2'),
+    url(/fonts/Rubik-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: dyslexic;
+  font-style: normal;
+  font-weight: 400;
+  src: local(OpenDyslexic-Regular), local(OpenDyslexic-Regular),
+    url(/fonts/OpenDyslexic-Regular.woff2) format('woff2'),
+    url(/fonts/OpenDyslexic-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: dyslexic;
+  font-style: normal;
+  font-weight: 700;
+  src: local(OpenDyslexic-Bold), local(OpenDyslexic-Bold),
+    url(/fonts/OpenDyslexic-Bold.woff2) format('woff2'),
+    url(/fonts/OpenDyslexic-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: fira code;
+  font-style: normal;
+  font-weight: 400;
+  src: local(FiraCode-Regular), local(FiraCode-Regular),
+    url(/fonts/FiraCode-Regular.woff2) format('woff2'),
+    url(/fonts/FiraCode-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: fira code;
+  font-style: normal;
+  font-weight: 700;
+  src: local(FiraCode-Bold), local(FiraCode-Bold),
+    url(/fonts/FiraCode-Bold.woff2) format('woff2'),
+    url(/fonts/FiraCode-Bold.woff) format('woff');
+}
 
 *,
 *::before,
@@ -34,31 +84,43 @@ body {
 }
 
 a {
-  transition: color var(--duration) ease;
+  @extend %no-underline;
+  @extend %transition--all;
+
+  color: var(--font);
+
+  &:hover {
+    @extend %underline;
+
+    color: var(--font);
+    text-decoration-color: var(--accent) !important;
+  }
+
+  &:visited {
+    color: var(--font);
+  }
+
+  &:not([class]) {
+    @extend %underline;
+
+    text-decoration-color: var(--accent) !important;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
 }
 
-a:visited {
-  color: inherit;
-}
-
-article,
-footer,
-header,
-image,
-img,
-main {
-  @extend %m--horizontal;
-  @extend %w-100;
+blockquote,
+li,
+p,
+.highlight {
+  margin: 0.75rem 0;
 }
 
 blockquote {
   border-left: 0.125em solid var(--accent);
   padding-left: 0.75rem;
-}
-
-button {
-  background: none;
-  outline: none;
 }
 
 code,
@@ -88,25 +150,9 @@ body.dyslexic {
   sup,
   time,
   .home::before,
-  .mono {
+  .tags {
     font-family: var(--dys);
   }
-}
-
-code,
-kbd,
-pre,
-pre code,
-sup,
-.highlight {
-  font-size: 0.875rem;
-  font-style: normal;
-}
-
-header a:hover,
-footer a:hover {
-  text-decoration-color: var(--accent);
-  text-decoration-style: solid;
 }
 
 h1,
@@ -141,68 +187,21 @@ h4 {
   font-size: 1.25rem;
 }
 
-hr {
-  border: var(--border-width) solid var(--accent);
-  margin: 1.5rem 0 0;
-}
+img {
+  @extend %m--horizontal;
 
-image,
-img,
-video {
   height: auto;
-}
-
-img,
-image {
   object-fit: contain;
   object-position: left bottom;
 }
 
-input,
-textarea {
-  border: none;
-  padding: 0.5rem;
-}
-
-blockquote,
-li,
-p,
-.highlight {
-  margin: 0.75rem 0;
-}
-
-button {
-  border: 0;
-  cursor: pointer;
-  padding: 0;
-  outline: 0;
-}
-
-kbd,
-p code,
-pre,
-.banner,
-.button {
-  @extend %border;
-}
-
-kbd,
 p code {
+  @extend %border--curved;
+
   border: 0.125em solid var(--font);
   padding: 0.0625rem 0.5rem;
 }
 
-kbd {
-  box-shadow: var(--box);
-}
-
 picture {
   @extend %overflow-hidden;
-}
-
-pre {
-  @extend %ma0;
-  @extend %overflow-x-hidden;
-
-  padding: 2.5rem 1rem 1rem;
 }

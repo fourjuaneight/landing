@@ -14,6 +14,20 @@
   --txt: hsl(60, 30%, 96%);
 }
 /* Base */
+code,
+pre,
+pre code,
+.highlight {
+  font-size: 0.875rem;
+  font-style: normal;
+}
+pre {
+  @extend %border--curved;
+  @extend %ma0;
+  @extend %overflow-x-hidden;
+
+  padding: 2.5rem 1rem 1rem;
+}
 .chroma .ge,
 .chroma .gl {
   text-decoration: underline;

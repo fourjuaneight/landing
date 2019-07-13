@@ -3,8 +3,12 @@
   background: none;
 }
 
-%border {
+%border--curved {
   border-radius: 0.125rem;
+}
+
+%border--weird {
+  border-radius: var(--border-radius);
 }
 
 %content {
@@ -13,6 +17,19 @@
 
 %no-underline {
   text-decoration: none;
+}
+
+%underline {
+  text-decoration: underline;
+}
+
+// Type
+%f7 {
+  font-size: .875rem !important;
+}
+
+%text-center {
+  text-align: center;
 }
 
 // Layout
@@ -180,6 +197,30 @@
   top: 0;
 }
 
+%z-under {
+  z-index: -1;
+}
+
+%z1 {
+  z-index: 1;
+}
+
+%z5 {
+  z-index: 5;
+}
+
+%z10 {
+  z-index: 10;
+}
+
+%z15 {
+  z-index: 15;
+}
+
+%z20 {
+  z-index: 20;
+}
+
 // Spacing
 %m--horizontal {
   margin: 0 auto;
@@ -341,30 +382,4 @@
 // Animation
 %transition--all {
   transition: all var(--duration) ease;
-}
-
-// Bundles
-%absolute--fill {
-  @extend %absolute;
-  @extend %bottom-0;
-  @extend %left-0;
-  @extend %right-0;
-  @extend %top-0;
-}
-
-%no-space {
-  @extend %ma0;
-  @extend %pa0;
-}
-
-%link {
-  @extend %no-decoration;
-
-  @include transition(color);
-}
-
-%list {
-  @extend %no-space;
-
-  list-style-type:none
 }
