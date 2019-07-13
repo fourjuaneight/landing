@@ -4,14 +4,14 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
   entry: [
-    './src/js/clip.js',
-    './src/js/theme.js',
-    './src/js/noise.js',
-    './src/css/main.scss',
+    './src/assets/js/clip.js',
+    './src/assets/js/theme.js',
+    './src/assets/js/noise.js',
+    './src/assets/scss/main.scss',
   ],
   output: {
-    path: resolve(__dirname),
-    filename: './src/js/scripts.js',
+    path: resolve(__dirname, 'src'),
+    filename: 'js/scripts.js',
   },
   module: {
     rules: [
@@ -26,7 +26,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: './src/css/styles.css',
+              name: 'css/styles.css',
             },
           },
           {

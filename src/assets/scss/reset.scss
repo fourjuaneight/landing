@@ -6,8 +6,8 @@
   font-style: normal;
   font-weight: 400;
   src: local(Rubik-Regular), local(Rubik-Regular),
-    url(/fonts/Rubik-Regular.woff2) format('woff2'),
-    url(/fonts/Rubik-Regular.woff) format('woff');
+    url('/fonts/Rubik-Regular.woff2') format('woff2'),
+    url('/fonts/Rubik-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -16,8 +16,8 @@
   font-style: normal;
   font-weight: 400;
   src: local(OpenDyslexic-Regular), local(OpenDyslexic-Regular),
-    url(/fonts/OpenDyslexic-Regular.woff2) format('woff2'),
-    url(/fonts/OpenDyslexic-Regular.woff) format('woff');
+    url('/fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+    url('/fonts/OpenDyslexic-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -26,8 +26,8 @@
   font-style: normal;
   font-weight: 700;
   src: local(OpenDyslexic-Bold), local(OpenDyslexic-Bold),
-    url(/fonts/OpenDyslexic-Bold.woff2) format('woff2'),
-    url(/fonts/OpenDyslexic-Bold.woff) format('woff');
+    url('/fonts/OpenDyslexic-Bold.woff2') format('woff2'),
+    url('/fonts/OpenDyslexic-Bold.woff') format('woff');
 }
 
 @font-face {
@@ -36,8 +36,8 @@
   font-style: normal;
   font-weight: 400;
   src: local(FiraCode-Regular), local(FiraCode-Regular),
-    url(/fonts/FiraCode-Regular.woff2) format('woff2'),
-    url(/fonts/FiraCode-Regular.woff) format('woff');
+    url('/fonts/FiraCode-Regular.woff2') format('woff2'),
+    url('/fonts/FiraCode-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -46,8 +46,8 @@
   font-style: normal;
   font-weight: 700;
   src: local(FiraCode-Bold), local(FiraCode-Bold),
-    url(/fonts/FiraCode-Bold.woff2) format('woff2'),
-    url(/fonts/FiraCode-Bold.woff) format('woff');
+    url('/fonts/FiraCode-Bold.woff2') format('woff2'),
+    url('/fonts/FiraCode-Bold.woff') format('woff');
 }
 
 *,
@@ -68,16 +68,20 @@ html {
 }
 
 body {
+  @extend %grid;
+  @extend %ma0;
   @extend %overflow-x-hidden;
 
   background-color: var(--background);
-  border-bottom: calc(var(--border-width) * 2) solid var(--accent);
+  border-bottom: calc(var(--borderWidth) * 2) solid var(--accent);
   color: var(--font);
   font-family: var(--sans);
   font-size: 1em;
+  grid-template-columns: minmax(2rem,1fr) minmax(1rem,75rem) minmax(2rem,1fr);
+  grid-template-rows: repeat(3, auto);
   line-height: 1.4;
 
-  .dyslexic {
+  &.dyslexic {
     font-family: var(--dys);
     font-size: 0.85em;
   }
@@ -85,8 +89,6 @@ body {
 
 a {
   @extend %no-underline;
-  @extend %transition--all;
-
   color: var(--font);
 
   &:hover {
@@ -97,7 +99,7 @@ a {
   }
 
   &:visited {
-    color: var(--font);
+    color: inherit;
   }
 
   &:not([class]) {
@@ -115,7 +117,7 @@ blockquote,
 li,
 p,
 .highlight {
-  margin: 0.75rem 0;
+  margin: 0 0 0.75rem;
 }
 
 blockquote {
@@ -124,6 +126,7 @@ blockquote {
 }
 
 code,
+header a,
 h1,
 h2,
 h3,
@@ -134,12 +137,14 @@ pre code,
 sup,
 time,
 .home::before,
-.mono {
+.sep,
+.tag {
   font-family: var(--mono);
 }
 
 body.dyslexic {
   code,
+  header a,
   h1,
   h2,
   h3,
@@ -150,7 +155,8 @@ body.dyslexic {
   sup,
   time,
   .home::before,
-  .tags {
+  .sep,
+  .tag {
     font-family: var(--dys);
   }
 }
@@ -167,12 +173,17 @@ h4 {
 h2,
 h3,
 h4 {
-  margin: 2rem 0 1rem;
+  margin: 0.75rem 0 1rem;
 }
 
 h1 {
   font-size: 3rem;
   margin: 0 0 1rem;
+
+  &.title {
+    font-size: 2.5rem;
+    margin-top: 0.75rem;
+  }
 }
 
 h2 {

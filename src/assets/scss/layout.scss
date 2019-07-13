@@ -15,11 +15,6 @@ article {
   @extend %w-100;
 }
 
-body {
-  grid-template-columns: minmax(2rem,1fr) minmax(1rem,75rem) minmax(2rem,1fr);
-  grid-template-rows: repeat(3, auto);
-}
-
 footer {
   @extend %content-center;
   @extend %grid;
@@ -90,13 +85,9 @@ header {
     @extend %w-100;
     @extend %z-under;
 
-    background-color: var(--accent-light);
+    background-color: var(--accentLight);
     bottom: -2rem;
     min-height: 1rem;
-  }
-
-  a, a:hover {
-    color: hsl(60, 30%, 96%);
   }
 
   a, h1 {
@@ -211,7 +202,9 @@ time {
   width: 6rem;
 
   &:hover {
-    background-color: var(--accent-light);
+    @extend %no-underline;
+
+    background-color: var(--accentLight);
   }
 
   @include media-query-max(30rem) {
@@ -219,13 +212,26 @@ time {
   }
 }
 
+.home,
+.home__link,
+.home__link:hover,
+.home__link:visited,
+.nav__link,
+.nav__link:hover,
+.nav__link:visited {
+  color: hsl(60, 30%, 96%);
+}
+
 .home {
   @extend %content-flex-start;
   @extend %flex;
-  @extend %items-center;
+  @extend %flex-column;
+  @extend %items-flex-start;
+  @extend %mb0;
   @extend %mra;
   @extend %no-underline;
   @extend %pb1;
+  @extend %pt1;
   @extend %relative;
 
   grid-column: 2/3;
@@ -251,7 +257,7 @@ time {
     @include transition(transform);
 
     background-color: var(--accent);
-    border-radius: var(--border-radius);
+    border-radius: var(--borderRadius);
     height: 2.5rem;
     pointer-events: none;
     transform: scale(0);
@@ -313,7 +319,7 @@ time {
   @extend %top-0;
   @extend %z20;
 
-  background-size: calc(2px * var(--noise-size));
+  background-size: calc(2px * var(--noiseSize));
   opacity: 0.012;
   pointer-events: none;
 }
@@ -324,6 +330,15 @@ time {
   h3 {
     @extend %ma0;
   }
+}
+
+.sr {
+  @extend %absolute;
+  @extend %overflow-hidden;
+
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
+  height: 0.1rem;
+  width: 0.1rem;
 }
 
 .tag {
@@ -358,7 +373,7 @@ time {
     @extend %transition--all;
     @extend %z5;
 
-    background-color: var(--accent-light);
+    background-color: var(--accentLight);
     border-radius: 100%;
     height: 1rem;
     margin: 0.25rem;
@@ -372,7 +387,6 @@ time {
   @extend %content-center;
   @extend %flex;
   @extend %items-flex-start;
-  @extend %z-under;
 
   height: 1.5rem;
   right: 2rem;
@@ -381,8 +395,12 @@ time {
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-#theme:checked ~ .toggle::before {
-  background: transparent;
-  box-shadow: 0.3125rem 0.3125rem 0 0 var(--accent-light);
-  right: 0.5rem;
+#theme {
+  @extend %z-under;
+
+ &:checked ~ .toggle::before {
+    background: transparent;
+    box-shadow: 0.3125rem 0.3125rem 0 0 var(--accentLight);
+    right: 0.5rem;
+  }
 }
