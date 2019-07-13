@@ -16,14 +16,19 @@
     <meta property="og:image" content="<%= meta.domain %><%= page.url %><%= image %>" />
     <meta name="twitter:image" content="<%= meta.domain %><%= page.url %><%= image %>" />
     <meta name="twitter:card" content="summary_large_image" />
-    <% } else { %>
+  <% } else { %>
     <meta property="og:image" content="<%= meta.domain %><%= meta.image %>" />
     <meta name="twitter:image" content="<%= meta.domain %><%= meta.image %>" />
     <meta name="twitter:card" content="summary" />
   <% } %>
   <% if(typeof summary === "string") { %>
+    <meta itemprop="description" content="<%= summary %>">
     <meta property="og:description" content="<%= summary %>" />
     <meta name="twitter:description" content="<%= summary %>" />
+  <% } else { %>
+    <meta itemprop="description" content="<%= meta.description %>">
+    <meta property="og:description" content="<%= meta.description %>" />
+    <meta name="twitter:description" content="<%= meta.description %>" />
   <% } %>
   <meta name="twitter:site" content="@<%= meta.social %>" />
   <meta name="author" content="<%= meta.title %>">

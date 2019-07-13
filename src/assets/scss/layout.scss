@@ -138,7 +138,7 @@ nav {
   }
 
   .sep {
-    color: var(--meta);
+    color: hsla(0, 0%, 57%, 1);
   }
 }
 
@@ -347,7 +347,9 @@ time {
   @extend %f7;
   @extend %ma0;
   @extend %mr1;
+}
 
+.tag__name {
   color: var(--meta);
 }
 

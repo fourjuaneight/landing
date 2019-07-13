@@ -14,7 +14,7 @@ module.exports = {
       background: "hsl(231, 15%, 18%)",
       header: "hsl(231, 16%, 15%)",
       font: "hsl(60, 30%, 96%)",
-      meta: "hsl(0, 0%, 54%)"
+      meta: "hsl(0, 0%, 57%)"
     }
   },
   base: {
