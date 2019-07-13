@@ -90,4 +90,12 @@
       }
     });
   </script>
+
+  <link rel="stylesheet" href="<%= meta.domain %>/css/styles.css">
+  <% if(typeof code === "boolean") { %>
+    <link rel="prefetch" href="<%= meta.domain %>/css/syntax.css" onload="this.rel = 'stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="<%= meta.domain %>/css/syntax.css">
+    </noscript>
+  <% } %>
 </head>

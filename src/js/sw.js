@@ -1,6 +1,5 @@
 /* global self */
 (function () {
-  const domain = process.env.ELEVENTY_ENV === 'production' ? 'https://www.juanvillela.dev' : 'https://development.juanvillela.dev';
   const version = 'v5';
   const cacheName = ':juanvilleladev:';
   const staticCacheName = '${version}${cacheName}static';
@@ -18,8 +17,8 @@
     '/fonts/FiraCode-Regular.woff2',
     '/fonts/FiraCode-Bold.woff',
     '/fonts/FiraCode-Bold.woff2',
-    '/styles.css',
-    '/scripts.js',
+    '/css/styles.css',
+    '/js/scripts.js',
   ];
   function updateStaticCache() {
     // These items must be cached for the Service Worker to complete installation
@@ -60,12 +59,6 @@
       );
     });
   }
-  // Check for broken images
-  function isImage(fetchRequest) {
-    return (
-      fetchRequest.method === 'GET' && fetchRequest.destination === 'image'
-    );
-  }
   // Events!
   self.addEventListener('message', event => {
     if (event.data.command === 'trimCaches') {
@@ -90,7 +83,7 @@
   self.addEventListener('fetch', event => {
     const { request } = event;
     const url = new URL(request.url);
-    if (url.href.indexOf(domain) !== 0) return;
+    if (url.href.indexOf('https://www.juanvillela.dev') !== 0) return;
     if (request.method !== 'GET') return;
     if (url.href.indexOf('?') !== -1) return;
     if (request.headers.get('Accept').includes('text/html')) {
@@ -100,14 +93,11 @@
             const copy = response.clone();
             if (
               staticAssets.includes(url.pathname) ||
-              staticAssets.includes('${url.pathname}/')
+              staticAssets.includes(`${url.pathname}/`)
             ) {
               stashInCache(staticCacheName, request, copy);
             } else {
               stashInCache(pagesCacheName, request, copy);
-            }
-            if (isImage(event.request)) {
-              return caches.match('/broken.png');
             }
             return response;
           })
