@@ -9,7 +9,6 @@ const tags = require('./src/config/tags.js');
 // Markdown
 const markdown = require('markdown-it');
 let markdownLink = require('markdown-it-link-attributes');
-let markdownFN = require('markdown-it-footnote');
 let options = {
   html: true,
   breaks: true,
@@ -29,7 +28,6 @@ const elConf = config => {
 
   // Libraries
   config.setLibrary('md', markdown(options)
-    .use(markdownFN)
     .use(markdownLink, linkOps)
   );
 
