@@ -1,0 +1,370 @@
+// Styling
+%background-none {
+  background: none;
+}
+
+%border {
+  border-radius: 0.125rem;
+}
+
+%content {
+  content: '';
+}
+
+%no-underline {
+  text-decoration: none;
+}
+
+// Layout
+%db {
+  display: block;
+}
+
+%dib {
+  display: inline-block;
+}
+
+%dn {
+  display: none;
+}
+
+%flex {
+  display: flex;
+}
+
+%grid {
+  display: grid;
+}
+
+%grid--flex {
+  display: flex;
+
+  @supports (display:grid) {
+   display: grid !important;
+  }
+}
+
+%overflow-hidden {
+  overflow: hidden;
+}
+
+%overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+%overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+%overflow-auto {
+  overflow: auto;
+}
+
+// Flexbox
+%flex-column {
+  flex-direction: column;
+}
+
+%fle-row {
+  flex-direction: row;
+}
+
+%flex-wrap {
+  flex-wrap: wrap;
+}
+
+// Align
+%items-center {
+  align-items: center;
+}
+
+%items-end {
+  align-items: end;
+}
+
+%items-flex-end {
+  align-items: flex-end;
+}
+
+%items-flex-start {
+  align-items: flex-start;
+}
+
+%items-start {
+  align-items: start;
+}
+
+%a-self-center {
+  align-self: center;
+}
+
+%a-self-end {
+  align-self: end;
+}
+
+%a-self-start {
+  align-self: start;
+}
+
+// Justify
+%content-center {
+  justify-content: center;
+}
+
+%content-end {
+  justify-content: end;
+}
+
+%content-flex-end {
+  justify-content: flex-end;
+}
+
+%content-flex-start {
+  justify-content: flex-start;
+}
+
+%content-around {
+  justify-content: space-around;
+}
+
+%content-between {
+  justify-content: space-between;
+}
+
+%content-start {
+  justify-content: start;
+}
+
+%j-self-center {
+  justify-self: center;
+}
+
+%j-self-end {
+  justify-self: end;
+}
+
+%j-self-start {
+  justify-self: start;
+}
+
+// Position
+%absolute {
+  position: absolute;
+}
+
+%fixed {
+  position: fixed;
+}
+
+%relative {
+  position: relative;
+}
+
+%sticky {
+  position: sticky;
+}
+
+%bottom-0 {
+  bottom: 0;
+}
+
+%left-0 {
+  left: 0;
+}
+
+%right-0 {
+  right: 0;
+}
+
+%top-0 {
+  top: 0;
+}
+
+// Spacing
+%m--horizontal {
+  margin: 0 auto;
+}
+
+%m--vertical {
+  margin: auto 0;
+}
+
+%ma0 {
+  margin: 0;
+}
+
+%ma1 {
+  margin: 1rem;
+}
+
+%ma2 {
+  margin: 2rem;
+}
+
+%maa {
+  margin: auto;
+}
+
+%mb0 {
+  margin-bottom: 0;
+}
+
+%mb1 {
+  margin-bottom: 1rem;
+}
+
+%mb2 {
+  margin-bottom: 2rem;
+}
+
+%mba {
+  margin-bottom: auto;
+}
+
+%ml0 {
+  margin-left: 0;
+}
+
+%ml1 {
+  margin-left: 1rem;
+}
+
+%ml2 {
+  margin-left: 2rem;
+}
+
+%mlA {
+  margin-left: auto;
+}
+
+%mr0 {
+  margin-right: 0;
+}
+
+%mr1 {
+  margin-right: 1rem;
+}
+
+%mr2 {
+  margin-right: 2rem;
+}
+
+%mra {
+  margin-right: auto;
+}
+
+%mt0 {
+  margin-top: 0;
+}
+
+%mt1 {
+  margin-top: 1rem;
+}
+
+%mt2 {
+  margin-top: 2rem;
+}
+
+%mtA {
+  margin-top: auto;
+}
+
+%pa0 {
+  padding: 0;
+}
+
+%pa1 {
+  padding: 1rem;
+}
+
+%pa2 {
+  padding: 2rem;
+}
+
+%pb0 {
+  padding-bottom: 0;
+}
+
+%pb1 {
+  padding-bottom: 1rem;
+}
+
+%pb2 {
+  padding-bottom: 2rem;
+}
+
+%pl0 {
+  padding-left: 0;
+}
+
+%pl1 {
+  padding-left: 1rem;
+}
+
+%pl2 {
+  padding-left: 2rem;
+}
+
+%pr0 {
+  padding-right: 0;
+}
+
+%pr1 {
+  padding-right: 1rem;
+}
+
+%pr2 {
+  padding-right: 2rem;
+}
+
+%pt0 {
+  padding-top: 0;
+}
+
+%pt1 {
+  padding-top: 1rem;
+}
+
+%pt2 {
+  padding-top: 2rem;
+}
+
+// Sizing
+%h-100 {
+  height: 100%;
+}
+
+%w-100 {
+  width: 100%;
+}
+
+// Animation
+%transition--all {
+  transition: all var(--duration) ease;
+}
+
+// Bundles
+%absolute--fill {
+  @extend %absolute;
+  @extend %bottom-0;
+  @extend %left-0;
+  @extend %right-0;
+  @extend %top-0;
+}
+
+%no-space {
+  @extend %ma0;
+  @extend %pa0;
+}
+
+%link {
+  @extend %no-decoration;
+
+  @include transition(color);
+}
+
+%list {
+  @extend %no-space;
+
+  list-style-type:none
+}
