@@ -4,11 +4,13 @@
   "description": "Front-End Developer, automation nerd, and astronomy enthusiast.",
   "scripts": {
     "build": "webpack && npm run production",
+    "build:dev": "webpack && npm run development",
     "clean": "rm -rf dist",
     "clean:node": "rm -rf node_modules",
     "development": "cross-env ELEVENTY_ENV=development npx eleventy",
     "production": "cross-env ELEVENTY_ENV=production npx eleventy",
-    "start": "cross-env ELEVENTY_ENV=development npx eleventy --serve"
+    "local": "cross-env ELEVENTY_ENV=local npx eleventy --serve",
+    "start": "webpack && npm run local"
   },
   "repository": {
     "type": "git",
