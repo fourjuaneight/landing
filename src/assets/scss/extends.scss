@@ -1,4 +1,12 @@
 // Styling
+%background-accent {
+  background-color: var(--accent);
+}
+
+%background-accent--light {
+  background-color: var(--accentLight);
+}
+
 %background-none {
   background: none;
 }

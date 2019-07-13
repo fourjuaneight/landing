@@ -22,11 +22,11 @@
     <meta name="twitter:card" content="summary" />
   <% } %>
   <% if(typeof summary === "string") { %>
-    <meta itemprop="description" content="<%= summary %>">
+    <meta name="description" content="<%= summary %>">
     <meta property="og:description" content="<%= summary %>" />
     <meta name="twitter:description" content="<%= summary %>" />
   <% } else { %>
-    <meta itemprop="description" content="<%= meta.description %>">
+    <meta name="description" content="<%= meta.description %>">
     <meta property="og:description" content="<%= meta.description %>" />
     <meta name="twitter:description" content="<%= meta.description %>" />
   <% } %>

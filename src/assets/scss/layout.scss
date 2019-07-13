@@ -78,6 +78,7 @@ header {
 
   &:before {
     @extend %absolute;
+    @extend %background-accent--light;
     @extend %content;
     @extend %left-0;
     @extend %right-0;
@@ -85,7 +86,6 @@ header {
     @extend %w-100;
     @extend %z-under;
 
-    background-color: var(--accentLight);
     bottom: -2rem;
     min-height: 1rem;
   }
@@ -142,18 +142,24 @@ nav {
   }
 }
 
+time,
+.tag,
+.tag__name {
+  color: var(--meta);
+}
+
 time {
   @extend %f7;
   @extend %mra;
 }
 
 .avatar {
+  @extend %background-accent;
   @extend %border--weird;
   @extend %flex;
   @extend %mr1;
   @extend %relative;
 
-  background-color: var(--accent);
   height: 6.5rem;
   width: 6.5rem;
 }
@@ -188,6 +194,7 @@ time {
 }
 
 .hire {
+  @extend %background-accent;
   @extend %border--curved;
   @extend %j-self-start;
   @extend %pa0;
@@ -195,16 +202,14 @@ time {
 
   @include transition(background-color);
 
-  background-color: var(--accent);
   color: var(--background) !important;
   cursor: pointer;
   padding: 0.5rem;
   width: 6rem;
 
   &:hover {
+    @extend %background-accent--light;
     @extend %no-underline;
-
-    background-color: var(--accentLight);
   }
 
   @include media-query-max(30rem) {
@@ -250,13 +255,13 @@ time {
 
   &:before {
     @extend %absolute;
+    @extend %background-accent;
     @extend %border--weird;
     @extend %content;
     @extend %z-under;
 
     @include transition(transform);
 
-    background-color: var(--accent);
     border-radius: var(--borderRadius);
     height: 2.5rem;
     pointer-events: none;
@@ -287,12 +292,12 @@ time {
 
   &:before {
     @extend %absolute;
+    @extend %background-accent;
     @extend %bottom-0;
     @extend %content;
     @extend %left-0;
     @extend %z1;
 
-    background-color: var(--accent);
     height: 0.15rem;
     width: 3rem;
   }
@@ -349,10 +354,6 @@ time {
   @extend %mr1;
 }
 
-.tag__name {
-  color: var(--meta);
-}
-
 .toggle {
   cursor: pointer;
 
@@ -371,13 +372,13 @@ time {
 
   &:before {
     @extend %absolute;
+    @extend %background-accent--light;
     @extend %bottom-0;
     @extend %content;
     @extend %right-0;
     @extend %transition--all;
     @extend %z5;
 
-    background-color: var(--accentLight);
     border-radius: 100%;
     height: 1rem;
     margin: 0.25rem;
