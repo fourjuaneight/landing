@@ -4,7 +4,7 @@
   "date": "2019-01-01",
   "tags": "yearly-theme",
   "summary": "Every year, the guys over at Cortex come up with a theme that sets an overarching idea guiding their decisions. There has been the “Year of Less and “Year of Positivity since 2017. Some people have begun to follow along with their own yearly themes, like Quinn Rose with her “Year of Quality.",
-  "draft": false
+  "draft": false,
 }
 ---
 

@@ -21,8 +21,6 @@
     '/fonts/Rubik-Bold-sub.woff2',
     '/fonts/FiraCode-Regular.woff',
     '/fonts/FiraCode-Regular.woff',
-    '/fonts/FiraCode-Regular-sub.woff2',
-    '/fonts/FiraCode-Regular-sub.woff2',
     '/css/styles.css',
     '/js/scripts.js',
   ];
