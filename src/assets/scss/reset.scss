@@ -1,38 +1,28 @@
 @import './extends.scss';
 
 @font-face {
-  font-display: swap;
-  font-family: rubik;
-  font-style: normal;
-  font-weight: 400;
+  font-family: Rubik;
   src: local(Rubik-Regular), local(Rubik-Regular),
-    url('/fonts/Rubik-Regular.woff2') format('woff2'),
-    url('/fonts/Rubik-Regular.woff') format('woff');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: dyslexic;
-  font-style: normal;
+       url('/fonts/Rubik-Regular.woff2') format('woff2'),
+       url('/fonts/Rubik-Regular.woff') format('woff');
   font-weight: 400;
-  src: local(OpenDyslexic-Regular), local(OpenDyslexic-Regular),
-    url('/fonts/OpenDyslexic-Regular.woff2') format('woff2'),
-    url('/fonts/OpenDyslexic-Regular.woff') format('woff');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: dyslexic;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: local(Rubik-Bold), local(Rubik-Bold),
+       url('/fonts/Rubik-Bold.woff2') format('woff2'),
+       url('/fonts/Rubik-Bold.woff') format('woff');
   font-weight: 700;
-  src: local(OpenDyslexic-Bold), local(OpenDyslexic-Bold),
-    url('/fonts/OpenDyslexic-Bold.woff2') format('woff2'),
-    url('/fonts/OpenDyslexic-Bold.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-display: swap;
-  font-family: fira code;
+  font-family: Fira Code;
   font-style: normal;
   font-weight: 400;
   src: local(FiraCode-Regular), local(FiraCode-Regular),
@@ -42,7 +32,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: fira code;
+  font-family: Fira Code;
   font-style: normal;
   font-weight: 700;
   src: local(FiraCode-Bold), local(FiraCode-Bold),
@@ -126,39 +116,11 @@ blockquote {
 }
 
 code,
-header a,
-h1,
-h2,
-h3,
-h4,
-kbd,
+li code,
+p code,
 pre,
-pre code,
-sup,
-time,
-.home::before,
-.sep,
-.tag {
+pre code {
   font-family: var(--mono);
-}
-
-body.dyslexic {
-  code,
-  header a,
-  h1,
-  h2,
-  h3,
-  h4,
-  kbd,
-  pre,
-  pre code,
-  sup,
-  time,
-  .home::before,
-  .sep,
-  .tag {
-    font-family: var(--dys);
-  }
 }
 
 h1,

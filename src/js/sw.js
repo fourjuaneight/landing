@@ -1,10 +1,10 @@
 /* global self */
 (function () {
-  const version = 'v5';
+  const version = 'v6';
   const cacheName = ':juanvilleladev:';
-  const staticCacheName = '${version}${cacheName}static';
-  const pagesCacheName = '${cacheName}pages';
-  const imagesCacheName = '${cacheName}images';
+  const staticCacheName = `${version}${cacheName}static`;
+  const pagesCacheName = `${cacheName}pages`;
+  const imagesCacheName = `${cacheName}images`;
   const staticAssets = [
     '/',
     '/posts/',
@@ -13,10 +13,16 @@
     '/img/juan.webp',
     '/fonts/Rubik-Regular.woff',
     '/fonts/Rubik-Regular.woff2',
+    '/fonts/Rubik-Regular-sub.woff',
+    '/fonts/Rubik-Regular-sub.woff2',
+    '/fonts/Rubik-Bold.woff',
+    '/fonts/Rubik-Bold.woff2',
+    '/fonts/Rubik-Bold-sub.woff',
+    '/fonts/Rubik-Bold-sub.woff2',
     '/fonts/FiraCode-Regular.woff',
-    '/fonts/FiraCode-Regular.woff2',
-    '/fonts/FiraCode-Bold.woff',
-    '/fonts/FiraCode-Bold.woff2',
+    '/fonts/FiraCode-Regular.woff',
+    '/fonts/FiraCode-Regular-sub.woff2',
+    '/fonts/FiraCode-Regular-sub.woff2',
     '/css/styles.css',
     '/js/scripts.js',
   ];

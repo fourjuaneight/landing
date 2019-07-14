@@ -49,12 +49,10 @@
   <link href="<%= meta.domain %>/index.xml" rel="alternate" type="application/rss+xml" title="<%= meta.title %>">
   <link href="<%= meta.domain %>/feed.json" rel="alternate" type="application/json" title="<%= meta.title %>" />
 
-  <link rel="preload" href="<%= meta.domain %>/fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="<%= meta.domain %>/fonts/FiraCode-Regular.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="<%= meta.domain %>/fonts/FiraCode-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="<%= meta.domain %>/fonts/FiraCode-Bold.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Regular-sub.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Regular-sub.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Bold-sub.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Bold-sub.woff" as="font" type="font/woff" crossorigin>
 
   <style>
     html[data-theme='light'] {
@@ -82,6 +80,20 @@
         --theme: dark;
       }
     }
+    @font-face {
+      font-family: Rubik;
+      src: url("/fonts/Rubik-Regular-sub.woff2") format("woff2"), url("/fonts/Rubik-Regular-sub.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: Rubik;
+      src: url("/fonts/Rubik-Bold-sub.woff2") format("woff2"), url("/fonts/Rubik-Bold-sub.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
   </style>
 
   <script>
@@ -101,13 +113,17 @@
           break;
       }
     });
+
+    if( 'fonts' in document ) {
+      const regular = new FontFace('Rubik', "url(/fonts/Rubik-Regular.woff2) format('woff2'), url(/fonts/Rubik-Regular.woff) format('woff')");
+      const bold = new FontFace('Rubik', "url(/fonts/Rubik-Bold.woff2) format('woff2'), url(/fonts/Rubik-Bold.woff) format('woff')", { weight: '700' });
+      Promise.all([ bold.load(), regular.load() ]).then(fonts => {
+          fonts.forEach(font => {
+              document.fonts.add(font);
+          });
+      });
+    }
   </script>
 
   <link rel="stylesheet" href="<%= meta.domain %>/css/styles.css">
-  <% if(typeof code === "boolean") { %>
-    <link rel="prefetch" href="<%= meta.domain %>/css/syntax.css" onload="this.rel = 'stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="<%= meta.domain %>/css/syntax.css">
-    </noscript>
-  <% } %>
 </head>

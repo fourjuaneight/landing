@@ -1,7 +1,7 @@
 const meta = async () => {
-  const isStaging = await require('./development')();
+  const url = process.env.ELEVENTY_ENV === 'local' ? '' : process.env.ELEVENTY_ENV === 'development' ? 'https://development.juanvillela.dev' : 'https://www.juanvillela.dev';
   return {
-    domain: isStaging ? 'https://development.juanvillela.dev' : 'https://www.juanvillela.dev',
+    domain: url,
     title: 'Juan Villela',
     description: 'Front-End Developer, automation nerd, and astronomy enthusiast.',
     social: 'fourjuaneight',
