@@ -1,9 +1,9 @@
 ---json
 {
   "title": "It looks like you're Offline",
-  "showdate": false,
   "center": true,
-  "draft": false
+  "draft": false,
+  "layout": "post"
 }
 ---
 

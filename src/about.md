@@ -1,8 +1,8 @@
 ---json
 {
   "title": "About Me",
-  "showdate": false,
-  "draft": false
+  "draft": false,
+  "layout": "post"
 }
 ---
 
@@ -45,6 +45,3 @@ There are many ways I could go about explaining who I am. But I feel a list is b
 8. I'm an Apple fanboy with a Linux PC I built. Mac's really suck nowadays.
 9. I'm always looking for creative ways to avoid having my every digital move monitored. It's fun, but also, it's absurd how many things track us online.
 10. I'm married and have been with the same partner for as long as I can remember. It's awesome.
-
-## Hire me
-If you'd like to work with me on your static site, fill out the form below and I'll get back to you in about 24 hours. If you're a recruiter and would like to connect about a potential job, feel free to get in touch as well. I'm always open to new opportunities.
