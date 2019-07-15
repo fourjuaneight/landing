@@ -21,6 +21,7 @@ body {
   @extend %grid;
   @extend %ma0;
   @extend %overflow-x-hidden;
+  @extend %relative;
 
   background-color: var(--background);
   color: var(--font);
