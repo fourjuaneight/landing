@@ -1,193 +1,169 @@
-/* COLORS */
-.highlight {
-  --attr: hsl(135, 94%, 65%);
-  --bg: hsl(231, 15%, 18%);
-  --del: hsl(0, 100%, 66%);
-  --hl: hsl(60, 100%, 90%);
-  --int: hsl(265, 89%, 78%);
-  --key: hsl(326, 100%, 74%);
-  --ln: hsl(0, 0%, 54%);
-  --meta: hsl(0, 0%, 57%);
-  --name: hsl(191, 97%, 77%);
-  --out: hsl(228, 14%, 57%);
-  --str: hsl(65, 92%, 76%);
-  --txt: hsl(60, 30%, 96%);
-}
-/* Base */
-code,
-li code,
-p code,
-pre,
-pre code {
+@import './extends.scss';
+
+// Base
+code {
+  color: hsl(24, 0%, 88%);
   font-family: "Fira Code", monospace;
-}
-code,
-pre,
-pre code,
-.highlight {
   font-size: 0.875rem;
-  font-style: normal;
 }
-p code {
+
+p > code,
+pre[class*="language-"] {
+  background: hsl(232, 16%, 16%);
+}
+
+p > code {
   @extend %border--curved;
 
-  padding: 0.0625rem 0.5rem;
+  font-size: 0.875rem;
+  padding: 0.0625rem 0.5em;
 }
+
 pre {
-  @extend %border--curved;
-  @extend %ma0;
-  @extend %overflow-x-hidden;
+  &::-webkit-scrollbar {
+    width: 0.875rem;
+  }
 
-  padding: 2.5rem 1rem 1rem;
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: hsl(232, 32%, 32%);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: hsl(264, 88%, 80%);
+  }
+
+  &[class*="language-"] {
+    @extend %border--curved;
+    @extend %mb1;
+    @extend %ml0;
+    @extend %mr0;
+    @extend %mt0;
+    @extend %pa1;
+    @extend %overflow-x-auto;
+    @extend %relative;
+
+    height: auto;
+    max-width: 56.25rem;
+
+    &, code {
+      @extend %w-100;
+    }
+
+    &,
+    code[class*="language-"] {
+      hyphens: none;
+      line-height: 1.5;
+      tab-size: 2;
+      text-align: left;
+      text-shadow: none;
+      white-space: pre;
+      word-break: normal;
+      word-spacing: normal;
+      word-wrap: normal;
+    }
+
+    &::selection,
+    code[class*="language-"]::selection {
+      background-color: hsl(232, 16%, 40%);
+      text-shadow: none;
+    }
+
+    code {
+      max-width: 100%;
+    }
+  }
 }
-.chroma .ge,
-.chroma .gl {
-  text-decoration: underline;
-}
-.chroma .gh,
-.chroma .gi,
-.chroma .gu {
+
+// Style
+.token.important,
+.token.bold {
   font-weight: bold;
 }
-.chroma .hl {
-  width: 100%;
-}
-.chroma .kd,
-.chroma .nb,
-.chroma .nl,
-.chroma .nv,
-.chroma .vc,
-.chroma .vg,
-.chroma .vi {
+
+.token.italic {
   font-style: italic;
 }
-.chroma .lnt,
-.chroma .ln {
-  margin-right: 0.4em;
-  padding: 0 0.4em 0 0.4em;
+
+// Color
+.token.atrule {
+  color: hsl(124, 80%, 64%);
 }
-.chroma .lntable,
-.chroma .hl {
-  display: block;
+
+.token.attr-value {
+  color: hsl(144, 40%, 64%);
 }
-.chroma .lntable {
-  border-spacing: 0;
-  overflow: auto;
-  width: auto;
+
+.token.boolean,
+.token.class-name,
+.token.constant,
+.token.property,
+.token.symbol
+.language-css .token.property {
+  color: hsl(32, 100%, 72%);
 }
-.chroma .lntd {
-  vertical-align: top;
+
+.token.builtin,
+.token.important,
+.token.keyword,
+.token {
+  color: hsl(328, 100%, 72%);
 }
-.chroma .lntd,
-.chroma .lntable {
-  border: 0;
-  margin: 0;
-  padding: 0;
+
+.token.char {
+  color: hsl(348, 100%, 80%);
 }
-.clip,
-.lang {
-  padding: 0 0.25rem;
-  top: 0.5rem;
-  z-index: 5;
+
+.token.comment {
+  color: hsl(224, 24%, 64%);
 }
-.clip {
-  font-size: 1.25rem;
-  right: 0.5rem;
+
+.token.deleted,
+.token.namespace {
+  color: hsl(356, 64%, 71%);
 }
-.highlight {
-  margin: 0 0 0.75rem;
-  position: relative;
+
+.token.entity,
+.token.operator {
+  color: hsl(192, 96%, 80%);
 }
-.lang {
-  left: 0.5rem;
+
+.token.function,
+.token.regex,
+.token.variable,
+.language-css .token.selector,
+.language-objectivec .token.string,
+.language-markup .token.tag {
+  color: hsl(136, 96%, 64%);
 }
-/* Styling */
-p code,
-.chroma,
-.clip,
-.lang {
-  color: var(--txt);
+
+.token.number {
+  color: hsl(264, 88%, 80%);
 }
-p code,
-.chroma {
-  background-color: var(--bg);
+
+.token.prolog,
+.token.selector {
+  color: hsl(64, 16%, 80%);
 }
-.chroma *::selection {
-  background-color: var(--txt);
-  color: var(--bg);
+
+.token.punctuation {
+  color: hsl(56, 72%, 64%);
 }
-.chroma .hl {
-  background-color: var(--hl);
+
+.token.string {
+  color: hsl(64, 92%, 80%);
 }
-.chroma .cp,
-.chroma .cpf,
-.chroma .k,
-.chroma .kc,
-.chroma .kn,
-.chroma .kp,
-.chroma .kr,
-.chroma .nt,
-.chroma .o,
-.chroma .ow {
-  color: var(--key);
+
+.token.tag {
+  color: hsl(328, 64%, 64%);
 }
-.chroma .kd,
-.chroma .kt,
-.chroma .nb,
-.chroma .nl,
-.chroma .nl,
-.chroma .nv,
-.chroma .vc,
-.chroma .vg,
-.chroma .vi,
-.lang {
-  color: var(--name);
-}
-.chroma .lnt,
-.chroma .ln {
-  color: var(--ln);
-}
-.chroma .na,
-.chroma .nc,
-.chroma .nf,
-.clip:hover {
-  color: var(--attr);
-}
-.chroma .s,
-.chroma .sa,
-.chroma .sb,
-.chroma .sc,
-.chroma .dl,
-.chroma .sd,
-.chroma .s2,
-.chroma .se,
-.chroma .sh,
-.chroma .si,
-.chroma .sx,
-.chroma .sr,
-.chroma .s1,
-.chroma .ss {
-  color: var(--str);
-}
-.chroma .m,
-.chroma .mb,
-.chroma .mf,
-.chroma .mh,
-.chroma .mi,
-.chroma .il,
-.chroma .mo {
-  color: var(--int);
-}
-.chroma .c,
-.chroma .ch,
-.chroma .cm,
-.chroma .c1,
-.chroma .cs {
-  color: var(--meta);
-}
-.chroma .gd {
-  color: var(--accent);
-}
-.chroma .go {
-  color: var(--out);
+
+.token.url,
+.language-markup .token.attr-value,
+.language-objectivec .token.property {
+  color: hsl(192, 80%, 64%);
 }

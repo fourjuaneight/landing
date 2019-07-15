@@ -9,6 +9,7 @@ module.exports = {
     './src/assets/js/noise.js',
     './src/assets/scss/critical.scss',
     './src/assets/scss/layout.scss',
+    './src/assets/scss/syntax.scss',
   ],
   output: {
     path: resolve(__dirname, 'src'),
@@ -53,6 +54,31 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: 'css/styles.css',
+            },
+          },
+          {
+            loader: 'extract-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: { url: false },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['./src/assets/scss'],
+            },
+          },
+        ],
+      },
+      {
+        test: /syntax.scss$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'css/syntax.css',
             },
           },
           {

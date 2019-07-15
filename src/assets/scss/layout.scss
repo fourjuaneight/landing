@@ -93,6 +93,7 @@ main {
   @extend %m--horizontal;
   @extend %pb2;
   @extend %pt2;
+  @extend %w-100;
 
   grid-column: 2/3;
   grid-row: 2/3;
