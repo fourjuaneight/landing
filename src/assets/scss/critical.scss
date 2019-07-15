@@ -53,16 +53,6 @@ a {
   &:visited {
     color: inherit;
   }
-
-  &:not([class]) {
-    @extend %underline;
-
-    text-decoration-color: var(--accent) !important;
-
-    &:hover {
-      color: var(--accent);
-    }
-  }
 }
 
 blockquote,
@@ -74,6 +64,10 @@ p {
 blockquote {
   border-left: 0.125em solid var(--accent);
   padding-left: 0.75rem;
+}
+
+footer {
+  border-width: 1rem 0 0;
 }
 
 h1,
@@ -113,14 +107,20 @@ h4 {
   font-size: 1.25rem;
 }
 
+header,
+footer {
+  background-color: hsl(232, 16%, 16%);
+  border-style: solid;
+  border-color: var(--accent);
+}
+
 header {
   @extend %grid;
   @extend %left-0;
   @extend %relative;
   @extend %w-100;
 
-  background-color: hsl(232, 16%, 16%);
-  border-bottom: 1rem solid var(--accent);
+  border-width: 0 0 1rem 0;
   grid-column: 1/4;
   grid-row: 1/2;
   grid-template-columns: auto repeat(2, minmax(13.5rem,37.5rem)) auto;
@@ -141,22 +141,22 @@ header {
     min-height: 1rem;
   }
 
-  a, h1 {
-    font-size: 1.15rem;
+  .font__inverted {
+    &,
+    &:hover,
+    &:visited {
+      font-size: 1.15rem;
+    }
   }
 
   h1 span {
     font-weight: normal;
   }
+}
 
-  @include media-query-max(30rem) {
-    border-right: 1rem solid var(--accent);
-    width: calc(100vw - 1rem);
-
-    &::after, &::before {
-      width: 100vw;
-    }
-  }
+nav,
+.theme__wrap {
+  grid-column: 3/4;
 }
 
 nav {
@@ -167,7 +167,6 @@ nav {
   @extend %pt1;
   @extend %w-100;
 
-  grid-column: 3/4;
   margin-right: 3rem;
   max-height: 3.5rem;
   max-width: 11rem;
@@ -180,57 +179,12 @@ nav {
   }
 }
 
-@supports (display:grid) {
-  .icon {
-    &:before {
-      @extend %background-accent;
-    }
-  
-    .icon__svg {
-      @include transition(fill);
-  
-      fill: var(--font);
-    }
-  
-    &:hover {
-      .icon__svg {
-        fill: var(--background);
-      }
-    }
+.font__inverted {
+  &,
+  &:hover,
+  &:visited {
+    color: hsl(64, 32%, 96%);
   }
-}
-
-.marked:before {
-  @extend %background-accent;
-}
-
-.meta {
-  color: var(--meta);
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
-.noise,
-.toggle::after,
-.toggle::before {
-  animation: fade-in 2s;
-}
-
-.noise {
-  @extend %absolute;
-  @extend %bottom-0;
-  @extend %left-0;
-  @extend %right-0;
-  @extend %top-0;
-  @extend %z20;
-
-  background-size: calc(2px * var(--noiseSize));
-  opacity: 0.012;
-  pointer-events: none;
 }
 
 .sr {
@@ -242,22 +196,3 @@ nav {
   width: 0.1rem;
 }
 
-.toggle {
-  &:after {
-    @extend %transition--all;
-  }
-  &:before {
-    @extend %background-accent--light;
-    @extend %transition--all;
-  }
-}
-
-#theme {
-  @extend %z-under;
-
- &:checked ~ .toggle::before {
-    background: transparent;
-    box-shadow: 0.3125rem 0.3125rem 0 0 var(--accentLight);
-    right: 0.5rem;
-  }
-}

@@ -1,12 +1,28 @@
 @import './extends.scss';
 @import './mixins.scss';
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 article {
   @extend %flex;
   @extend %flex-column;
   @extend %items-flex-start;
   @extend %m--horizontal;
   @extend %w-100;
+
+  a:not([class]) {
+    @extend %underline;
+
+    text-decoration-color: var(--accent) !important;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
 }
 
 footer {
@@ -15,6 +31,7 @@ footer {
   @extend %items-start;
   @extend %m--horizontal;
   @extend %pa2;
+  @extend %relative;
   @extend %w-100;
 
   grid-column: 1/4;
@@ -22,6 +39,20 @@ footer {
   grid-row: 3/4;
   grid-template-columns: 6.5rem minmax(10.5rem,32rem);
   grid-template-rows: min-content 2.5rem;
+
+  &:before {
+    @extend %absolute;
+    @extend %background-accent--light;
+    @extend %bottom-0;
+    @extend %content;
+    @extend %left-0;
+    @extend %right-0;
+    @extend %w-100;
+    @extend %z-under;
+
+    top: -2rem;
+    min-height: 1rem;
+  }
 
   dl {
     @extend %content-between;
@@ -116,16 +147,6 @@ time {
   max-width: 32rem;
 }
 
-.home,
-.home__link,
-.home__link:hover,
-.home__link:visited,
-.nav__link,
-.nav__link:hover,
-.nav__link:visited {
-  color: hsl(64, 32%, 96%);
-}
-
 .home {
   @extend %content-flex-start;
   @extend %flex;
@@ -142,6 +163,39 @@ time {
   width: 13.5rem;
 }
 
+@supports (display:grid) {
+  .icon {
+    &:before {
+      @extend %absolute;
+      @extend %background-accent;
+      @extend %border--round;
+      @extend %content;
+      @extend %z1;
+
+      @include transition(transform);
+
+      height: 2.5rem;
+      pointer-events: none;
+      transform: scale(0);
+      width: 2.5rem;
+    }
+
+    .icon__svg {
+      @extend %z5;
+
+      @include transition(fill);
+
+      fill: hsl(64, 32%, 96%);
+    }
+
+    &:hover {
+      &:before {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
 .icon {
   @extend %content-center;
   @extend %flex;
@@ -151,26 +205,6 @@ time {
 
   height: 2.5rem;
   width: 2.5rem;
-
-  &:before {
-    @extend %absolute;
-    @extend %border--round;
-    @extend %content;
-    @extend %z-under;
-
-    @include transition(transform);
-
-    height: 2.5rem;
-    pointer-events: none;
-    transform: scale(0);
-    width: 2.5rem;
-  }
-
-  &:hover {
-    &:before {
-      transform: scale(1);
-    }
-  }
 }
 
 .marked {
@@ -179,6 +213,7 @@ time {
 
   &:before {
     @extend %absolute;
+    @extend %background-accent;
     @extend %bottom-0;
     @extend %content;
     @extend %left-0;
@@ -189,6 +224,10 @@ time {
   }
 }
 
+.meta {
+  color: var(--meta);
+}
+
 .meta__wrap {
   @extend %content-between;
   @extend %flex;
@@ -196,6 +235,25 @@ time {
   @extend %w-100;
 
   margin-bottom: 0.75rem;
+}
+
+.noise,
+.toggle::after,
+.toggle::before {
+  animation: fade-in 2s;
+}
+
+.noise {
+  @extend %absolute;
+  @extend %bottom-0;
+  @extend %left-0;
+  @extend %right-0;
+  @extend %top-0;
+  @extend %z20;
+
+  background-size: calc(2px * var(--noiseSize));
+  opacity: 0.012;
+  pointer-events: none;
 }
 
 .permalink {
@@ -212,6 +270,19 @@ time {
   @extend %mr1;
 }
 
+.theme__wrap {
+  @extend %absolute;
+  @extend %content-center;
+  @extend %flex;
+  @extend %items-flex-start;
+
+  height: 1.5rem;
+  right: 0;
+  top: 2rem;
+  width: 1.3125rem;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 .toggle {
   cursor: pointer;
 
@@ -219,6 +290,7 @@ time {
     @extend %absolute;
     @extend %content;
     @extend %ma0;
+    @extend %transition--all;
 
     border-radius: 1rem;
     display: inherit;
@@ -229,9 +301,11 @@ time {
 
   &:before {
     @extend %absolute;
+    @extend %background-accent--light;
     @extend %bottom-0;
     @extend %content;
     @extend %right-0;
+    @extend %transition--all;
     @extend %z5;
 
     border-radius: 100%;
@@ -242,15 +316,12 @@ time {
   }
 }
 
-.theme__wrap {
-  @extend %absolute;
-  @extend %content-center;
-  @extend %flex;
-  @extend %items-flex-start;
+#theme {
+  @extend %z-under;
 
-  height: 1.5rem;
-  right: 2rem;
-  top: 2rem;
-  width: 1.3125rem;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+ &:checked ~ .toggle::before {
+    background: transparent;
+    box-shadow: 0.3125rem 0.3125rem 0 0 var(--accentLight);
+    right: 0.5rem;
+  }
 }

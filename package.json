@@ -9,7 +9,7 @@
     "clean:node": "rm -rf node_modules",
     "development": "cross-env ELEVENTY_ENV=development npx eleventy",
     "production": "cross-env ELEVENTY_ENV=production npx eleventy",
-    "local": "cross-env ELEVENTY_ENV=local npx eleventy --serve",
+    "local": "npm run clean && cross-env ELEVENTY_ENV=local npx eleventy --serve",
     "start": "webpack && npm run local"
   },
   "repository": {

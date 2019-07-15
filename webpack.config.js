@@ -8,7 +8,7 @@ module.exports = {
     './src/assets/js/theme.js',
     './src/assets/js/noise.js',
     './src/assets/scss/critical.scss',
-    './src/assets/scss/main.scss',
+    './src/assets/scss/layout.scss',
   ],
   output: {
     path: resolve(__dirname, 'src'),
@@ -47,7 +47,7 @@ module.exports = {
         ],
       },
       {
-        test: /main.scss$/,
+        test: /layout.scss$/,
         use: [
           {
             loader: 'file-loader',
