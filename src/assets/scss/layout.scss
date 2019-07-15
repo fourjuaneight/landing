@@ -225,7 +225,13 @@ time {
 }
 
 .meta {
-  color: var(--meta);
+  &, &:visited {
+    color: var(--meta);
+  }
+
+  &:hover {
+    color: var(--font);
+  }
 }
 
 .meta__wrap {
