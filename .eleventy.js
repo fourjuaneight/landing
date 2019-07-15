@@ -40,6 +40,8 @@ const elConf = config => {
   config.addPassthroughCopy('src/icons');
   config.addPassthroughCopy('src/img');
   config.addPassthroughCopy('src/js');
+  config.addPassthroughCopy('src/manifest.json');
+  config.addPassthroughCopy('src/sw.js');
 
   // Custom collections
   const now = new Date();

@@ -1,12 +1,5 @@
----json
 {
-  "layout": false,
-  "eleventyExcludeFromCollections": true,
-  "permalink": "/manifest.json"
-}
----
-{
-  "short_name": "jcv",
+  "short_name": "Juan",
   "name": "Juan C Villela",
   "icons": [
     {
