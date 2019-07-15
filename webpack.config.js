@@ -7,6 +7,7 @@ module.exports = {
     './src/assets/js/clip.js',
     './src/assets/js/theme.js',
     './src/assets/js/noise.js',
+    './src/assets/scss/reset.scss',
     './src/assets/scss/main.scss',
   ],
   output: {
@@ -21,7 +22,32 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.scss$/,
+        test: /reset.scss$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '_includes/components/reset.css',
+            },
+          },
+          {
+            loader: 'extract-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: { url: false },
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['./src/assets/scss'],
+            },
+          },
+        ],
+      },
+      {
+        test: /main.scss$/,
         use: [
           {
             loader: 'file-loader',
@@ -40,7 +66,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: ['./src/static/css'],
+              includePaths: ['./src/assets/scss'],
             },
           },
         ],

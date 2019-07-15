@@ -55,6 +55,29 @@
   <link rel="preload" href="<%= meta.domain %>/fonts/Rubik-Bold-sub.woff" as="font" type="font/woff" crossorigin>
 
   <style>
+    @font-face {
+      font-family: Rubik;
+      src: url("/fonts/Rubik-Regular-sub.woff2") format("woff2"), url("/fonts/Rubik-Regular-sub.woff") format("woff");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: Rubik;
+      src: url("/fonts/Rubik-Bold-sub.woff2") format("woff2"), url("/fonts/Rubik-Bold-sub.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    <% if(typeof code === "boolean") { %>
+      @font-face {
+        font-family: Fira Code;
+        src: url("/fonts/FiraCode-Regular.woff2") format("woff2"), url("/fonts/FiraCode-Regular.woff") format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+    <% } %>
     html[data-theme='light'] {
       <% for(const [name, color] of Object.entries(props.palette.light)) { %>
         --<%= name %>: <%= color %>;
@@ -80,29 +103,7 @@
         --theme: dark;
       }
     }
-    @font-face {
-      font-family: Rubik;
-      src: url("/fonts/Rubik-Regular-sub.woff2") format("woff2"), url("/fonts/Rubik-Regular-sub.woff") format("woff");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: Rubik;
-      src: url("/fonts/Rubik-Bold-sub.woff2") format("woff2"), url("/fonts/Rubik-Bold-sub.woff") format("woff");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    <% if(typeof code === "boolean") { %>
-      @font-face {
-        font-family: Fira Code;
-        src: url("/fonts/FiraCode-Regular.woff2") format("woff2"), url("/fonts/FiraCode-Regular.woff") format("woff");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-    <% } %>
+    <%- include("./reset.css") %>
   </style>
 
   <script>
