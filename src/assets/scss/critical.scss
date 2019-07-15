@@ -1,5 +1,5 @@
 @import 'props';
-@import './mixins.scss';
+@import 'mixins';
 
 *,
 *::before,
@@ -23,11 +23,12 @@ body {
   @extend %overflow-x-hidden;
   @extend %relative;
 
+  @include fluid-type(415px, 1600px, 16px, 18px);
+
   background-color: var(--background);
   color: var(--font);
   font-family: "Rubik", sans-serif;
-  font-size: calc(14px + (16 - 14) * ((100vw - 415px) / (1600 - 415)));
-  grid-template-columns: minmax(2em,1fr) minmax(1rem,75rem) minmax(2em,1fr);
+  grid-template-columns: minmax(2em,1fr) minmax(1rem,56rem) minmax(2em,1fr);
   grid-template-rows: repeat(3, auto);
   line-height: 1.4;
 

@@ -1,3 +1,28 @@
+// Fluid Type
+// calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])))
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
 // Media Queries
 @mixin media-query-min($device) {
   @media screen and (min-width: $device) {
@@ -17,6 +42,7 @@
   }
 }
 
+// Animations
 @mixin transition($property) {
   transition: $property var(--duration) ease-in-out;
 }
@@ -25,6 +51,7 @@
   transition: $property $timing ease-in-out;
 }
 
+// Sizing Calculations
 @mixin fit-height($offset) {
   height: calc(100vh - $offset);
 }
