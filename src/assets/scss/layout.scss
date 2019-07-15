@@ -1,12 +1,6 @@
 @import './extends.scss';
 @import './mixins.scss';
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-}
-
 article {
   @extend %flex;
   @extend %flex-column;
@@ -20,10 +14,10 @@ footer {
   @extend %grid;
   @extend %items-start;
   @extend %m--horizontal;
-  @extend %pb2;
-  @extend %pt2;
+  @extend %pa2;
   @extend %w-100;
 
+  grid-column: 1/4;
   grid-gap: 1rem;
   grid-row: 3/4;
   grid-template-columns: 6.5rem minmax(10.5rem,32rem);
@@ -55,57 +49,12 @@ footer dl,
   grid-row: 2/3;
 }
 
-main,
-footer {
-  grid-column: 2/3;
-}
+img {
+  @extend %m--horizontal;
 
-header {
-  @extend %grid;
-  @extend %left-0;
-  @extend %relative;
-  @extend %w-100;
-
-  background-color: var(--header);
-  border-color: var(--accent);
-  border-style: solid;
-  border-width: 0 0 1rem;
-  grid-column: 1/4;
-  grid-row: 1/2;
-  grid-template-columns: auto repeat(2, minmax(13.5rem,37.5rem)) auto;
-  margin: 0 auto 0 0;
-  padding: 1rem 2rem;
-
-  &:before {
-    @extend %absolute;
-    @extend %background-accent--light;
-    @extend %content;
-    @extend %left-0;
-    @extend %right-0;
-    @extend %top-0;
-    @extend %w-100;
-    @extend %z-under;
-
-    bottom: -2rem;
-    min-height: 1rem;
-  }
-
-  a, h1 {
-    font-size: 1.15rem;
-  }
-
-  h1 span {
-    font-weight: normal;
-  }
-
-  @include media-query-max(30rem) {
-    border-width: 0 1rem 1rem 0;
-    width: calc(100vw - 1rem);
-
-    &::after, &::before {
-      width: 100vw;
-    }
-  }
+  height: auto;
+  object-fit: contain;
+  object-position: left bottom;
 }
 
 main {
@@ -113,39 +62,13 @@ main {
   @extend %pb2;
   @extend %pt2;
 
+  grid-column: 2/3;
   grid-row: 2/3;
   min-height: calc(100vh - 22rem);
 }
 
-nav {
-  @extend %content-between;
-  @extend %flex;
-  @extend %j-self-end;
-  @extend %pb1;
-  @extend %pt1;
-  @extend %w-100;
-
-  grid-column: 3/4;
-  margin-right: 3rem;
-  max-height: 3.5rem;
-  max-width: 11rem;
-
-  @include media-query-max(30rem) {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    justify-self: start;
-    margin: 0;
-  }
-
-  .sep {
-    color: hsla(0, 0%, 57%, 1);
-  }
-}
-
-time,
-.tag,
-.tag__name {
-  color: var(--meta);
+picture {
+  @extend %overflow-hidden;
 }
 
 time {
@@ -154,14 +77,14 @@ time {
 }
 
 .avatar {
-  @extend %background-accent;
-  @extend %border--weird;
   @extend %flex;
   @extend %mr1;
   @extend %relative;
 
-  height: 6.5rem;
-  width: 6.5rem;
+  &, img {
+    height: 6.5rem;
+    width: 6.5rem;
+  }
 }
 
 .error {
@@ -193,30 +116,6 @@ time {
   max-width: 32rem;
 }
 
-.hire {
-  @extend %background-accent;
-  @extend %border--curved;
-  @extend %j-self-start;
-  @extend %pa0;
-  @extend %text-center;
-
-  @include transition(background-color);
-
-  color: var(--background) !important;
-  cursor: pointer;
-  padding: 0.5rem;
-  width: 6rem;
-
-  &:hover {
-    @extend %background-accent--light;
-    @extend %no-underline;
-  }
-
-  @include media-query-max(30rem) {
-    grid-column: 1/2;
-  }
-}
-
 .home,
 .home__link,
 .home__link:hover,
@@ -224,7 +123,7 @@ time {
 .nav__link,
 .nav__link:hover,
 .nav__link:visited {
-  color: hsl(60, 30%, 96%);
+  color: hsl(64, 32%, 96%);
 }
 
 .home {
@@ -255,33 +154,21 @@ time {
 
   &:before {
     @extend %absolute;
-    @extend %background-accent;
-    @extend %border--weird;
+    @extend %border--round;
     @extend %content;
     @extend %z-under;
 
     @include transition(transform);
 
-    border-radius: var(--borderRadius);
     height: 2.5rem;
     pointer-events: none;
     transform: scale(0);
     width: 2.5rem;
   }
 
-  .icon__svg {
-    @include transition(fill);
-
-    fill: var(--font);
-  }
-
   &:hover {
     &:before {
       transform: scale(1);
-    }
-
-    .icon__svg {
-      fill: var(--background);
     }
   }
 }
@@ -292,7 +179,6 @@ time {
 
   &:before {
     @extend %absolute;
-    @extend %background-accent;
     @extend %bottom-0;
     @extend %content;
     @extend %left-0;
@@ -310,25 +196,6 @@ time {
   @extend %w-100;
 
   margin-bottom: 0.75rem;
-}
-
-.noise,
-.toggle::after,
-.toggle::before {
-  animation: fade-in 2s;
-}
-
-.noise {
-  @extend %absolute;
-  @extend %bottom-0;
-  @extend %left-0;
-  @extend %right-0;
-  @extend %top-0;
-  @extend %z20;
-
-  background-size: calc(2px * var(--noiseSize));
-  opacity: 0.012;
-  pointer-events: none;
 }
 
 .permalink {
@@ -352,7 +219,6 @@ time {
     @extend %absolute;
     @extend %content;
     @extend %ma0;
-    @extend %transition--all;
 
     border-radius: 1rem;
     display: inherit;
@@ -363,11 +229,9 @@ time {
 
   &:before {
     @extend %absolute;
-    @extend %background-accent--light;
     @extend %bottom-0;
     @extend %content;
     @extend %right-0;
-    @extend %transition--all;
     @extend %z5;
 
     border-radius: 100%;
@@ -389,14 +253,4 @@ time {
   top: 2rem;
   width: 1.3125rem;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-#theme {
-  @extend %z-under;
-
- &:checked ~ .toggle::before {
-    background: transparent;
-    box-shadow: 0.3125rem 0.3125rem 0 0 var(--accentLight);
-    right: 0.5rem;
-  }
 }

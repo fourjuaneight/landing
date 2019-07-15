@@ -7,7 +7,7 @@ module.exports = {
     './src/assets/js/clip.js',
     './src/assets/js/theme.js',
     './src/assets/js/noise.js',
-    './src/assets/scss/reset.scss',
+    './src/assets/scss/critical.scss',
     './src/assets/scss/main.scss',
   ],
   output: {
@@ -22,12 +22,12 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /reset.scss$/,
+        test: /critical.scss$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '_includes/components/reset.css',
+              name: '_includes/components/critical.css',
             },
           },
           {

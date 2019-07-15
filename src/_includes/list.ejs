@@ -5,8 +5,8 @@
   <article>
     <a href="<%= meta.domain %><%= item.url %>" class="permalink"><h3><%= item.data.title %></h3></a>
     <section class="meta__wrap">
-      <time datetime="<%= item.date.toUTCString() %>"><span aria-label="Posted on">&tau;</span><%= item.date.toISOString().substring(0, 10) %></time>
-      <p class="tag"><span aria-hidden="true">#</span><a href="<%= meta.domain %>/tags/<%= item.data.tags %>" itemprop="about" class="tag__name"><%= item.data.tags %></a></p>
+      <time datetime="<%= item.date.toUTCString() %>" class="meta"><span aria-label="Posted on">&tau;</span><%= item.date.toISOString().substring(0, 10) %></time>
+      <p class="tag"><span aria-hidden="true" class="meta">#</span><a href="<%= meta.domain %>/tags/<%= item.data.tags %>" itemprop="about" class="meta"><%= item.data.tags %></a></p>
     </section>
     <p><%= item.data.summary %></p>
   </article>

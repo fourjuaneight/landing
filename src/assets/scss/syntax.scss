@@ -15,11 +15,23 @@
 }
 /* Base */
 code,
+li code,
+p code,
+pre,
+pre code {
+  font-family: "Fira Code", monospace;
+}
+code,
 pre,
 pre code,
 .highlight {
   font-size: 0.875rem;
   font-style: normal;
+}
+p code {
+  @extend %border--curved;
+
+  padding: 0.0625rem 0.5rem;
 }
 pre {
   @extend %border--curved;
@@ -83,17 +95,20 @@ pre {
   right: 0.5rem;
 }
 .highlight {
+  margin: 0 0 0.75rem;
   position: relative;
 }
 .lang {
   left: 0.5rem;
 }
 /* Styling */
+p code,
 .chroma,
 .clip,
 .lang {
   color: var(--txt);
 }
+p code,
 .chroma {
   background-color: var(--bg);
 }

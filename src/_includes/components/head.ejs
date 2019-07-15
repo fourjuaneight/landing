@@ -78,32 +78,7 @@
         font-display: swap;
       }
     <% } %>
-    html[data-theme='light'] {
-      <% for(const [name, color] of Object.entries(props.palette.light)) { %>
-        --<%= name %>: <%= color %>;
-      <% } %>
-    }
-    html[data-theme='dark'] {
-      <% for(const [name, color] of Object.entries(props.palette.dark)) { %>
-        --<%= name %>: <%= color %>;
-      <% } %>
-    }
-    html {
-      <% for(const [name, value] of Object.entries(props.base)) { %>
-        --<%= name %>: <%- value %>;
-      <% } %>
-    }
-    @media(prefers-color-scheme:light) {
-      html {
-        --theme: light;
-      }
-    }
-    @media(prefers-color-scheme:dark) {
-      html {
-        --theme: dark;
-      }
-    }
-    <%- include("./reset.css") %>
+    <%- include("./critical.css") %>
   </style>
 
   <script>

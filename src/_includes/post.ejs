@@ -8,8 +8,8 @@
   <h1 class="marked title"><%= title %></h1>
   <% if (typeof date === "string") { %>
     <section class="meta__wrap">
-      <time datetime="<%= date %>"><span aria-label="Posted on">&tau;</span><%= date %></time>
-      <p class="tag"><span aria-hidden="true">#</span><a href="<%= meta.domain %>/tags/<%= tags %>" itemprop="about" class="tag__name"><%= tags %></a></p>
+      <time datetime="<%= date %>" class="meta"><span aria-label="Posted on">&tau;</span><%= date %></time>
+      <p class="tag"><span aria-hidden="true" class="meta">#</span><a href="<%= meta.domain %>/tags/<%= tags %>" itemprop="about" class="meta"><%= tags %></a></p>
     </section>
   <% } %>
   <p><%- content %></p>

@@ -15,8 +15,8 @@
   border-radius: 0.125rem;
 }
 
-%border--weird {
-  border-radius: var(--borderRadius);
+%border--round {
+  border-radius: 50%;
 }
 
 %content {
