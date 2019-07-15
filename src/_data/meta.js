@@ -3,7 +3,7 @@ const meta = async () => {
   return {
     domain: url,
     title: 'Juan Villela',
-    description: 'Front-End Developer, automation nerd, and astronomy enthusiast.',
+    description: 'Freelance Front-End Developer, automation nerd, and astronomy enthusiast.',
     social: 'fourjuaneight',
     image: '/icons/juan.png',
     datefmt: { year: 'numeric', month: 'long', day: 'numeric' }

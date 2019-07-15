@@ -1,7 +1,7 @@
 {
   "name": "juan-dev",
   "version": "3.0.0",
-  "description": "Front-End Developer, automation nerd, and astronomy enthusiast.",
+  "description": "Freelance Front-End Developer, automation nerd, and astronomy enthusiast.",
   "scripts": {
     "build": "webpack && npm run production",
     "build:dev": "webpack && npm run development",
