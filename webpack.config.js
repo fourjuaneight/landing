@@ -7,9 +7,9 @@ module.exports = {
     './src/assets/js/clip.js',
     './src/assets/js/theme.js',
     './src/assets/js/noise.js',
-    './src/assets/scss/critical.scss',
-    './src/assets/scss/layout.scss',
-    './src/assets/scss/syntax.scss',
+    './src/scss/critical.scss',
+    './src/scss/layout.scss',
+    './src/scss/syntax.scss',
   ],
   output: {
     path: resolve(__dirname, 'src'),
@@ -42,7 +42,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: ['./src/assets/scss'],
+              includePaths: ['./src/scss'],
             },
           },
         ],
@@ -67,7 +67,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: ['./src/assets/scss'],
+              includePaths: ['./src/scss'],
             },
           },
         ],
@@ -92,7 +92,7 @@ module.exports = {
           {
             loader: 'sass-loader',
             options: {
-              includePaths: ['./src/assets/scss'],
+              includePaths: ['./src/scss'],
             },
           },
         ],
