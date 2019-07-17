@@ -1,4 +1,4 @@
-async function noise() {
+const noise = async () => {
   const black = new Uint8ClampedArray([0, 0, 0, 255]);
   const white = new Uint8ClampedArray([255, 255, 255, 255]);
   const size = getComputedStyle(document.body).getPropertyValue('--base');
@@ -19,4 +19,5 @@ async function noise() {
   div.style = `background-image: url(${url})`;
   document.body.appendChild(div);
 }
+
 noise();
