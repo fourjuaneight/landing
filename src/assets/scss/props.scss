@@ -1,17 +1,21 @@
+@import 'theme';
+
 html[data-theme="light"] {
-  --background: hsl(64, 32%, 96%);
-  --font: hsl(232, 16%, 16%);
-  --meta: hsl(0, 0%, 40%);
+  --bg: #{$white};
+  --bg-dark: #{$dracula};
+  --font: #{$dracula-dark};
+  --meta: #{$meta};
 }
 html[data-theme="dark"] {
-  --background: hsl(232, 16%, 16%);
-  --font: hsl(64, 32%, 96%);
-  --meta: hsl(0, 0%, 56%);
+  --bg: #{$dracula};
+  --bg-dark: #{$dracula-dark};
+  --font: #{$white};
+  --meta: #{$meta-light};
 }
 html {
-  --accent: hsl(264, 88%, 72%);
-  --accentLight: hsl(264, 88%, 80%);
-  --noiseSize: 64;
+  --primary: #{$primary};
+  --primary-light: #{$primary-light};
+  --base: 64;
   --duration: 256ms;
 }
 @media (prefers-color-scheme: light) {

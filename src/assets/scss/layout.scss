@@ -1,5 +1,5 @@
-@import './extends.scss';
-@import './mixins.scss';
+@import 'extends';
+@import 'mixins';
 
 @keyframes fade-in {
   from {
@@ -17,10 +17,10 @@ article {
   a:not([class]) {
     @extend %underline;
 
-    text-decoration-color: var(--accent) !important;
+    text-decoration-color: var(--primary) !important;
 
     &:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
   }
 }
@@ -245,7 +245,7 @@ time {
   @extend %top-0;
   @extend %z20;
 
-  background-size: calc(0.125em * var(--noiseSize));
+  background-size: calc(0.125em * var(--base));
   opacity: 0.012;
   pointer-events: none;
 }
@@ -317,7 +317,7 @@ time {
 
  &:checked ~ .toggle::before {
     background: transparent;
-    box-shadow: 0.3125rem 0.3125rem 0 0 var(--accentLight);
+    box-shadow: 0.3125rem 0.3125rem 0 0 var(--primary-light);
     right: 0.5rem;
   }
 }

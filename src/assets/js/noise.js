@@ -1,7 +1,7 @@
 async function noise() {
   const black = new Uint8ClampedArray([0, 0, 0, 255]);
   const white = new Uint8ClampedArray([255, 255, 255, 255]);
-  const size = getComputedStyle(document.body).getPropertyValue('--noiseSize');
+  const size = getComputedStyle(document.body).getPropertyValue('--base');
   const data = new Uint8ClampedArray(size * size * 4);
   for(let y = 0; y < size; y++) {
     for(let x = 0; x < size; x++) {

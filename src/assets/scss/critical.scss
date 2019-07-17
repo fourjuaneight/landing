@@ -9,7 +9,7 @@
 
 *::selection {
   background-color: var(--font);
-  color: var(--background);
+  color: var(--bg);
 }
 
 html {
@@ -25,7 +25,7 @@ body {
 
   @include fluid-type(415px, 1600px, 16px, 18px);
 
-  background-color: var(--background);
+  background-color: var(--bg);
   color: var(--font);
   font-family: "Rubik", sans-serif;
   grid-template-columns: minmax(2em,1fr) minmax(1rem,56rem) minmax(2em,1fr);
@@ -48,7 +48,7 @@ a {
     @extend %underline;
 
     color: var(--font);
-    text-decoration-color: var(--accent) !important;
+    text-decoration-color: var(--primary) !important;
   }
 
   &:visited {
@@ -63,7 +63,7 @@ p {
 }
 
 blockquote {
-  border-left: 0.125em solid var(--accent);
+  border-left: 0.125em solid var(--primary);
   padding-left: 0.75em;
 }
 
@@ -116,9 +116,9 @@ h1, h2 {
 
 header,
 footer {
-  background-color: hsl(232, 16%, 16%);
+  background-color: var(--bg-dark);
   border-style: solid;
-  border-color: var(--accent);
+  border-color: var(--primary);
 }
 
 header {
