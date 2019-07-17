@@ -35,11 +35,13 @@ const elConf = config => {
   config.addTransform('minifier', minifier);
 
   // Passthrough
-  config.addPassthroughCopy('src/css');
   config.addPassthroughCopy('src/fonts');
   config.addPassthroughCopy('src/icons');
   config.addPassthroughCopy('src/img');
-  config.addPassthroughCopy('src/js');
+  // assets
+  config.addPassthroughCopy('src/styles.css');
+  config.addPassthroughCopy('src/syntax.css');
+  config.addPassthroughCopy('src/scripts.js');
   config.addPassthroughCopy('src/manifest.json');
   config.addPassthroughCopy('src/sw.js');
 
