@@ -7,7 +7,7 @@ module.exports = api => {
     [
       '@babel/preset-env',
       {
-        'module': false,
+        'modules': false,
         'include': [
           'transform-arrow-functions',
         ],
