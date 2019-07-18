@@ -1,7 +1,0 @@
-{{ $webp := resources.Get "img/juan.webp" }}
-{{ $img := resources.Get "img/juan.png" }}
-<picture class="brsh flex mr1 relative headshot">
-  <source srcset="{{ $webp.Permalink }}" type="image/webp">
-  <source srcset="{{ $img.Permalink }}" type="image/png">
-  <img src="{{ $img.Permalink }}" alt="Juan Villela avatar"/>
-</picture>

@@ -1,14 +1,24 @@
 {
   "name": "juan-dev",
-  "version": "2.0.0",
-  "description": "Front-End Developer, automation nerd, and astronomy enthusiast.",
+  "version": "3.0.0",
+  "description": "Freelance Front-End Developer, automation nerd, and astronomy enthusiast.",
   "scripts": {
-    "build": "hugo -e production",
-    "clean": "rm -rf public resources",
-    "clean-node": "rm -rf node_modules",
-    "development": "hugo -e development",
-    "staging": "hugo -e staging",
-    "start": "hugo -e development serve --disableFastRender"
+    "build:dev": "npm run css && npm run js && npm run development",
+    "build": "npm run css && npm run js && npm run production",
+    "clean:node": "rm -rf node_modules",
+    "clean": "rm -rf dist",
+    "css:compile": "sass src/scss/layout.scss:src/styles.css src/scss/syntax.scss:src/syntax.css src/scss/critical.scss:src/_includes/components/critical.css --no-source-map",
+    "css:post": "postcss src/*.css -d src && postcss src/_includes/components/critical.css -o src/_includes/components/critical.css",
+    "css:watch": "onchange 'src/**/*.scss' -- npm run css",
+    "css": "npm run css:compile && npm run css:post",
+    "development": "cross-env ELEVENTY_ENV=development npx eleventy",
+    "js:compile": "babel src/js/ --out-file src/scripts.js && babel src/_includes/components/onLoad.js --out-file src/_includes/components/onLoad.js",
+    "js:post": "terser src/scripts.js -o src/scripts.js -c -m && terser src/_includes/components/onLoad.js -o src/_includes/components/onLoad.js -c -m",
+    "js:watch": "npm run js:compile -- --watch",
+    "js": "npm run js:compile && npm run js:post",
+    "production": "cross-env ELEVENTY_ENV=production npx eleventy",
+    "serve": "cross-env ELEVENTY_ENV=local npx eleventy --serve",
+    "start": "concurrently 'npm run css:watch' 'npm run js:watch' 'npm run serve'"
   },
   "repository": {
     "type": "git",
@@ -26,8 +36,28 @@
   "resolutions": {
     "natives": "1.1.3"
   },
+  "browserslist": [
+    "> 3%",
+    "defaults",
+    "safari >= 10",
+    "ios >= 10"
+  ],
   "devDependencies": {
+    "@11ty/eleventy": "^0.8.3",
+    "@11ty/eleventy-plugin-rss": "^1.0.6",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "concurrently": "^4.1.1",
+    "cross-env": "^5.2.0",
+    "cssnano": "^4.1.10",
+    "html-minifier": "^4.0.0",
+    "markdown-it-link-attributes": "^2.1.0",
+    "onchange": "^6.0.0",
     "postcss-cli": "^6.0.0",
-    "postcss-preset-env": "^6.6.0"
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.22.6",
+    "terser": "^4.1.2"
   }
 }
