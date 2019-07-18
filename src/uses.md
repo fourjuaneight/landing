@@ -1,6 +1,6 @@
 ---json
 {
-  "title": "Uses",
+  "title": "Stuff I Use",
   "draft": false,
   "layout": "post"
 }
