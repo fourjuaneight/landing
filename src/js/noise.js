@@ -1,15 +1,8 @@
-const noise = async () => {
-  const black = new Uint8ClampedArray([0, 0, 0, 255]);
-  const white = new Uint8ClampedArray([255, 255, 255, 255]);
-  const size = getComputedStyle(document.body).getPropertyValue('--base');
-  const data = new Uint8ClampedArray(size * size * 4);
+const worker = new Worker('ww.js');
 
-  for(let y = 0; y < size; y++) {
-    for(let x = 0; x < size; x++) {
-      data.set(Math.random() > .5 ? white : black, (y * size + x) * 4);
-    }
-  }
+const size = getComputedStyle(document.body).getPropertyValue('--base');
 
+const makeNoise = async data => {
   const canvas = document.createElement('canvas');
   canvas.width = canvas.height = size;
   const ctx = canvas.getContext('2d');
@@ -24,4 +17,8 @@ const noise = async () => {
   document.body.appendChild(div);
 }
 
-noise();
+worker.postMessage(size);
+
+worker.onmessage = e => {
+  makeNoise(e.data)
+}

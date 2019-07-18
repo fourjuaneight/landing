@@ -35,15 +35,19 @@ const elConf = config => {
   config.addTransform('minifier', minifier);
 
   // Passthrough
+  // assets
   config.addPassthroughCopy('src/fonts');
   config.addPassthroughCopy('src/icons');
   config.addPassthroughCopy('src/img');
-  // assets
+  config.addPassthroughCopy('src/manifest.json');
+  // styles
   config.addPassthroughCopy('src/styles.css');
   config.addPassthroughCopy('src/syntax.css');
+  // scripts
   config.addPassthroughCopy('src/scripts.js');
-  config.addPassthroughCopy('src/manifest.json');
+  // workers
   config.addPassthroughCopy('src/sw.js');
+  config.addPassthroughCopy('src/ww.js');
 
   // Custom collections
   const now = new Date();
