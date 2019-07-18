@@ -1,5 +1,5 @@
 /* global self */
-(function () {
+(function() {
   const version = 'v6';
   const cacheName = ':juanvilleladev:';
   const staticCacheName = `${version}${cacheName}static`;
@@ -25,7 +25,7 @@
     '/syntax.css',
     '/scripts.js',
   ];
-  function updateStaticCache() {
+  const updateStaticCache = () => {
     // These items must be cached for the Service Worker to complete installation
     return caches.open(staticCacheName).then(cache => {
       return cache.addAll(
@@ -34,14 +34,14 @@
         })
       );
     });
-  }
-  function stashInCache(name, request, response) {
+  };
+  const stashInCache = (name, request, response) => {
     caches.open(name).then(cache => {
       return cache.put(request, response);
     });
-  }
+  };
   // Limit the number of items in a specified cache.
-  function trimCache(name, maxItems) {
+  const trimCache = (name, maxItems) => {
     caches.open(name).then(cache => {
       cache.keys().then(keys => {
         if (keys.length > maxItems) {
@@ -49,9 +49,9 @@
         }
       });
     });
-  }
+  };
   // Remove caches whose name is no longer valid
-  function clearOldCaches() {
+  const clearOldCaches = () => {
     return caches.keys().then(keys => {
       return Promise.all(
         keys
@@ -63,7 +63,7 @@
           })
       );
     });
-  }
+  };
   // Events!
   self.addEventListener('message', event => {
     if (event.data.command === 'trimCaches') {
