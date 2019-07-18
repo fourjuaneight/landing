@@ -1,5 +1,18 @@
 const meta = async () => {
-  const url = process.env.ELEVENTY_ENV === 'local' ? '' : process.env.ELEVENTY_ENV === 'development' ? 'https://development.juanvillela.dev' : 'https://www.juanvillela.dev';
+  let url;
+  switch (process.env.ELEVENTY_ENV) {
+    case 'local':
+      url = '';
+      break;
+    case 'development':
+      url = 'https://development.juanvillela.dev';
+      break;
+    case 'staging':
+      url = 'https://staging.juanvillela.dev';
+      break;
+    default:
+      url = 'https://www.juanvillela.dev';
+  }
   return {
     domain: url,
     title: 'Juan Villela',

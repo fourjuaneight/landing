@@ -14,7 +14,7 @@
 # Custom config for the staging branch.
 [context.staging]
   # We want a production-like build.
-  command = "npm run build"
+  command = "npm run build:staging"
 
 # Production config.
 [context.production]

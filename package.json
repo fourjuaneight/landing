@@ -4,6 +4,7 @@
   "description": "Freelance Front-End Developer, automation nerd, and astronomy enthusiast.",
   "scripts": {
     "build:dev": "npm run css && npm run js && npm run development",
+    "build:staging": "npm run css && npm run js && npm run staging",
     "build": "npm run css && npm run js && npm run production",
     "clean:node": "rm -rf node_modules",
     "clean": "rm -rf dist",
@@ -18,6 +19,7 @@
     "js": "npm run js:compile && npm run js:post",
     "production": "cross-env ELEVENTY_ENV=production npx eleventy",
     "serve": "cross-env ELEVENTY_ENV=local npx eleventy --serve",
+    "staging": "cross-env ELEVENTY_ENV=staging npx eleventy",
     "start": "concurrently 'npm run css:watch' 'npm run js:watch' 'npm run serve'"
   },
   "repository": {
