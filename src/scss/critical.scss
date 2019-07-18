@@ -1,5 +1,6 @@
 @import 'props';
 @import 'mixins';
+@import 'theme';
 
 *,
 *::before,
@@ -167,6 +168,10 @@ header {
     &:visited {
       font-size: 1.15rem;
     }
+  }
+
+  .sep {
+    color: $meta-light;
   }
 }
 
