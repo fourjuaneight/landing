@@ -1,5 +1,5 @@
 const meta = async () => {
-  const url = process.env.ELEVENTY_ENV === 'local' ? '' : process.env.ELEVENTY_ENV === 'development' ? 'https://development.juanvillela.dev' : 'https://www.juanvillela.dev';
+  const url = process.env.ELEVENTY_ENV === 'local' ? '' : process.env.ELEVENTY_ENV === 'development' ? 'https://development.juanvillela.dev' : process.env.ELEVENTY_ENV === 'staging' ? 'https://staging.juanvillela.dev' : 'https://www.juanvillela.dev';
   return {
     domain: url,
     title: 'Juan Villela',
