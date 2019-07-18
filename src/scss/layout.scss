@@ -177,6 +177,10 @@ time {
     }
 
     &:hover {
+      .icon__svg {
+        fill: var(--bg-dark);
+      }
+
       &:before {
         transform: scale(1);
       }
