@@ -22,7 +22,7 @@ label.forEach(copy => {
         copy.classList.toggle('f7');
         copy.innerHTML = original;
       }, 1000);
-    } catch {
+    } catch (e) {
       copy.innerHTML = "Can't copy, hit Ctrl+C!";
 
       setTimeout(() => {

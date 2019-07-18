@@ -5,7 +5,8 @@ module.exports = () => {
         stage: 3,
         features: {
           'custom-properties': {
-            preserve: true
+            preserve: true,
+            fallback: true,
           },
         },
         autoprefixer: {
