@@ -6,7 +6,7 @@
 }
 ---
 
-I try to keep my development environment as minimal as possible. There's a lot of stuff that I've replaced with tools I made myself.
+I try to keep my work environment as minimal as possible. The goal is always to keep as focused as possible while working. More stuff on my desk or screen just means more distractions. So these lists have become significantly smaller over time.
 
 ## Editor + Terminal
 - [VSCode](https://code.visualstudio.com) has been my main editor for some time. I was Vim user for a long time, but you can't beat the easy setup and customization of VSCode.
