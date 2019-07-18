@@ -1,15 +1,16 @@
 // Learn more about Babel:
 // https://babeljs.io/
+// Dependencies: npm i -D @babel/core @babel/preset-env @babel/register babel-cli browserlist
 
 module.exports = api => {
   const presets = [
     [
       '@babel/preset-env',
       {
-        targets: {
-          browsers: ['ie >= 11']
-        },
-        'useBuiltIns': 'entry'
+        'module': false,
+        'include': [
+          'transform-arrow-functions',
+        ],
       },
     ],
   ];
