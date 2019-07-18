@@ -1,4 +1,6 @@
-@import './extends.scss';
+@import 'extends';
+@import 'mixins';
+@import 'theme';
 
 // Base
 code {
@@ -9,7 +11,7 @@ code {
 
 p > code,
 pre[class*="language-"] {
-  background: hsl(232, 16%, 16%);
+  background: $dracula;
   border: 1px solid hsl(215, 16%, 56%);
 }
 
