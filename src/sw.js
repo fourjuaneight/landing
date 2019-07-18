@@ -20,9 +20,10 @@
     '/fonts/Rubik-Bold-sub.woff',
     '/fonts/Rubik-Bold-sub.woff2',
     '/fonts/FiraCode-Regular.woff',
-    '/fonts/FiraCode-Regular.woff',
-    '/css/styles.css',
-    '/js/scripts.js',
+    '/fonts/FiraCode-Regular.woff2',
+    '/styles.css',
+    '/syntax.css',
+    '/scripts.js',
   ];
   function updateStaticCache() {
     // These items must be cached for the Service Worker to complete installation
