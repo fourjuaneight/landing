@@ -7,7 +7,6 @@ const htmlMinTransform = (value, outputPath) => {
       removeComments: true,
       collapseWhitespace: true,
       minifyCSS: true,
-      minifyJS: true,
     });
     return minified;
   }
