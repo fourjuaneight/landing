@@ -1,6 +1,6 @@
 <script>
   if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('<%= meta.domain %>/js/sw.js', { scope: '/' });
+    navigator.serviceWorker.register('<%= meta.domain %>/sw.js', { scope: '/' });
     navigator.serviceWorker.ready.then(registration => {
       console.log(`                                  ....
                               .'' .'''
