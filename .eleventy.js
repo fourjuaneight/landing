@@ -1,6 +1,5 @@
 // Import plugins
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const rssPlugin = require('@11ty/eleventy-plugin-rss');
 
 // Import transforms
 const minifier = require('./src/config/minifier.js');
@@ -23,7 +22,6 @@ let linkOps = {
 
 const elConf = config => {
   // Plugins
-  config.addPlugin(rssPlugin);
   config.addPlugin(syntaxHighlight);
 
   // Libraries
