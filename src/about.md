@@ -8,6 +8,7 @@
 
 Hi there. I'm Juan and I like websites. Most of my time is spent making them. I work independently as a freelancer, helping businesses make accessible and reliable static sites. When I'm not working, I'm likely still coding. There's always something for me to fix, optimize, or rebuild.
 
+## Work
 Most of my development career has been with static-site generators. Primarily Hugo and Gatsby. I'm not very good at talking about myself, so here are some nice lists:
 
 **Languages:**
@@ -32,7 +33,7 @@ Most of my development career has been with static-site generators. Primarily Hu
 
 There's likely several other stuff I know that I could list, but these are the main with which I work on a daily basis.
 
-## About Me
+## Personal
 There are many ways I could go about explaining who I am. But I feel a list is best. So here are some Juan facts for you:
 
 - Born and raised in Florida. I live in DC now. I really miss the food and nicer people. Don't miss the heat. Or the fires. Or the hurricanes.
