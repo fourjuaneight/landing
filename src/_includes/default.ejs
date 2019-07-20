@@ -5,7 +5,7 @@
     <%- include("components/header") %>
     <main><%- content %></main>
     <%- include("components/footer") %>
-    <script src="<%= meta.domain %>/scripts.js"></script>
+    <script defer src="<%= meta.domain %>/scripts.js"></script>
     <% if (process.env.ELEVENTY_ENV === "production") { %>
       <%- include("components/sw") %>
     <% } %>

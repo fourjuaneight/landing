@@ -14,12 +14,13 @@ const meta = async () => {
       url = 'https://www.juanvillela.dev';
   }
   return {
+    datefmt: { day: 'numeric', month: 'long', year: 'numeric' },
+    description:
+      'Freelance Front-End Developer, automation nerd, and astronomy enthusiast.',
     domain: url,
-    title: 'Juan Villela',
-    description: 'Freelance Front-End Developer, automation nerd, and astronomy enthusiast.',
-    social: 'fourjuaneight',
     image: '/icons/juan.png',
-    datefmt: { year: 'numeric', month: 'long', day: 'numeric' }
+    social: 'fourjuaneight',
+    title: 'Juan Villela',
   };
 };
 

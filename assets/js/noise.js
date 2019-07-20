@@ -1,6 +1,8 @@
 const worker = new Worker('ww.js');
 
-const size = getComputedStyle(document.body).getPropertyValue('--base');
+const fragment = document.createDocumentFragment();
+const bodyStyle = getComputedStyle(document.body);
+const size = bodyStyle.getPropertyValue('--base');
 
 const makeNoise = async data => {
   const canvas = document.createElement('canvas');
@@ -15,7 +17,8 @@ const makeNoise = async data => {
 
   div.classList.add('noise');
   div.style = `background-image: url(${url})`;
-  document.body.appendChild(div);
+  fragment.appendChild(div);
+  document.body.appendChild(fragment);
 };
 
 if (window.Worker) {
