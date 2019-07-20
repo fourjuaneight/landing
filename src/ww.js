@@ -1,16 +1,1 @@
-onmessage = e => {
-  genNoise(e.data);
-}
-
-const genNoise = base => {
-  const black = new Uint8ClampedArray([0, 0, 0, 255]);
-  const white = new Uint8ClampedArray([255, 255, 255, 255]);
-  const data = new Uint8ClampedArray(base * base * 4);
-
-  for (let y = 0; y < base; y++) {
-    for (let x = 0; x < base; x++) {
-      data.set(Math.random() > .5 ? white : black, (y * base + x) * 4);
-    }
-  }
-  postMessage(data);
-};
+var genNoise=function(a){for(var e=new Uint8ClampedArray([0,0,0,255]),n=new Uint8ClampedArray([255,255,255,255]),r=new Uint8ClampedArray(a*a*4),o=0;o<a;o+=1)for(var t=0;t<a;t+=1)r.set(Math.random()>.5?n:e,4*(o*a+t));postMessage(r)};onmessage=function(a){genNoise(a.data)};

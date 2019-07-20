@@ -1,7 +1,8 @@
 const toggle = document.querySelector('#theme');
-const root = document.querySelector('html');
 
 toggle.addEventListener('input', () => {
+  const root = document.querySelector('html');
+
   switch (toggle.checked) {
     case false:
       localStorage.setItem('theme', 'light');
@@ -9,6 +10,8 @@ toggle.addEventListener('input', () => {
     case true:
       localStorage.setItem('theme', 'dark');
       break;
+    default:
+      localStorage.setItem('theme', 'dark');
   }
   switch (root.getAttribute('data-theme')) {
     case 'dark':
@@ -17,5 +20,7 @@ toggle.addEventListener('input', () => {
     case 'light':
       root.setAttribute('data-theme', 'dark');
       break;
+    default:
+      root.setAttribute('data-theme', 'dark');
   }
 });
