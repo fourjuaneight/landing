@@ -4,12 +4,12 @@
 }
 ---
 
-<article>
-  <h1 class="marked title"><%= title %></h1>
+<article class="flex flex-column items-flex-start m--horizontal w-100">
+  <h1 class="mra relative marked title"><%= title %></h1>
   <% if (typeof date === "string") { %>
-    <section class="meta__wrap">
-      <time datetime="<%= date %>" class="meta"><span aria-label="Posted on">&tau;</span><%= date %></time>
-      <p class="tag"><span aria-hidden="true" class="meta">#</span><a href="<%= meta.domain %>/tags/<%= tags %>" itemprop="about" class="meta"><%= tags %></a></p>
+    <section class="content-between flex flex-wrap w-100 meta__wrap">
+      <time datetime="<%= date %>" class="f7 mra meta"><span aria-label="Posted on">&tau;</span><%= date %></time>
+      <p class="f7 ma0 mr1"><span aria-hidden="true" class="meta">#</span><a href="<%= meta.domain %>/tags/<%= tags %>" itemprop="about" class="meta"><%= tags %></a></p>
     </section>
   <% } %>
   <p><%- content %></p>

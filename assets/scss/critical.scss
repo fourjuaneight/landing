@@ -19,36 +19,35 @@ html {
 }
 
 body {
-  @extend %grid;
-  @extend %ma0;
-  @extend %overflow-x-hidden;
-  @extend %relative;
-
-  @include fluid-type(415px, 1600px, 16px, 18px);
-
   background-color: var(--bg);
   color: var(--font);
+  display: grid;
   font-family: "Rubik", sans-serif;
+  font-size: 100%;
   grid-template-columns: minmax(2em,1fr) minmax(1rem,56rem) minmax(2em,1fr);
   grid-template-rows: repeat(3, auto);
   line-height: 1.4;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
 
   &.dyslexic {
     font-family: "Dyslexic", sans-serif;
     font-size: 0.85em;
   }
+
+  @include media-query-max(416px) {
+    font-size: 92%;
+  }
 }
 
-@import 'extends';
-
 a {
-  @extend %no-underline;
   color: var(--font);
+  text-decoration: none;
 
   &:hover {
-    @extend %underline;
-
     color: var(--font);
+    text-decoration: underline;
     text-decoration-color: var(--primary) !important;
   }
 
@@ -123,15 +122,6 @@ footer {
 }
 
 header {
-  @extend %grid;
-  @extend %ma0;
-  @extend %pb1;
-  @extend %pl2;
-  @extend %pr2;
-  @extend %pt1;
-  @extend %relative;
-  @extend %w-100;
-
   border-width: 0 0 1rem 0;
   grid-column: 1/4;
   grid-row: 1/2;
@@ -139,23 +129,19 @@ header {
 
   &:before {
     @extend %absolute;
-    @extend %background-accent--light;
-    @extend %content;
-    @extend %left-0;
-    @extend %right-0;
-    @extend %top-0;
-    @extend %w-100;
-    @extend %z-under;
 
+    background-color: var(--primary-light);
     bottom: -2rem;
+    content: '';
+    left: 0;
     min-height: 1rem;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
   }
 
   .header__inner {
-    @extend %content-between;
-    @extend %grid;
-    @extend %w-100;
-
     grid-column: 2/3;
     grid-template-columns: repeat(auto-fit,12rem);
   }
@@ -176,12 +162,6 @@ header {
 }
 
 nav {
-  @extend %content-between;
-  @extend %flex;
-  @extend %pb1;
-  @extend %pt1;
-  @extend %w-100;
-
   max-height: 3.5rem;
   max-width: 10.5rem;
 }
@@ -195,26 +175,17 @@ nav {
 }
 
 .home {
-  @extend %content-flex-start;
-  @extend %flex;
-  @extend %flex-column;
-  @extend %items-flex-start;
-  @extend %mb0;
-  @extend %mra;
-  @extend %no-underline;
-  @extend %pb1;
-  @extend %pt1;
-  @extend %relative;
-
   grid-column: 1/2;
   width: 7.5rem;
 }
 
 .sr {
   @extend %absolute;
-  @extend %overflow-hidden;
 
   clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
   height: 0.1rem;
+  overflow: hidden;
   width: 0.1rem;
 }
+
+@import 'extends';

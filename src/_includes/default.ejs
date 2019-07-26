@@ -3,7 +3,7 @@
   <%- include("components/head") %>
   <body>
     <%- include("components/header") %>
-    <main><%- content %></main>
+    <main class="m--horizontal pb2 pt2 w-100"><%- content %></main>
     <%- include("components/footer") %>
     <script defer src="<%= meta.domain %>/scripts.js"></script>
     <% if (process.env.ELEVENTY_ENV === "production") { %>

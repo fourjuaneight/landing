@@ -1,5 +1,7 @@
 @import 'extends';
+@import 'components';
 @import 'mixins';
+@import 'theme';
 
 @keyframes fade-in {
   from {
@@ -8,15 +10,8 @@
 }
 
 article {
-  @extend %flex;
-  @extend %flex-column;
-  @extend %items-flex-start;
-  @extend %m--horizontal;
-  @extend %w-100;
-
   a:not([class]) {
-    @extend %underline;
-
+    text-decoration: underline;
     text-decoration-color: var(--primary) !important;
 
     &:hover {
@@ -26,14 +21,6 @@ article {
 }
 
 footer {
-  @extend %content-center;
-  @extend %grid;
-  @extend %items-start;
-  @extend %m--horizontal;
-  @extend %pa2;
-  @extend %relative;
-  @extend %w-100;
-
   grid-column: 1/4;
   grid-gap: 1em;
   grid-row: 3/4;
@@ -55,19 +42,10 @@ footer {
   }
 
   dl {
-    @extend %content-between;
-    @extend %flex;
-    @extend %items-center;
-    @extend %j-self-end;
-    @extend %ma0;
-    @extend %w-100;
-
     max-width: 8rem;
   }
 
   dd {
-    @extend %ma0;
-
     height: 2.5em;
     width: 2.5em;
   }
@@ -75,45 +53,27 @@ footer {
 
 footer dl,
 .hire {
-  @extend %a-self-center;
-  
   grid-column: 2/3;
   grid-row: 2/3;
 }
 
 img {
-  @extend %m--horizontal;
-
   height: auto;
   object-fit: contain;
   object-position: left bottom;
 }
 
 main {
-  @extend %m--horizontal;
-  @extend %pb2;
-  @extend %pt2;
-  @extend %w-100;
-
   grid-column: 2/3;
   grid-row: 2/3;
   min-height: calc(100vh - 22rem);
 }
 
 picture {
-  @extend %overflow-hidden;
-}
-
-time {
-  @extend %f7;
-  @extend %mra;
+  overflow: hidden;
 }
 
 .avatar {
-  @extend %flex;
-  @extend %mr1;
-  @extend %relative;
-
   &, img {
     height: 6.5em;
     width: 6.5em;
@@ -121,98 +81,51 @@ time {
 }
 
 .error {
-  @extend %text-center;
-
   margin: 2rem auto;
   max-width: 21rem;
+  text-align: center;
 }
 
 .foot__copy {
-  @extend %flex;
-  @extend %flex-column;
-  @extend %items-flex-start;
-  @extend %mb1;
-  @extend %w-100;
-
   max-width: 32rem;
 }
 
 .foot__head {
-  @extend %ma0;
-  @extend %mb1;
-
   font-size: 1.15rem;
 }
 
 .foot__body {
-  @extend %ma0;
-  @extend %w-100;
-
   max-width: 32rem;
 }
 
-@supports (display:grid) {
-  .icon {
-    &:before {
-      @extend %absolute;
-      @extend %background-accent;
-      @extend %border--round;
-      @extend %content;
-      @extend %z1;
+.icon {
+  height: 2.5em;
+  width: 2.5em;
 
-      @include transition(transform);
+  .icon__svg {
+    @include transition(fill);
 
-      height: 2.5em;
-      pointer-events: none;
-      transform: scale(0);
-      width: 2.5em;
-    }
+    fill: $white;
+  }
 
+  &:hover {
     .icon__svg {
-      @extend %z5;
-
-      @include transition(fill);
-
-      fill: hsl(64, 32%, 96%);
-    }
-
-    &:hover {
-      .icon__svg {
-        fill: var(--bg-dark);
-      }
-
-      &:before {
-        transform: scale(1);
-      }
+      fill: var(--primary-light);
     }
   }
 }
 
-.icon {
-  @extend %content-center;
-  @extend %flex;
-  @extend %items-center;
-  @extend %no-underline;
-  @extend %relative;
-
-  height: 2.5em;
-  width: 2.5em;
-}
-
 .marked {
-  @extend %mra;
-  @extend %relative;
-
   &:before {
     @extend %absolute;
     @extend %background-accent;
     @extend %bottom-0;
     @extend %content;
     @extend %left-0;
-    @extend %z1;
 
     height: 0.15rem;
     width: 3rem;
+    z-index: 1;
   }
 }
 
@@ -227,11 +140,6 @@ time {
 }
 
 .meta__wrap {
-  @extend %content-between;
-  @extend %flex;
-  @extend %flex-wrap;
-  @extend %w-100;
-
   margin-bottom: 0.75rem;
 }
 
@@ -242,13 +150,6 @@ time {
 }
 
 .noise {
-  @extend %absolute;
-  @extend %bottom-0;
-  @extend %left-0;
-  @extend %right-0;
-  @extend %top-0;
-  @extend %z20;
-
   background-size: calc(0.125em * var(--base));
   opacity: 0.012;
   pointer-events: none;
@@ -256,24 +157,9 @@ time {
 
 .permalink {
   margin: 1rem 0;
-
-  h2 {
-    @extend %ma0;
-  }
-}
-
-.tag {
-  @extend %f7;
-  @extend %ma0;
-  @extend %mr1;
 }
 
 .theme__wrap {
-  @extend %absolute;
-  @extend %content-center;
-  @extend %flex;
-  @extend %items-flex-start;
-
   grid-column: 3/4;
   height: 1.5rem;
   margin: 0.25rem;
@@ -317,8 +203,6 @@ time {
 }
 
 #theme {
-  @extend %z-under;
-
  &:checked ~ .toggle::before {
     background: transparent;
     box-shadow: 0.3125rem 0.3125rem 0 0 var(--primary-light);

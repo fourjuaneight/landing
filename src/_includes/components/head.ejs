@@ -91,7 +91,7 @@
     <%- include("./fonts.js") %>
   </script>
 
-  <link rel="stylesheet" href="<%= meta.domain %>/styles.css">
+ <link rel="stylesheet" href="<%= meta.domain %>/styles.css" media="all">
   <% if(typeof code === "boolean") { %>
     <link rel="prefetch" href="<%= meta.domain %>/syntax.css" onload="this.rel = 'stylesheet'">
     <noscript>

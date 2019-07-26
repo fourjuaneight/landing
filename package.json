@@ -9,7 +9,7 @@
     "check-types": "tsc",
     "clean:node": "rm -rf node_modules",
     "clean": "rm -rf dist",
-    "css:compile": "sass assets/scss/layout.scss:src/styles.css assets/scss/syntax.scss:src/syntax.css assets/scss/critical.scss:src/_includes/components/critical.css --no-source-map",
+    "css:compile": "sass assets/scss/main.scss:src/styles.css assets/scss/syntax.scss:src/syntax.css assets/scss/critical.scss:src/_includes/components/critical.css --no-source-map",
     "css:post": "postcss src/*.css -d src && postcss src/_includes/components/critical.css -o src/_includes/components/critical.css",
     "css:watch": "onchange 'src/**/*.scss' -- npm run css",
     "css": "npm run css:compile && npm run css:post",

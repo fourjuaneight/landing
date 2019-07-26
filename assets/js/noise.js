@@ -15,7 +15,15 @@ const makeNoise = async data => {
   const url = URL.createObjectURL(png);
   const div = document.createElement('div');
 
-  div.classList.add('noise');
+  div.classList.add(
+    'absolute',
+    'bottom-0',
+    'left-0',
+    'right-0',
+    'top-0',
+    'z20',
+    'noise'
+  );
   div.style = `background-image: url(${url})`;
   fragment.appendChild(div);
   document.body.appendChild(fragment);

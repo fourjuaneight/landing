@@ -2,11 +2,11 @@
   const posts = items
   posts.forEach(item => {
 %>
-  <article>
-    <a href="<%= meta.domain %><%= item.url %>" class="permalink"><h2 class="list__title"><%= item.data.title %></h2></a>
-    <section class="meta__wrap">
-      <time datetime="<%= item.date.toUTCString() %>" class="meta"><span aria-label="Posted on">&tau;</span><%= item.date.toISOString().substring(0, 10) %></time>
-      <p class="tag"><span aria-hidden="true" class="meta">#</span><a href="<%= meta.domain %>/tags/<%= item.data.tags %>" itemprop="about" class="meta"><%= item.data.tags %></a></p>
+  <article class="flex flex-column items-flex-start m--horizontal w-100">
+    <a href="<%= meta.domain %><%= item.url %>" class="permalink"><h2 class="ma0 list__title"><%= item.data.title %></h2></a>
+    <section class="content-between flex flex-wrap w-100 meta__wrap">
+      <time datetime="<%= item.date.toUTCString() %>" class="f7 mra meta"><span aria-label="Posted on">&tau;</span><%= item.date.toISOString().substring(0, 10) %></time>
+      <p class="f7 ma0 mr1"><span aria-hidden="true" class="meta">#</span><a href="<%= meta.domain %>/tags/<%= item.data.tags %>" itemprop="about" class="meta"><%= item.data.tags %></a></p>
     </section>
     <p><%= item.data.summary %></p>
   </article>
