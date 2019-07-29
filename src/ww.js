@@ -1,1 +1,0 @@
-var genNoise=function(a){for(var e=new Uint8ClampedArray([0,0,0,255]),n=new Uint8ClampedArray([255,255,255,255]),r=new Uint8ClampedArray(a*a*4),o=0;o<a;o+=1)for(var t=0;t<a;t+=1)r.set(Math.random()>.5?n:e,4*(o*a+t));postMessage(r)};onmessage=function(a){genNoise(a.data)};

@@ -29,6 +29,7 @@ module.exports = {
       2,
       'as-needed'
     ],
+    'class-methods-use-this': 0,
     'curly': 2,
     'dot-notation': 2,
     'func-names': 0,
