@@ -3,7 +3,7 @@ const Terser = require('terser');
 
 // file paths
 const inputFile = 'assets/js/ww.js';
-const outputFile = 'ww.js';
+const outputFile = 'js/ww.js';
 
 module.exports = class {
   data() {
