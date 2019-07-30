@@ -7,3 +7,4 @@ src/_includes/components/load.js
 src/scripts.js
 src/sw.js
 src/ww.js
+dist/
