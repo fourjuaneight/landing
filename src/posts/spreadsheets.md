@@ -3,7 +3,7 @@
   "title": "Spreadsheets",
   "date": "2019-09-08",
   "tags": "productivity",
-  "summary": "I like lists. I make them all the time to help me keep track of just about anything I need to know. There's only so much I can hold in my head at a given time.",
+  "summary": "I like lists. I make them all the time to help me keep track of just about anything I need to know. There's only so much I can hold in my head at a given time. So offloading certain information for later use frees up my head to focus on executing tasks relating to the listed information.",
   "draft": false
 }
 ---
@@ -18,4 +18,10 @@ And I guess that's the whole reason for making these. If for whatever reason I'm
 
 Like [Merlon Mann](http://www.merlinmann.com) said in the last [Reconcilable Differences](https://www.relay.fm/rd) episode ([112](https://www.relay.fm/rd/112)), "it doesn't cost me very much at all to write these things down; it could cost me later in the future not to remember something".
 
-I'm thinking of taking this a step further, though, and build out a PostgreSQL database for these things with an API for easy capture. I could make a nice table somewhere on this site to view them.
+## Upgrades
+
+As I said, these are now mostly Airtables. And that's worked very nicely. They have a great API and I've made a couple of Shortcuts on my iPhone (where I do almost all my capture) that require little interaction to save something. I'm also in the process of making a chrome extension for capture on my desktop. And this is all very convenient and unnecessary and cool. But I'm also about to hit my free limit on Airtable.
+
+And while I'm happy to pay for something as vital as my spreadsheets, Airtables pricing is a bit too high for my needs. So I thought of using Google Sheets since I already pay for a G Suite account and they have a decent API as well. But then I wouldn't have a nice UI to look at my spreadsheets.
+
+So I think it's time to up my game. The logical next step here is to make a PostgreSQL database for all my stuff. [Hasura](https://hasura.io) provides an easy setup for PostgreSQL + GraphQl that can be launched on a small Heroku app. I can then create a nice UI for it on my personal site and add some authentication. Yeah. This sounds awesome. 
