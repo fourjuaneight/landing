@@ -12,6 +12,11 @@
     "serve": "gatsby serve",
     "start": "npm run develop"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://fourjuaneight@github.com/fourjuaneight/juan-dev.git"
