@@ -222,6 +222,7 @@ picture {
 
 .avatar {
   &, img {
+    border-radius: 50%;
     height: 6.5em;
     width: 6.5em;
   }
