@@ -10,11 +10,3 @@ jobs:
         uses: docker://calibreapp/github-image-actions
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    jpeg:
-      quality: 90
-    png:
-      quality: 90
-    webp:
-      quality: 90
-    ignorePaths:
-      - "node_modules/**"
