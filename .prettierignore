@@ -16,4 +16,4 @@ lib-cov
 logs
 node_modules
 pids
-dist
+public

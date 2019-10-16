@@ -1,10 +1,6 @@
-// Learn more about Prettier:
-// https://prettier.io/
-// Dependencies: npm i -D prettier
-
 module.exports = {
   arrowParens: 'avoid',
-  bracketSpacing: false,
+  bracketSpacing: true,
   endOfLine: 'auto',
   jsxBracketSameLine: false,
   overrides: [
