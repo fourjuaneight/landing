@@ -1,4 +1,4 @@
-const worker = new Worker('ww.js');
+const worker = new Worker('/js/ww.js');
 
 const fragment = document.createDocumentFragment();
 const bodyStyle = getComputedStyle(document.body);

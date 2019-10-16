@@ -4,12 +4,12 @@
 
 # Config for Github pull requests.
 [context.deploy-preview]
-  command = "npm run build:dev"
+  command = "npm run build:development"
 
 # Default config for branch deploys.
 [context.branch-deploy]
   # Build without minification & optimization.
-  command = "npm run build:dev"
+  command = "npm run build:development"
 
 # Custom config for the staging branch.
 [context.staging]

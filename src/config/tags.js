@@ -1,23 +1,22 @@
 const tags = collection => {
-  let tagSet = new Set();
+  const tagSet = new Set();
   collection.getAll().forEach(item => {
-    if( "tag" in item.data ) {
-      let tags = item.data.tag;
+    if ('tag' in item.data) {
+      let tagsList = item.data.tag;
 
-      tags = tags.filter(item => {
-        switch(item) {
-          // this list should match the `filter` list in tags.ejs
-          case "all":
-          case "tags":
-          case "feed":
-          case "posts":
+      tagsList = tagsList.filter(item => {
+        switch (item) {
+          case 'all':
+          case 'tags':
+          case 'feed':
+          case 'posts':
             return false;
         }
 
         return true;
       });
 
-      for (const tag of tags) {
+      for (const tag of tagsList) {
         tagSet.add(tag);
       }
     }
