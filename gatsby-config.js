@@ -152,6 +152,7 @@ module.exports = {
     author: 'Juan C Villela',
     description:
       'Freelance Front-End Developer, automation nerd, and astronomy enthusiast.',
+    image: '/icons/icon.png',
     siteUrl: '/',
     social: 'fourjuaneight',
     title: 'Juan Villela',
