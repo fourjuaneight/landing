@@ -10,6 +10,7 @@ const Layout = ({ children, location, pageDescription, pageTitle }) => {
       site {
         siteMetadata {
           description
+          title
         }
       }
     }
@@ -17,7 +18,7 @@ const Layout = ({ children, location, pageDescription, pageTitle }) => {
 
   const {
     site: {
-      siteMetadata: { description },
+      siteMetadata: { description, title },
     },
   } = data;
 
