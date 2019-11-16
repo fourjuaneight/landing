@@ -1,7 +1,8 @@
 ---
 title: Comfort Zone
 date: '2018-06-29'
-tags: developement
+tag: developement
+slug: 'comfort-zone'
 draft: false
 ---
 

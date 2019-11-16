@@ -1,7 +1,8 @@
 ---
 title: On Struggle
 date: '2017-12-17'
-tags: life
+tag: life
+slug: 'on-struggle'
 draft: false
 ---
 

@@ -8,27 +8,24 @@ import styles from '../styles/styles.module.scss';
 import CleanHTML from '../components/cleanHTML';
 import Layout from '../components/layout';
 
-const query = graphql`
+export const query = graphql`
   query PostQuery($slug: String!) {
-    markdownRemark(frontmatter: {
-      slug: {
-        eq: $slug
-      }
-    }) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      excerpt(format: PLAIN, truncate: false)
       frontmatter {
-        date
+        date(formatString: "MMMM D, YYYY")
         tag
         title
       }
       html
     }
   }
-  }
 `;
 
 const Single = ({ data, location }) => {
   const {
     markdownRemark: {
+      excerpt,
       frontmatter: { date, tag, title },
       html,
     },
@@ -37,7 +34,7 @@ const Single = ({ data, location }) => {
   const iso = raw.toISOString().substring(0, 10);
 
   return (
-    <Layout pageTitle={title} location={location}>
+    <Layout pageDescription={excerpt} pageTitle={title} location={location}>
       <article
         className={cx(
           styles.flex,
@@ -89,4 +86,4 @@ Single.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export { query, Single as default };
+export default Single;

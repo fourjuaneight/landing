@@ -1,7 +1,8 @@
 ---
 title: Success
 date: '2019-07-24'
-tags: life
+tag: life
+slug: 'success'
 draft: false
 ---
 
