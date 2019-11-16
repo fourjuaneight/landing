@@ -3,10 +3,9 @@
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-emotion',
     // 'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
+    'gatsby-plugin-sass',
     'gatsby-transformer-sharp',
     {
       options: {
@@ -137,7 +136,6 @@ module.exports = {
             site {
               siteMetadata {
                 description
-                site_url: siteUrl
                 siteUrl
                 title
               }

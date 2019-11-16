@@ -1,0 +1,174 @@
+@import './colors.scss';
+@import './extends.scss';
+@import './mixins.scss';
+
+// Base
+code {
+  color: hsl(24, 0%, 88%);
+  font-family: "Fira Code", monospace;
+  font-size: 0.875rem;
+}
+
+p > code,
+pre[class*="language-"] {
+  background: $dracula;
+  border: 1px solid hsl(215, 16%, 56%);
+}
+
+p > code {
+  @extend %border--curved;
+
+  font-size: 0.875rem;
+  padding: 0.0625rem 0.5em;
+}
+
+pre {
+  &::-webkit-scrollbar {
+    width: 0.875rem;
+  }
+
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: hsl(232, 32%, 32%);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: hsl(264, 88%, 80%);
+  }
+
+  &[class*="language-"] {
+    @extend %border--curved;
+    @extend %mb1;
+    @extend %ml0;
+    @extend %mr0;
+    @extend %mt0;
+    @extend %pa1;
+    @extend %overflow-x-auto;
+    @extend %relative;
+
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAG0lEQVR42mMIiyoTgWI+BmyAGAV8UMzJMFQBAJbJCuhzDiKQAAAAAElFTkSuQmCC');
+    background-repeat: repeat;
+    height: auto;
+    max-width: 56.25rem;
+
+    &, code {
+      @extend %w-100;
+    }
+
+    &,
+    code[class*="language-"] {
+      hyphens: none;
+      line-height: 1.5;
+      tab-size: 2;
+      text-align: left;
+      text-shadow: none;
+      white-space: pre;
+      word-break: normal;
+      word-spacing: normal;
+      word-wrap: normal;
+    }
+
+    &::selection,
+    code[class*="language-"]::selection {
+      background-color: hsl(232, 16%, 40%);
+      text-shadow: none;
+    }
+
+    code {
+      max-width: 100%;
+    }
+  }
+}
+
+// Style
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+// Color
+.token.atrule {
+  color: hsl(124, 80%, 64%);
+}
+
+.token.attr-value {
+  color: hsl(144, 40%, 64%);
+}
+
+.token.boolean,
+.token.class-name,
+.token.constant,
+.token.property,
+.token.symbol
+.language-css .token.property {
+  color: hsl(32, 100%, 72%);
+}
+
+.token.builtin,
+.token.important,
+.token.keyword,
+.token {
+  color: hsl(328, 100%, 72%);
+}
+
+.token.char {
+  color: hsl(348, 100%, 80%);
+}
+
+.token.comment {
+  color: hsl(224, 24%, 64%);
+}
+
+.token.deleted,
+.token.namespace {
+  color: hsl(356, 64%, 71%);
+}
+
+.token.entity,
+.token.operator {
+  color: hsl(192, 96%, 80%);
+}
+
+.token.function,
+.token.regex,
+.token.variable,
+.language-css .token.selector,
+.language-objectivec .token.string,
+.language-markup .token.tag {
+  color: hsl(136, 96%, 64%);
+}
+
+.token.number {
+  color: hsl(264, 88%, 80%);
+}
+
+.token.prolog,
+.token.selector {
+  color: hsl(64, 16%, 80%);
+}
+
+.token.punctuation {
+  color: hsl(56, 72%, 64%);
+}
+
+.token.string {
+  color: hsl(64, 92%, 80%);
+}
+
+.token.tag {
+  color: hsl(328, 64%, 64%);
+}
+
+.token.url,
+.language-markup .token.attr-value,
+.language-objectivec .token.property {
+  color: hsl(192, 80%, 64%);
+}
