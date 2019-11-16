@@ -1,35 +1,53 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
+import { graphql, useStaticQuery } from 'gatsby';
+import cx from 'classnames';
 
+import styles from '../styles/styles.module.scss';
+
+import Header from './header';
 import Meta from './meta';
+import Footer from './footer';
+
+import '../styles/critical.scss';
 
 const Layout = ({ children, location, pageDescription, pageTitle }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+  const {
+    site: {
+      siteMetadata: { author, description, social, title },
+    },
+  } = useStaticQuery(graphql`
+    query Metadata {
       site {
         siteMetadata {
+          author
           description
+          image
+          siteUrl
+          social
           title
         }
       }
     }
   `);
 
-  const {
-    site: {
-      siteMetadata: { description, title },
-    },
-  } = data;
-
   return (
     <>
       <Meta
-        pageDescription={pageDescription || description}
+        description={description}
+        pageDescription={pageDescription}
         pathname={location.pathname}
         pageTitle={pageTitle}
+        social={social}
+        title={title}
       />
-      <main>{children}</main>
+      <Header title={title} />
+      <main
+        className={cx(styles.mHorizontal, styles.pb2, styles.pt2, styles.w100)}
+      >
+        {children}
+      </main>
+      <Footer author={author} description={description} social={social} />
     </>
   );
 };
