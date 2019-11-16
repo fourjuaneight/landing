@@ -11,7 +11,7 @@ const POST_ARCHIVE_SLUG = `
         node {
           frontmatter {
             slug
-            tags
+            tag
           }
         }
       }
@@ -31,23 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             slug: node.frontmatter.slug,
           },
-          path: `/blog/${node.frontmatter.slug}`,
-        });
-      });
-      // Create list template
-      const postsPerPage = 5;
-      const numPages = Math.ceil(posts.length / postsPerPage);
-      const list = Array.from({ length: numPages });
-      list.forEach(i => {
-        createPage({
-          component: path.resolve('./src/templates/home.js'),
-          context: {
-            currentPage: i + 1,
-            limit: postsPerPage,
-            numPages,
-            skip: i * postsPerPage,
-          },
-          path: i === 0 ? '/' : `/${i + 1}`,
+          path: `/posts/${node.frontmatter.slug}`,
         });
       });
       resolve();

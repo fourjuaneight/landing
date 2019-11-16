@@ -34,3 +34,5 @@ const CleanHTML = ({ html }) => {
 CleanHTML.propTypes = {
   html: PropTypes.string.isRequired,
 };
+
+export default CleanHTML;

@@ -151,7 +151,7 @@ module.exports = {
     description:
       'Freelance Front-End Developer, automation nerd, and astronomy enthusiast.',
     image: '/icons/icon.png',
-    siteUrl: '/',
+    siteUrl: 'https://juanvillela.dev/',
     social: 'fourjuaneight',
     title: 'Juan Villela',
   },

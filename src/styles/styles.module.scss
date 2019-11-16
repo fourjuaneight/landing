@@ -164,18 +164,6 @@
   @extend %z1;
 }
 
-.z2 {
-  @extend %z2;
-}
-
-.z3 {
-  @extend %z3;
-}
-
-.z4 {
-  @extend %z4;
-}
-
 .z5 {
   @extend %z5;
 }
@@ -386,7 +374,7 @@
 }
 
 .error {
-  @extend %text-center;
+  @extend %tc;
 
   margin: 2rem auto;
   max-width: 21rem;
