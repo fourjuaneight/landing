@@ -14,7 +14,7 @@ import '../styles/critical.scss';
 const Layout = ({ children, location, pageDescription, pageTitle }) => {
   const {
     site: {
-      siteMetadata: { author, description, social, title },
+      siteMetadata: { author, description, image, siteUrl, social, title },
     },
   } = useStaticQuery(graphql`
     query Metadata {
@@ -34,10 +34,13 @@ const Layout = ({ children, location, pageDescription, pageTitle }) => {
   return (
     <>
       <Meta
+        author={author}
         description={description}
+        image={image}
         pageDescription={pageDescription}
         pathname={location.pathname}
         pageTitle={pageTitle}
+        siteUrl={siteUrl}
         social={social}
         title={title}
       />
