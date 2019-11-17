@@ -6,7 +6,7 @@ import cx from 'classnames';
 import styles from '../styles/styles.module.scss';
 
 import Layout from '../components/layout';
-import Post from '../components/post';
+import Article from '../components/article';
 
 const titleCase = str =>
   str
@@ -70,7 +70,7 @@ const Taxonomies = ({ data, location }) => {
           } = node;
 
           return (
-            <Post
+            <Article
               date={date}
               html={excerpt}
               index={i}

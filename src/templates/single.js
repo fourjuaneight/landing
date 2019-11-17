@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import Post from '../components/post';
+import Article from '../components/article';
 
 export const query = graphql`
   query SingleQuery($slug: String!) {
@@ -30,7 +30,7 @@ const Single = ({ data, location }) => {
 
   return (
     <Layout pageDescription={excerpt} pageTitle={title} location={location}>
-      <Post date={date} html={html} tag={tag} title={title} />
+      <Article date={date} html={html} tag={tag} title={title} />
     </Layout>
   );
 };

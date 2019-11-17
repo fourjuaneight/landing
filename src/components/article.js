@@ -7,7 +7,7 @@ import styles from '../styles/styles.module.scss';
 
 import CleanHTML from './cleanHTML';
 
-const Post = ({ date, html, index, list, slug, tag, title }) => (
+const Article = ({ date, html, index, list, slug, tag, title }) => (
   <article
     key={list && index}
     className={cx(
@@ -55,7 +55,7 @@ const Post = ({ date, html, index, list, slug, tag, title }) => (
   </article>
 );
 
-Post.propTypes = {
+Article.propTypes = {
   date: PropTypes.string.isRequired,
   html: PropTypes.string.isRequired,
   index: PropTypes.string,
@@ -65,4 +65,4 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default Post;
+export default Article;
