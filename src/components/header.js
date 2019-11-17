@@ -55,7 +55,7 @@ const Header = ({ title }) => (
         )}
       >
         <Link to="/posts/" className={styles.font_inverted}>
-          <strong>Archive</strong>
+          <strong>Posts</strong>
         </Link>
         <span aria-hidden="true" className={styles.sep}>
           ::
