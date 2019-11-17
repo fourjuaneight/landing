@@ -4,53 +4,59 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-const POST_ARCHIVE_SLUG = `
-  {
-    allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            slug
-            tag
+exports.onCreateNode = ({ actions, node, getNode }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === 'MarkdownRemark') {
+    /* eslint-disable sort-keys, quotes */
+    const slug = createFilePath({ node, getNode, basePath: `posts/` });
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+  }
+};
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
           }
+        }
+        group(field: frontmatter___tag) {
+          fieldValue
         }
       }
     }
-  }
-`;
+  `);
+  const posts = result.data.allMarkdownRemark.edges;
+  const tags = result.data.allMarkdownRemark.group;
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
-  return new Promise((resolve, reject) => {
-    graphql(POST_ARCHIVE_SLUG).then(results => {
-      const posts = results.data.allMarkdownRemark.edges;
-      posts.forEach(({ node }) => {
-        // Create single template
-        createPage({
-          component: path.resolve('./src/templates/single.js'),
-          context: {
-            slug: node.frontmatter.slug,
-          },
-          path: `/posts/${node.frontmatter.slug}`,
-        });
-      });
-      resolve();
-      if (results.errors) {
-        console.error(results.errors);
-        reject(results.errors);
-      }
+  // Create single template
+  posts.forEach(({ node }) => {
+    createPage({
+      component: path.resolve('./src/templates/single.js'),
+      context: {
+        slug: node.fields.slug,
+      },
+      path: `/posts${node.fields.slug}`,
     });
   });
-};
 
-exports.onCreateNode = ({ actions, getNode, node }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
-    const value = createFilePath({ getNode, node });
-    createNodeField({
-      name: 'slug',
-      node,
-      value,
+  // Create tags template
+  tags.forEach(({ fieldValue }) => {
+    createPage({
+      component: path.resolve('./src/templates/tags.js'),
+      context: {
+        tag: fieldValue,
+      },
+      path: `/tags/${fieldValue}/`,
     });
-  }
+  });
 };
