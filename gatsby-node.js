@@ -36,7 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   const posts = result.data.allMarkdownRemark.edges;
-  const tags = result.data.allMarkdownRemark.group;
+  const taxonomies = result.data.allMarkdownRemark.group;
 
   // Create single template
   posts.forEach(({ node }) => {
@@ -49,10 +49,10 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // Create tags template
-  tags.forEach(({ fieldValue }) => {
+  // Create taxonomies template
+  taxonomies.forEach(({ fieldValue }) => {
     createPage({
-      component: path.resolve('./src/templates/tags.js'),
+      component: path.resolve('./src/templates/taxonomies.js'),
       context: {
         tag: fieldValue,
       },

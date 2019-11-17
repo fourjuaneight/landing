@@ -16,7 +16,7 @@ const titleCase = str =>
     .join(' ');
 
 export const query = graphql`
-  query TagQuery($tag: String!) {
+  query TaxonomiesQuery($tag: String!) {
     allMarkdownRemark(
       filter: { frontmatter: { draft: { eq: false }, tag: { eq: $tag } } }
     ) {
@@ -41,7 +41,7 @@ export const query = graphql`
   }
 `;
 
-const Tags = ({ data, location }) => {
+const Taxonomies = ({ data, location }) => {
   const {
     allMarkdownRemark,
     markdownRemark: { frontmatter: tag },
@@ -86,7 +86,7 @@ const Tags = ({ data, location }) => {
   );
 };
 
-Tags.propTypes = {
+Taxonomies.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.object.isRequired,
     markdownRemark: PropTypes.object.isRequired,
@@ -94,4 +94,4 @@ Tags.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-export default Tags;
+export default Taxonomies;
