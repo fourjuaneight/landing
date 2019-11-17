@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
 import Article from '../components/article';
+import Layout from '../components/layout';
 
 export const query = graphql`
   query SingleQuery($slug: String!) {

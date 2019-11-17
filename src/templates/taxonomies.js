@@ -5,8 +5,8 @@ import cx from 'classnames';
 
 import styles from '../styles/styles.module.scss';
 
-import Layout from '../components/layout';
 import Article from '../components/article';
+import Layout from '../components/layout';
 
 const titleCase = str =>
   str
