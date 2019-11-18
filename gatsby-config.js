@@ -1,21 +1,23 @@
 // Site configuration options
 // https://www.gatsbyjs.org/docs/gatsby-config/
+const config = require('./config/siteConfig');
 
 module.exports = {
   plugins: [
     // 'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     {
       options: {
-        background_color: '#8f46f6',
+        background_color: config.background,
         display: 'standalone',
         icon: 'src/images/icon.png',
-        name: 'Juan Villela',
-        short_name: 'JCV',
+        name: config.title,
+        short_name: config.shortName,
         start_url: '/',
-        theme_color: '#8f46f6',
+        theme_color: config.theme,
       },
       resolve: 'gatsby-plugin-manifest',
     },
@@ -25,12 +27,6 @@ module.exports = {
         stripMetadata: true,
       },
       resolve: 'gatsby-plugin-sharp',
-    },
-    {
-      options: {
-        output: '/sitemap.xml',
-      },
-      resolve: 'gatsby-plugin-sitemap',
     },
     {
       options: {
@@ -97,7 +93,7 @@ module.exports = {
       options: {
         feeds: [
           {
-            output: '/rss.xml',
+            output: '/feed.rss.xml',
             query: `
               {
                 allMarkdownRemark(
@@ -128,7 +124,7 @@ module.exports = {
                 guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
                 url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
               })),
-            title: 'Juan Villela',
+            title: config.title,
           },
         ],
         query: `
@@ -147,12 +143,12 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    author: 'Juan C Villela',
-    description:
-      'Freelance Front-End Developer, automation nerd, and astronomy enthusiast.',
-    image: '/icons/icon.png',
-    siteUrl: 'https://juanvillela.dev/',
-    social: 'fourjuaneight',
-    title: 'Juan Villela',
+    author: config.author,
+    description: config.description,
+    language: config.description,
+    siteUrl: config.siteUrl,
+    social: config.social,
+    theme: config.theme,
+    title: config.title,
   },
 };

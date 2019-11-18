@@ -3,14 +3,16 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const Meta = ({ pageDescription, pageTitle, pathname }) => {
+const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
   const {
     bold,
     fc,
+    icon,
     meta,
     rb,
     regular,
     rr,
+    spt,
     woff,
     woff2,
   } = useStaticQuery(graphql`
@@ -19,11 +21,20 @@ const Meta = ({ pageDescription, pageTitle, pathname }) => {
         siteMetadata {
           author
           description
-          image
+          language
           siteUrl
           social
+          theme
           title
         }
+      }
+      icon: imageSharp(fixed: { originalName: { regex: "/icon/" } }) {
+        fixed {
+          src
+        }
+      }
+      spt: file(dir: { regex: "/images/" }, name: { regex: "/safari/" }) {
+        publicURL
       }
       woff2: allFile(
         filter: {
@@ -124,10 +135,51 @@ const Meta = ({ pageDescription, pageTitle, pathname }) => {
   `);
 
   const {
-    siteMetadata: { author, description, image, siteUrl, social, title },
+    siteMetadata: {
+      author,
+      description,
+      language,
+      siteUrl,
+      social,
+      theme,
+      title,
+    },
   } = meta;
   const dynamicTitle = pageTitle ? `${pageTitle} | ${title}` : title;
   const dynamicDesc = pageDescription || description;
+  let schemaOrgJSONLD = {
+    '@context': 'http://schema.org',
+    '@type': 'WebSite',
+    name: dynamicTitle,
+    url: `${siteUrl}/`,
+  };
+  /* eslint-disable sort-keys */
+  if (pathname.match(/posts\/.*\//)) {
+    schemaOrgJSONLD = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${siteUrl}${pathname}`,
+      },
+      headline: pageTitle,
+      image: `${siteUrl}${icon.fixed.src}`,
+      author: {
+        '@type': 'Person',
+        name: author,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: author,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${siteUrl}${icon.fixed.src}`,
+        },
+      },
+      datePublished: postPublishDate,
+      dateModified: postPublishDate,
+    };
+  }
   const fontFace = `
     @font-face {
       font-family: Rubik;
@@ -187,33 +239,36 @@ const Meta = ({ pageDescription, pageTitle, pathname }) => {
 
   return (
     <Helmet defaultTitle={dynamicTitle}>
-      <html data-theme="light" lang="en" />
+      <html data-theme="light" lang={language} />
       <meta
         name="viewport"
         content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover"
       />
       <link rel="canonical" href={`${siteUrl}${pathname}`} />
-      <meta property="developer" content={author} />
+      <meta property="author" content={author} />
       <meta name="description" content={dynamicDesc} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={siteUrl} />
+      <meta name="image" content={`${siteUrl}${icon.fixed.src}`} />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
+      <meta property="og:description" content={dynamicDesc} />
+      <meta property="og:image" content={`${siteUrl}${icon.fixed.src}`} />
       <meta property="og:site_name" content={title} />
       <meta property="og:title" content={dynamicTitle} />
-      <meta property="og:description" content={dynamicDesc} />
-      <meta property="og:image" content={`${siteUrl}${image}`} />
+      <meta
+        property="og:type"
+        content={pathname.match(/posts\/.*\//) ? 'article' : 'website'}
+      />
+      <meta property="og:url" content={`${siteUrl}${pathname}`} />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:image" content={`${siteUrl}${image}`} />
-      <meta property="twitter:site" content={social} />
-      <meta name="twitter:title" content={dynamicTitle} />
       <meta name="twitter:description" content={dynamicDesc} />
+      <meta name="twitter:image" content={`${siteUrl}${icon.fixed.src}`} />
+      <meta name="twitter:title" content={dynamicTitle} />
+      <meta property="twitter:site" content={social} />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <meta name="apple-mobile-web-app-title" content={dynamicTitle} />
-      <link
-        rel="mask-icon"
-        color="#8f46f6"
-        href={`${siteUrl}/icons/safari-pinned-tab.svg`}
-      />
+      <link rel="mask-icon" color={theme} href={`${siteUrl}${spt.publicURL}`} />
       {woff2.edges.map(({ node }, i) => (
         <link
           key={i}
@@ -240,10 +295,11 @@ const Meta = ({ pageDescription, pageTitle, pathname }) => {
   );
 };
 
-Meta.propTypes = {
+SEO.propTypes = {
   pageDescription: PropTypes.string,
   pageTitle: PropTypes.string,
+  postPublishDate: PropTypes.string,
   pathname: PropTypes.string.isRequired,
 };
 
-export default Meta;
+export default SEO;

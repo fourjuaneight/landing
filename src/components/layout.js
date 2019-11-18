@@ -6,10 +6,16 @@ import cx from 'classnames';
 import styles from '../styles/styles.module.scss';
 
 import Header from './header';
-import Meta from './meta';
+import SEO from './seo';
 import Footer from './footer';
 
-const Layout = ({ children, location, pageDescription, pageTitle }) => {
+const Layout = ({
+  children,
+  location,
+  pageDescription,
+  pageTitle,
+  postPublishDate,
+}) => {
   const {
     site: {
       siteMetadata: { author, description, social, title },
@@ -29,10 +35,11 @@ const Layout = ({ children, location, pageDescription, pageTitle }) => {
 
   return (
     <>
-      <Meta
+      <SEO
         pageDescription={pageDescription}
-        pathname={location.pathname}
         pageTitle={pageTitle}
+        pathname={location.pathname}
+        postPublishDate={postPublishDate}
       />
       <Header title={title} />
       <main
@@ -52,6 +59,7 @@ Layout.propTypes = {
   }),
   pageDescription: PropTypes.string,
   pageTitle: PropTypes.string,
+  postPublishDate: PropTypes.string,
 };
 
 Layout.defaultProps = {

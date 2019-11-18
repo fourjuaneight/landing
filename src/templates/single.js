@@ -29,7 +29,12 @@ const Single = ({ data, location }) => {
   } = data;
 
   return (
-    <Layout pageDescription={excerpt} pageTitle={title} location={location}>
+    <Layout
+      location={location}
+      pageDescription={excerpt}
+      pageTitle={title}
+      postPublishDate={date}
+    >
       <Article date={date} html={html} tag={tag} title={title} />
     </Layout>
   );
