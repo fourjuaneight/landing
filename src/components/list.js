@@ -25,6 +25,7 @@ const List = ({ edges }) => (
 
       return (
         <Article
+          key={i}
           date={date}
           html={excerpt}
           index={i}
@@ -39,7 +40,7 @@ const List = ({ edges }) => (
 );
 
 List.propTypes = {
-  edges: PropTypes.object.isRequired,
+  edges: PropTypes.array.isRequired,
 };
 
 export default List;

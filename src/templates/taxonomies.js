@@ -71,6 +71,7 @@ const Taxonomies = ({ data, location }) => {
 
           return (
             <Article
+              key={i}
               date={date}
               html={excerpt}
               index={i}

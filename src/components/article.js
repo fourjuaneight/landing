@@ -58,7 +58,7 @@ const Article = ({ date, html, index, list, slug, tag, title }) => (
 Article.propTypes = {
   date: PropTypes.string.isRequired,
   html: PropTypes.string.isRequired,
-  index: PropTypes.string,
+  index: PropTypes.number,
   list: PropTypes.bool,
   slug: PropTypes.string,
   tag: PropTypes.string.isRequired,
