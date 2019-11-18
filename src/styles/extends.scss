@@ -3,7 +3,7 @@
   background-color: var(--primary);
 }
 
-%background-accent_light {
+%background-accent-light {
   background-color: var(--primary-light);
 }
 
@@ -15,11 +15,11 @@
   background: transparent;
 }
 
-%border_curved {
+%border-curved {
   border-radius: 0.125rem;
 }
 
-%border_round {
+%border-round {
   border-radius: 50%;
 }
 
@@ -129,7 +129,7 @@
   display: grid;
 }
 
-%grid_flex {
+%grid-flex {
   display: flex;
 
   @supports (display:grid) {
@@ -265,7 +265,7 @@
   position: sticky;
 }
 
-%absolute_fill {
+%absolute-fill {
   bottom: 0;
   left: 0;
   right: 0;
@@ -313,11 +313,11 @@
 }
 
 // Spacing
-%m_horizontal {
+%m-horizontal {
   margin: 0 auto;
 }
 
-%m_vertical {
+%m-vertical {
   margin: auto 0;
 }
 
@@ -471,6 +471,6 @@
 }
 
 // Animation
-%transition_all {
+%transition-all {
   transition: all var(--duration) ease;
 }

@@ -14,16 +14,16 @@
   @extend %background-accent;
 }
 
-.background-accent_light {
-  @extend %background-accent_light;
+.background-accent-light {
+  @extend %background-accent-light;
 }
 
-.border_curved {
-  @extend %border_curved;
+.border-curved {
+  @extend %border-curved;
 }
 
-.border_round {
-  @extend %border_round;
+.border-round {
+  @extend %border-round;
 }
 
 .no-underline {
@@ -181,8 +181,8 @@
 }
 
 // Spacing
-.m_horizontal {
-  @extend %m_horizontal;
+.m-horizontal {
+  @extend %m-horizontal;
 }
 
 .ma0 {
@@ -255,8 +255,8 @@
 }
 
 // Animation
-.transition_all {
-  @extend %transition_all;
+.transition-all {
+  @extend %transition-all;
 }
 
 // Main
@@ -299,12 +299,12 @@
     min-height: 1rem;
   }
 
-  .header_inner {
+  .header-inner {
     grid-column: 2/3;
     grid-template-columns: repeat(auto-fit,12rem);
   }
 
-  .font_inverted {
+  .font-inverted {
     @extend %normal;
 
     &,
@@ -329,7 +329,7 @@
 
   &:before {
     @extend %absolute;
-    @extend %background-accent_light;
+    @extend %background-accent-light;
     @extend %bottom-0;
     @extend %content;
     @extend %left-0;
@@ -366,7 +366,7 @@
 // Custom
 .avatar {
   &, img {
-    @extend %border_round;
+    @extend %border-round;
 
     height: 6.5em;
     width: 6.5em;
@@ -380,7 +380,7 @@
   max-width: 21rem;
 }
 
-.font_inverted {
+.font-inverted {
   &,
   &:hover,
   &:visited {
@@ -388,15 +388,15 @@
   }
 }
 
-.foot_copy {
+.foot-copy {
   max-width: 32rem;
 }
 
-.foot_head {
+.foot-head {
   @extend %f4;
 }
 
-.foot_body {
+.foot-body {
   max-width: 32rem;
 }
 
@@ -409,20 +409,20 @@
   height: 2.5em;
   width: 2.5em;
 
-  .icon_svg {
+  .icon-svg {
     @include transition(fill);
 
     fill: $white;
   }
 
   &:hover {
-    .icon_svg {
+    .icon-svg {
       fill: var(--primary-light);
     }
   }
 }
 
-.list_title {
+.list-title {
   @extend %f3;
 }
 
@@ -450,7 +450,7 @@
   }
 }
 
-.meta_wrap {
+.meta-wrap {
   margin-bottom: 0.75rem;
 }
 
@@ -484,7 +484,7 @@
   width: 0.1rem;
 }
 
-.theme_wrap {
+.theme-wrap {
   @extend %right-0;
 
   grid-column: 3/4;
@@ -508,7 +508,7 @@
     @extend %absolute;
     @extend %content;
     @extend %ma0;
-    @extend %transition_all;
+    @extend %transition-all;
 
     border-radius: 1rem;
     display: inherit;
@@ -519,12 +519,12 @@
 
   &:before {
     @extend %absolute;
-    @extend %background-accent_light;
+    @extend %background-accent-light;
     @extend %bottom-0;
     @extend %content;
     @extend %right-0;
     @extend %top-0;
-    @extend %transition_all;
+    @extend %transition-all;
     @extend %z5;
 
     background: transparent;

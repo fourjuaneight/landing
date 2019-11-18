@@ -57,15 +57,18 @@ html {
 body {
   background-color: var(--bg);
   color: var(--font);
-  display: grid;
   font-family: Rubik, sans-serif;
   font-size: 100%;
-  grid-template-columns: minmax(2em, 1fr) minmax(1rem, 56rem) minmax(2em, 1fr);
-  grid-template-rows: repeat(3, auto);
   line-height: 1.4;
   margin: 0;
   overflow-x: hidden;
-  position: relative;
+
+  #gatsby-focus-wrapper {
+    display: grid;
+    grid-template-columns: minmax(2em, 1fr) minmax(1rem, 56rem) minmax(2em, 1fr);
+    grid-template-rows: repeat(3, auto);
+    position: relative;
+  }
 }
 
 body.dyslexic {
