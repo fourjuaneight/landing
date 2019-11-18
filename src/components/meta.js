@@ -1,23 +1,193 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { graphql, useStaticQuery } from 'gatsby';
 
-const Meta = ({
-  author,
-  description,
-  image,
-  pageDescription,
-  pageTitle,
-  pathname,
-  siteUrl,
-  social,
-  title,
-}) => {
+const Meta = ({ pageDescription, pageTitle, pathname }) => {
+  const {
+    bold,
+    fc,
+    meta,
+    rb,
+    regular,
+    rr,
+    woff,
+    woff2,
+  } = useStaticQuery(graphql`
+    query HelmetQuery {
+      meta: site {
+        siteMetadata {
+          author
+          description
+          image
+          siteUrl
+          social
+          title
+        }
+      }
+      woff2: allFile(
+        filter: {
+          dir: { regex: "/fonts/" }
+          name: { regex: "/sub/" }
+          extension: { eq: "woff2" }
+        }
+      ) {
+        edges {
+          node {
+            publicURL
+            extension
+          }
+        }
+      }
+      woff: allFile(
+        filter: {
+          dir: { regex: "/fonts/" }
+          name: { regex: "/sub/" }
+          extension: { ne: "woff2" }
+        }
+      ) {
+        edges {
+          node {
+            publicURL
+            extension
+          }
+        }
+      }
+      bold: allFile(
+        filter: {
+          dir: { regex: "/fonts/" }
+          name: { regex: "/(?!.*sub)^Rubik-Bold.*$/" }
+        }
+        sort: { fields: ext, order: DESC }
+      ) {
+        edges {
+          node {
+            extension
+            publicURL
+          }
+        }
+      }
+      regular: allFile(
+        filter: {
+          dir: { regex: "/fonts/" }
+          name: { regex: "/(?!.*sub)^Rubik-Regular.*$/" }
+        }
+        sort: { fields: ext, order: DESC }
+      ) {
+        edges {
+          node {
+            extension
+            publicURL
+          }
+        }
+      }
+      rr: allFile(
+        filter: {
+          dir: { regex: "/fonts/" }
+          name: { regex: "/Rubik-Regular-sub/" }
+        }
+        sort: { fields: ext, order: DESC }
+      ) {
+        edges {
+          node {
+            publicURL
+            extension
+          }
+        }
+      }
+      rb: allFile(
+        filter: {
+          dir: { regex: "/fonts/" }
+          name: { regex: "/Rubik-Bold-sub/" }
+        }
+        sort: { fields: ext, order: DESC }
+      ) {
+        edges {
+          node {
+            publicURL
+            extension
+          }
+        }
+      }
+      fc: allFile(
+        filter: { dir: { regex: "/fonts/" }, name: { regex: "/FiraCode/" } }
+        sort: { fields: ext, order: DESC }
+      ) {
+        edges {
+          node {
+            publicURL
+            extension
+          }
+        }
+      }
+    }
+  `);
+
+  const {
+    siteMetadata: { author, description, image, siteUrl, social, title },
+  } = meta;
   const dynamicTitle = pageTitle ? `${pageTitle} | ${title}` : title;
   const dynamicDesc = pageDescription || description;
+  const fontFace = `
+    @font-face {
+      font-family: Rubik;
+      src:
+        ${rr.edges.map(
+          ({ node }) => `url(${node.publicURL}) format('${node.extension}')`
+        )};
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: Rubik;
+      src:
+        ${rb.edges.map(
+          ({ node }) => `url(${node.publicURL}) format('${node.extension}')`
+        )};
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    
+    @font-face {
+      font-family: Fira Code;
+      src:
+        ${fc.edges.map(
+          ({ node }) => `url(${node.publicURL}) format('${node.extension}')`
+        )};
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+  `;
+  const fontLoading = `
+      if ('fonts' in document) {
+        const regular = new FontFace(
+          'Rubik',
+          "${regular.edges.map(
+            ({ node }) => `url(${node.publicURL}) format('${node.extension}')`
+          )}",
+        );
+        const bold = new FontFace(
+          'Rubik',
+          "${bold.edges.map(
+            ({ node }) => `url(${node.publicURL}) format('${node.extension}')`
+          )}",
+          { weight: '700' }
+        );
+        Promise.all([bold.load(), regular.load()]).then(fonts => {
+          fonts.forEach(font => {
+            document.fonts.add(font);
+          });
+        });
+      }
+    `;
 
   return (
     <Helmet defaultTitle={dynamicTitle}>
+      <html data-theme="light" lang="en" />
       <meta
         name="viewport"
         content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover"
@@ -44,20 +214,36 @@ const Meta = ({
         color="#8f46f6"
         href={`${siteUrl}/icons/safari-pinned-tab.svg`}
       />
+      {woff2.edges.map(({ node }, i) => (
+        <link
+          key={i}
+          rel="preload"
+          href={node.publicURL}
+          as="font"
+          type="font/woff2"
+          crossOrigin
+        />
+      ))}
+      {woff.edges.map(({ node }, i) => (
+        <link
+          key={i}
+          rel="preload"
+          href={node.publicURL}
+          as="font"
+          type="font/woff"
+          crossOrigin
+        />
+      ))}
+      <style>{fontFace}</style>
+      <script>{fontLoading}</script>
     </Helmet>
   );
 };
 
 Meta.propTypes = {
-  author: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
   pageDescription: PropTypes.string,
   pageTitle: PropTypes.string,
   pathname: PropTypes.string.isRequired,
-  siteUrl: PropTypes.string.isRequired,
-  social: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
 };
 
 export default Meta;
