@@ -18,13 +18,12 @@ const Layout = ({
 }) => {
   const {
     site: {
-      siteMetadata: { author, description, social, title },
+      siteMetadata: { description, social, title },
     },
   } = useStaticQuery(graphql`
     query Metadata {
       site {
         siteMetadata {
-          author
           description
           social
           title
@@ -53,7 +52,7 @@ const Layout = ({
       >
         {children}
       </main>
-      <Footer author={author} description={description} social={social} />
+      <Footer description={description} social={social} />
     </>
   );
 };

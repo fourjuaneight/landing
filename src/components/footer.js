@@ -10,14 +10,19 @@ import { ReactComponent as GitHub } from '../images/github.svg';
 import { ReactComponent as Twitter } from '../images/twitter.svg';
 import { ReactComponent as RSS } from '../images/rss.svg';
 
-const date = new Date();
-const year = date.getFullYear();
 const size = {
-  height: '104px',
-  width: '104px',
+  height: '6.5em',
+  width: '6.5em',
+};
+const wrapStyles = {
+  ...size,
+};
+const imgStyles = {
+  ...size,
+  borderRadius: '50%',
 };
 
-const Footer = ({ author, description, social }) => {
+const Footer = ({ description, social }) => {
   const {
     imageSharp: { fixed },
   } = useStaticQuery(graphql`
@@ -34,9 +39,10 @@ const Footer = ({ author, description, social }) => {
     <footer
       className={cx(
         styles.contentCenter,
+        styles.footer,
         styles.grid,
         styles.itemsStart,
-        styles.m_horizontal,
+        styles.mHorizontal,
         styles.pa2,
         styles.relative,
         styles.w100
@@ -45,25 +51,25 @@ const Footer = ({ author, description, social }) => {
       <Img
         fixed={fixed}
         alt="Juan's avatar."
-        style={size}
-        imgStyle={size}
-        className={styles.m_horizontal}
+        style={wrapStyles}
+        imgStyle={imgStyles}
+        className={styles.mHorizontal}
       />
       <section
         className={cx(
           styles.flex,
           styles.flexColumn,
-          styles.font_inverted,
-          styles.foot_copy,
+          styles.fontInverted,
+          styles.footCopy,
           styles.itemsFlexStart,
           styles.mb1,
           styles.w100
         )}
       >
-        <h3 className={cx(styles.ma0, styles.mb1, styles.foot_head)}>
+        <h3 className={cx(styles.ma0, styles.mb1, styles.footHead)}>
           Hi, I'm Juan
         </h3>
-        <p className={cx(styles.foot_body)}>A {description}</p>
+        <p className={cx(styles.footBody)}>A {description}</p>
       </section>
       <dl
         className={cx(
@@ -132,19 +138,11 @@ const Footer = ({ author, description, social }) => {
           </Link>
         </dd>
       </dl>
-      <section>
-        <p>&copy; {year}</p>
-        <span aria-hidden="true" className={styles.sep}>
-          ::
-        </span>
-        <Link to="/">{author}</Link>
-      </section>
     </footer>
   );
 };
 
 Footer.propTypes = {
-  author: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   social: PropTypes.string.isRequired,
 };
