@@ -1,21 +1,21 @@
 [build]
   publish = "public"
-  command = "npm run build"
+  command = "yarn build"
 
 # Config for Github pull requests.
 [context.deploy-preview]
-  command = "npm run build"
+  command = "yarn build"
 
 # Default config for branch deploys.
 [context.branch-deploy]
   # Build without minification & optimization.
-  command = "npm run build"
+  command = "yarn build"
 
 # Custom config for the staging branch.
 [context.staging]
   # We want a production-like build.
-  command = "npm run build"
+  command = "yarn build"
 
 # Production config.
 [context.production]
-  command = "npm run build"
+  command = "yarn build"
