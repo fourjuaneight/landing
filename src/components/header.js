@@ -50,6 +50,7 @@ const Header = ({ title }) => (
         className={cx(
           styles.contentBetween,
           styles.flex,
+          styles.nav,
           styles.pb1,
           styles.pt1,
           styles.w100

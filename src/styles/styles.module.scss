@@ -283,7 +283,7 @@
   border-width: 0 0 1rem 0;
   grid-column: 1/4;
   grid-row: 1/2;
-  grid-template-columns: auto minmax(11.5rem,73rem) 2rem auto;
+  grid-template-columns: auto minmax(11.5rem, 73rem) 2rem auto;
 
   &:before {
     @extend %absolute;
@@ -301,7 +301,7 @@
 
   .header-inner {
     grid-column: 2/3;
-    grid-template-columns: repeat(auto-fit,12rem);
+    grid-template-columns: repeat(auto-fit, 12rem);
   }
 
   .font-inverted {
@@ -324,7 +324,7 @@
   grid-column: 1/4;
   grid-gap: 1em;
   grid-row: 3/4;
-  grid-template-columns: 6.5em minmax(10.5em,32em);
+  grid-template-columns: 6.5em minmax(10.5em, 32em);
   grid-template-rows: min-content 2.5em;
 
   &:before {
@@ -372,7 +372,8 @@
 }
 
 .avatar {
-  &, img {
+  &,
+  img {
     @extend %border-round;
 
     height: 6.5em;
@@ -448,7 +449,8 @@
 }
 
 .meta {
-  &, &:visited {
+  &,
+  &:visited {
     color: var(--meta);
   }
 }
@@ -495,11 +497,11 @@
   @extend %right-0;
 
   grid-column: 3/4;
-  height: 1.5rem;
-  margin: 0.25rem;
+  height: 1.05rem;
+  margin: 0.35rem 0.25rem 0.25rem;
   top: 2rem;
-  width: 1.3125rem;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  width: 1.05rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .toggle {
@@ -513,9 +515,9 @@
 
     border-radius: 1rem;
     display: inherit;
-    height: 1.5rem;
+    height: 1.05rem;
     vertical-align: middle;
-    width: 1.3125rem;
+    width: 1rem;
   }
 
   &:before {
@@ -523,7 +525,6 @@
     @extend %background-accent-light;
     @extend %bottom-0;
     @extend %content;
-    @extend %right-0;
     @extend %top-0;
     @extend %transition-all;
     @extend %z5;
@@ -532,15 +533,18 @@
     box-shadow: 0.3125rem 0.3125rem 0 0 var(--primary-light);
     border-radius: 100%;
     height: 1rem;
+    right: 1rem;
     transform: rotate(-45deg);
     width: 1rem;
   }
 }
 
 .theme {
- &:checked ~ .toggle::before {
-    background: var(--primary-light);
-    box-shadow: unset;
-    right: 0.5rem;
+  &:checked ~ .toggle {
+    &::before {
+      background: var(--primary-light);
+      box-shadow: unset;
+      right: 0.5rem;
+    }
   }
 }
