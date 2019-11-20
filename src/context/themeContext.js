@@ -1,12 +1,15 @@
 import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
+let osTheme = false;
 const defaultState = {
   dark: false,
   toggle: () => {},
 };
-const osTheme =
-  window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+if (typeof window !== 'undefined') {
+  osTheme = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+}
 
 const ThemeContext = createContext(defaultState);
 
