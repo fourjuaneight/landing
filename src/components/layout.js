@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 import cx from 'classnames';
 
 import styles from '../styles/styles.module.scss';
 
+import ThemeContext from '../context/themeContext';
+import Footer from './footer';
 import Header from './header';
 import SEO from './seo';
-import Footer from './footer';
 
 const Layout = ({
   children,
@@ -18,13 +20,14 @@ const Layout = ({
 }) => {
   const {
     site: {
-      siteMetadata: { description, social, title },
+      siteMetadata: { description, language, social, title },
     },
   } = useStaticQuery(graphql`
     query Metadata {
       site {
         siteMetadata {
           description
+          language
           social
           title
         }
@@ -33,27 +36,34 @@ const Layout = ({
   `);
 
   return (
-    <>
-      <SEO
-        pageDescription={pageDescription}
-        pageTitle={pageTitle}
-        pathname={location.pathname}
-        postPublishDate={postPublishDate}
-      />
-      <Header title={title} />
-      <main
-        className={cx(
-          styles.main,
-          styles.mHorizontal,
-          styles.pb2,
-          styles.pt2,
-          styles.w100
-        )}
-      >
-        {children}
-      </main>
-      <Footer description={description} social={social} />
-    </>
+    <ThemeContext.Consumer>
+      {theme => (
+        <>
+          <Helmet>
+            <html data-theme={theme.dark ? 'dark' : 'light'} lang={language} />
+          </Helmet>
+          <SEO
+            pageDescription={pageDescription}
+            pageTitle={pageTitle}
+            pathname={location.pathname}
+            postPublishDate={postPublishDate}
+          />
+          <Header title={title} />
+          <main
+            className={cx(
+              styles.main,
+              styles.mHorizontal,
+              styles.pb2,
+              styles.pt2,
+              styles.w100
+            )}
+          >
+            {children}
+          </main>
+          <Footer description={description} social={social} />
+        </>
+      )}
+    </ThemeContext.Consumer>
   );
 };
 

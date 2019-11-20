@@ -497,16 +497,21 @@
 .theme-wrap {
   @extend %right-0;
 
+  cursor: pointer;
+  background: none;
+  border: none;
   grid-column: 3/4;
   height: 1.05rem;
   margin: 0.35rem 0.25rem 0.25rem;
+  outline: none;
   top: 2rem;
   width: 1.05rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .toggle {
-  cursor: pointer;
+  height: 1.05rem;
+  min-width: 1.05rem;
 
   &:after {
     @extend %absolute;
@@ -538,10 +543,8 @@
     transform: rotate(-45deg);
     width: 1rem;
   }
-}
 
-.theme {
-  &:checked ~ .toggle {
+  &.theme-dark {
     &::before {
       background: var(--primary-light);
       box-shadow: unset;

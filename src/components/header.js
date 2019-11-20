@@ -5,6 +5,8 @@ import cx from 'classnames';
 
 import styles from '../styles/styles.module.scss';
 
+import ThemeToggle from './toggle';
+
 const Header = ({ title }) => (
   <header
     className={cx(
@@ -68,25 +70,7 @@ const Header = ({ title }) => (
         </Link>
       </nav>
     </div>
-    <label
-      htmlFor="theme"
-      className={cx(
-        styles.absolute,
-        styles.contentCenter,
-        styles.flex,
-        styles.itemsFlexStart,
-        styles.themeWrap
-      )}
-    >
-      <input
-        type="checkbox"
-        name="theme-switcher"
-        className={cx(styles.sr, styles.theme, styles.zUnder)}
-        id="theme"
-      />
-      <span className={styles.sr}>Theme Switcher</span>
-      <span aria-hidden="true" className={styles.toggle} />
-    </label>
+    <ThemeToggle />
   </header>
 );
 

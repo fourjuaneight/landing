@@ -145,7 +145,7 @@ module.exports = {
   siteMetadata: {
     author: config.author,
     description: config.description,
-    language: config.description,
+    language: config.language,
     siteUrl: config.siteUrl,
     social: config.social,
     theme: config.theme,

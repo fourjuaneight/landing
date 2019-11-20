@@ -21,7 +21,6 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
         siteMetadata {
           author
           description
-          language
           siteUrl
           social
           theme
@@ -135,15 +134,7 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
   `);
 
   const {
-    siteMetadata: {
-      author,
-      description,
-      language,
-      siteUrl,
-      social,
-      theme,
-      title,
-    },
+    siteMetadata: { author, description, siteUrl, social, theme, title },
   } = meta;
   const dynamicTitle = pageTitle ? `${pageTitle} | ${title}` : title;
   const dynamicDesc = pageDescription || description;
@@ -239,7 +230,6 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
 
   return (
     <Helmet defaultTitle={dynamicTitle}>
-      <html data-theme="light" lang={language} />
       <meta
         name="viewport"
         content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover"
