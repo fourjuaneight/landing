@@ -37,12 +37,7 @@ const Index = ({ location }) => {
   return (
     <Layout location={location}>
       <h1
-        className={cx(
-          styles.mra,
-          styles.relative,
-          styles.marked,
-          styles.list_title
-        )}
+        className={cx(styles.mra, styles.relative, styles.marked, styles.title)}
       >
         Recent Posts
       </h1>

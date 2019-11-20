@@ -43,7 +43,13 @@ const Layout = ({
       />
       <Header title={title} />
       <main
-        className={cx(styles.mHorizontal, styles.pb2, styles.pt2, styles.w100)}
+        className={cx(
+          styles.main,
+          styles.mHorizontal,
+          styles.pb2,
+          styles.pt2,
+          styles.w100
+        )}
       >
         {children}
       </main>

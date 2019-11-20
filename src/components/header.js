@@ -9,6 +9,7 @@ const Header = ({ title }) => (
   <header
     className={cx(
       styles.grid,
+      styles.header,
       styles.ma0,
       styles.pb1,
       styles.pl2,
@@ -22,7 +23,7 @@ const Header = ({ title }) => (
       className={cx(
         styles.contentBetween,
         styles.grid,
-        styles.heade_inner,
+        styles.headerInner,
         styles.w100
       )}
     >
@@ -41,7 +42,7 @@ const Header = ({ title }) => (
           styles.relative
         )}
       >
-        <Link to="/" rel="me" className={styles.font_inverted} id="title">
+        <Link to="/" rel="me" className={styles.fontInverted} id="title">
           <strong>{title}</strong>
         </Link>
       </h1>
@@ -54,13 +55,13 @@ const Header = ({ title }) => (
           styles.w100
         )}
       >
-        <Link to="/posts/" className={styles.font_inverted}>
+        <Link to="/posts/" className={styles.fontInverted}>
           <strong>Posts</strong>
         </Link>
         <span aria-hidden="true" className={styles.sep}>
           ::
         </span>
-        <Link to="/about/" className={styles.font_inverted}>
+        <Link to="/about/" className={styles.fontInverted}>
           <strong>About</strong>
         </Link>
       </nav>
@@ -72,7 +73,7 @@ const Header = ({ title }) => (
         styles.contentCenter,
         styles.flex,
         styles.itemsFlexStart,
-        styles.theme_wrap
+        styles.themeWrap
       )}
     >
       <input

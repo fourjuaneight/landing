@@ -364,6 +364,13 @@
 }
 
 // Custom
+.article-title,
+.title {
+  @extend %f2;
+
+  margin-top: 0.75rem;
+}
+
 .avatar {
   &, img {
     @extend %border-round;
@@ -422,7 +429,7 @@
   }
 }
 
-.list-title {
+.list-article-title {
   @extend %f3;
 }
 
@@ -444,10 +451,10 @@
   &, &:visited {
     color: var(--meta);
   }
+}
 
-  &:hover {
-    color: var(--font);
-  }
+.meta-link:hover {
+  color: var(--font);
 }
 
 .meta-wrap {
@@ -493,12 +500,6 @@
   top: 2rem;
   width: 1.3125rem;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
-.title {
-  @extend %f2;
-
-  margin-top: 0.75rem;
 }
 
 .toggle {

@@ -20,11 +20,16 @@ const Article = ({ date, html, index, list, slug, tag, title }) => (
   >
     {list ? (
       <Link to={`/posts${slug}`} className={styles.permalink}>
-        <h2 className={cx(styles.ma0, styles.list_title)}>{title}</h2>
+        <h2 className={cx(styles.ma0, styles.listArticleTitle)}>{title}</h2>
       </Link>
     ) : (
       <h1
-        className={cx(styles.mra, styles.relative, styles.marked, styles.title)}
+        className={cx(
+          styles.mra,
+          styles.relative,
+          styles.marked,
+          styles.articleTitle
+        )}
       >
         {title}
       </h1>
@@ -34,19 +39,23 @@ const Article = ({ date, html, index, list, slug, tag, title }) => (
         styles.contentBetween,
         styles.flex,
         styles.flexWrap,
-        styles.meta_wrap,
+        styles.metaWrap,
         styles.w100
       )}
     >
-      <time dateTime={date} className={cx(styles.f7, styles.mra, styles.meta)}>
-        <span aria-label="Posted on">&tau;</span>
+      <time dateTime={date} className={cx(styles.f6, styles.mra, styles.meta)}>
+        <span aria-label="Posted on">&tau; </span>
         {date}
       </time>
-      <p className={cx(styles.f7, styles.ma0, styles.mr1)}>
+      <p className={cx(styles.f6, styles.ma0, styles.mr1)}>
         <span aria-hidden="true" className={styles.meta}>
-          #
+          #{' '}
         </span>
-        <Link to={`/tags/${tag}/`} itemProp="about" className={styles.meta}>
+        <Link
+          to={`/tags/${tag}/`}
+          itemProp="about"
+          className={cx(styles.meta, styles.metaLink)}
+        >
           {tag}
         </Link>
       </p>
