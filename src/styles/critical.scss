@@ -1,17 +1,25 @@
 @import './colors.scss';
 
-html[data-theme="light"] {
+@mixin light() {
   --bg: #{$white};
   --bg-dark: #{$dracula};
   --font: #{$dracula-dark};
   --meta: #{$meta};
 }
 
-html[data-theme="dark"] {
+@mixin dark() {
   --bg: #{$dracula};
   --bg-dark: #{$dracula-dark};
   --font: #{$white};
   --meta: #{$meta-light};
+}
+
+html[data-theme='light'] {
+  @include light();
+}
+
+html[data-theme='dark'] {
+  @include dark();
 }
 
 html {
@@ -23,13 +31,13 @@ html {
 
 @media (prefers-color-scheme: light) {
   html {
-    --theme: light;
+    @include light();
   }
 }
 
 @media (prefers-color-scheme: dark) {
   html {
-    --theme: dark;
+    @include dark();
   }
 }
 

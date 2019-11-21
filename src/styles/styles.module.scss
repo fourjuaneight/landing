@@ -418,14 +418,14 @@
   height: 2.5em;
   width: 2.5em;
 
-  .icon-svg {
+  svg {
     @include transition(fill);
 
     fill: $white;
   }
 
   &:hover {
-    .icon-svg {
+    svg {
       fill: var(--primary-light);
     }
   }

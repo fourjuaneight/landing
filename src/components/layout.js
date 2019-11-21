@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -35,35 +35,33 @@ const Layout = ({
     }
   `);
 
+  const theme = useContext(ThemeContext);
+
   return (
-    <ThemeContext.Consumer>
-      {theme => (
-        <>
-          <Helmet>
-            <html data-theme={theme.dark ? 'dark' : 'light'} lang={language} />
-          </Helmet>
-          <SEO
-            pageDescription={pageDescription}
-            pageTitle={pageTitle}
-            pathname={location.pathname}
-            postPublishDate={postPublishDate}
-          />
-          <Header title={title} />
-          <main
-            className={cx(
-              styles.main,
-              styles.mHorizontal,
-              styles.pb2,
-              styles.pt2,
-              styles.w100
-            )}
-          >
-            {children}
-          </main>
-          <Footer description={description} social={social} />
-        </>
-      )}
-    </ThemeContext.Consumer>
+    <>
+      <Helmet>
+        <html data-theme={theme.dark ? 'dark' : 'light'} lang={language} />
+      </Helmet>
+      <SEO
+        pageDescription={pageDescription}
+        pageTitle={pageTitle}
+        pathname={location.pathname}
+        postPublishDate={postPublishDate}
+      />
+      <Header title={title} />
+      <main
+        className={cx(
+          styles.main,
+          styles.mHorizontal,
+          styles.pb2,
+          styles.pt2,
+          styles.w100
+        )}
+      >
+        {children}
+      </main>
+      <Footer description={description} social={social} />
+    </>
   );
 };
 

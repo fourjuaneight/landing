@@ -1,7 +1,7 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-let osTheme = false;
+let osTheme;
 const defaultState = {
   dark: false,
   toggle: () => {},
@@ -14,19 +14,25 @@ if (typeof window !== 'undefined') {
 const ThemeContext = createContext(defaultState);
 
 const ThemeProvider = ({ children }) => {
-  // localStorage bool comes back as string
-  const darkTheme = localStorage.getItem('darkTheme');
-  // strict operator for localStorage conversion to bool
-  const localTheme = darkTheme === 'true';
-  // if no localStorage present, use prefers-color-scheme
-  const curTheme = darkTheme === null ? osTheme : localTheme;
-  const [dark, setDark] = useState(curTheme);
+  const [dark, setDark] = useState(false);
 
   const toggle = () => {
     const isDark = !dark;
     localStorage.setItem('darkTheme', isDark);
     setDark(isDark);
   };
+
+  useEffect(() => {
+    // localStorage bool comes back as string
+    const darkTheme = localStorage.getItem('darkTheme');
+
+    if (darkTheme !== null) {
+      // strict operator for localStorage conversion to bool
+      setDark(darkTheme === 'true');
+    } else if (osTheme) {
+      setDark(osTheme);
+    }
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ dark, toggle }}>
