@@ -1,14 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
-import { Link, graphql, useStaticQuery } from 'gatsby';
-import cx from 'classnames';
-
-import styles from '../styles/styles.module.scss';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from '@emotion/styled';
 
 import { ReactComponent as GitHub } from '../images/github.svg';
 import { ReactComponent as Twitter } from '../images/twitter.svg';
 import { ReactComponent as RSS } from '../images/rss.svg';
+import {
+  absolute,
+  aSelfCenter,
+  backgroundAccentLight,
+  bottom0,
+  content,
+  contentBetween,
+  contentCenter,
+  flex,
+  flexColumn,
+  f4,
+  f5,
+  grid,
+  itemsCenter,
+  itemsFlexStart,
+  itemsStart,
+  jSelfEnd,
+  left0,
+  ma0,
+  mb1,
+  mHorizontal,
+  normal,
+  noUnderline,
+  overflowHidden,
+  pa2,
+  relative,
+  right0,
+  w100,
+  zUnder,
+} from './styleUtils';
 
 const size = {
   height: '6.5em',
@@ -16,11 +44,129 @@ const size = {
 };
 const wrapStyles = {
   ...size,
+  margin: '0 auto',
 };
 const imgStyles = {
   ...size,
   borderRadius: '50%',
 };
+
+const FooterMain = styled.footer`
+  ${contentCenter};
+  ${grid};
+  ${itemsStart};
+  ${mHorizontal};
+  ${pa2};
+  ${relative};
+  ${w100};
+
+  background-color: var(--bg-dark);
+  border-color: var(--primary);
+  border-style: solid;
+  border-width: 1rem 0 0;
+  grid-column: 1/4;
+  grid-gap: 1em;
+  grid-row: 3/4;
+  grid-template-columns: 6.5em minmax(10.5em, 32em);
+  grid-template-rows: min-content 2.5em;
+
+  &::before {
+    ${absolute};
+    ${backgroundAccentLight};
+    ${bottom0};
+    ${content};
+    ${left0};
+    ${right0};
+    ${w100};
+    ${zUnder};
+
+    top: -2rem;
+    min-height: 1rem;
+  }
+`;
+
+const FooterCopy = styled.section`
+  ${flex};
+  ${flexColumn};
+  ${itemsFlexStart};
+  ${mb1};
+  ${normal};
+  ${w100};
+
+  max-width: 32rem;
+
+  &,
+  &:hover,
+  &:visited {
+    ${f4};
+
+    color: hsl(64, 32%, 96%);
+  }
+`;
+
+const FootHead = styled.h3`
+  ${f4};
+  ${ma0};
+  ${mb1};
+`;
+
+const FootBody = styled.p`
+  ${f5};
+
+  max-width: 32rem;
+`;
+
+const DL = styled.dl`
+  ${aSelfCenter};
+  ${contentBetween};
+  ${flex};
+  ${itemsCenter};
+  ${jSelfEnd};
+  ${ma0};
+  ${w100};
+
+  grid-column: 2/3;
+  grid-row: 2/3;
+  max-width: 8rem;
+`;
+
+const DT = styled.dt`
+  ${absolute};
+  ${overflowHidden};
+
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
+  height: 0.1rem;
+  width: 0.1rem;
+`;
+
+const DD = styled.dd`
+  ${ma0};
+
+  height: 2.5em;
+  width: 2.5em;
+`;
+
+const SocialLink = styled.a`
+  ${contentCenter};
+  ${flex};
+  ${itemsCenter};
+  ${noUnderline};
+  ${relative};
+
+  height: 2.5em;
+  width: 2.5em;
+
+  svg {
+    fill: #fff;
+    transition: fill var(--duration) ease-in-out;
+  }
+
+  &:hover {
+    svg {
+      fill: var(--primary-light);
+    }
+  }
+`;
 
 const Footer = ({ description, social }) => {
   const {
@@ -36,109 +182,48 @@ const Footer = ({ description, social }) => {
   `);
 
   return (
-    <footer
-      className={cx(
-        styles.contentCenter,
-        styles.footer,
-        styles.grid,
-        styles.itemsStart,
-        styles.mHorizontal,
-        styles.pa2,
-        styles.relative,
-        styles.w100
-      )}
-    >
+    <FooterMain>
       <Img
         fixed={fixed}
         alt="Juan's avatar."
         style={wrapStyles}
         imgStyle={imgStyles}
-        className={styles.mHorizontal}
       />
-      <section
-        className={cx(
-          styles.flex,
-          styles.flexColumn,
-          styles.fontInverted,
-          styles.footCopy,
-          styles.itemsFlexStart,
-          styles.mb1,
-          styles.w100
-        )}
-      >
-        <h3 className={cx(styles.ma0, styles.mb1, styles.footHead)}>
-          Hi, I'm Juan
-        </h3>
-        <p className={cx(styles.footBody)}>A {description}</p>
-      </section>
-      <dl
-        className={cx(
-          styles.aSelfCenter,
-          styles.contentBetween,
-          styles.flex,
-          styles.itemsCenter,
-          styles.jSelfEnd,
-          styles.ma0,
-          styles.w100
-        )}
-      >
-        <dt className={styles.sr}>GitHub</dt>
-        <dd className={styles.ma0}>
-          <a
+      <FooterCopy>
+        <FootHead>Hi, I'm Juan</FootHead>
+        <FootBody>A {description}</FootBody>
+      </FooterCopy>
+      <DL>
+        <DT>GitHub</DT>
+        <DD>
+          <SocialLink
             href={`https://www.github.com/${social}`}
             title="Follow me on GitHub"
             target="_blank"
             rel="noopener noreferrer"
-            className={cx(
-              styles.contentCenter,
-              styles.flex,
-              styles.icon,
-              styles.itemsCenter,
-              styles.noUnderline,
-              styles.relative
-            )}
           >
             <GitHub />
-          </a>
-        </dd>
-        <dt className={styles.sr}>Twitter</dt>
-        <dd className={styles.ma0}>
-          <a
+          </SocialLink>
+        </DD>
+        <DT>Twitter</DT>
+        <DD>
+          <SocialLink
             href={`https://www.twitter.com/${social}`}
             title="Follow me on Twitter"
             target="_blank"
             rel="noopener noreferrer"
-            className={cx(
-              styles.contentCenter,
-              styles.flex,
-              styles.icon,
-              styles.itemsCenter,
-              styles.noUnderline,
-              styles.relative
-            )}
           >
             <Twitter />
-          </a>
-        </dd>
-        <dt className={styles.sr}>RSS</dt>
-        <dd className={styles.ma0}>
-          <Link
-            to="/index.xml"
-            title="View the RSS feed of this page"
-            className={cx(
-              styles.contentCenter,
-              styles.flex,
-              styles.icon,
-              styles.itemsCenter,
-              styles.noUnderline,
-              styles.relative
-            )}
-          >
+          </SocialLink>
+        </DD>
+        <DT>RSS</DT>
+        <DD>
+          <SocialLink href="/index.xml" title="View the RSS feed of this page">
             <RSS />
-          </Link>
-        </dd>
-      </dl>
-    </footer>
+          </SocialLink>
+        </DD>
+      </DL>
+    </FooterMain>
   );
 };
 

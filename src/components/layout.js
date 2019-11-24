@@ -2,14 +2,24 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
-import cx from 'classnames';
-
-import styles from '../styles/styles.module.scss';
+import styled from '@emotion/styled';
 
 import ThemeContext from '../context/themeContext';
+import { mHorizontal, pb2, pt2, w100 } from './styleUtils';
+
 import Footer from './footer';
 import Header from './header';
 import SEO from './seo';
+
+const Main = styled.main`
+  ${mHorizontal};
+  ${pb2};
+  ${pt2};
+  ${w100};
+  grid-column: 2/3;
+  grid-row: 2/3;
+  min-height: calc(100vh - 22rem);
+`;
 
 const Layout = ({
   children,
@@ -49,17 +59,7 @@ const Layout = ({
         postPublishDate={postPublishDate}
       />
       <Header title={title} />
-      <main
-        className={cx(
-          styles.main,
-          styles.mHorizontal,
-          styles.pb2,
-          styles.pt2,
-          styles.w100
-        )}
-      >
-        {children}
-      </main>
+      <Main>{children}</Main>
       <Footer description={description} social={social} />
     </>
   );
