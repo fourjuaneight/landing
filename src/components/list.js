@@ -1,21 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-
-import styles from '../styles/styles.module.scss';
+import styled from '@emotion/styled';
 
 import Article from './article';
+import {
+  contentFlexStart,
+  flex,
+  flexColumn,
+  itemsFlexStart,
+  w100,
+} from './styleUtils';
+
+const Feed = styled.section`
+  ${contentFlexStart};
+  ${flex};
+  ${flexColumn};
+  ${itemsFlexStart};
+  ${w100};
+`;
 
 const List = ({ edges }) => (
-  <section
-    className={cx(
-      styles.contentFlexStart,
-      styles.flex,
-      styles.flexColumn,
-      styles.itemsFlexStart,
-      styles.w100
-    )}
-  >
+  <Feed>
     {edges.map(({ node }, i) => {
       const {
         excerpt,
@@ -36,7 +41,7 @@ const List = ({ edges }) => (
         />
       );
     })}
-  </section>
+  </Feed>
 );
 
 List.propTypes = {

@@ -28,6 +28,13 @@ const content = `
   content: '';
 `;
 
+const meta = `
+  &,
+  &:visited {
+    color: var(--meta);
+  }
+`;
+
 // Type
 const normal = `
   font-weight: 400;
@@ -484,6 +491,7 @@ export {
   borderCurved,
   borderRound,
   content,
+  meta,
   normal,
   bold,
   f1,

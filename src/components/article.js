@@ -1,67 +1,122 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import cx from 'classnames';
-
-import styles from '../styles/styles.module.scss';
+import styled from '@emotion/styled';
 
 import CleanHTML from './cleanHTML';
+import {
+  absolute,
+  backgroundAccent,
+  bottom0,
+  content,
+  contentBetween,
+  f2,
+  f3,
+  f6,
+  flex,
+  flexColumn,
+  flexWrap,
+  itemsFlexStart,
+  left0,
+  ma0,
+  meta,
+  mHorizontal,
+  mr1,
+  mra,
+  relative,
+  w100,
+  z1,
+} from './styleUtils';
+
+const ArticleMain = styled.article`
+  ${flex};
+  ${flexColumn};
+  ${itemsFlexStart};
+  ${mHorizontal};
+  ${w100};
+`;
+
+const Permalink = styled(Link)`
+  margin: 1rem 0;
+`;
+
+const PermaTitle = styled.h2`
+  ${f3};
+  ${ma0};
+`;
+
+const Title = styled.h1`
+  ${absolute};
+  ${backgroundAccent};
+  ${bottom0};
+  ${content};
+  ${f2};
+  ${left0};
+  ${mra};
+  ${relative};
+  ${z1};
+
+  height: 0.15rem;
+  margin-top: 0.75rem;
+  width: 3rem;
+`;
+
+const MetaWrap = styled.section`
+  ${contentBetween};
+  ${flex};
+  ${flexWrap};
+  ${w100};
+
+  margin-bottom: 0.75rem;
+`;
+
+const Time = styled.time`
+  ${f6};
+  ${meta};
+  ${mra};
+`;
+
+const Tag = styled.p`
+  ${f6};
+  ${ma0};
+  ${mr1};
+`;
+
+const Hash = styled.span`
+  ${meta};
+`;
+
+const TagLink = styled(Link)`
+  ${meta};
+
+  &:hover {
+    color: var(--font);
+  }
+`;
 
 const Article = ({ date, html, index, list, slug, tag, title }) => (
-  <article
-    key={list && index}
-    className={cx(
-      styles.flex,
-      styles.flexColumn,
-      styles.itemsFlexStart,
-      styles.m_horizontal,
-      styles.w100
-    )}
-  >
+  <ArticleMain key={list && index}>
     {list ? (
-      <Link to={`/posts${slug}`} className={styles.permalink}>
-        <h2 className={cx(styles.ma0, styles.listArticleTitle)}>{title}</h2>
-      </Link>
+      <Permalink to={`/posts${slug}`}>
+        <PermaTitle>{title}</PermaTitle>
+      </Permalink>
     ) : (
-      <h1
-        className={cx(
-          styles.mra,
-          styles.relative,
-          styles.marked,
-          styles.articleTitle
-        )}
-      >
-        {title}
-      </h1>
+      <Title>{title}</Title>
     )}
-    <section
-      className={cx(
-        styles.contentBetween,
-        styles.flex,
-        styles.flexWrap,
-        styles.metaWrap,
-        styles.w100
-      )}
-    >
-      <time dateTime={date} className={cx(styles.f6, styles.mra, styles.meta)}>
+    <MetaWrap>
+      <Time dateTime={date}>
         <span aria-label="Posted on">&tau; </span>
         {date}
-      </time>
-      <p className={cx(styles.f6, styles.ma0, styles.mr1)}>
-        <span aria-hidden="true" className={styles.meta}>
-          #{' '}
-        </span>
-        <Link
-          to={`/tags/${tag}/`}
-          itemProp="about"
-          className={cx(styles.meta, styles.metaLink)}
-        >
+      </Time>
+      <Tag>
+        <Hash aria-hidden="true"># </Hash>
+        <TagLink to={`/tags/${tag}/`} itemProp="about">
           {tag}
-        </Link>
-      </p>
-    </section>
+        </TagLink>
+      </Tag>
+    </MetaWrap>
     <CleanHTML html={html} />
-  </article>
+  </ArticleMain>
 );
 
 Article.propTypes = {
