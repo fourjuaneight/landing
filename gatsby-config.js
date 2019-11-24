@@ -94,7 +94,7 @@ module.exports = {
       options: {
         feeds: [
           {
-            output: '/feed.rss.xml',
+            output: '/index.xml',
             query: `
               {
                 allMarkdownRemark(
