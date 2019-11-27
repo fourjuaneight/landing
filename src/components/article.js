@@ -46,19 +46,23 @@ const PermaTitle = styled.h2`
 `;
 
 const Title = styled.h1`
-  ${absolute};
-  ${backgroundAccent};
-  ${bottom0};
-  ${content};
   ${f2};
-  ${left0};
   ${mra};
   ${relative};
-  ${z1};
 
-  height: 0.15rem;
   margin-top: 0.75rem;
-  width: 3rem;
+
+  &::before {
+    ${absolute};
+    ${backgroundAccent};
+    ${bottom0};
+    ${content};
+    ${left0};
+    ${z1};
+
+    height: 0.15rem;
+    width: 3rem;
+  }
 `;
 
 const MetaWrap = styled.section`
@@ -110,7 +114,7 @@ const Article = ({ date, html, index, list, slug, tag, title }) => (
       </Time>
       <Tag>
         <Hash aria-hidden="true"># </Hash>
-        <TagLink to={`/tags/${tag}/`} itemProp="about">
+        <TagLink to={`/${tag}/`} itemProp="about">
           {tag}
         </TagLink>
       </Tag>
