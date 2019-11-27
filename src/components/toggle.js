@@ -32,7 +32,7 @@ const Toggle = styled.button`
   height: 1.05rem;
   margin: 0.35rem 0.25rem 0.25rem;
   outline: none;
-  top: 2rem;
+  top: 1.85rem;
   width: 1.05rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;

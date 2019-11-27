@@ -13,7 +13,7 @@ import {
   flexColumn,
   f4,
   grid,
-  itemsFlexEnd,
+  itemsCenter,
   itemsFlexStart,
   left0,
   ma0,
@@ -93,7 +93,7 @@ const Home = styled.h1`
 const Nav = styled.nav`
   ${contentBetween};
   ${flex};
-  ${itemsFlexEnd};
+  ${itemsCenter};
   ${pb1};
   ${pt1};
   ${w100};
