@@ -1,41 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import styled from '@emotion/styled';
 
 import Layout from '../components/layout';
 import List from '../components/list';
-import {
-  absolute,
-  backgroundAccent,
-  bottom0,
-  content,
-  f2,
-  left0,
-  mra,
-  relative,
-  z1,
-} from '../components/styleUtils';
-
-const Title = styled.h1`
-  ${f2};
-  ${mra};
-  ${relative};
-
-  margin-top: 0.75rem;
-
-  &::before {
-    ${absolute};
-    ${backgroundAccent};
-    ${bottom0};
-    ${content};
-    ${left0};
-    ${z1};
-
-    height: 0.15rem;
-    width: 3rem;
-  }
-`;
+import Title from '../components/title';
 
 const titleCase = str =>
   str
@@ -82,7 +51,7 @@ const Taxonomies = ({ data, location }) => {
 
   return (
     <Layout pageTitle={titleCase(currentTag)} location={location}>
-      <Title>{currentTag}</Title>
+      <Title text={currentTag} />
       <List edges={edges} />
     </Layout>
   );

@@ -4,28 +4,21 @@ import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 
 import CleanHTML from './cleanHTML';
+import Title from './title';
 import {
-  absolute,
-  backgroundAccent,
-  bottom0,
-  content,
   contentBetween,
-  f2,
   f3,
   f6,
   flex,
   flexColumn,
   flexWrap,
   itemsFlexStart,
-  left0,
   ma0,
   meta,
   mHorizontal,
   mr1,
   mra,
-  relative,
   w100,
-  z1,
 } from './styleUtils';
 
 const ArticleMain = styled.article`
@@ -43,26 +36,6 @@ const Permalink = styled(Link)`
 const PermaTitle = styled.h2`
   ${f3};
   ${ma0};
-`;
-
-const Title = styled.h1`
-  ${f2};
-  ${mra};
-  ${relative};
-
-  margin-top: 0.75rem;
-
-  &::before {
-    ${absolute};
-    ${backgroundAccent};
-    ${bottom0};
-    ${content};
-    ${left0};
-    ${z1};
-
-    height: 0.15rem;
-    width: 3rem;
-  }
 `;
 
 const MetaWrap = styled.section`
@@ -105,7 +78,7 @@ const Article = ({ date, html, index, list, slug, tag, title }) => (
         <PermaTitle>{title}</PermaTitle>
       </Permalink>
     ) : (
-      <Title>{title}</Title>
+      <Title text={title} />
     )}
     {date && (
       <MetaWrap>
