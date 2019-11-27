@@ -56,7 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         tag: fieldValue,
       },
-      path: `/tags/${fieldValue}/`,
+      path: `/${fieldValue}/`,
     });
   });
 };

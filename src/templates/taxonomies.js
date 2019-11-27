@@ -1,12 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import cx from 'classnames';
+import styled from '@emotion/styled';
 
-import styles from '../styles/styles.module.scss';
-
-import Article from '../components/article';
 import Layout from '../components/layout';
+import List from '../components/list';
+import {
+  absolute,
+  backgroundAccent,
+  bottom0,
+  content,
+  f2,
+  left0,
+  mra,
+  relative,
+  z1,
+} from '../components/styleUtils';
+
+const Title = styled.h1`
+  ${f2};
+  ${mra};
+  ${relative};
+
+  margin-top: 0.75rem;
+
+  &::before {
+    ${absolute};
+    ${backgroundAccent};
+    ${bottom0};
+    ${content};
+    ${left0};
+    ${z1};
+
+    height: 0.15rem;
+    width: 3rem;
+  }
+`;
 
 const titleCase = str =>
   str
@@ -18,6 +47,7 @@ const titleCase = str =>
 export const query = graphql`
   query TaxonomiesQuery($tag: String!) {
     allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
       filter: { frontmatter: { draft: { eq: false }, tag: { eq: $tag } } }
     ) {
       edges {
@@ -28,6 +58,7 @@ export const query = graphql`
           }
           frontmatter {
             date(formatString: "MMMM D, YYYY")
+            tag
             title
           }
         }
@@ -43,7 +74,7 @@ export const query = graphql`
 
 const Taxonomies = ({ data, location }) => {
   const {
-    allMarkdownRemark,
+    allMarkdownRemark: { edges },
     markdownRemark: { frontmatter: tag },
   } = data;
 
@@ -51,33 +82,8 @@ const Taxonomies = ({ data, location }) => {
 
   return (
     <Layout pageTitle={titleCase(currentTag)} location={location}>
-      <h1
-        className={cx(styles.mra, styles.relative, styles.marked, styles.title)}
-      >
-        {currentTag}
-      </h1>
-      <section>
-        {allMarkdownRemark.edges.map(({ node }, i) => {
-          const {
-            excerpt,
-            fields: { slug },
-            frontmatter: { date, title },
-          } = node;
-
-          return (
-            <Article
-              key={i}
-              date={date}
-              html={excerpt}
-              index={i}
-              list
-              slug={slug}
-              tag={currentTag}
-              title={title}
-            />
-          );
-        })}
-      </section>
+      <Title>{currentTag}</Title>
+      <List edges={edges} />
     </Layout>
   );
 };
