@@ -42,7 +42,13 @@ const Posts = ({ location }) => {
     allMarkdownRemark: { edges },
   } = useStaticQuery(graphql`
     query PostsQuery {
-      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/posts/" }
+          frontmatter: { draft: { eq: false } }
+        }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         edges {
           node {
             excerpt(format: HTML, truncate: false)

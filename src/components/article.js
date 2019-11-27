@@ -107,29 +107,31 @@ const Article = ({ date, html, index, list, slug, tag, title }) => (
     ) : (
       <Title>{title}</Title>
     )}
-    <MetaWrap>
-      <Time dateTime={date}>
-        <span aria-label="Posted on">&tau; </span>
-        {date}
-      </Time>
-      <Tag>
-        <Hash aria-hidden="true"># </Hash>
-        <TagLink to={`/${tag}/`} itemProp="about">
-          {tag}
-        </TagLink>
-      </Tag>
-    </MetaWrap>
+    {date && (
+      <MetaWrap>
+        <Time dateTime={date}>
+          <span aria-label="Posted on">&tau; </span>
+          {date}
+        </Time>
+        <Tag>
+          <Hash aria-hidden="true"># </Hash>
+          <TagLink to={`/${tag}/`} itemProp="about">
+            {tag}
+          </TagLink>
+        </Tag>
+      </MetaWrap>
+    )}
     <CleanHTML html={html} />
   </ArticleMain>
 );
 
 Article.propTypes = {
-  date: PropTypes.string.isRequired,
+  date: PropTypes.string,
   html: PropTypes.string.isRequired,
   index: PropTypes.number,
   list: PropTypes.bool,
   slug: PropTypes.string,
-  tag: PropTypes.string.isRequired,
+  tag: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 

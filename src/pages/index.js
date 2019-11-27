@@ -43,6 +43,10 @@ const Index = ({ location }) => {
   } = useStaticQuery(graphql`
     query HomeQuery {
       allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/posts/" }
+          frontmatter: { draft: { eq: false } }
+        }
         limit: 5
         sort: { fields: frontmatter___date, order: DESC }
       ) {

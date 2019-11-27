@@ -21,7 +21,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/posts/" }
+          frontmatter: { draft: { eq: false } }
+        }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         edges {
           node {
             fields {
