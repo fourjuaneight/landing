@@ -1,12 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
-import cx from 'classnames';
+import styled from '@emotion/styled';
 
-import styles from '../styles/styles.module.scss';
-
-import List from '../components/list';
 import Layout from '../components/layout';
+import List from '../components/list';
+import {
+  absolute,
+  backgroundAccent,
+  bottom0,
+  content,
+  f2,
+  left0,
+  mra,
+  relative,
+  z1,
+} from '../components/styleUtils';
+
+const Title = styled.h1`
+  ${f2};
+  ${mra};
+  ${relative};
+
+  margin-top: 0.75rem;
+
+  &::before {
+    ${absolute};
+    ${backgroundAccent};
+    ${bottom0};
+    ${content};
+    ${left0};
+    ${z1};
+
+    height: 0.15rem;
+    width: 3rem;
+  }
+`;
 
 const Posts = ({ location }) => {
   const {
@@ -33,11 +62,7 @@ const Posts = ({ location }) => {
 
   return (
     <Layout pageTitle="Posts" location={location}>
-      <h1
-        className={cx(styles.mra, styles.relative, styles.marked, styles.title)}
-      >
-        Posts
-      </h1>
+      <Title>Posts</Title>
       <List edges={edges} />
     </Layout>
   );
