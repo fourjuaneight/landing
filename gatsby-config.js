@@ -65,6 +65,13 @@ module.exports = {
     },
     {
       options: {
+        name: 'single',
+        path: `${__dirname}/src/single/`,
+      },
+      resolve: 'gatsby-source-filesystem',
+    },
+    {
+      options: {
         commonmark: true,
         footnotes: true,
         gfm: true,
