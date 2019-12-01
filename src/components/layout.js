@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
 
 import ThemeContext from '../context/themeContext';
-import { mHorizontal, pb2, pt2, w100 } from './styleUtils';
+import { mHorizontal, pb2, pt2, w100 } from './util/styleUtils';
 
 import Footer from './footer';
 import Header from './header';

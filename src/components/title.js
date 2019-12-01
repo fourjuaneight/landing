@@ -12,7 +12,7 @@ import {
   mra,
   relative,
   z1,
-} from './styleUtils';
+} from './util/styleUtils';
 
 const H1 = styled.h1`
   ${f2};

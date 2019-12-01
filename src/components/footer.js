@@ -36,7 +36,7 @@ import {
   right0,
   w100,
   zUnder,
-} from './styleUtils';
+} from './util/styleUtils';
 
 const size = {
   height: '6.5em',

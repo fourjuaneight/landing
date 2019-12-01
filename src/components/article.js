@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 
-import CleanHTML from './cleanHTML';
+import CleanHTML from './util/cleanHTML';
 import Title from './title';
 import {
   contentBetween,
@@ -19,7 +19,7 @@ import {
   mr1,
   mra,
   w100,
-} from './styleUtils';
+} from './util/styleUtils';
 
 const ArticleMain = styled.article`
   ${flex};

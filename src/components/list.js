@@ -9,7 +9,7 @@ import {
   flexColumn,
   itemsFlexStart,
   w100,
-} from './styleUtils';
+} from './util/styleUtils';
 
 const Feed = styled.section`
   ${contentFlexStart};

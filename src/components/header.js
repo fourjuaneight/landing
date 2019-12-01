@@ -30,7 +30,7 @@ import {
   top0,
   w100,
   zUnder,
-} from './styleUtils';
+} from './util/styleUtils';
 
 const HeaderMain = styled.header`
   ${grid};

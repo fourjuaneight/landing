@@ -16,7 +16,7 @@ import {
   top0,
   transitionAll,
   z5,
-} from './styleUtils';
+} from './util/styleUtils';
 
 const Toggle = styled.button`
   ${absolute};
