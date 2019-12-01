@@ -8,19 +8,22 @@ module.exports = {
   extends: ['airbnb', 'prettier', 'prettier/react'],
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     ecmaFeatures: {
-      experimentalObjectRestSpread: true,
       impliedStrict: true,
       classes: true,
     },
     sourceType: 'module',
   },
-  plugins: ['html', 'prettier', 'react-hooks'],
+  plugins: ['emotion', 'html', 'prettier', 'react-hooks'],
   rules: {
     'arrow-body-style': [2, 'as-needed'],
     curly: 2,
     'dot-notation': 2,
+    'emotion/import-from-emotion': 'error',
+    'emotion/no-vanilla': 'error',
+    'emotion/syntax-preference': [2, 'string'],
+    'emotion/styled-import': 'error',
     'func-names': 0,
     'id-length': [
       2,
@@ -67,7 +70,7 @@ module.exports = {
     'no-console': [
       'error',
       {
-        allow: ['warn', 'error'],
+        allow: ['error', 'warn'],
       },
     ],
     'no-const-assign': 2,
