@@ -2,24 +2,13 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
-import styled from '@emotion/styled';
 
 import ThemeContext from '../context/themeContext';
-import { mHorizontal, pb2, pt2, w100 } from './util/styleUtils';
+import { Main } from './util/styleEl';
 
 import Footer from './footer';
 import Header from './header';
 import SEO from './seo';
-
-const Main = styled.main`
-  ${mHorizontal};
-  ${pb2};
-  ${pt2};
-  ${w100};
-  grid-column: 2/3;
-  grid-row: 2/3;
-  min-height: calc(100vh - 22rem);
-`;
 
 const Layout = ({
   children,

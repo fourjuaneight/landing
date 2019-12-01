@@ -1,23 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
 
 import Article from './article';
-import {
-  contentFlexStart,
-  flex,
-  flexColumn,
-  itemsFlexStart,
-  w100,
-} from './util/styleUtils';
-
-const Feed = styled.section`
-  ${contentFlexStart};
-  ${flex};
-  ${flexColumn};
-  ${itemsFlexStart};
-  ${w100};
-`;
+import { Feed } from './util/styleEl';
 
 const List = ({ edges }) => (
   <Feed>

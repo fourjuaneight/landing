@@ -1,75 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
-import styled from '@emotion/styled';
 
 import CleanHTML from './util/cleanHTML';
 import Title from './title';
 import {
-  contentBetween,
-  f3,
-  f6,
-  flex,
-  flexColumn,
-  flexWrap,
-  itemsFlexStart,
-  ma0,
-  meta,
-  mHorizontal,
-  mr1,
-  mra,
-  w100,
-} from './util/styleUtils';
-
-const ArticleMain = styled.article`
-  ${flex};
-  ${flexColumn};
-  ${itemsFlexStart};
-  ${mHorizontal};
-  ${w100};
-`;
-
-const Permalink = styled(Link)`
-  margin: 1rem 0;
-`;
-
-const PermaTitle = styled.h2`
-  ${f3};
-  ${ma0};
-`;
-
-const MetaWrap = styled.section`
-  ${contentBetween};
-  ${flex};
-  ${flexWrap};
-  ${w100};
-
-  margin-bottom: 0.75rem;
-`;
-
-const Time = styled.time`
-  ${f6};
-  ${meta};
-  ${mra};
-`;
-
-const Tag = styled.p`
-  ${f6};
-  ${ma0};
-  ${mr1};
-`;
-
-const Hash = styled.span`
-  ${meta};
-`;
-
-const TagLink = styled(Link)`
-  ${meta};
-
-  &:hover {
-    color: var(--font);
-  }
-`;
+  ArticleMain,
+  Hash,
+  MetaWrap,
+  Permalink,
+  PermaTitle,
+  Tag,
+  TagLink,
+  Time,
+} from './util/styleEl';
 
 const Article = ({ date, html, index, list, slug, tag, title }) => (
   <ArticleMain key={list && index}>
