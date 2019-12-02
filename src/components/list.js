@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Article from './article';
-import { Feed } from './util/styleEl';
 
 const List = ({ edges }) => (
-  <Feed>
+  <section>
     {edges.map(({ node }, i) => {
       const {
         excerpt,
@@ -26,7 +25,7 @@ const List = ({ edges }) => (
         />
       );
     })}
-  </Feed>
+  </section>
 );
 
 List.propTypes = {

@@ -409,6 +409,22 @@ const mtA = `
   margin-top: auto;
 `;
 
+const mx1 = `
+  margin: 0 1rem;
+`;
+
+const mx2 = `
+  margin: 0 2rem;
+`;
+
+const my1 = `
+  margin: 1rem 0;
+`;
+
+const my2 = `
+  margin: 2rem 0;
+`;
+
 const pa0 = `
   padding: 0;
 `;
@@ -469,6 +485,22 @@ const pt2 = `
   padding-top: 2rem;
 `;
 
+const px1 = `
+  padding: 0 1rem;
+`;
+
+const px2 = `
+  padding: 0 2rem;
+`;
+
+const py1 = `
+  padding: 1rem 0;
+`;
+
+const py2 = `
+  padding: 2rem 0;
+`;
+
 // Sizing
 const h100 = `
   height: 100%;
@@ -483,17 +515,69 @@ const transitionAll = `
   transition: all var(--duration) ease;
 `;
 
+// Helpers
+const hideVisually = `
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
+  height: 0.1rem;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1rem;
+`;
+
+const cover = area => {
+  let props = `position: absolute;`;
+
+  switch (area) {
+    case 'top':
+      props += ` left: 0; right: 0; top: 0;`;
+      break;
+    case 'bottom':
+      props += ` bottom: 0; left: 0; right: 0;`;
+      break;
+    case 'left':
+      props += ` bottom: 0; left: 0; top: 0;`;
+      break;
+    case 'right':
+      props += ` bottom: 0; right: 0; top: 0;`;
+      break;
+    default:
+      props += ` bottom: 0; left: 0; right: 0; top: 0;`;
+      break;
+  }
+
+  return props;
+};
+
+/* eslint-disable id-length */
+const sizes = (h, w) =>
+  h && !w ? `height: ${h}; width: ${h};` : `height: ${h}; width: ${w};`;
+
 export {
+  absolute,
+  absoluteFill,
+  aSelfCenter,
+  aSelfEnd,
+  aSelfStart,
   backgroundAccent,
   backgroundAccentLight,
   backgroundNone,
   backgroundTransparent,
+  bold,
   borderCurved,
   borderRound,
+  bottom0,
   content,
-  meta,
-  normal,
-  bold,
+  contentAround,
+  contentBetween,
+  contentCenter,
+  contentEnd,
+  contentFlexEnd,
+  contentFlexStart,
+  contentStart,
+  cover,
+  db,
+  dib,
+  dn,
   f1,
   f2,
   f3,
@@ -501,67 +585,24 @@ export {
   f5,
   f6,
   f7,
-  tl,
-  tr,
-  tc,
-  tj,
-  ttc,
-  ttl,
-  ttu,
-  ttn,
-  strike,
-  underline,
-  noUnderline,
-  db,
-  dib,
-  dn,
+  fixed,
   flex,
-  grid,
-  gridFlex,
-  overflowHidden,
-  overflowXHidden,
-  overflowYHidden,
-  overflowAuto,
-  overflowXAuto,
-  overflowYAuto,
   flexColumn,
   flexRow,
   flexWrap,
+  grid,
+  gridFlex,
+  h100,
+  hideVisually,
   itemsCenter,
   itemsEnd,
   itemsFlexEnd,
   itemsFlexStart,
   itemsStart,
-  aSelfCenter,
-  aSelfEnd,
-  aSelfStart,
-  contentCenter,
-  contentEnd,
-  contentFlexEnd,
-  contentFlexStart,
-  contentAround,
-  contentBetween,
-  contentStart,
   jSelfCenter,
   jSelfEnd,
   jSelfStart,
-  absolute,
-  fixed,
-  relative,
-  sticky,
-  absoluteFill,
-  bottom0,
   left0,
-  right0,
-  top0,
-  zUnder,
-  z1,
-  z5,
-  z10,
-  z15,
-  z20,
-  mHorizontal,
-  mVertical,
   ma0,
   ma1,
   ma2,
@@ -570,6 +611,8 @@ export {
   mb1,
   mb2,
   mba,
+  meta,
+  mHorizontal,
   ml0,
   ml1,
   ml2,
@@ -582,6 +625,19 @@ export {
   mt1,
   mt2,
   mtA,
+  mx1,
+  mx2,
+  my1,
+  my2,
+  mVertical,
+  normal,
+  noUnderline,
+  overflowAuto,
+  overflowHidden,
+  overflowXAuto,
+  overflowXHidden,
+  overflowYAuto,
+  overflowYHidden,
   pa0,
   pa1,
   pa2,
@@ -597,7 +653,31 @@ export {
   pt0,
   pt1,
   pt2,
-  h100,
-  w100,
+  px1,
+  px2,
+  py1,
+  py2,
+  relative,
+  right0,
+  sizes,
+  sticky,
+  strike,
+  tc,
+  tj,
+  tl,
+  top0,
+  tr,
   transitionAll,
+  ttc,
+  ttl,
+  ttn,
+  ttu,
+  underline,
+  w100,
+  z1,
+  z10,
+  z15,
+  z20,
+  z5,
+  zUnder,
 };

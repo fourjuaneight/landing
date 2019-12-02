@@ -21,7 +21,7 @@ const Index = ({ location }) => {
       ) {
         edges {
           node {
-            excerpt(format: HTML, truncate: false)
+            excerpt(format: HTML, pruneLength: 272, truncate: false)
             fields {
               slug
             }

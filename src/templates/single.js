@@ -8,7 +8,7 @@ import Layout from '../components/layout';
 export const query = graphql`
   query SingleQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      excerpt(format: PLAIN, truncate: false)
+      excerpt(format: PLAIN, pruneLength: 256, truncate: false)
       frontmatter {
         date(formatString: "YYYY-MM-DD")
         tag

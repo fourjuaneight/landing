@@ -20,7 +20,7 @@ const Posts = ({ location }) => {
       ) {
         edges {
           node {
-            excerpt(format: HTML, truncate: false)
+            excerpt(format: HTML, pruneLength: 256, truncate: false)
             fields {
               slug
             }

@@ -1,32 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 import ThemeToggle from './toggle';
-import {
-  HeaderInner,
-  HeaderMain,
-  Home,
-  Nav,
-  NavLink,
-  Sep,
-} from './util/styleEl';
+import { HeaderInner, HeaderMain, HomeLink, Nav, Sep } from './util/styleEl';
 
 const Header = ({ title }) => (
   <HeaderMain>
     <HeaderInner>
-      <Home>
-        <NavLink to="/" rel="me" id="title">
-          <strong>{title}</strong>
-        </NavLink>
-      </Home>
+      <HomeLink to="/" rel="me" id="title">
+        <strong>{title}</strong>
+      </HomeLink>
       <Nav>
-        <NavLink to="/posts/">
+        <Link to="/posts/">
           <strong>Posts</strong>
-        </NavLink>
+        </Link>
         <Sep aria-hidden="true">::</Sep>
-        <NavLink to="/about/">
+        <Link to="/about/">
           <strong>About</strong>
-        </NavLink>
+        </Link>
       </Nav>
     </HeaderInner>
     <ThemeToggle />

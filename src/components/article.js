@@ -1,40 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 
 import CleanHTML from './util/cleanHTML';
 import Title from './title';
-import {
-  ArticleMain,
-  Hash,
-  MetaWrap,
-  Permalink,
-  PermaTitle,
-  Tag,
-  TagLink,
-  Time,
-} from './util/styleEl';
+import { ArticleMain, Meta, MetaWrap, Permalink } from './util/styleEl';
 
 const Article = ({ date, html, index, list, slug, tag, title }) => (
   <ArticleMain key={list && index}>
     {list ? (
       <Permalink to={`/posts${slug}`}>
-        <PermaTitle>{title}</PermaTitle>
+        <h2>{title}</h2>
       </Permalink>
     ) : (
       <Title text={title} />
     )}
     {date && (
       <MetaWrap>
-        <Time dateTime={date}>
+        <Meta>
           <span aria-label="Posted on">&tau; </span>
-          {date}
-        </Time>
-        <Tag>
-          <Hash aria-hidden="true"># </Hash>
-          <TagLink to={`/${tag}/`} itemProp="about">
-            {tag}
-          </TagLink>
-        </Tag>
+          <time dateTime={date}>{date}</time>
+        </Meta>
+        <Meta>
+          <span aria-hidden="true"># </span>
+          <Link to={`/${tag}/`}>{tag}</Link>
+        </Meta>
       </MetaWrap>
     )}
     <CleanHTML html={html} />
