@@ -99,16 +99,16 @@ const Sep = styled.span`
 // Toggle
 const Toggle = styled.button`
   ${absolute};
-  ${right0};
   ${sizes('1.05rem')};
 
   cursor: pointer;
   background: none;
   border: none;
   grid-column: 3/4;
-  margin: 0.35rem 0.25rem 0.25rem;
+  left: 0;
+  margin: 0 0.25rem;
   outline: none;
-  top: 1.85rem;
+  top: 2.15rem;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;
 
