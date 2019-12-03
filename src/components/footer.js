@@ -13,13 +13,12 @@ import {
   FootBody,
   FooterCopy,
   FooterMain,
-  FootHead,
   SocialLink,
 } from './util/styleEl';
 
 const size = {
-  height: '6.5em',
-  width: '6.5em',
+  height: '6.75em',
+  width: '6.75em',
 };
 const wrapStyles = {
   ...size,
@@ -36,7 +35,7 @@ const Footer = ({ description, social }) => {
   } = useStaticQuery(graphql`
     query Avatar {
       imageSharp(sizes: { originalName: { regex: "/avatar/" } }) {
-        fixed(height: 104, quality: 95, width: 104) {
+        fixed(height: 108, quality: 95, width: 108) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
@@ -52,7 +51,7 @@ const Footer = ({ description, social }) => {
         imgStyle={imgStyles}
       />
       <FooterCopy>
-        <FootHead>Hi, I'm Juan</FootHead>
+        <h3>Hi, I'm Juan</h3>
         <FootBody>A {description}</FootBody>
       </FooterCopy>
       <DL>

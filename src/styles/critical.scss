@@ -75,7 +75,7 @@ body {
   overflow-x: hidden;
 
   #gatsby-focus-wrapper {
-    grid-template-columns: minmax(2em, 1fr) minmax(1rem, 56rem) minmax(2em, 1fr);
+    grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 56.25rem) minmax(1.5rem, 1fr);
     grid-template-rows: repeat(3, auto);
     position: relative;
   }
@@ -144,8 +144,8 @@ p {
 }
 
 blockquote {
-  border-left: 0.125rem solid var(--primary);
-  padding-left: 0.75rem;
+  border-left: 0.1875rem solid var(--primary);
+  padding-left: 1.3125rem;
 }
 
 h1,
@@ -164,12 +164,12 @@ h1 {
 
   &::before {
     background-color: var(--primary);
-    bottom: 0;
+    bottom: -0.1875rem;
     content: '';
-    height: 0.15rem;
+    height: 0.1875rem;
     left: 0;
     position: absolute;
-    width: 3rem;
+    width: 3.75rem;
     z-index: 1;
   }
 }

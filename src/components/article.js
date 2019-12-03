@@ -18,11 +18,10 @@ const Article = ({ date, html, index, list, slug, tag, title }) => (
     {date && (
       <MetaWrap>
         <Meta>
-          <span aria-label="Posted on">&tau; </span>
           <time dateTime={date}>{date}</time>
         </Meta>
         <Meta>
-          <span aria-hidden="true"># </span>
+          <span aria-hidden="true">#</span>
           <Link to={`/${tag}/`}>{tag}</Link>
         </Meta>
       </MetaWrap>
