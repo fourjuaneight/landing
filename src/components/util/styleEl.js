@@ -2,31 +2,59 @@ import { Link } from 'gatsby';
 import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import {
-  absolute,
-  aSelfCenter,
-  backgroundAccentLight,
-  content,
-  contentCenter,
-  cover,
-  flexWrap,
-  hideVisually,
-  itemsCenter,
-  itemsStart,
-  jSelfEnd,
-  ma0,
-  mHorizontal,
-  mra,
-  noUnderline,
-  pa0,
-  relative,
-  right0,
-  sizes,
-  transitionAll,
-  w100,
-  z5,
-  zUnder,
-} from './styleUtils';
+// Helpers
+const absolute = `
+  position: absolute;
+`;
+
+const content = `
+  content: '';
+`;
+
+const backgroundAccentLight = `
+  background-color: var(--primary-light);
+`;
+
+const hideVisually = `
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
+  height: 0.1rem;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1rem;
+`;
+
+const transitionAll = `
+  transition: all var(--duration) ease;
+`;
+
+/* eslint-disable quotes */
+const cover = area => {
+  let props = `width: 100%; position: absolute;`;
+
+  switch (area) {
+    case 'top':
+      props += ` left: 0; right: 0; top: 0;`;
+      break;
+    case 'bottom':
+      props += ` bottom: 0; left: 0; right: 0;`;
+      break;
+    case 'left':
+      props += ` bottom: 0; left: 0; top: 0;`;
+      break;
+    case 'right':
+      props += ` bottom: 0; right: 0; top: 0;`;
+      break;
+    default:
+      props += ` bottom: 0; left: 0; right: 0; top: 0;`;
+      break;
+  }
+
+  return props;
+};
+
+/* eslint-disable id-length */
+const sizes = (h, w) =>
+  h && !w ? `height: ${h}; width: ${h};` : `height: ${h}; width: ${w};`;
 
 // Animation
 const fadeIn = keyframes`
@@ -37,8 +65,6 @@ const fadeIn = keyframes`
 
 // Header
 const HeaderMain = styled.header`
-  ${relative};
-
   background-color: var(--bg-dark);
   border-color: var(--primary);
   border-style: solid;
@@ -50,9 +76,7 @@ const HeaderMain = styled.header`
 
   &::before {
     ${content};
-    ${w100};
-    ${zUnder};
-    ${cover('top')};
+    ${cover('bottom')};
 
     background-color: var(--primary-light);
     bottom: -1.5rem;
@@ -77,16 +101,12 @@ const HeaderInner = styled.div`
 `;
 
 const HomeLink = styled(Link)`
-  ${mra};
-  ${relative};
-
   grid-column: 1/2;
+  margin-right: auto;
   width: 9rem;
 `;
 
 const Nav = styled.nav`
-  ${itemsCenter};
-
   max-height: 4.5rem;
   max-width: 10.5rem;
 `;
@@ -129,7 +149,6 @@ const Icon = styled.span`
   &::after {
     ${absolute};
     ${content};
-    ${ma0};
     ${transitionAll};
     ${sizes('1.05rem', '1rem')};
 
@@ -142,7 +161,6 @@ const Icon = styled.span`
     ${backgroundAccentLight};
     ${content};
     ${transitionAll};
-    ${z5};
     ${cover('left')};
     ${sizes('1rem')};
 
@@ -151,6 +169,7 @@ const Icon = styled.span`
     border-radius: 100%;
     right: 1rem;
     transform: rotate(-45deg);
+    z-index: 5;
   }
 
   ${({ dark }) =>
@@ -166,11 +185,6 @@ const Icon = styled.span`
 
 // Footer
 const FooterMain = styled.footer`
-  ${contentCenter};
-  ${itemsStart};
-  ${mHorizontal};
-  ${relative};
-
   background-color: var(--bg-dark);
   border-color: var(--primary);
   border-style: solid;
@@ -180,14 +194,14 @@ const FooterMain = styled.footer`
   grid-row: 3/4;
   grid-template-columns: 6.75rem minmax(10.5rem, 31.5rem);
   grid-template-rows: min-content 2.25rem;
+  justify-content: center;
+  margin: 0 auto;
   padding: 3rem 1.5rem;
 
   &::before {
     ${content};
     ${backgroundAccentLight};
-    ${w100};
-    ${zUnder};
-    ${cover('bottom')};
+    ${cover('top')};
 
     top: -1.5rem;
     min-height: 0.75rem;
@@ -209,14 +223,10 @@ const FootBody = styled.p`
 `;
 
 const DL = styled.dl`
-  ${aSelfCenter};
-  ${itemsCenter};
-  ${jSelfEnd};
-  ${ma0};
-  ${w100};
-
+  align-self: center;
   grid-column: 2/3;
   grid-row: 2/3;
+  justify-self: end;
   max-width: 7.5rem;
   min-height: 1.5rem;
 `;
@@ -226,15 +236,12 @@ const DT = styled.dt`
 `;
 
 const DD = styled.dd`
-  ${ma0};
   ${sizes('1.5rem')};
 `;
 
 const SocialLink = styled.a`
-  ${noUnderline};
-  ${relative};
-
   min-height: 1.5rem;
+  text-decoration: none;
 
   &,
   svg {
@@ -259,14 +266,12 @@ const Permalink = styled(Link)`
   margin-bottom: 0.75rem;
 
   > h2 {
-    ${ma0};
-    ${pa0};
+    padding: 0;
   }
 `;
 
 const MetaWrap = styled.section`
-  ${flexWrap};
-
+  flex-wrap: wrap;
   margin-bottom: 0.75rem;
 `;
 
@@ -274,8 +279,6 @@ const Meta = styled.p`
   &,
   > *,
   a:visited {
-    ${ma0};
-
     color: var(--meta);
   }
 

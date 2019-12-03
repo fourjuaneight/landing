@@ -45,6 +45,7 @@ html {
 :after,
 :before {
   box-sizing: inherit;
+  margin: 0;
 }
 
 ::-moz-selection {
@@ -73,12 +74,6 @@ body {
   font-family: Rubik, sans-serif;
   margin: 0;
   overflow-x: hidden;
-
-  #gatsby-focus-wrapper {
-    grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 56.25rem) minmax(1.5rem, 1fr);
-    grid-template-rows: repeat(3, auto);
-    position: relative;
-  }
 }
 
 a {
@@ -94,37 +89,6 @@ a {
   &:visited {
     color: inherit;
   }
-}
-
-article,
-div,
-footer,
-header,
-main,
-nav,
-picture,
-section {
-  width: 100%;
-}
-
-article > section,
-dl,
-header > div,
-nav {
-  justify-content: space-between;
-}
-
-article > section,
-dl,
-nav {
-  display: flex;
-}
-
-footer,
-header,
-header > div,
-#gatsby-focus-wrapper {
-  display: grid;
 }
 
 blockquote,
