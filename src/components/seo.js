@@ -4,18 +4,7 @@ import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
 const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
-  const {
-    bold,
-    fc,
-    icon,
-    meta,
-    rb,
-    regular,
-    rr,
-    spt,
-    woff,
-    woff2,
-  } = useStaticQuery(graphql`
+  const { fc, icon, meta, rb, rr, spt } = useStaticQuery(graphql`
     query HelmetQuery {
       meta: site {
         siteMetadata {
@@ -35,66 +24,10 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
       spt: file(dir: { regex: "/images/" }, name: { regex: "/safari/" }) {
         publicURL
       }
-      woff2: allFile(
-        filter: {
-          dir: { regex: "/fonts/" }
-          name: { regex: "/sub/" }
-          extension: { eq: "woff2" }
-        }
-      ) {
-        edges {
-          node {
-            publicURL
-            extension
-          }
-        }
-      }
-      woff: allFile(
-        filter: {
-          dir: { regex: "/fonts/" }
-          name: { regex: "/sub/" }
-          extension: { ne: "woff2" }
-        }
-      ) {
-        edges {
-          node {
-            publicURL
-            extension
-          }
-        }
-      }
-      bold: allFile(
-        filter: {
-          dir: { regex: "/fonts/" }
-          name: { regex: "/(?!.*sub)^Rubik-Bold.*$/" }
-        }
-        sort: { fields: ext, order: DESC }
-      ) {
-        edges {
-          node {
-            extension
-            publicURL
-          }
-        }
-      }
-      regular: allFile(
-        filter: {
-          dir: { regex: "/fonts/" }
-          name: { regex: "/(?!.*sub)^Rubik-Regular.*$/" }
-        }
-        sort: { fields: ext, order: DESC }
-      ) {
-        edges {
-          node {
-            extension
-            publicURL
-          }
-        }
-      }
       rr: allFile(
         filter: {
           dir: { regex: "/fonts/" }
-          name: { regex: "/Rubik-Regular-sub/" }
+          name: { regex: "/(?!.*sub)^Rubik-Regular.*$/" }
         }
         sort: { fields: ext, order: DESC }
       ) {
@@ -108,7 +41,7 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
       rb: allFile(
         filter: {
           dir: { regex: "/fonts/" }
-          name: { regex: "/Rubik-Bold-sub/" }
+          name: { regex: "/(?!.*sub)^Rubik-Bold.*$/" }
         }
         sort: { fields: ext, order: DESC }
       ) {
@@ -206,28 +139,6 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
       font-display: swap;
     }
   `;
-  const fontLoading = `
-      if ('fonts' in document) {
-        const regular = new FontFace(
-          'Rubik',
-          "${regular.edges.map(
-            ({ node }) => `url(${node.publicURL}) format('${node.extension}')`
-          )}",
-        );
-        const bold = new FontFace(
-          'Rubik',
-          "${bold.edges.map(
-            ({ node }) => `url(${node.publicURL}) format('${node.extension}')`
-          )}",
-          { weight: '700' }
-        );
-        Promise.all([bold.load(), regular.load()]).then(fonts => {
-          fonts.forEach(font => {
-            document.fonts.add(font);
-          });
-        });
-      }
-    `;
 
   return (
     <Helmet defaultTitle={dynamicTitle}>
@@ -260,28 +171,7 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <meta name="apple-mobile-web-app-title" content={dynamicTitle} />
       <link rel="mask-icon" color={theme} href={`${siteUrl}${spt.publicURL}`} />
-      {woff2.edges.map(({ node }, i) => (
-        <link
-          key={i}
-          rel="preload"
-          href={node.publicURL}
-          as="font"
-          type="font/woff2"
-          crossOrigin
-        />
-      ))}
-      {woff.edges.map(({ node }, i) => (
-        <link
-          key={i}
-          rel="preload"
-          href={node.publicURL}
-          as="font"
-          type="font/woff"
-          crossOrigin
-        />
-      ))}
       <style>{fontFace}</style>
-      <script>{fontLoading}</script>
     </Helmet>
   );
 };
