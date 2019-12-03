@@ -254,11 +254,6 @@ const SocialLink = styled.a`
   }
 `;
 
-// Article
-const ArticleMain = styled.article`
-  padding: 0.75rem 0;
-`;
-
 const Permalink = styled(Link)`
   display: inline-block;
   margin-bottom: 0.75rem;
@@ -298,11 +293,10 @@ const Main = styled.main`
   grid-column: 2/3;
   grid-row: 2/3;
   min-height: calc(100vh - 23.25rem);
-  padding: 1.5rem 0;
+  padding: 3rem 0;
 `;
 
 export {
-  ArticleMain,
   DD,
   DL,
   DT,

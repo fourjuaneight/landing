@@ -4,10 +4,10 @@ import { Link } from 'gatsby';
 
 import CleanHTML from './util/cleanHTML';
 import Title from './title';
-import { ArticleMain, Meta, MetaWrap, Permalink } from './util/styleEl';
+import { Meta, MetaWrap, Permalink } from './util/styleEl';
 
 const Article = ({ date, html, index, list, slug, tag, title }) => (
-  <ArticleMain key={list && index}>
+  <article key={list && index}>
     {list ? (
       <Permalink to={`/posts${slug}`}>
         <h2>{title}</h2>
@@ -27,7 +27,7 @@ const Article = ({ date, html, index, list, slug, tag, title }) => (
       </MetaWrap>
     )}
     <CleanHTML html={html} />
-  </ArticleMain>
+  </article>
 );
 
 Article.propTypes = {
