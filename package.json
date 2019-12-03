@@ -52,7 +52,6 @@
     "gatsby-plugin-sharp": "^2.2.32",
     "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-plugin-svgr": "^2.0.2",
-    "gatsby-plugin-workerize-loader": "^1.1.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-prismjs": "^3.3.23",
     "gatsby-remark-smartypants": "^2.1.14",
@@ -71,7 +70,9 @@
     "react-helmet": "^5.2.1",
     "react-html-parser": "^2.0.2",
     "react-spring": "^8.0.27",
-    "sanitize-html": "^1.20.1"
+    "sanitize-html": "^1.20.1",
+    "workerize": "^0.1.7",
+    "workerize-loader": "^1.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

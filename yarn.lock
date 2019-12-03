@@ -6011,13 +6011,6 @@ gatsby-plugin-svgr@^2.0.2:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-svgr/-/gatsby-plugin-svgr-2.0.2.tgz#22e08fb67ec63b68aca6ac3e89962af20214e2a5"
   integrity sha512-54REIMe79qFBAwpcnWHBkvEE9CKoEVkefF9rDXai0k642r91SZ4UeWFuAmsegPG+sPVub7tHfHu/2LVXK1I9kg==
 
-gatsby-plugin-workerize-loader@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-workerize-loader/-/gatsby-plugin-workerize-loader-1.1.0.tgz#56fae3d2afecd3e672ac6c08e18c3f661fd71ec1"
-  integrity sha512-65wbQlLzI8W0xIIjgkbGBss39z1gP3O57RnR6O+pboXn7x6UfM8k4qVYd+dV/yQCScz+rfVk+QaAffOmpDH55w==
-  dependencies:
-    workerize-loader "^1.1.0"
-
 gatsby-react-router-scroll@^2.1.16:
   version "2.1.16"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.1.16.tgz#7e1ac76ceda23d049fe1453bed3cb0c3664a94de"
@@ -14321,6 +14314,11 @@ workerize-loader@^1.1.0:
   integrity sha512-cU2jPVE3AzzVxOonBe9lCCO//qwE9s/K4a9njFVRLueznzNDNND5vGHVorGuzK6xvamdDOZ9+g7CPIc7QKzucQ==
   dependencies:
     loader-utils "^1.2.3"
+
+workerize@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/workerize/-/workerize-0.1.7.tgz#cbfb05ee3ef0acf0a7e55d9d30f86e77294bc601"
+  integrity sha512-5sp00fQpti9Kd5TtKT82lX5FWh8RcwoRJoAM9+lPWnlpdDj3X0888nXJWelx+Pim96WURshLPxFqvku86VDwVg==
 
 wrap-ansi@^2.0.0:
   version "2.1.0"

@@ -4,6 +4,30 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
+exports.onCreateWebpackConfig = ({
+  actions: { replaceWebpackConfig },
+  getConfig,
+  stage,
+}) => {
+  const config = getConfig();
+
+  let options = {};
+
+  if (stage === 'build-javascript') {
+    config.optimization.moduleIds = 'total-size';
+    options = { name: 'ww-[1]', regExp: '(\\w+).worker.js' };
+  }
+
+  config.module.rules.push({
+    test: /\.worker\.js$/,
+    use: [{ loader: 'workerize-loader', options }],
+  });
+
+  config.output.globalObject = 'this';
+
+  replaceWebpackConfig(config);
+};
+
 exports.onCreateNode = ({ actions, node, getNode }) => {
   const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
