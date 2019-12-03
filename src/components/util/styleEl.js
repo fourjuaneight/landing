@@ -11,10 +11,6 @@ const content = `
   content: '';
 `;
 
-const backgroundAccentLight = `
-  background-color: var(--primary-light);
-`;
-
 const hideVisually = `
   clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
   height: 0.1rem;
@@ -66,7 +62,7 @@ const fadeIn = keyframes`
 // Header
 const HeaderMain = styled.header`
   background-color: var(--bg-dark);
-  border-color: var(--primary);
+  border-color: var(--secondary);
   border-style: solid;
   border-width: 0 0 0.75rem 0;
   grid-column: 1/4;
@@ -74,13 +70,22 @@ const HeaderMain = styled.header`
   grid-template-columns: auto minmax(11.5rem, 73rem) 2rem auto;
   padding: 1.6875rem 1.5rem;
 
-  &::before {
+  &::before,
+  &::after {
     ${content};
     ${cover('bottom')};
 
-    background-color: var(--primary-light);
-    bottom: -1.5rem;
     min-height: 0.75rem;
+  }
+
+  &::before {
+    background-color: var(--primary);
+    bottom: -1.5rem;
+  }
+
+  &::after {
+    background-color: var(--primary-light);
+    bottom: -2.25rem;
   }
 
   a {
@@ -158,14 +163,14 @@ const Icon = styled.span`
   }
 
   &::before {
-    ${backgroundAccentLight};
     ${content};
     ${transitionAll};
     ${cover('left')};
     ${sizes('1rem')};
 
+    background-color: var(--primary-light);
     background: transparent;
-    box-shadow: 0.3125rem 0.3125rem 0 0 var(--primary-light);
+    box-shadow: 0.3125rem 0.3125rem 0 0 var(--primary);
     border-radius: 100%;
     right: 1rem;
     transform: rotate(-45deg);
@@ -186,7 +191,7 @@ const Icon = styled.span`
 // Footer
 const FooterMain = styled.footer`
   background-color: var(--bg-dark);
-  border-color: var(--primary);
+  border-color: var(--secondary);
   border-style: solid;
   border-width: 0.75rem 0 0;
   grid-column: 1/4;
@@ -198,13 +203,23 @@ const FooterMain = styled.footer`
   margin: 0 auto;
   padding: 3rem 1.5rem;
 
-  &::before {
+  &::before,
+  &::after {
     ${content};
-    ${backgroundAccentLight};
     ${cover('top')};
 
     top: -1.5rem;
     min-height: 0.75rem;
+  }
+
+  &::before {
+    background-color: var(--primary);
+    top: -1.5rem;
+  }
+
+  &::after {
+    background-color: var(--primary-light);
+    top: -2.25rem;
   }
 `;
 

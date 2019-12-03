@@ -26,7 +26,9 @@ html[data-theme='dark'] {
 html {
   --primary: #{$primary};
   --primary-light: #{$primary-light};
-  --base: 64;
+  --secondary: #{$secondary};
+  --secondary-light: #{$secondary-light};
+  --base: 24;
   --duration: 256ms;
 }
 
