@@ -1,14 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import ThemeContext from '../context/themeContext';
-import { Main } from './util/styleEl';
+import { BgNoise, Main } from './util/styleEl';
 
 import Footer from './footer';
 import Header from './header';
 import SEO from './seo';
+
+// Noise
+import Noise from './noise.worker';
+const worker = typeof window === 'object' && new Noise();
 
 const Layout = ({
   children,
@@ -35,6 +39,17 @@ const Layout = ({
   `);
 
   const theme = useContext(ThemeContext);
+  const [noise, setNoise] = useState(null);
+
+  useEffect(() => {
+    if (window.Worker) {
+      worker.noise(64);
+
+      worker.onmessage = evt => {
+        setNoise(evt.data.result);
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -50,6 +65,7 @@ const Layout = ({
       <Header title={title} />
       <Main>{children}</Main>
       <Footer description={description} social={social} />
+      <BgNoise bg={noise} />
     </>
   );
 };

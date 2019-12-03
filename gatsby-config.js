@@ -10,6 +10,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-workerize-loader',
     'gatsby-transformer-sharp',
     {
       options: {

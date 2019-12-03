@@ -299,7 +299,20 @@ const Main = styled.main`
   padding: 3rem 0;
 `;
 
+// Noise
+const BgNoise = styled.div`
+  ${cover()};
+
+  animation: ${fadeIn} 2s;
+  background-image: url(${props => props.bg});
+  background-size: calc(0.125em * 64);
+  opacity: 0.012;
+  pointer-events: none;
+  z-index: 20;
+`;
+
 export {
+  BgNoise,
   DD,
   DL,
   DT,
