@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Global, css } from '@emotion/core';
 
 import ThemeContext from '../context/themeContext';
 import { Main } from './util/styleEl';
@@ -39,58 +38,6 @@ const Layout = ({
 
   return (
     <>
-      <Global
-        styles={css`
-          article,
-          div,
-          dl,
-          footer,
-          header,
-          main,
-          nav,
-          picture,
-          section {
-            width: 100%;
-          }
-
-          article > section,
-          dl,
-          header > div,
-          nav {
-            justify-content: space-between;
-          }
-
-          article > section,
-          dl,
-          nav {
-            align-items: center;
-            display: flex;
-          }
-
-          dl a,
-          footer,
-          header,
-          header > div > a,
-          #gatsby-focus-wrapper {
-            position: relative;
-          }
-
-          footer,
-          header,
-          header > div,
-          #gatsby-focus-wrapper {
-            display: grid;
-          }
-
-          #gatsby-focus-wrapper {
-            grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 56.25rem) minmax(
-                1.5rem,
-                1fr
-              );
-            grid-template-rows: repeat(3, auto);
-          }
-        `}
-      />
       <Helmet>
         <html data-theme={theme.dark ? 'dark' : 'light'} lang={language} />
       </Helmet>
