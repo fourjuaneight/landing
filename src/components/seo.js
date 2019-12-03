@@ -171,6 +171,7 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
       dateModified: postPublishDate,
     };
   }
+  /* eslint-enable */
   const fontFace = `
     @font-face {
       font-family: Rubik;
@@ -288,8 +289,8 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
 SEO.propTypes = {
   pageDescription: PropTypes.string,
   pageTitle: PropTypes.string,
-  postPublishDate: PropTypes.string,
   pathname: PropTypes.string.isRequired,
+  postPublishDate: PropTypes.string,
 };
 
 export default SEO;

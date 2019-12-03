@@ -11,6 +11,7 @@ export const noise = async base => {
       data.set(Math.random() > 0.5 ? white : black, (y * base + x) * 4);
     }
   }
+  /* eslint-enable */
 
   ctx.putImageData(new ImageData(data, base, base), 0, 0);
   const png = await canvas

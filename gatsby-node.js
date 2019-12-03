@@ -14,6 +14,7 @@ exports.onCreateNode = ({ actions, node, getNode }) => {
       name: 'slug',
       value: slug,
     });
+    /* eslint-enable */
   }
 };
 
