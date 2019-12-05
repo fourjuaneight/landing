@@ -8,6 +8,8 @@ export const wrapRootElement = ({ element }) => (
   <ThemeProvider>{element}</ThemeProvider>
 );
 
+export const registerServiceWorker = () => true;
+
 wrapRootElement.propTypes = {
   element: PropTypes.node.isRequired,
 };
