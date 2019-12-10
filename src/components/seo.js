@@ -3,14 +3,13 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
+const SEO = ({ pageDescription, pageTitle, postPublishDate, location }) => {
   const { fc, icon, meta, rb, rr, spt } = useStaticQuery(graphql`
     query HelmetQuery {
       meta: site {
         siteMetadata {
           author
           description
-          siteUrl
           social
           theme
           title
@@ -67,7 +66,7 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
   `);
 
   const {
-    siteMetadata: { author, description, siteUrl, social, theme, title },
+    siteMetadata: { author, description, social, theme, title },
   } = meta;
   const dynamicTitle = pageTitle ? `${pageTitle} | ${title}` : title;
   const dynamicDesc = pageDescription || description;
@@ -75,19 +74,19 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
     '@context': 'http://schema.org',
     '@type': 'WebSite',
     name: dynamicTitle,
-    url: `${siteUrl}/`,
+    url: `${location.origin}/`,
   };
   /* eslint-disable sort-keys */
-  if (pathname.match(/posts\/.*\//)) {
+  if (location.pathname.match(/posts\/.*\//)) {
     schemaOrgJSONLD = {
       '@context': 'https://schema.org',
       '@type': 'Article',
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `${siteUrl}${pathname}`,
+        '@id': `${location.origin}${location.pathname}`,
       },
       headline: pageTitle,
-      image: `${siteUrl}${icon.fixed.src}`,
+      image: `${location.origin}${icon.fixed.src}`,
       author: {
         '@type': 'Person',
         name: author,
@@ -97,7 +96,7 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}${icon.fixed.src}`,
+          url: `${location.origin}${icon.fixed.src}`,
         },
       },
       datePublished: postPublishDate,
@@ -146,40 +145,53 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, pathname }) => {
         name="viewport"
         content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover"
       />
-      <link rel="canonical" href={`${siteUrl}${pathname}`} />
+      <link rel="canonical" href={`${location.origin}${location.pathname}`} />
       <meta property="author" content={author} />
       <meta name="description" content={dynamicDesc} />
-      <meta name="image" content={`${siteUrl}${icon.fixed.src}`} />
+      <meta name="image" content={`${location.origin}${icon.fixed.src}`} />
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
       <meta property="og:description" content={dynamicDesc} />
-      <meta property="og:image" content={`${siteUrl}${icon.fixed.src}`} />
+      <meta
+        property="og:image"
+        content={`${location.origin}${icon.fixed.src}`}
+      />
       <meta property="og:site_name" content={title} />
       <meta property="og:title" content={dynamicTitle} />
       <meta
         property="og:type"
-        content={pathname.match(/posts\/.*\//) ? 'article' : 'website'}
+        content={location.pathname.match(/posts\/.*\//) ? 'article' : 'website'}
       />
-      <meta property="og:url" content={`${siteUrl}${pathname}`} />
+      <meta
+        property="og:url"
+        content={`${location.origin}${location.pathname}`}
+      />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:description" content={dynamicDesc} />
-      <meta name="twitter:image" content={`${siteUrl}${icon.fixed.src}`} />
+      <meta
+        name="twitter:image"
+        content={`${location.origin}${icon.fixed.src}`}
+      />
       <meta name="twitter:title" content={dynamicTitle} />
       <meta property="twitter:site" content={social} />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <meta name="apple-mobile-web-app-title" content={dynamicTitle} />
-      <link rel="mask-icon" color={theme} href={`${siteUrl}${spt.publicURL}`} />
+      <link
+        rel="mask-icon"
+        color={theme}
+        href={`${location.origin}${spt.publicURL}`}
+      />
       <style>{fontFace}</style>
     </Helmet>
   );
 };
 
 SEO.propTypes = {
+  location: PropTypes.object.isRequired,
   pageDescription: PropTypes.string,
   pageTitle: PropTypes.string,
-  pathname: PropTypes.string.isRequired,
   postPublishDate: PropTypes.string,
 };
 

@@ -68,7 +68,7 @@ const Layout = ({
       <SEO
         pageDescription={pageDescription}
         pageTitle={pageTitle}
-        pathname={location.pathname}
+        location={location}
         postPublishDate={postPublishDate}
       />
       <Header title={title} />
