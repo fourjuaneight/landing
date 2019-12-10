@@ -10,6 +10,7 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       excerpt(format: PLAIN, pruneLength: 256, truncate: false)
       frontmatter {
+        code
         date(formatString: "YYYY-MM-DD")
         tag
         title
@@ -23,13 +24,14 @@ const Single = ({ data, location }) => {
   const {
     markdownRemark: {
       excerpt,
-      frontmatter: { date, tag, title },
+      frontmatter: { code, date, tag, title },
       html,
     },
   } = data;
 
   return (
     <Layout
+      code={code}
       location={location}
       pageDescription={excerpt}
       pageTitle={title}

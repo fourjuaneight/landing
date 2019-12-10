@@ -77,6 +77,7 @@ module.exports = {
         gfm: true,
         pedantic: true,
         plugins: [
+          'gatsby-remark-smartypants',
           {
             options: {
               rel: 'nofollow noreferrer',
@@ -92,7 +93,6 @@ module.exports = {
             },
             resolve: 'gatsby-remark-prismjs',
           },
-          'gatsby-remark-smartypants',
         ],
       },
       resolve: 'gatsby-transformer-remark',

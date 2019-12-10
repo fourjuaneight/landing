@@ -3,6 +3,7 @@ title: On Struggle
 date: '2017-12-17'
 tag: life
 slug: 'on-struggle'
+code: false
 draft: false
 ---
 

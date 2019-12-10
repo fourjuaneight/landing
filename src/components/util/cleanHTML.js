@@ -8,11 +8,17 @@ const CleanHTML = ({ html }) => {
     sanitizeHtml(dirty, {
       allowedAttributes: {
         a: ['href', 'rel', 'target'],
+        code: ['class'],
+        div: ['class', 'data-language'],
+        pre: ['class'],
+        span: ['class'],
       },
       allowedTags: [
         'a',
         'b',
         'blockquote',
+        'code',
+        'div',
         'h1',
         'h2',
         'h3',
@@ -22,9 +28,11 @@ const CleanHTML = ({ html }) => {
         'li',
         'ol',
         'p',
+        'pre',
         'span',
         'strong',
         'ul',
+        '\\n',
       ],
     });
 

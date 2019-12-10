@@ -14,6 +14,29 @@
   --meta: #{$meta-light};
 }
 
+$langs: (
+  bash,
+  css,
+  gql,
+  graphql,
+  javascript,
+  js,
+  json,
+  jsx,
+  md,
+  mdx,
+  mysql,
+  postgresql,
+  python,
+  scss,
+  sh,
+  shell,
+  swift,
+  text,
+  toml,
+  yaml
+);
+
 // THEME
 html[data-theme='light'] {
   @include light();
@@ -92,6 +115,15 @@ a {
 
   &:visited {
     color: inherit;
+  }
+}
+
+article a[rel='nofollow noreferrer'] {
+  text-decoration: underline;
+  text-decoration-color: var(--primary) !important;
+
+  &:hover {
+    color: var(--primary);
   }
 }
 
@@ -199,6 +231,7 @@ dl a,
 footer,
 header,
 header > div > a,
+.gatsby-highlight,
 #gatsby-focus-wrapper {
   position: relative;
 }
@@ -216,4 +249,12 @@ header > div,
       1fr
     );
   grid-template-rows: repeat(3, auto);
+}
+
+.gatsby-highlight pre[class*='language-'] {
+  @each $item in $langs {
+    &[class='language-#{$item}']::before {
+      content: '#{$item}';
+    }
+  }
 }

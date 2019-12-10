@@ -16,6 +16,7 @@ const worker = typeof window === 'object' && new Noise();
 
 const Layout = ({
   children,
+  code,
   location,
   pageDescription,
   pageTitle,
@@ -23,7 +24,7 @@ const Layout = ({
 }) => {
   const {
     site: {
-      siteMetadata: { description, language, social, title },
+      siteMetadata: { description, language, siteUrl, social, title },
     },
   } = useStaticQuery(graphql`
     query Metadata {
@@ -31,6 +32,7 @@ const Layout = ({
         siteMetadata {
           description
           language
+          siteUrl
           social
           title
         }
@@ -55,6 +57,13 @@ const Layout = ({
     <>
       <Helmet>
         <html data-theme={theme.dark ? 'dark' : 'light'} lang={language} />
+        {code && (
+          <link
+            rel="stylesheet"
+            href={`${location.origin}/syntax.css`}
+            media="all"
+          />
+        )}
       </Helmet>
       <SEO
         pageDescription={pageDescription}
@@ -72,7 +81,9 @@ const Layout = ({
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  code: PropTypes.bool,
   location: PropTypes.shape({
+    origin: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
   }),
   pageDescription: PropTypes.string,

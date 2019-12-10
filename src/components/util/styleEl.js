@@ -15,7 +15,7 @@ const hideVisually = `
   clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
   height: 0.1rem;
   overflow: hidden;
-  position: absolute;
+  ${absolute}
   width: 0.1rem;
 `;
 
@@ -25,7 +25,7 @@ const transitionAll = `
 
 /* eslint-disable quotes */
 const cover = area => {
-  let props = `width: 100%; position: absolute;`;
+  let props = `width: 100%; ${absolute}`;
 
   switch (area) {
     case 'top':
@@ -47,10 +47,12 @@ const cover = area => {
 
   return props;
 };
+/* eslint-enable */
 
 /* eslint-disable id-length */
 const sizes = (h, w) =>
   h && !w ? `height: ${h}; width: ${h};` : `height: ${h}; width: ${w};`;
+/* eslint-enable */
 
 // Animation
 const fadeIn = keyframes`
@@ -265,7 +267,6 @@ const SocialLink = styled.a`
 
   svg {
     fill: #fff;
-    transition: fill var(--duration) ease-in-out;
     vertical-align: middle;
   }
 
@@ -306,6 +307,16 @@ const Meta = styled.p`
   }
 `;
 
+const Content = styled.section`
+  align-items: flex-start;
+  flex-direction: column;
+
+  .gatsby-highlight pre {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAG0lEQVR42mMIiyoTgWI+BmyAGAV8UMzJMFQBAJbJCuhzDiKQAAAAAElFTkSuQmCC');
+    background-repeat: repeat;
+  }
+`;
+
 // Layout
 const Main = styled.main`
   grid-column: 2/3;
@@ -332,6 +343,7 @@ const BgNoise = styled.div`
 
 export {
   BgNoise,
+  Content,
   DD,
   DL,
   DT,

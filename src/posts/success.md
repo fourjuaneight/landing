@@ -3,6 +3,7 @@ title: Success
 date: '2019-07-24'
 tag: life
 slug: 'success'
+code: false
 draft: false
 ---
 
