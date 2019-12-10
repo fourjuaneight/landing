@@ -329,6 +329,26 @@ const Main = styled.main`
   }
 `;
 
+// 404
+const ErrWrap = styled.section`
+  justify-content: center;
+  margin: 4.5rem 0 0;
+`;
+
+const ErrTitle = styled.h1`
+  text-align: center;
+
+  &::before {
+    content: unset;
+  }
+`;
+
+const ErrSubtitle = styled.h3`
+  font-weight: normal;
+  text-align: center;
+  text-transform: unset;
+`;
+
 // Noise
 const BgNoise = styled.div`
   ${cover()};
@@ -347,6 +367,9 @@ export {
   DD,
   DL,
   DT,
+  ErrSubtitle,
+  ErrTitle,
+  ErrWrap,
   FootBody,
   FooterCopy,
   FooterMain,
