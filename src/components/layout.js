@@ -24,7 +24,7 @@ const Layout = ({
 }) => {
   const {
     site: {
-      siteMetadata: { description, language, siteUrl, social, title },
+      siteMetadata: { description, language, social, title },
     },
   } = useStaticQuery(graphql`
     query Metadata {
@@ -32,7 +32,6 @@ const Layout = ({
         siteMetadata {
           description
           language
-          siteUrl
           social
           title
         }
@@ -40,7 +39,7 @@ const Layout = ({
     }
   `);
 
-  const theme = useContext(ThemeContext);
+  const { dark } = useContext(ThemeContext);
   const [noise, setNoise] = useState(null);
 
   useEffect(() => {
@@ -51,12 +50,12 @@ const Layout = ({
         setNoise(evt.data.result);
       };
     }
-  }, []);
+  }, [dark]);
 
   return (
     <>
       <Helmet>
-        <html data-theme={theme.dark ? 'dark' : 'light'} lang={language} />
+        <html data-theme={dark ? 'dark' : 'light'} lang={language} />
         {code && (
           <link
             rel="stylesheet"

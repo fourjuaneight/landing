@@ -2,7 +2,6 @@ const { readdirSync } = require('fs');
 const React = require('react');
 
 const publicFolder = './public';
-
 const isWorker = file => file.includes('ww') && file.endsWith('.worker.js');
 const shouldPreload = (file, preloads) =>
   file.startsWith('ww') && preloads.some(preload => file.includes(preload));

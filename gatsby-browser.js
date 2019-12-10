@@ -4,11 +4,11 @@ import { ThemeProvider } from './src/context/themeContext';
 
 import './src/styles/critical.scss';
 
-const addButtons = async elements => {
+const addButtons = elements => {
   const fragment = document.createDocumentFragment();
 
   for (const el of elements) {
-    const button = await document.createElement('button');
+    const button = document.createElement('button');
 
     fragment.appendChild(button);
     button.classList.add('copy-code');
