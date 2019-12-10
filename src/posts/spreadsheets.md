@@ -3,7 +3,7 @@ title: Spreadsheets
 date: '2019-09-08'
 tag: productivity
 slug: 'spreadsheets'
-code: true
+code: false
 draft: false
 ---
 
