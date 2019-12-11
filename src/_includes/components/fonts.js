@@ -9,8 +9,8 @@ if ('fonts' in document) {
     { weight: '700' }
   );
   Promise.all([bold.load(), regular.load()]).then(fonts => {
-    fonts.forEach(font => {
+    for (const font of fonts) {
       document.fonts.add(font);
-    });
+    };
   });
 }

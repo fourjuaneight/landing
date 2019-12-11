@@ -2,7 +2,7 @@ const worker = new Worker('/js/ww.js');
 
 const fragment = document.createDocumentFragment();
 const bodyStyle = getComputedStyle(document.body);
-const size = bodyStyle.getPropertyValue('--base');
+const size = 64;
 
 const makeNoise = async data => {
   const canvas = document.createElement('canvas');
