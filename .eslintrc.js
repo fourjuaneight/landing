@@ -8,7 +8,7 @@ module.exports = {
   extends: ['airbnb', 'prettier'],
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
       impliedStrict: true,
@@ -19,7 +19,6 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'arrow-body-style': [2, 'as-needed'],
-    'class-methods-use-this': 0,
     curly: 2,
     'dot-notation': 2,
     'func-names': 0,
@@ -127,7 +126,6 @@ module.exports = {
         arrowParens: 'avoid',
         bracketSpacing: true,
         endOfLine: 'auto',
-        jsxBracketSameLine: false,
         printWidth: 80,
         proseWrap: 'preserve',
         requirePragma: false,

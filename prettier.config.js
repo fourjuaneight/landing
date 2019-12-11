@@ -4,9 +4,8 @@
 
 module.exports = {
   arrowParens: 'avoid',
-  bracketSpacing: false,
+  bracketSpacing: true,
   endOfLine: 'auto',
-  jsxBracketSameLine: false,
   overrides: [
     {
       files: '*.json',
