@@ -1,5 +1,5 @@
 (() => {
-  const version = 'v6';
+  const version = 'v7';
   const cacheName = ':juanvilleladev:';
   const staticCacheName = `${version}${cacheName}static`;
   const pagesCacheName = `${cacheName}pages`;
