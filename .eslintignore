@@ -1,11 +1,6 @@
-.cache/
-.eslintrc.js
-babel.config.js
-coverage/
-dist/
-postcss.config.js
-prettier.config.js
-src/_includes/components/load.js
-src/scripts.js
-src/sw.js
-src/ww.js
+.cache
+.netlify
+build
+coverage
+node_modules
+public

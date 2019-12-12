@@ -1,11 +1,10 @@
----json
-{
-  "title": "Spreadsheets",
-  "date": "2019-09-08",
-  "tags": "productivity",
-  "summary": "I like lists. I make them all the time to help me keep track of just about anything I need to know. There's only so much I can hold in my head at a given time. So offloading certain information for later use frees up my head to focus on executing tasks relating to the listed information.",
-  "draft": false
-}
+---
+title: Spreadsheets
+date: '2019-09-08'
+tag: productivity
+slug: 'spreadsheets'
+code: false
+draft: false
 ---
 
 I like lists. I make them all the time to help me keep track of just about anything I need to know. There's only so much I can hold in my head at a given time. So offloading certain information for later use frees up my head to focus on executing tasks relating to the listed information.
@@ -24,4 +23,4 @@ As I said, these are now mostly Airtables. And that's worked very nicely. They h
 
 And while I'm happy to pay for something as vital as my spreadsheets, Airtables pricing is a bit too high for my needs. So I thought of using Google Sheets since I already pay for a G Suite account and they have a decent API as well. But then I wouldn't have a nice UI to look at my spreadsheets.
 
-So I think it's time to up my game. The logical next step here is to make a PostgreSQL database for all my stuff. [Hasura](https://hasura.io) provides an easy setup for PostgreSQL + GraphQl that can be launched on a small Heroku app. I can then create a nice UI for it on my personal site and add some authentication. Yeah. This sounds awesome. 
+So I think it's time to up my game. The logical next step here is to make a PostgreSQL database for all my stuff. [Hasura](https://hasura.io) provides an easy setup for PostgreSQL + GraphQl that can be launched on a small Heroku app. I can then create a nice UI for it on my personal site and add some authentication. Yeah. This sounds awesome.

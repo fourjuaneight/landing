@@ -1,11 +1,10 @@
----json
-{
-  "title": "Success",
-  "date": "2019-07-24",
-  "tags": "life",
-  "summary": "I often think about what it means to be successful. Like many in my field, I follow a lot of the influential folks to read about their current endeavors and best practices. Many of which are regarded as being the best at what they do and have great success in life. And so I wonder, what does success look like for me?",
-  "draft": false
-}
+---
+title: Success
+date: '2019-07-24'
+tag: life
+slug: 'success'
+code: false
+draft: false
 ---
 
 I often think about what it means to be successful. Like many in my field, I follow a lot of the "influential" folks to read about their current endeavors and best practices. Many of which are regarded as being the best at what they do and have great success in life. And so I wonder, what does success look like for me?

@@ -1,0 +1,9 @@
+$white: hsl(64, 32%, 96%);
+$dracula: hsl(232, 16%, 16%);
+$dracula-dark: darken($dracula, 4%);
+$meta: hsl(0, 0%, 40%);
+$meta-light: lighten($meta, 16%);
+$primary: hsl(264, 88%, 72%);
+$primary-light: lighten($primary, 8%);
+$primary-trans: hsla(264, 87%, 72%, 0.25);
+$secondary: hsl(224, 56%, 32%);
