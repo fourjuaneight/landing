@@ -37,14 +37,25 @@ $langs: (
   --meta: #{$meta-light};
 }
 
+@keyframes markedSlideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 3.75rem;
+  }
+}
+
 // THEME
 :root {
   @include light();
 
   --primary: #{$primary};
   --primary-light: #{$primary-light};
+  --primary-trans: #{$primary-trans};
   --secondary: #{$secondary};
   --duration: 256ms;
+  --transition: cubic-bezier(0.155, 0.64, 0.24, 1);
 }
 
 @media (prefers-color-scheme: light) {
@@ -93,6 +104,14 @@ body {
   font-family: Rubik, sans-serif;
   margin: 0;
   overflow-x: hidden;
+
+  #gatsby-focus-wrapper {
+    grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 57rem) minmax(
+        1.5rem,
+        1fr
+      );
+    grid-template-rows: repeat(3, auto);
+  }
 }
 
 a {
@@ -149,21 +168,11 @@ h3 {
 
 // Aligns to 72px
 h1 {
+  display: inline-block;
   font-size: 2.25rem; // 36px
   line-height: 1.166;
   margin-bottom: 1.875rem;
   position: relative;
-
-  &::before {
-    background-color: var(--primary);
-    bottom: -0.1875rem;
-    content: '';
-    height: 0.1875rem;
-    left: 0;
-    position: absolute;
-    width: 3.75rem;
-    z-index: 1;
-  }
 }
 
 // Aligns to 72px
@@ -197,6 +206,7 @@ article,
 div,
 dl,
 footer,
+h1::before,
 header,
 main,
 nav,
@@ -221,6 +231,7 @@ nav {
 
 dl a,
 footer,
+h1,
 header,
 header > div > a,
 .gatsby-highlight,
@@ -233,14 +244,6 @@ header,
 header > div,
 #gatsby-focus-wrapper {
   display: grid;
-}
-
-#gatsby-focus-wrapper {
-  grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 57rem) minmax(
-      1.5rem,
-      1fr
-    );
-  grid-template-rows: repeat(3, auto);
 }
 
 .gatsby-highlight pre[class*='language-'] {

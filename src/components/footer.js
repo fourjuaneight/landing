@@ -49,6 +49,8 @@ const Footer = ({ description, social }) => {
         alt="Juan's avatar."
         style={wrapStyles}
         imgStyle={imgStyles}
+        fadeIn
+        durationFadeIn={1152}
       />
       <FooterCopy>
         <h3>Hi, I'm Juan</h3>

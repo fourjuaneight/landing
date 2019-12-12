@@ -55,9 +55,25 @@ const sizes = (h, w) =>
 /* eslint-enable */
 
 // Animation
+const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+`;
 const fadeIn = keyframes`
   from {
     opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+const headingFadeIn = keyframes`
+  from {
+    color: transparent;
+  }
+  to {
+    color: var(--font);
   }
 `;
 
@@ -102,9 +118,11 @@ const HeaderMain = styled.header`
 `;
 
 const HeaderInner = styled.div`
+  animation: ${fadeIn} calc(var(--duration) * 4) forwards;
   grid-column: 2/3;
   grid-row-gap: 1.15rem;
   grid-template-columns: repeat(auto-fit, 10.5rem);
+  opacity: 0;
 `;
 
 const HomeLink = styled(Link)`
@@ -150,7 +168,7 @@ const Icon = styled.span`
 
   &::after,
   &::before {
-    animation: ${fadeIn} 2s;
+    animation: ${fade} 2s;
   }
 
   &::after {
@@ -223,10 +241,17 @@ const FooterMain = styled.footer`
     background-color: var(--primary-light);
     top: -2.25rem;
   }
+
+  .gatsby-image-wrapper {
+    animation: ${fadeIn} calc(var(--duration) * 4) forwards;
+    opacity: 0;
+  }
 `;
 
 const FooterCopy = styled.section`
+  animation: ${fadeIn} calc(var(--duration) * 4) forwards;
   max-width: 32rem;
+  opacity: 0;
 
   &,
   &:hover,
@@ -236,16 +261,20 @@ const FooterCopy = styled.section`
 `;
 
 const FootBody = styled.p`
+  animation: ${fadeIn} calc(var(--duration) * 4) forwards;
   max-width: 32rem;
+  opacity: 0;
 `;
 
 const DL = styled.dl`
   align-self: center;
+  animation: ${fadeIn} calc(var(--duration) * 4) forwards;
   grid-column: 2/3;
   grid-row: 2/3;
   justify-self: end;
   max-width: 7.5rem;
   min-height: 1.5rem;
+  opacity: 0;
 `;
 
 const DT = styled.dt`
@@ -330,8 +359,32 @@ const Main = styled.main`
   min-height: calc(100vh - 23.25rem);
   padding: 3rem 0;
 
+  > article > section,
+  > section {
+    animation: ${fadeIn} calc(var(--duration) * 4) forwards;
+    opacity: 0;
+  }
+
   > section > article {
     margin-bottom: 2.25rem;
+  }
+
+  > h1,
+  > article > h1 {
+    animation: ${headingFadeIn} calc(var(--duration) * 4) forwards;
+    color: transparent;
+
+    &::after {
+      ${absolute};
+      animation: markedSlideIn var(--duration) var(--duration) forwards;
+      background-color: var(--primary);
+      bottom: -0.5625rem;
+      content: '';
+      height: 0.1875rem;
+      left: 0;
+      width: 0;
+      z-index: 1;
+    }
   }
 `;
 
@@ -359,7 +412,7 @@ const ErrSubtitle = styled.h3`
 const BgNoise = styled.div`
   ${cover()};
 
-  animation: ${fadeIn} 2s;
+  animation: ${fade} calc(var(--duration) * 4);
   background-image: url(${props => props.bg});
   background-size: calc(0.125em * 64);
   opacity: 0.012;
