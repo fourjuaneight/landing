@@ -342,16 +342,13 @@ const ErrWrap = styled.section`
 `;
 
 const ErrTitle = styled.h1`
-  text-align: center;
-
-  &::before {
+  &::after {
     content: unset;
   }
 `;
 
 const ErrSubtitle = styled.h3`
   font-weight: normal;
-  text-align: center;
   text-transform: unset;
 `;
 
