@@ -1,5 +1,6 @@
 @import './colors.scss';
 
+// Helpers
 $langs: (
   bash,
   css,
@@ -35,6 +36,25 @@ $langs: (
   --bg-dark: #{$dracula-dark};
   --font: #{$white};
   --meta: #{$meta-light};
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes headingFadeIn {
+  from {
+    color: transparent;
+  }
+  to {
+    color: var(--font);
+  }
 }
 
 @keyframes markedSlideIn {
@@ -129,6 +149,32 @@ a {
   }
 }
 
+article,
+div,
+dl,
+footer,
+header,
+main,
+nav,
+picture,
+section {
+  width: 100%;
+}
+
+article > section,
+dl,
+header > div,
+nav {
+  justify-content: space-between;
+}
+
+article > section,
+dl,
+nav {
+  align-items: center;
+  display: flex;
+}
+
 article a[rel='nofollow noreferrer'] {
   text-decoration: underline;
   text-decoration-color: var(--primary) !important;
@@ -159,6 +205,33 @@ blockquote {
   padding-left: 1.3125rem;
 }
 
+dl a,
+footer,
+h1,
+header,
+header > div > a,
+.gatsby-highlight,
+#gatsby-focus-wrapper {
+  position: relative;
+}
+
+footer dl,
+footer section,
+footer .gatsby-image-wrapper,
+header > div,
+main > article > section,
+main > section {
+  animation: fadeIn calc(var(--duration) * 4) forwards;
+  opacity: 0;
+}
+
+footer,
+header,
+header > div,
+#gatsby-focus-wrapper {
+  display: grid;
+}
+
 h1,
 h2,
 h3 {
@@ -172,7 +245,20 @@ h1 {
   font-size: 2.25rem; // 36px
   line-height: 1.166;
   margin-bottom: 1.875rem;
-  position: relative;
+  animation: headingFadeIn calc(var(--duration) * 4) forwards;
+  color: transparent;
+
+  &::after {
+    animation: markedSlideIn var(--duration) var(--duration) forwards;
+    background-color: var(--primary);
+    bottom: -0.5625rem;
+    content: '';
+    height: 0.1875rem;
+    left: 0;
+    position: absolute;
+    width: 0;
+    z-index: 1;
+  }
 }
 
 // Aligns to 72px
@@ -199,51 +285,6 @@ img {
 
 picture {
   overflow: hidden;
-}
-
-// DRY
-article,
-div,
-dl,
-footer,
-h1::before,
-header,
-main,
-nav,
-picture,
-section {
-  width: 100%;
-}
-
-article > section,
-dl,
-header > div,
-nav {
-  justify-content: space-between;
-}
-
-article > section,
-dl,
-nav {
-  align-items: center;
-  display: flex;
-}
-
-dl a,
-footer,
-h1,
-header,
-header > div > a,
-.gatsby-highlight,
-#gatsby-focus-wrapper {
-  position: relative;
-}
-
-footer,
-header,
-header > div,
-#gatsby-focus-wrapper {
-  display: grid;
 }
 
 .gatsby-highlight pre[class*='language-'] {
