@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import ThemeContext from '../context/themeContext';
 import { BgNoise, Main } from './util/styleEl';
 
 import Footer from './footer';
@@ -39,23 +38,38 @@ const Layout = ({
     }
   `);
 
-  const { dark } = useContext(ThemeContext);
   const [noise, setNoise] = useState(null);
 
   useEffect(() => {
+    const baseSize = 64;
+
+    const makeNoise = async (data, size) =>
+      new Promise(resolve => {
+        const tmpCanvas = document.createElement('canvas');
+        tmpCanvas.width = size;
+        tmpCanvas.height = size;
+
+        const ctx = tmpCanvas.getContext('2d');
+        ctx.putImageData(new ImageData(data, size, size), 0, 0);
+
+        tmpCanvas.toBlob(resolve, 'image/png', 0.8);
+      });
+
     if (window.Worker) {
-      worker.noise(64);
+      worker.noise(baseSize);
 
       worker.onmessage = evt => {
-        setNoise(evt.data.result);
+        makeNoise(evt.data.result, baseSize)
+          .then(value => URL.createObjectURL(value))
+          .then(blob => setNoise(blob));
       };
     }
-  }, [dark]);
+  }, []);
 
   return (
     <>
       <Helmet>
-        <html data-theme={dark ? 'dark' : 'light'} lang={language} />
+        <html lang={language} />
         {code && (
           <link
             rel="stylesheet"

@@ -59,7 +59,11 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
         </MetaWrap>
       )}
       {/* eslint-disable react/no-danger */}
-      <Content code={code} dangerouslySetInnerHTML={createMarkup(html)} />
+      <Content
+        code={code}
+        dangerouslySetInnerHTML={createMarkup(html)}
+        list={list}
+      />
       {/* eslint-enable */}
     </article>
   );

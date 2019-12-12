@@ -69,7 +69,7 @@ const HeaderMain = styled.header`
   border-width: 0 0 0.75rem 0;
   grid-column: 1/4;
   grid-row: 1/2;
-  grid-template-columns: auto minmax(11.5rem, 73rem) 2rem auto;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 66rem) minmax(0, 1fr);
   padding: 1.6875rem 1.5rem;
 
   &::before,
@@ -104,7 +104,7 @@ const HeaderMain = styled.header`
 const HeaderInner = styled.div`
   grid-column: 2/3;
   grid-row-gap: 1.15rem;
-  grid-template-columns: repeat(auto-fit, 12rem);
+  grid-template-columns: repeat(auto-fit, 10.5rem);
 `;
 
 const HomeLink = styled(Link)`
@@ -315,6 +315,12 @@ const Content = styled.section`
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAG0lEQVR42mMIiyoTgWI+BmyAGAV8UMzJMFQBAJbJCuhzDiKQAAAAAElFTkSuQmCC');
     background-repeat: repeat;
   }
+
+  ${({ list }) =>
+    list &&
+    `p {
+    text-align: justify;
+  }`}
 `;
 
 // Layout

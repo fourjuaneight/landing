@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
-import ThemeToggle from './toggle';
 import { HeaderInner, HeaderMain, HomeLink, Nav, Sep } from './util/styleEl';
 
 const Header = ({ title }) => (
@@ -21,7 +20,6 @@ const Header = ({ title }) => (
         </Link>
       </Nav>
     </HeaderInner>
-    <ThemeToggle />
   </HeaderMain>
 );
 

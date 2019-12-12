@@ -1,19 +1,5 @@
 @import './colors.scss';
 
-@mixin light() {
-  --bg: #{$white};
-  --bg-dark: #{$dracula};
-  --font: #{$dracula-dark};
-  --meta: #{$meta};
-}
-
-@mixin dark() {
-  --bg: #{$dracula};
-  --bg-dark: #{$dracula-dark};
-  --font: #{$white};
-  --meta: #{$meta-light};
-}
-
 $langs: (
   bash,
   css,
@@ -37,32 +23,38 @@ $langs: (
   yaml
 );
 
+@mixin light() {
+  --bg: #{$white};
+  --bg-dark: #{$dracula};
+  --font: #{$dracula-dark};
+  --meta: #{$meta};
+}
+
+@mixin dark() {
+  --bg: #{$dracula};
+  --bg-dark: #{$dracula-dark};
+  --font: #{$white};
+  --meta: #{$meta-light};
+}
+
 // THEME
-html[data-theme='light'] {
+:root {
   @include light();
-}
 
-html[data-theme='dark'] {
-  @include dark();
-}
-
-html {
   --primary: #{$primary};
   --primary-light: #{$primary-light};
   --secondary: #{$secondary};
-  --secondary-light: #{$secondary-light};
-  --base: 24;
   --duration: 256ms;
 }
 
 @media (prefers-color-scheme: light) {
-  html {
+  :root {
     @include light();
   }
 }
 
 @media (prefers-color-scheme: dark) {
-  html {
+  :root {
     @include dark();
   }
 }
@@ -244,7 +236,7 @@ header > div,
 }
 
 #gatsby-focus-wrapper {
-  grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 56.25rem) minmax(
+  grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 57rem) minmax(
       1.5rem,
       1fr
     );
