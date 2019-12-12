@@ -221,7 +221,7 @@ footer .gatsby-image-wrapper,
 header > div,
 main > article > section,
 main > section {
-  animation: fadeIn calc(var(--duration) * 4) forwards;
+  animation: fadeIn calc(var(--duration) * 4) var(--duration) forwards;
   opacity: 0;
 }
 
@@ -245,11 +245,11 @@ h1 {
   font-size: 2.25rem; // 36px
   line-height: 1.166;
   margin-bottom: 1.875rem;
-  animation: headingFadeIn calc(var(--duration) * 4) forwards;
+  animation: headingFadeIn calc(var(--duration) * 4) var(--duration) forwards;
   color: transparent;
 
   &::after {
-    animation: markedSlideIn var(--duration) var(--duration) forwards;
+    animation: markedSlideIn var(--duration) forwards;
     background-color: var(--primary);
     bottom: -0.5625rem;
     content: '';
