@@ -62,7 +62,7 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
       <Content
         code={code}
         dangerouslySetInnerHTML={createMarkup(html)}
-        list={list}
+        list={list && 'true'}
       />
       {/* eslint-enable */}
     </article>

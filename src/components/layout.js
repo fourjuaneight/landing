@@ -43,17 +43,19 @@ const Layout = ({
   useEffect(() => {
     const baseSize = 64;
 
-    const makeNoise = async (data, size) =>
-      new Promise(resolve => {
-        const tmpCanvas = document.createElement('canvas');
-        tmpCanvas.width = size;
-        tmpCanvas.height = size;
+    const makeNoise = async (data, size) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      ctx.putImageData(new ImageData(data, size, size), 0, 0);
 
-        const ctx = tmpCanvas.getContext('2d');
-        ctx.putImageData(new ImageData(data, size, size), 0, 0);
+      const png = await new Promise(resolve =>
+        canvas.toBlob(resolve, 'image/png', 0.8)
+      );
 
-        tmpCanvas.toBlob(resolve, 'image/png', 0.8);
-      });
+      return png;
+    };
 
     if (window.Worker) {
       worker.noise(baseSize);
