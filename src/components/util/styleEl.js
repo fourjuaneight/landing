@@ -321,6 +321,57 @@ const Content = styled.section`
     `p {
     text-align: justify;
   }`}
+
+  .footnote-ref {
+    color: var(--primary);
+
+    &::before,
+    &::after {
+      color: hsl(64, 32%, 96%);
+    }
+
+    &::before {
+      content: '[';
+      margin-right: 0.1875rem;
+    }
+
+    &::after {
+      content: ']';
+      margin-left: 0.1875rem;
+    }
+
+    &:hover {
+      text-decoration: none;
+
+      &::before,
+      &::after {
+        color: var(--primary);
+      }
+    }
+  }
+
+  .footnotes {
+    margin-top: 0.75rem;
+
+    hr {
+      border-color: var(--primary-light);
+    }
+
+    ol {
+      margin-top: 0.75rem;
+    }
+
+    .footnote-backref {
+      color: var(--primary-light);
+      font-size: 1.5rem;
+      line-height: 1rem;
+      vertical-align: bottom;
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
 `;
 
 // Layout

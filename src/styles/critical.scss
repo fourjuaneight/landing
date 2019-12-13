@@ -287,6 +287,11 @@ picture {
   overflow: hidden;
 }
 
+sup {
+  margin-left: 0.1875rem;
+  vertical-align: 0.1875rem;
+}
+
 .gatsby-highlight pre[class*='language-'] {
   @each $item in $langs {
     &[class='language-#{$item}']::before {

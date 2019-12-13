@@ -52,6 +52,7 @@
     "gatsby-plugin-sitemap": "^2.2.19",
     "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-remark-external-links": "^0.0.4",
+    "gatsby-remark-footnotes": "^0.0.7",
     "gatsby-remark-prismjs": "^3.3.23",
     "gatsby-remark-smartypants": "^2.1.14",
     "gatsby-source-filesystem": "^2.1.33",

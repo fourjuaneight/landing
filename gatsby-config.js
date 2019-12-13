@@ -87,6 +87,15 @@ module.exports = {
           },
           {
             options: {
+              footnoteBackRefDisplay: 'inline',
+              footnoteBackRefInnerText: '^',
+              footnoteBackRefPreviousElementDisplay: 'inline',
+              useFootnoteMarkerText: false,
+            },
+            resolve: 'gatsby-remark-footnotes',
+          },
+          {
+            options: {
               classPrefix: 'language-',
               noInlineHighlight: false,
               showLineNumbers: false,
