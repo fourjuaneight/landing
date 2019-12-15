@@ -97,12 +97,6 @@ const Layout = ({
           <link rel="stylesheet" href={`${baseURL}/syntax.css`} media="all" />
         )}
         <script type="text/javascript">{fontFace}</script>
-        {/* <link
-          as="worker"
-          crossOrigin="anonymous"
-          href={`${baseURL}/ww-noise.worker.js`}
-          rel="preload"
-        /> */}
       </Helmet>
       <SEO
         pageDescription={pageDescription}
