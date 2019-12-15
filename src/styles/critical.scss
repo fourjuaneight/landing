@@ -1,29 +1,6 @@
-@import './colors.scss';
+@import "./colors.scss";
 
 // Helpers
-$langs: (
-  bash,
-  css,
-  gql,
-  graphql,
-  javascript,
-  js,
-  json,
-  jsx,
-  md,
-  mdx,
-  mysql,
-  postgresql,
-  python,
-  scss,
-  sh,
-  shell,
-  swift,
-  text,
-  toml,
-  yaml
-);
-
 @mixin light() {
   --bg: #{$white};
   --bg-dark: #{$dracula};
@@ -39,15 +16,6 @@ $langs: (
 }
 
 // Animations
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes headingFadeIn {
   from {
     color: transparent;
@@ -90,6 +58,34 @@ $langs: (
   }
 }
 
+// Fonts
+@font-face {
+  font-family: Rubik;
+  src: url("/fonts/Rubik-Regular-sub.woff2") format("woff2"),
+       url("/fonts/Rubik-Regular-sub.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Rubik;
+  src: url("/fonts/Rubik-Bold-sub.woff2") format("woff2"),
+       url("/fonts/Rubik-Bold-sub.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Fira Code;
+  src: url("/fonts/FiraCode-Regular.woff2") format("woff2"),
+       url("/fonts/FiraCode-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 // RESET
 *,
 :after,
@@ -110,7 +106,7 @@ $langs: (
 
 html {
   box-sizing: border-box;
-  font-feature-settings: 'liga' 1;
+  font-feature-settings: "liga" 1;
   font-size: 16px;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
@@ -175,7 +171,7 @@ nav {
   display: flex;
 }
 
-article a[rel='nofollow noreferrer'] {
+article a[rel="nofollow noreferrer"] {
   text-decoration: underline;
   text-decoration-color: var(--primary) !important;
 
@@ -215,16 +211,6 @@ header > div > a,
   position: relative;
 }
 
-footer dl,
-footer section,
-footer .gatsby-image-wrapper,
-header > div,
-main > article > section,
-main > section {
-  animation: fadeIn calc(var(--duration) * 4) var(--duration) forwards;
-  opacity: 0;
-}
-
 footer,
 header,
 header > div,
@@ -252,7 +238,7 @@ h1 {
     animation: markedSlideIn var(--duration) forwards;
     background-color: var(--primary);
     bottom: -0.5625rem;
-    content: '';
+    content: "";
     height: 0.1875rem;
     left: 0;
     position: absolute;
@@ -290,12 +276,4 @@ picture {
 sup {
   margin-left: 0.1875rem;
   vertical-align: 0.1875rem;
-}
-
-.gatsby-highlight pre[class*='language-'] {
-  @each $item in $langs {
-    &[class='language-#{$item}']::before {
-      content: '#{$item}';
-    }
-  }
 }
