@@ -68,17 +68,35 @@ const Layout = ({
     }
   }, []);
 
+  const fontFace = `
+    if ('fonts' in document) {
+      const regular = new FontFace(
+        'Rubik',
+        "url(/fonts/Rubik-Regular.woff2) format('woff2'), url(/fonts/Rubik-Regular.woff) format('woff')"
+      );
+      const bold = new FontFace(
+        'Rubik',
+        "url(/fonts/Rubik-Bold.woff2) format('woff2'), url(/fonts/Rubik-Bold.woff) format('woff')",
+        { weight: '700' }
+      );
+      Promise.all([bold.load(), regular.load()]).then(fonts => {
+        for (const font of fonts) {
+          document.fonts.add(font);
+        }
+      });
+    }
+  `;
+
+  const baseURL = typeof location.origin !== 'undefined' ? location.origin : '';
+
   return (
     <>
       <Helmet>
         <html lang={language} />
         {code && (
-          <link
-            rel="stylesheet"
-            href={`${location.origin}/syntax.css`}
-            media="all"
-          />
+          <link rel="stylesheet" href={`${baseURL}/syntax.css`} media="all" />
         )}
+        <script type="text/javascript">{fontFace}</script>
       </Helmet>
       <SEO
         pageDescription={pageDescription}

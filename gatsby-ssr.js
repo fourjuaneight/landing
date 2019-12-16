@@ -1,29 +1,44 @@
-const { readdirSync } = require('fs');
 const React = require('react');
+const globby = require('globby').sync;
 
 const publicFolder = './public';
-const isWorker = file => file.includes('ww') && file.endsWith('.worker.js');
-const shouldPreload = (file, preloads) =>
-  file.startsWith('ww') && preloads.some(preload => file.includes(preload));
 
-let preloadScripts = [];
+const scripts = {
+  fonts: [],
+  preload: [],
+  workers: [],
+};
 
-exports.onRenderBody = ({ setHeadComponents }, { preloads = [] } = {}) => {
-  if (!preloads.length) return;
+exports.onRenderBody = ({ pathPrefix = '', setHeadComponents }) => {
+  const fonts = globby(`${publicFolder}/fonts/*-sub.{woff2|woff}`);
+  const workers = globby(`${publicFolder}/*.worker.js`);
 
-  if (!preloadScripts.length) {
-    preloadScripts = readdirSync(publicFolder)
-      .filter(file => isWorker(file) && shouldPreload(file, preloads))
-      .map(file => (
-        <link
-          key={file}
-          as="worker"
-          crossOrigin="anonymous"
-          href={`/${file}`}
-          rel="preload"
-        />
-      ));
+  if (fonts.length !== 0) {
+    scripts.fonts = fonts.map((file, key) => (
+      <link
+        key={key}
+        rel="preload"
+        as="font"
+        type={`font/${file.match(/woff2|woff/g)}`}
+        crossOrigin="anonymous"
+        href={file.replace(publicFolder, pathPrefix)}
+      />
+    ));
   }
 
-  setHeadComponents(preloadScripts);
+  if (workers.length !== 0) {
+    scripts.workers = workers.map((file, key) => (
+      <link
+        key={key}
+        rel="preload"
+        as="worker"
+        crossOrigin="anonymous"
+        href={file.replace(publicFolder, pathPrefix)}
+      />
+    ));
+  }
+
+  scripts.preload = [...scripts.fonts, ...scripts.workers];
+
+  setHeadComponents(scripts.preload);
 };

@@ -1,4 +1,64 @@
 /* Styling */
+.gatsby-highlight pre[class*='language-'][class='language-bash']:before {
+  content: 'bash';
+}
+.gatsby-highlight pre[class*='language-'][class='language-css']:before {
+  content: 'css';
+}
+.gatsby-highlight pre[class*='language-'][class='language-gql']:before {
+  content: 'gql';
+}
+.gatsby-highlight pre[class*='language-'][class='language-graphql']:before {
+  content: 'graphql';
+}
+.gatsby-highlight pre[class*='language-'][class='language-javascript']:before {
+  content: 'javascript';
+}
+.gatsby-highlight pre[class*='language-'][class='language-js']:before {
+  content: 'js';
+}
+.gatsby-highlight pre[class*='language-'][class='language-json']:before {
+  content: 'json';
+}
+.gatsby-highlight pre[class*='language-'][class='language-jsx']:before {
+  content: 'jsx';
+}
+.gatsby-highlight pre[class*='language-'][class='language-md']:before {
+  content: 'md';
+}
+.gatsby-highlight pre[class*='language-'][class='language-mdx']:before {
+  content: 'mdx';
+}
+.gatsby-highlight pre[class*='language-'][class='language-mysql']:before {
+  content: 'mysql';
+}
+.gatsby-highlight pre[class*='language-'][class='language-postgresql']:before {
+  content: 'postgresql';
+}
+.gatsby-highlight pre[class*='language-'][class='language-python']:before {
+  content: 'python';
+}
+.gatsby-highlight pre[class*='language-'][class='language-scss']:before {
+  content: 'scss';
+}
+.gatsby-highlight pre[class*='language-'][class='language-sh']:before {
+  content: 'sh';
+}
+.gatsby-highlight pre[class*='language-'][class='language-shell']:before {
+  content: 'shell';
+}
+.gatsby-highlight pre[class*='language-'][class='language-swift']:before {
+  content: 'swift';
+}
+.gatsby-highlight pre[class*='language-'][class='language-text']:before {
+  content: 'text';
+}
+.gatsby-highlight pre[class*='language-'][class='language-toml']:before {
+  content: 'toml';
+}
+.gatsby-highlight pre[class*='language-'][class='language-yaml']:before {
+  content: 'yaml';
+}
 .gatsby-highlight {
   background-color: var(--bg-dark);
 }
