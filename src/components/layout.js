@@ -43,7 +43,7 @@ const Layout = ({
   useEffect(() => {
     const baseSize = 64;
 
-    const makeNoise = async (data, size) => {
+    const makeNoise = async (data, size = baseSize) => {
       const canvas = document.createElement('canvas');
       canvas.width = size;
       canvas.height = size;
@@ -61,9 +61,11 @@ const Layout = ({
       worker.noise(baseSize);
 
       worker.onmessage = evt => {
-        makeNoise(evt.data.result, baseSize)
-          .then(value => URL.createObjectURL(value))
-          .then(blob => setNoise(blob));
+        if (typeof evt.data.result !== 'undefined') {
+          makeNoise(evt.data.result)
+            .then(value => URL.createObjectURL(value))
+            .then(blob => setNoise(blob));
+        }
       };
     }
   }, []);
