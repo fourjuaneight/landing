@@ -18,7 +18,7 @@ const makeid = length => {
   return result;
 };
 
-glob('**/*.{js,css,png,woff,woff2}', { cwd }, (err, files) => {
+glob('**/*.{js,css,woff,woff2}', { cwd }, (err, files) => {
   if (err) {
     throw err;
   }
@@ -30,7 +30,7 @@ glob('**/*.{js,css,png,woff,woff2}', { cwd }, (err, files) => {
     from: [/(const)\s(staticAssets)\s=\s?\[\];/g, /const\sversion\s=\s'';/g],
     to: [
       `const staticAssets = [${newFiles}];`,
-      `const version = '${makeid(8)}';`,
+      `const version = '${makeid(4)}';`,
     ],
   };
 

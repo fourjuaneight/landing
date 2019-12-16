@@ -3,13 +3,12 @@
   "version": "4.0.0",
   "description": "Freelance Front-End Developer, automation nerd, and astronomy enthusiast.",
   "scripts": {
-    "build": "gatsby build && node cacheAssets.js",
+    "build": "gatsby build && node cache-assets.js",
     "clean:node": "rm -rf node_modules",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.js",
     "lint": "eslint --fix src/**/*.js",
-    "preload-fonts": "gatsby-preload-fonts",
     "serve": "gatsby serve",
     "start": "gatsby develop"
   },

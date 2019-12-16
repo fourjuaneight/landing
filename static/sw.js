@@ -1,7 +1,7 @@
 (() => {
   const version = '';
-  const cacheName = ':juanvilleladev:';
-  const staticCacheName = `${version}${cacheName}static`;
+  const cacheName = 'juanvilleladev:';
+  const staticCacheName = `${version}:${cacheName}static`;
   const pagesCacheName = `${cacheName}pages`;
   const imagesCacheName = `${cacheName}images`;
   const staticAssets = [];
