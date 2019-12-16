@@ -1,4 +1,4 @@
-export const noise = async base => {
+export const noise = base => {
   const black = new Uint8ClampedArray([0, 0, 0, 255]);
   const white = new Uint8ClampedArray([255, 255, 255, 255]);
   const data = new Uint8ClampedArray(base * base * 4);
