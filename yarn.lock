@@ -4660,6 +4660,21 @@ eslint-config-airbnb@^18.0.1:
     object.assign "^4.1.0"
     object.entries "^1.1.0"
 
+eslint-config-jcv@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/eslint-config-jcv/-/eslint-config-jcv-0.0.5.tgz#f094bec86540d7db498e11d057309e6a4dfd5e16"
+  integrity sha512-UqnkIA4xt6K6nDzuPDNKglb7cWv97lCo+skve5Ivf9rAYvzx34dLflzLnP8qg7TJVzPMlZJoGHg4Ndl36EtMcg==
+  dependencies:
+    babel-eslint "^10.0.3"
+    eslint-config-airbnb "^18.0.1"
+    eslint-config-prettier "^6.4.0"
+    eslint-plugin-html "^6.0.0"
+    eslint-plugin-import "^2.18.2"
+    eslint-plugin-jsx-a11y "^6.2.3"
+    eslint-plugin-prettier "^3.1.1"
+    eslint-plugin-react "^7.16.0"
+    eslint-plugin-react-hooks "^2.1.2"
+
 eslint-config-prettier@^6.4.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.7.0.tgz#9a876952e12df2b284adbd3440994bf1f39dfbb9"

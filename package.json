@@ -81,6 +81,7 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-jcv": "^0.0.5",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-emotion": "^10.0.14",
     "eslint-plugin-html": "^6.0.0",
