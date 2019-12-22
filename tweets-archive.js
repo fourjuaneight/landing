@@ -12,6 +12,7 @@ const buffData = Buffer.from(data);
 const encodedData = buffData.toString('base64');
 
 const dateFmt = date => new Date(date).toISOString();
+const RTd = tweet => tweet.match(/^RT\s/g) !== null;
 const getToken = async keys => {
   const authOpts = {
     data: 'grant_type=client_credentials',
@@ -50,6 +51,9 @@ getToken(encodedData)
           id: twt.id,
           date: dateFmt(twt.created_at),
           tweet: twt.text,
+          retweeted: RTd(twt.text),
+          retweets: twt.retweet_count,
+          favorite: twt.favorite_count,
         }));
         /* eslint-enable */
 
