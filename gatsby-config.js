@@ -1,5 +1,6 @@
 // Site configuration options
 // https://www.gatsbyjs.org/docs/gatsby-config/
+require('dotenv').config();
 const config = require('./config/siteConfig');
 
 module.exports = {
@@ -62,6 +63,18 @@ module.exports = {
         path: `${__dirname}/src/single/`,
       },
       resolve: 'gatsby-source-filesystem',
+    },
+    {
+      options: {
+        typeName: 'Erebor',
+        fieldName: 'erebor',
+        url: process.env.EREBOR_ENDPOINT,
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Hasura-Admin-Secret': process.env.EREBOR_KEY,
+        },
+      },
+      resolve: 'gatsby-source-graphql',
     },
     {
       options: {
