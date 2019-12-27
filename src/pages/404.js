@@ -7,7 +7,7 @@ import { ErrSubtitle, ErrTitle, ErrWrap } from '../components/util/styleEl';
 const Err = ({ location }) => (
   <Layout location={location}>
     <ErrWrap>
-      <ErrTitle>Page doesn't exit.</ErrTitle>
+      <ErrTitle>Page doesn&rsquo;t exit.</ErrTitle>
       <ErrSubtitle>
         But I guess, neither do we... What is reality, really?
       </ErrSubtitle>
@@ -16,7 +16,15 @@ const Err = ({ location }) => (
 );
 
 Err.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
+};
+
+Err.defaultProps = {
+  location: {
+    pathname: '',
+  },
 };
 
 export default Err;

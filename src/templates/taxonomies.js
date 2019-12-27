@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import Article from '../components/article';
 import Layout from '../components/layout';
-import List from '../components/list';
 import Title from '../components/title';
 
 const titleCase = str =>
@@ -44,15 +44,36 @@ export const query = graphql`
 const Taxonomies = ({ data, location }) => {
   const {
     allMarkdownRemark: { edges },
-    markdownRemark: { frontmatter: tag },
+    markdownRemark: { frontmatter },
   } = data;
 
-  const currentTag = tag.tag;
+  const currentTag = frontmatter.tag;
 
   return (
     <Layout pageTitle={titleCase(currentTag)} location={location}>
       <Title text={currentTag} />
-      <List edges={edges} />
+      <section>
+        {edges.map(({ node }, i) => {
+          const {
+            excerpt,
+            fields: { slug },
+            frontmatter: { date, tag, title },
+          } = node;
+
+          return (
+            <Article
+              key={slug}
+              date={date}
+              html={excerpt}
+              index={i}
+              list
+              slug={slug}
+              tag={tag}
+              title={title}
+            />
+          );
+        })}
+      </section>
     </Layout>
   );
 };
@@ -62,7 +83,19 @@ Taxonomies.propTypes = {
     allMarkdownRemark: PropTypes.object.isRequired,
     markdownRemark: PropTypes.object.isRequired,
   }),
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
+};
+
+Taxonomies.defaultProps = {
+  data: {
+    allMarkdownRemark: null,
+    markdownRemark: null,
+  },
+  location: {
+    pathname: '',
+  },
 };
 
 export default Taxonomies;

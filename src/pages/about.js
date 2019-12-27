@@ -32,7 +32,15 @@ const About = ({ location }) => {
 };
 
 About.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
+};
+
+About.defaultProps = {
+  location: {
+    pathname: '',
+  },
 };
 
 export default About;

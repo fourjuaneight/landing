@@ -53,7 +53,7 @@ const Footer = ({ description, social }) => {
         durationFadeIn={1152}
       />
       <FooterCopy>
-        <h3>Hi, I'm Juan</h3>
+        <h3>Hi, I&rsquo;m Juan</h3>
         <FootBody>A {description}</FootBody>
       </FooterCopy>
       <DL>

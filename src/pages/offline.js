@@ -7,9 +7,9 @@ import { ErrSubtitle, ErrTitle, ErrWrap } from '../components/util/styleEl';
 const Offline = ({ location }) => (
   <Layout location={location}>
     <ErrWrap>
-      <ErrTitle>Looks like you're offline.</ErrTitle>
+      <ErrTitle>Looks like you&rsquo;re offline.</ErrTitle>
       <ErrSubtitle>
-        Head back to the pages you've already visiting, which should work
+        Head back to the pages you&rsquo;ve already visiting, which should work
         offline.
       </ErrSubtitle>
     </ErrWrap>
@@ -17,7 +17,7 @@ const Offline = ({ location }) => (
 );
 
 Offline.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.shape.isRequired,
 };
 
 export default Offline;

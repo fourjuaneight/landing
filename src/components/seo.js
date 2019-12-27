@@ -103,10 +103,23 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, location }) => {
 };
 
 SEO.propTypes = {
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    origin: PropTypes.string.isRequired,
+    pathname: PropTypes.string.isRequired,
+  }),
   pageDescription: PropTypes.string,
   pageTitle: PropTypes.string,
   postPublishDate: PropTypes.string,
+};
+
+SEO.defaultProps = {
+  location: {
+    origin: '',
+    pathname: '',
+  },
+  pageDescription: null,
+  pageTitle: null,
+  postPublishDate: null,
 };
 
 export default SEO;

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const noise = base => {
   const black = new Uint8ClampedArray([0, 0, 0, 255]);
   const white = new Uint8ClampedArray([255, 255, 255, 255]);

@@ -14,9 +14,9 @@ exports.onRenderBody = ({ pathPrefix = '', setHeadComponents }) => {
   const workers = globby(`${publicFolder}/*.worker.js`);
 
   if (fonts.length !== 0) {
-    scripts.fonts = fonts.map((file, key) => (
+    scripts.fonts = fonts.map(file => (
       <link
-        key={key}
+        key={file}
         rel="preload"
         as="font"
         type={`font/${file.match(/woff2|woff/g)}`}
@@ -27,9 +27,9 @@ exports.onRenderBody = ({ pathPrefix = '', setHeadComponents }) => {
   }
 
   if (workers.length !== 0) {
-    scripts.workers = workers.map((file, key) => (
+    scripts.workers = workers.map(file => (
       <link
-        key={key}
+        key={file}
         rel="preload"
         as="worker"
         crossOrigin="anonymous"

@@ -3,14 +3,14 @@ import './src/styles/critical.scss';
 const addButtons = elements => {
   const fragment = document.createDocumentFragment();
 
-  for (const el of elements) {
+  elements.forEach(el => {
     const button = document.createElement('button');
 
     fragment.appendChild(button);
     button.classList.add('copy-code');
     button.innerHTML = 'Copy';
     el.prepend(fragment);
-  }
+  });
 };
 
 export const onInitialClientRender = () => {

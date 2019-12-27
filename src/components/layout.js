@@ -11,6 +11,7 @@ import SEO from './seo';
 
 // Noise
 import Noise from './noise.worker';
+
 const worker = typeof window === 'object' && new Noise();
 
 const Layout = ({
@@ -127,9 +128,14 @@ Layout.propTypes = {
 };
 
 Layout.defaultProps = {
+  code: false,
   location: {
+    origin: '',
     pathname: '',
   },
+  pageDescription: null,
+  pageTitle: null,
+  postPublishDate: null,
 };
 
 export default Layout;

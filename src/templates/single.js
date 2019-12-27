@@ -46,7 +46,18 @@ Single.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object.isRequired,
   }),
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
+};
+
+Single.defaultProps = {
+  data: {
+    markdownRemark: null,
+  },
+  location: {
+    pathname: '',
+  },
 };
 
 export default Single;

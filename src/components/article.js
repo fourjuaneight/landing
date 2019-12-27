@@ -11,7 +11,7 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
   useEffect(() => {
     const copy = document.querySelectorAll('button.copy-code');
 
-    for (const el of copy) {
+    copy.forEach(el => {
       el.addEventListener('click', () => {
         const selection = window.getSelection();
         const range = document.createRange();
@@ -25,18 +25,18 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
         try {
           document.execCommand('copy');
           selection.removeAllRanges();
-          el.innerHTML = 'Copied!';
+          el.innerHTML = 'Copied!'; // eslint-disable-line
           setTimeout(() => {
-            el.innerHTML = original;
+            el.innerHTML = original; // eslint-disable-line
           }, 3000);
         } catch (_unused) {
           el.innerHTML = "Can't copy, hit Ctrl+C!"; // eslint-disable-line
           setTimeout(() => {
-            el.innerHTML = original;
+            el.innerHTML = original; // eslint-disable-line
           }, 3000);
         }
       });
-    }
+    });
   }, []);
   return (
     <article key={list && index}>
@@ -78,6 +78,15 @@ Article.propTypes = {
   slug: PropTypes.string,
   tag: PropTypes.string,
   title: PropTypes.string.isRequired,
+};
+
+Article.defaultProps = {
+  code: false,
+  date: null,
+  index: null,
+  list: null,
+  slug: null,
+  tag: null,
 };
 
 export default Article;
