@@ -415,6 +415,15 @@ const BgNoise = styled.div`
   z-index: 20;
 `;
 
+// Screen Readers
+const Sr = styled.span`
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+`;
+
 export {
   BgNoise,
   Content,
@@ -439,5 +448,6 @@ export {
   Permalink,
   Sep,
   SocialLink,
+  Sr,
   Toggle,
 };
