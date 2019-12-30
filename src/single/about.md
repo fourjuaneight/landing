@@ -4,7 +4,7 @@ slug: 'about'
 draft: false
 ---
 
-Hi there. I'm Juan and I like websites. Most of my time is spent making them. I work independently as a freelancer, helping businesses make accessible and reliable static sites. When I'm not working, I'm likely still coding. There's always something for me to fix, optimize, or rebuild.
+Hi there. I'm Juan and I like websites. Most of my time is spent making them. I work independently as a freelancer, helping businesses make accessible and reliable static sites. When I'm not working, I'm likely still coding. I do have a life. I just choose to ignore it and code all the time instead.
 
 ## Work
 
@@ -12,19 +12,19 @@ Most of my development career has been with static-site generators. Primarily Hu
 
 **Languages:**
 
-- HTML
-- CSS
-- Sass
 - JavaScript
 - TypeScript
-- Python
+- CSS
+- Sass
+- HTML
 
 **Frameworks:**
 
+- React
 - Gatsby
 - Hugo
-- Eleventy
 - Jekyll
+- Eleventy
 - Node
 
 **Tooling:**
@@ -32,6 +32,20 @@ Most of my development career has been with static-site generators. Primarily Hu
 - Webpack
 - Gulp
 - Babel
+- Jest
+- Cypress
+- aXe
+- TravisCI
+- CircleCI
+- GitHub Actions
+- Gitlab/Bitbucket Pipeline
+
+**Design Tools:**
+- Sketch
+- Figma
+- InVision
+- Photoshop
+- Affinity Designer
 
 There's likely several other stuff I know that I could list, but these are the main with which I work on a daily basis.
 
@@ -39,11 +53,9 @@ There's likely several other stuff I know that I could list, but these are the m
 
 There are many ways I could go about explaining who I am. But I feel a list is best. So here are some Juan facts for you:
 
-- Born and raised in Florida. I live in DC now. I really miss the food and nicer people. Don't miss the heat. Or the fires. Or the hurricanes.
-- If there's a remote chance I can automate it, I will try my hardest to do so. Even if it means I'll spend more time trying to automate the job than actually doing it. That's half the fun.
-- I often think about False Vacuum and how everything could cease to exist at any moment.
-- No other activity brings me more joy than cooking. My wife loves everything I make for her but I think she's biased.
-- I worked in IT (mostly Networking) for a brief period. I hated it. Not the field (it's wonderful), but the act of doing it for a living.
+- Born and raised in Florida. I live in DC now. I really miss the food and nicer people. Don't miss the heat. Or the fires. Or the hurricanes. But I don't like DC either.
+- I like automating stuff. Most of the time I don't need to. A lot of the times I spend more time automating then what it'll actually save me in time.
+- I consider myself to be great with Regular Expressions. I can't ever understand someone else's patterns though.
+- I love cooking. My wife says I'm great, but I think she's biased.
 - I was a paramedic some time ago. I delivered a baby once. It wasn't magical.
-- Even though I understand how Facebook tracks my every move online, I can't help but think Instagram is listening in on my conversations.
 - Married. She's pretty cool.
