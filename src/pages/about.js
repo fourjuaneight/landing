@@ -7,26 +7,26 @@ import Layout from '../components/layout';
 
 const About = ({ location }) => {
   const {
-    markdownRemark: {
+    mdx: {
       excerpt,
       frontmatter: { title },
-      html,
+      body,
     },
   } = useStaticQuery(graphql`
     query AboutQuery {
-      markdownRemark(fileAbsolutePath: { regex: "/single/" }) {
-        excerpt(format: PLAIN, truncate: false)
+      mdx(fileAbsolutePath: { regex: "/single/" }) {
+        excerpt(pruneLength: 272)
         frontmatter {
           title
         }
-        html
+        body
       }
     }
   `);
 
   return (
     <Layout location={location} pageDescription={excerpt} pageTitle={title}>
-      <Article html={html} title={title} />
+      <Article html={body} title={title} />
     </Layout>
   );
 };

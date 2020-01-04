@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Title from './title';
 import { Content, Meta, MetaWrap, Permalink } from './util/styleEl';
@@ -37,7 +38,8 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
         }
       });
     });
-  }, []);
+  }, [code]);
+
   return (
     <article key={list && index}>
       {list ? (
@@ -58,13 +60,19 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
           </Meta>
         </MetaWrap>
       )}
-      {/* eslint-disable react/no-danger */}
-      <Content
-        code={code}
-        dangerouslySetInnerHTML={createMarkup(html)}
-        list={list && 'true'}
-      />
-      {/* eslint-enable */}
+      {list ? (
+        // eslint-disable react/no-danger
+        <Content
+          code={code}
+          dangerouslySetInnerHTML={createMarkup(html)}
+          list={list && 'true'}
+        />
+      ) : (
+        // eslint-enable
+        <Content code={code} list={list && 'true'}>
+          <MDXRenderer>{html}</MDXRenderer>
+        </Content>
+      )}
     </article>
   );
 };
@@ -83,8 +91,8 @@ Article.propTypes = {
 Article.defaultProps = {
   code: false,
   date: null,
-  index: null,
-  list: null,
+  index: 0,
+  list: false,
   slug: null,
   tag: null,
 };

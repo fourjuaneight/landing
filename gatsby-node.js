@@ -30,7 +30,7 @@ exports.onCreateWebpackConfig = ({
 
 exports.onCreateNode = ({ actions, node, getNode }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     /* eslint-disable sort-keys, quotes */
     const slug = createFilePath({ node, getNode, basePath: `posts/` });
     createNodeField({
@@ -46,7 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
           frontmatter: { draft: { eq: false } }
@@ -66,11 +66,11 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  const posts = result.data.allMarkdownRemark.edges;
-  const taxonomies = result.data.allMarkdownRemark.group;
+  const { edges } = result.data.allMdx;
+  const { group } = result.data.allMdx;
 
   // Create single template
-  posts.forEach(({ node }) => {
+  edges.forEach(({ node }) => {
     createPage({
       component: path.resolve('./src/templates/single.js'),
       context: {
@@ -81,7 +81,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create taxonomies template
-  taxonomies.forEach(({ fieldValue }) => {
+  group.forEach(({ fieldValue }) => {
     createPage({
       component: path.resolve('./src/templates/taxonomies.js'),
       context: {

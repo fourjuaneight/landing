@@ -7,25 +7,25 @@ import Layout from '../components/layout';
 
 export const query = graphql`
   query SingleQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      excerpt(format: PLAIN, pruneLength: 256, truncate: false)
+    mdx(fields: { slug: { eq: $slug } }) {
+      excerpt(pruneLength: 272)
       frontmatter {
         code
         date(formatString: "YYYY-MM-DD")
         tag
         title
       }
-      html
+      body
     }
   }
 `;
 
 const Single = ({ data, location }) => {
   const {
-    markdownRemark: {
+    mdx: {
       excerpt,
       frontmatter: { code, date, tag, title },
-      html,
+      body,
     },
   } = data;
 
@@ -37,14 +37,14 @@ const Single = ({ data, location }) => {
       pageTitle={title}
       postPublishDate={date}
     >
-      <Article date={date} html={html} tag={tag} title={title} />
+      <Article date={date} html={body} tag={tag} title={title} />
     </Layout>
   );
 };
 
 Single.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object.isRequired,
+    mdx: PropTypes.object.isRequired,
   }),
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
@@ -53,7 +53,7 @@ Single.propTypes = {
 
 Single.defaultProps = {
   data: {
-    markdownRemark: null,
+    mdx: null,
   },
   location: {
     pathname: '',

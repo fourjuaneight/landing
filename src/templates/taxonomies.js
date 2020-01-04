@@ -15,13 +15,13 @@ const titleCase = str =>
 
 export const query = graphql`
   query TaxonomiesQuery($tag: String!) {
-    allMarkdownRemark(
+    allMdx(
       sort: { fields: frontmatter___date, order: DESC }
       filter: { frontmatter: { draft: { eq: false }, tag: { eq: $tag } } }
     ) {
       edges {
         node {
-          excerpt(format: HTML, truncate: false)
+          excerpt(pruneLength: 272)
           fields {
             slug
           }
@@ -33,7 +33,7 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(frontmatter: { tag: { eq: $tag } }) {
+    mdx(frontmatter: { tag: { eq: $tag } }) {
       frontmatter {
         tag
       }
@@ -43,8 +43,8 @@ export const query = graphql`
 
 const Taxonomies = ({ data, location }) => {
   const {
-    allMarkdownRemark: { edges },
-    markdownRemark: { frontmatter },
+    allMdx: { edges },
+    mdx: { frontmatter },
   } = data;
 
   const currentTag = frontmatter.tag;
@@ -80,8 +80,8 @@ const Taxonomies = ({ data, location }) => {
 
 Taxonomies.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.object.isRequired,
-    markdownRemark: PropTypes.object.isRequired,
+    allMdx: PropTypes.object.isRequired,
+    mdx: PropTypes.object.isRequired,
   }),
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
@@ -90,8 +90,8 @@ Taxonomies.propTypes = {
 
 Taxonomies.defaultProps = {
   data: {
-    allMarkdownRemark: null,
-    markdownRemark: null,
+    allMdx: null,
+    mdx: null,
   },
   location: {
     pathname: '',

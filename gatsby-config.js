@@ -1,6 +1,7 @@
 // Site configuration options
 // https://www.gatsbyjs.org/docs/gatsby-config/
 require('dotenv').config();
+const { resolve } = require('path');
 const config = require('./config/siteConfig');
 
 module.exports = {
@@ -22,6 +23,42 @@ module.exports = {
         theme_color: config.theme,
       },
       resolve: 'gatsby-plugin-manifest',
+    },
+    {
+      options: {
+        defaultLayouts: {
+          default: resolve(__dirname, 'src/templates', 'single.js'),
+        },
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-smartypants',
+          {
+            options: {
+              rel: 'nofollow noreferrer',
+              target: '_blank',
+            },
+            resolve: 'gatsby-remark-external-links',
+          },
+          {
+            options: {
+              footnoteBackRefDisplay: 'inline',
+              footnoteBackRefInnerText: '^',
+              footnoteBackRefPreviousElementDisplay: 'inline',
+              useFootnoteMarkerText: false,
+            },
+            resolve: 'gatsby-remark-footnotes',
+          },
+          {
+            options: {
+              classPrefix: 'language-',
+              noInlineHighlight: false,
+              showLineNumbers: false,
+            },
+            resolve: 'gatsby-remark-prismjs',
+          },
+        ],
+      },
+      resolve: 'gatsby-plugin-mdx',
     },
     {
       options: {
@@ -119,7 +156,7 @@ module.exports = {
             output: '/index.xml',
             query: `
               {
-                allMarkdownRemark(
+                allMdx(
                   limit: 2000,
                   sort: { order: DESC, fields: [frontmatter___date] },
                   filter: {frontmatter: { draft: { ne: true } }}
@@ -138,8 +175,8 @@ module.exports = {
                 }
               }
             `,
-            serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map(edge => ({
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map(edge => ({
                 ...edge.node.frontmatter,
                 custom_elements: [{ 'content:encoded': edge.node.html }],
                 date: edge.node.frontmatter.date,

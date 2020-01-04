@@ -8,10 +8,10 @@ import Title from '../components/title';
 
 const Posts = ({ location }) => {
   const {
-    allMarkdownRemark: { edges },
+    allMdx: { edges },
   } = useStaticQuery(graphql`
     query PostsQuery {
-      allMarkdownRemark(
+      allMdx(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
           frontmatter: { draft: { eq: false } }
@@ -20,7 +20,7 @@ const Posts = ({ location }) => {
       ) {
         edges {
           node {
-            excerpt(format: HTML, pruneLength: 256, truncate: false)
+            excerpt(pruneLength: 272)
             fields {
               slug
             }
