@@ -159,31 +159,45 @@ module.exports = {
                 allMdx(
                   limit: 2000,
                   sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: {frontmatter: { draft: { ne: true } }}
+                  filter: {
+                    fileAbsolutePath: { regex: "/posts/" }
+                    frontmatter: { draft: { eq: false } }
+                  }
                 ) {
                   edges {
                     node {
-                      excerpt
-                      html
-                      frontmatter {
-                        date
+                      excerpt(pruneLength: 272)
+                      fields {
                         slug
+                      }
+                      frontmatter {
+                        date(formatString: "YYYY-MM-DD")
                         title
                       }
+                      html
                     }
                   }
                 }
               }
             `,
             serialize: ({ query: { site, allMdx } }) =>
-              allMdx.edges.map(edge => ({
-                ...edge.node.frontmatter,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
-                date: edge.node.frontmatter.date,
-                description: edge.node.excerpt,
-                guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-              })),
+              allMdx.edges.map(
+                ({
+                  node: {
+                    excerpt,
+                    fields: { slug },
+                    frontmatter,
+                    html,
+                  },
+                }) => ({
+                  ...frontmatter,
+                  description: excerpt,
+                  date: frontmatter.date,
+                  url: `${site.siteMetadata.siteUrl}/posts${slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/posts${slug}`,
+                  custom_elements: [{ 'content:encoded': html }],
+                })
+              ),
             title: config.title,
           },
         ],
@@ -193,13 +207,14 @@ module.exports = {
               siteMetadata {
                 description
                 siteUrl
+                site_url: siteUrl
                 title
               }
             }
           }
         `,
       },
-      resolve: 'gatsby-plugin-feed',
+      resolve: 'gatsby-plugin-feed-mdx',
     },
   ],
   siteMetadata: {

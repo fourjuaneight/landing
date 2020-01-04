@@ -6017,12 +6017,12 @@ gatsby-plugin-emotion@^4.1.15:
     "@babel/runtime" "^7.7.6"
     "@emotion/babel-preset-css-prop" "^10.0.23"
 
-gatsby-plugin-feed@^2.3.21:
-  version "2.3.25"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.3.25.tgz#ed92ce21fc1fc4a936ca23ab27025c0a8e64e0d0"
-  integrity sha512-a2Asudmf2np+C8k2MqjUPbHABdoBgKgbIX+HvsZAniAiFIBhxEC6QudQP0rNqdo7+OGhPUpSTYawcalrnmtNRA==
+gatsby-plugin-feed-mdx@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed-mdx/-/gatsby-plugin-feed-mdx-1.0.0.tgz#924fbca4ca90c55706cd06f2661944f5c5223ab8"
+  integrity sha512-EsXCnopmGRQDrMwNm+597nepHKAVox0ZqClk3YAZEmK+bOe8PUgn8TDigJOYijTmmKewE3UNwvVcFinIhzacUQ==
   dependencies:
-    "@babel/runtime" "^7.7.6"
+    "@babel/runtime" "^7.7.2"
     "@hapi/joi" "^15.1.1"
     fs-extra "^8.1.0"
     lodash.merge "^4.6.2"
@@ -11179,6 +11179,13 @@ potrace@^2.1.2:
   dependencies:
     jimp "^0.6.4"
 
+preact-render-to-string@^5.0.6:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.0.6.tgz#3e89078f78e88157a044f91914b348894cd18d03"
+  integrity sha512-VOsbY/YNPJVIxEdzkUJNwhZNEOE5/w4lbEAsBvhsImbpeDsDhCtUvzpZav/j8tHF8HcG6lNWljmkmXfy+KEnsQ==
+  dependencies:
+    pretty-format "^3.8.0"
+
 preact@^10.0.5:
   version "10.1.1"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.1.1.tgz#1fd12e3ed6b74993ed8805f68e9d953cc914889a"
@@ -11244,6 +11251,11 @@ pretty-error@^2.1.1:
   dependencies:
     renderkid "^2.0.1"
     utila "~0.4"
+
+pretty-format@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
+  integrity sha1-v77VbV6ad2ZF9LH/eqGjrE+jw4U=
 
 prismjs@^1.17.1:
   version "1.17.1"
