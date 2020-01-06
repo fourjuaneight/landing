@@ -292,7 +292,7 @@ const MetaWrap = styled.section`
   ${({ tweet }) =>
     tweet &&
     `
-    max-width: 360px;
+    max-width: 372px;
   `};
 `;
 
@@ -389,6 +389,11 @@ const TweetWrap = styled.article`
     line-height: 1.5;
     padding-top: 0.75rem;
     margin-bottom: 0.5625rem;
+    white-space: pre-line;
+
+    a {
+      color: var(--primary);
+    }
   }
 `;
 
