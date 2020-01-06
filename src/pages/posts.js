@@ -25,7 +25,7 @@ const Posts = ({ location }) => {
               slug
             }
             frontmatter {
-              date(formatString: "MMMM D, YYYY")
+              date(formatString: "YYYY-MM-DD")
               tag
               title
             }
