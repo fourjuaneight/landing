@@ -65,11 +65,11 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
         <Content
           code={code}
           dangerouslySetInnerHTML={createMarkup(html)}
-          list={list && 'true'}
+          list
         />
       ) : (
         // eslint-enable
-        <Content code={code} list={list && 'true'}>
+        <Content code={code}>
           <MDXRenderer>{html}</MDXRenderer>
         </Content>
       )}

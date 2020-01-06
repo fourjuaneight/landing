@@ -97,7 +97,11 @@ const Layout = ({
       <Helmet>
         <html lang={language} />
         {code && (
-          <link rel="stylesheet" href={`${baseURL}/syntax.css`} media="all" />
+          <link
+            rel="stylesheet"
+            href={`${baseURL}/css/syntax.css`}
+            media="all"
+          />
         )}
         <script type="text/javascript">{fontFace}</script>
       </Helmet>

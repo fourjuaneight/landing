@@ -45,19 +45,10 @@ const Single = ({ data, location }) => {
 Single.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.object.isRequired,
-  }),
+  }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
-  }),
-};
-
-Single.defaultProps = {
-  data: {
-    mdx: null,
-  },
-  location: {
-    pathname: '',
-  },
+  }).isRequired,
 };
 
 export default Single;
