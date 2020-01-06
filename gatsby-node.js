@@ -1,8 +1,8 @@
 // APIs setup
 // https://www.gatsbyjs.org/docs/node-apis/
 
-const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const { resolve } = require('path');
 
 exports.onCreateWebpackConfig = ({
   actions: { replaceWebpackConfig },
@@ -72,7 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create single template
   edges.forEach(({ node }) => {
     createPage({
-      component: path.resolve('./src/templates/single.js'),
+      component: resolve('./src/templates/single.js'),
       context: {
         slug: node.fields.slug,
       },
@@ -83,7 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create taxonomies template
   group.forEach(({ fieldValue }) => {
     createPage({
-      component: path.resolve('./src/templates/taxonomies.js'),
+      component: resolve('./src/templates/taxonomies.js'),
       context: {
         tag: fieldValue,
       },

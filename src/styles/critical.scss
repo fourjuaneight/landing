@@ -177,6 +177,10 @@ h2,
 h3 {
   font-weight: bold;
   text-transform: capitalize;
+
+  code {
+    margin-left: 0.5rem;
+  }
 }
 
 // aligns to 72px

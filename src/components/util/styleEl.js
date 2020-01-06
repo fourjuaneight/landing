@@ -289,6 +289,11 @@ const Permalink = styled(Link)`
 const MetaWrap = styled.section`
   flex-wrap: wrap;
   margin-bottom: 0.75rem;
+  ${({ tweet }) =>
+    tweet &&
+    `
+    max-width: 360px;
+  `};
 `;
 
 const Meta = styled.p`
@@ -374,6 +379,19 @@ const Content = styled.section`
   }
 `;
 
+const TweetWrap = styled.article`
+  &:not(:last-child) {
+    border-bottom: 0.05rem solid var(--primary-trans);
+  }
+
+  > p {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    padding-top: 0.75rem;
+    margin-bottom: 0.5625rem;
+  }
+`;
+
 // Layout
 const Main = styled.main`
   grid-column: 2/3;
@@ -450,4 +468,5 @@ export {
   SocialLink,
   Sr,
   Toggle,
+  TweetWrap,
 };
