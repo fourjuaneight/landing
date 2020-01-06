@@ -64,10 +64,16 @@ exports.createPages = async ({ graphql, actions }) => {
           fieldValue
         }
       }
+      erebor {
+        tweets {
+          id
+        }
+      }
     }
   `);
   const { edges } = result.data.allMdx;
   const { group } = result.data.allMdx;
+  const { tweets } = result.data.erebor;
 
   // Create single template
   edges.forEach(({ node }) => {
@@ -88,6 +94,17 @@ exports.createPages = async ({ graphql, actions }) => {
         tag: fieldValue,
       },
       path: `/${fieldValue}/`,
+    });
+  });
+
+  // Create taxonomies template
+  tweets.forEach(({ id }) => {
+    createPage({
+      component: resolve('./src/templates/tweets.js'),
+      context: {
+        id,
+      },
+      path: `/status/${id}/`,
     });
   });
 };

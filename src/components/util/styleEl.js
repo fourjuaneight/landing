@@ -289,10 +289,14 @@ const Permalink = styled(Link)`
 const MetaWrap = styled.section`
   flex-wrap: wrap;
   margin-bottom: 0.75rem;
-  ${({ tweet }) =>
-    tweet &&
+  ${({ tweets }) =>
+    tweets &&
     `
-    max-width: 372px;
+    justify-content: flex-start;
+
+    p {
+      margin: 0 1.5rem 0.75rem 0;
+    }
   `};
 `;
 

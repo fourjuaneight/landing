@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import Layout from '../components/layout';
+import Title from '../components/title';
 import Tweet from '../components/tweet';
 
 const Twitter = ({ location }) => {
@@ -11,7 +12,7 @@ const Twitter = ({ location }) => {
   } = useStaticQuery(graphql`
     query {
       erebor {
-        tweets(order_by: { date: desc }, limit: 10) {
+        tweets(order_by: { date: desc }, limit: 5) {
           date
           favorited
           id
@@ -23,7 +24,8 @@ const Twitter = ({ location }) => {
   `);
 
   return (
-    <Layout pageTitle="Posts" location={location}>
+    <Layout pageTitle="Recent Tweets" location={location}>
+      <Title text="Recent Tweets" />
       <section>
         {tweets.map(({ date, favorited, id, retweeted, tweet }) => (
           <Tweet
@@ -31,6 +33,7 @@ const Twitter = ({ location }) => {
             date={date}
             favorited={favorited}
             id={id}
+            list
             path={location.pathname}
             retweeted={retweeted}
             tweet={tweet}
