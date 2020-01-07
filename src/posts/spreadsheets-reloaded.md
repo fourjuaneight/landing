@@ -16,11 +16,16 @@ To get a little more context on what's going on, go read [Part 1](/spreadsheets/
 - [Hasura](https://hasura.io)
 
 ## Setup
-Getting this up and running was pretty straightforward. Hasura can run off of a Docker container and be deployed on pretty much anything. I wanted to decouple the database from the API, so I opted for a [Managed Database](https://www.digitalocean.com/products/managed-databases/) on DigitalOcean. It's a relatively inexpensive solution. The Hasura API is also hosted on DO; they have a nice [one-click app](https://marketplace.digitalocean.com/apps/hasura-graphql).
+Getting this up and running was pretty straightforward. Hasura can run off a Docker container and be deployed on pretty much anything. I wanted to decouple the database from the API, so I opted for a [Managed Database](https://www.digitalocean.com/products/managed-databases/) on DigitalOcean. It's a relatively inexpensive solution. The Hasura API is also hosted there; they have a nice [one-click app](https://marketplace.digitalocean.com/apps/hasura-graphql).
 
-Once that was up and running, I just needed to update the Docker Compose for Hasura and point the database to the DO Managed one I created. I even went ahead and added a custom domain to the API.
+Once that was good to go, I just needed to edit the Docker Compose and update `HASURA_GRAPHQL_DATABASE_URL` with the new database.
 
-If you're familiar with GraphQL, you'll quickly get the hang of Hasura. It uses [GraphiQL](https://github.com/graphql/graphiql), so it's not too hard to get the hang of it. Still, going over the documentation for all of these will make things easier to navigate.
+```bash
+cd /etc/hasura
+vi docker-compose.yaml
+```
+
+Now, If you're familiar with GraphQL, you'll quickly get the hang of Hasura. It uses [GraphiQL](https://github.com/graphql/graphiql), so it's not too hard to find your way around the schema. Still, going over the documentation for all of these tools will make things easier to navigate.
 
 With everything set up, I just needed to start adding content. The API has a nice GUI console where tables can be created and rows added. But the primary use of this will be via XHR Posts to the API.
 
@@ -69,7 +74,7 @@ Data is coming from apps and websites. But all of the apps I use have their webs
 }
 ```
 
-The source URL is then matched to the corresponding object in the parsing JSON. The same is done for each parameter regex that's used to parse and grab the data. Anything else that isn't coming from these particular apps (regular articles and blog posts), can be handled by the **Get Article using Safari Reader** action. After all this process is done, the Shortcut just needs to generate the mutation and send it to the API.
+The source URL is then matched to the corresponding object in the parsing JSON. The same is done for each parameter regex that's used to parse and grab the data. Anything else that isn't coming from these particular apps (regular articles and blog posts), can be handled by the **Get Article using Safari Reader** action. After all this process is done, the shortcut just needs to generate the mutation and send it to the API.
 
 ```graphql
 mutation {
@@ -94,13 +99,15 @@ And correctly formatted for Shortcuts it would look like this:
 {"query":"mutation {\n  insert_bookmarks(\n    objects: {\n      category: \"Articles\",\n      creator: \"André Staltz\",\n      title: \"A plan to rescue the Web from the Internet\",\n      url: \"https://staltz.com/a-plan-to-rescue-the-web-from-the-internet.html\"\n    }\n  ) {\n    returning {\n      title\n      url\n    }\n  }\n}"}
 ```
 
-So far, the source code for every site has been consistent enough for me to correctly parse with my regex. I've saved several items with no issues. And because I'm using an external file for the parsing code, I can easily add another source and the Shortcut would just read the latest version. Having it on GitHub also means I can use it anywhere else I might want to create similar apps for saving bookmarks.
+So far, the source code for every site has been consistent enough for me to correctly parse with my regex. I've saved several items with no issues. And because I'm using an external file for the parsing code, I can easily add another source and the shortcut would just read the latest version. Having it on GitHub also means I can use it anywhere else I might want to create similar apps for saving bookmarks.
 
-I try to build my shortcuts in a modular way to reuse them; everything is a component. My Shortcut for adding Bookmarks, for example, is actually 4 different smaller shortcuts that are put together inside one for this particular use. That means sharing theme for y'all would be a nightmare. Also, this setup is very specific to my use-case. However, if anyone is adamant about getting your hands on any of this, hit me up on Twitter and I'll see what I can do.
+I try to keep my Shortcuts modular; everything is a component. The shortcut for adding Bookmarks, for example, is actually 4 different smaller ones assembled together. So sharing them would be a nightmare. Also, this setup is very specific to my use-case. However, if anyone is adamant about getting your hands on any of this, hit me up on Twitter and I'll see what I can do.
 
 ## Going Further
-I'm quite happy with the API setup. And the Shortcut will get some optimizations here and there, just to reduce the amount of input needed from me; ideally, I'd like to hit the Shortcut from the share sheet and hate it do everything with my intervention.
+I'm quite happy with the API setup. And the shortcuts will get some optimizations here and there, just to reduce the amount of input needed from me; ideally, I'd like to hit the shortcut from the share sheet and hate it do everything with my intervention.
 
 With that said, there's so much more to do on the front-end. My plan is to create a nice table UI for all of my lists, not just Bookmarks. I'm still debating if it should go on this site or if I should create a completely separate app with authentication. I'm leaning towards the latter just because I want to have the option of adding and deleting items from the front-end. But we'll see.
 
-There's absolutely no need for all of this. I have another Shortcut that makes a fetch to the API and gives me a nice list of Bookmarks to choose from. This works well for all of my lists. But that's just boring. So stay tuned for more to come.
+There's absolutely no need for all of this. I have another shortcut that makes a fetch to the API and gives me a nice list of Bookmarks to choose from. This works well for all of my lists. But that's just boring. So stay tuned for more to come.
+
+[^1]: This used to be documented, but with their recent moved from beta to full release, I can't seem to find it. Editing the Docker Compose should still work, though I don't recommend this unless you're sure of what you're doing.
