@@ -1,6 +1,5 @@
 import { Link } from 'gatsby';
-import { keyframes } from '@emotion/core';
-import styled from '@emotion/styled';
+import { styled } from 'goober';
 
 // Helpers
 const absolute = `
@@ -54,15 +53,8 @@ const sizes = (h, w) =>
   h && !w ? `height: ${h}; width: ${h};` : `height: ${h}; width: ${w};`;
 /* eslint-enable */
 
-// Animation
-const fade = keyframes`
-  from {
-    opacity: 0;
-  }
-`;
-
 // Header
-const HeaderMain = styled.header`
+const HeaderMain = styled('header')`
   background-color: var(--bg-dark);
   border-color: var(--secondary);
   border-style: solid;
@@ -101,7 +93,7 @@ const HeaderMain = styled.header`
   }
 `;
 
-const HeaderInner = styled.div`
+const HeaderInner = styled('div')`
   grid-column: 2/3;
   grid-row-gap: 1.15rem;
   grid-template-columns: repeat(auto-fit, 10.5rem);
@@ -113,18 +105,18 @@ const HomeLink = styled(Link)`
   width: 9rem;
 `;
 
-const Nav = styled.nav`
+const Nav = styled('nav')`
   max-height: 4.5rem;
   max-width: 10.5rem;
 `;
 
-const Sep = styled.span`
+const Sep = styled('span')`
   color: var(--meta);
   line-height: 1.5;
 `;
 
 // Toggle
-const Toggle = styled.button`
+const Toggle = styled('button')`
   ${absolute};
   ${sizes('1.05rem')};
 
@@ -139,18 +131,18 @@ const Toggle = styled.button`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;
 
-const Name = styled.span`
+const Name = styled('span')`
   ${hideVisually};
 `;
 
-const Icon = styled.span`
+const Icon = styled('span')`
   ${sizes('1.05rem')};
 
   min-width: 1.05rem;
 
   &::after,
   &::before {
-    animation: ${fade} 2s;
+    animation: fade 2s;
   }
 
   &::after {
@@ -191,7 +183,7 @@ const Icon = styled.span`
 `;
 
 // Footer
-const FooterMain = styled.footer`
+const FooterMain = styled('footer')`
   background-color: var(--bg-dark);
   border-color: var(--secondary);
   border-style: solid;
@@ -225,7 +217,7 @@ const FooterMain = styled.footer`
   }
 `;
 
-const FooterCopy = styled.section`
+const FooterCopy = styled('section')`
   max-width: 32rem;
 
   &,
@@ -235,11 +227,11 @@ const FooterCopy = styled.section`
   }
 `;
 
-const FootBody = styled.p`
+const FootBody = styled('p')`
   max-width: 32rem;
 `;
 
-const DL = styled.dl`
+const DL = styled('dl')`
   align-self: center;
   grid-column: 2/3;
   grid-row: 2/3;
@@ -248,15 +240,15 @@ const DL = styled.dl`
   min-height: 1.5rem;
 `;
 
-const DT = styled.dt`
+const DT = styled('dt')`
   ${hideVisually};
 `;
 
-const DD = styled.dd`
+const DD = styled('dd')`
   ${sizes('1.5rem')};
 `;
 
-const SocialLink = styled.a`
+const SocialLink = styled('a')`
   min-height: 1.5rem;
   text-decoration: none;
 
@@ -286,7 +278,7 @@ const Permalink = styled(Link)`
   }
 `;
 
-const MetaWrap = styled.section`
+const MetaWrap = styled('section')`
   flex-wrap: wrap;
   margin-bottom: 0.75rem;
   ${({ tweets }) =>
@@ -300,7 +292,7 @@ const MetaWrap = styled.section`
   `};
 `;
 
-const Meta = styled.p`
+const Meta = styled('p')`
   &,
   > *,
   a:visited {
@@ -316,7 +308,7 @@ const Meta = styled.p`
   }
 `;
 
-const Content = styled.section`
+const Content = styled('section')`
   align-items: flex-start;
   flex-direction: column;
 
@@ -383,7 +375,7 @@ const Content = styled.section`
   }
 `;
 
-const TweetWrap = styled.article`
+const TweetWrap = styled('article')`
   &:not(:last-child) {
     border-bottom: 0.05rem solid var(--primary-trans);
   }
@@ -402,7 +394,7 @@ const TweetWrap = styled.article`
 `;
 
 // Layout
-const Main = styled.main`
+const Main = styled('main')`
   grid-column: 2/3;
   grid-row: 2/3;
   min-height: calc(100vh - 23.25rem);
@@ -414,27 +406,27 @@ const Main = styled.main`
 `;
 
 // 404
-const ErrWrap = styled.section`
+const ErrWrap = styled('section')`
   justify-content: center;
   margin: 4.5rem 0 0;
 `;
 
-const ErrTitle = styled.h1`
+const ErrTitle = styled('h1')`
   &::after {
     content: unset;
   }
 `;
 
-const ErrSubtitle = styled.h3`
+const ErrSubtitle = styled('h3')`
   font-weight: normal;
   text-transform: unset;
 `;
 
 // Noise
-const BgNoise = styled.div`
+const BgNoise = styled('div')`
   ${cover()};
 
-  animation: ${fade} calc(var(--duration) * 4);
+  animation: fade calc(var(--duration) * 4);
   background-image: url(${props => props.bg});
   background-size: calc(0.125em * 64);
   opacity: 0.012;
@@ -443,7 +435,7 @@ const BgNoise = styled.div`
 `;
 
 // Screen Readers
-const Sr = styled.span`
+const Sr = styled('span')`
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;

@@ -6,7 +6,7 @@ const config = require('./config/siteConfig');
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-emotion',
+    'gatsby-plugin-goober',
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
