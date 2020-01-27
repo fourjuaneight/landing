@@ -66,7 +66,7 @@ const Taxonomies = ({ data, location }) => {
               date={date}
               html={excerpt}
               index={i}
-              list
+              list={location.pathname !== '/'}
               slug={slug}
               tag={tag}
               title={title}
@@ -82,20 +82,10 @@ Taxonomies.propTypes = {
   data: PropTypes.shape({
     allMdx: PropTypes.object.isRequired,
     mdx: PropTypes.object.isRequired,
-  }),
+  }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
-  }),
-};
-
-Taxonomies.defaultProps = {
-  data: {
-    allMdx: null,
-    mdx: null,
-  },
-  location: {
-    pathname: '',
-  },
+  }).isRequired,
 };
 
 export default Taxonomies;

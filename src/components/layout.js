@@ -125,7 +125,7 @@ Layout.propTypes = {
   location: PropTypes.shape({
     origin: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
   pageDescription: PropTypes.string,
   pageTitle: PropTypes.string,
   postPublishDate: PropTypes.string,
@@ -133,10 +133,6 @@ Layout.propTypes = {
 
 Layout.defaultProps = {
   code: false,
-  location: {
-    origin: '',
-    pathname: '',
-  },
   pageDescription: null,
   pageTitle: null,
   postPublishDate: null,

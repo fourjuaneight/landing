@@ -16,15 +16,7 @@ const Err = ({ location }) => (
 );
 
 Err.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }),
-};
-
-Err.defaultProps = {
-  location: {
-    pathname: '',
-  },
+  location: PropTypes.shape({}).isRequired,
 };
 
 export default Err;

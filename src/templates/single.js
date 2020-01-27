@@ -46,9 +46,7 @@ Single.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.object.isRequired,
   }).isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
+  location: PropTypes.shape({}).isRequired,
 };
 
 export default Single;

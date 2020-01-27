@@ -17,7 +17,7 @@ const Offline = ({ location }) => (
 );
 
 Offline.propTypes = {
-  location: PropTypes.shape.isRequired,
+  location: PropTypes.shape({}).isRequired,
 };
 
 export default Offline;

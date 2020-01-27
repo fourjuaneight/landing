@@ -52,7 +52,7 @@ const Posts = ({ location }) => {
               date={date}
               html={excerpt}
               index={i}
-              list
+              list={location.pathname !== '/'}
               slug={slug}
               tag={tag}
               title={title}
@@ -67,13 +67,7 @@ const Posts = ({ location }) => {
 Posts.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
-  }),
-};
-
-Posts.defaultProps = {
-  location: {
-    pathname: '',
-  },
+  }).isRequired,
 };
 
 export default Posts;

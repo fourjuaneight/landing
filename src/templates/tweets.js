@@ -50,7 +50,9 @@ const Twitter = ({ data, location }) => {
 
 Twitter.propTypes = {
   data: PropTypes.shape.isRequired,
-  location: PropTypes.shape.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Twitter;

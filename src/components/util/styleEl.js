@@ -312,13 +312,17 @@ const Content = styled('section')`
   align-items: flex-start;
   flex-direction: column;
 
-  .gatsby-highlight pre {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAG0lEQVR42mMIiyoTgWI+BmyAGAV8UMzJMFQBAJbJCuhzDiKQAAAAAElFTkSuQmCC');
-    background-repeat: repeat;
+  .gatsby-highlight {
+    margin-bottom: 0.75rem;
+
+    pre {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAG0lEQVR42mMIiyoTgWI+BmyAGAV8UMzJMFQBAJbJCuhzDiKQAAAAAElFTkSuQmCC');
+      background-repeat: repeat;
+    }
   }
 
-  ${({ list }) =>
-    list &&
+  ${({ justify }) =>
+    justify &&
     `p {
     text-align: justify;
   }`}

@@ -53,7 +53,7 @@ const Index = ({ location }) => {
               date={date}
               html={excerpt}
               index={i}
-              list
+              list={location.pathname === '/'}
               slug={slug}
               tag={tag}
               title={title}
@@ -68,13 +68,7 @@ const Index = ({ location }) => {
 Index.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
-  }),
-};
-
-Index.defaultProps = {
-  location: {
-    pathname: '',
-  },
+  }).isRequired,
 };
 
 export default Index;

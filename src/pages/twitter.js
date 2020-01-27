@@ -47,13 +47,7 @@ const Twitter = ({ location }) => {
 Twitter.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
-  }),
-};
-
-Twitter.defaultProps = {
-  location: {
-    pathname: '',
-  },
+  }).isRequired,
 };
 
 export default Twitter;

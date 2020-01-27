@@ -106,17 +106,13 @@ SEO.propTypes = {
   location: PropTypes.shape({
     origin: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
   pageDescription: PropTypes.string,
   pageTitle: PropTypes.string,
   postPublishDate: PropTypes.string,
 };
 
 SEO.defaultProps = {
-  location: {
-    origin: '',
-    pathname: '',
-  },
   pageDescription: null,
   pageTitle: null,
   postPublishDate: null,

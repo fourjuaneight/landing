@@ -61,15 +61,12 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
         </MetaWrap>
       )}
       {list ? (
-        // eslint-disable react/no-danger
-        <Content
-          code={code}
-          dangerouslySetInnerHTML={createMarkup(html)}
-          list
-        />
+        <Content justify={list.toString()}>
+          {/* eslint-disable react/no-danger */}
+          <p dangerouslySetInnerHTML={createMarkup(html)} />
+        </Content>
       ) : (
-        // eslint-enable
-        <Content code={code}>
+        <Content>
           <MDXRenderer>{html}</MDXRenderer>
         </Content>
       )}
