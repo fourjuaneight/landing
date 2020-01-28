@@ -1,0 +1,11 @@
+---
+title: 'Custom Fonts in Gatsby'
+date: '2019-10-21'
+tag: appearances
+slug: 'https://alligator.io/gatsbyjs/custom-fonts-in-gatsby/'
+code: false
+appearance: true
+draft: false
+---
+
+If you aren't sure about your font loading stragery on Gatsby, I wrote about a few differnt solutions over at Alligator.io. It covers 3 different ways to load and use custom fonts in Gatsby: [Typography.js](https://github.com/KyleAMathews/typography.js), [Typefaces.js](https://github.com/KyleAMathews/typefaces) and self-hosted font files.

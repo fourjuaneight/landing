@@ -4,11 +4,27 @@ import { Link } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Title from './title';
-import { Content, Meta, MetaWrap, Permalink } from './util/styleEl';
+import {
+  Content,
+  ExternalLink,
+  Meta,
+  MetaWrap,
+  Permalink,
+} from './util/styleEl';
 
 const createMarkup = content => ({ __html: content });
 
-const Article = ({ code, date, html, index, list, slug, tag, title }) => {
+const Article = ({
+  appearance,
+  code,
+  date,
+  html,
+  index,
+  list,
+  slug,
+  tag,
+  title,
+}) => {
   useEffect(() => {
     const copy = document.querySelectorAll('button.copy-code');
 
@@ -42,8 +58,16 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
 
   return (
     <article key={list && index}>
-      {list ? (
-        <Permalink to={`/posts${slug}`}>
+      {/* eslint-disable-next-line no-nested-ternary */}
+      {list && appearance ? (
+        <ExternalLink href={slug} target="_blank" rel="noopener noreferrer">
+          <h2>
+            {title}
+            <span aria-hidden="true">{String.fromCharCode(8594)}</span>
+          </h2>
+        </ExternalLink>
+      ) : list && !appearance ? (
+        <Permalink to={`/posts/${slug}`}>
           <h2>{title}</h2>
         </Permalink>
       ) : (
@@ -75,23 +99,20 @@ const Article = ({ code, date, html, index, list, slug, tag, title }) => {
 };
 
 Article.propTypes = {
-  code: PropTypes.bool,
-  date: PropTypes.string,
+  appearance: PropTypes.bool.isRequired,
+  code: PropTypes.bool.isRequired,
+  date: PropTypes.string.isRequired,
   html: PropTypes.string.isRequired,
   index: PropTypes.number,
   list: PropTypes.bool,
-  slug: PropTypes.string,
-  tag: PropTypes.string,
+  slug: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
 
 Article.defaultProps = {
-  code: false,
-  date: null,
   index: 0,
   list: false,
-  slug: null,
-  tag: null,
 };
 
 export default Article;

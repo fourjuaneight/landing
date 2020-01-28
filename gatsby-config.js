@@ -168,11 +168,10 @@ module.exports = {
                   edges {
                     node {
                       excerpt(pruneLength: 272)
-                      fields {
-                        slug
-                      }
                       frontmatter {
+                        appearance
                         date(formatString: "YYYY-MM-DD")
+                        slug
                         title
                       }
                       html
@@ -182,23 +181,19 @@ module.exports = {
               }
             `,
             serialize: ({ query: { site, allMdx } }) =>
-              allMdx.edges.map(
-                ({
-                  node: {
-                    excerpt,
-                    fields: { slug },
-                    frontmatter,
-                    html,
-                  },
-                }) => ({
+              allMdx.edges.map(({ node: { excerpt, frontmatter, html } }) => {
+                const link = frontmatter.appearance
+                  ? frontmatter.slug
+                  : `${site.siteMetadata.siteUrl}/posts${frontmatter.slug}`;
+                return {
                   ...frontmatter,
                   description: excerpt,
                   date: frontmatter.date,
-                  url: `${site.siteMetadata.siteUrl}/posts${slug}`,
-                  guid: `${site.siteMetadata.siteUrl}/posts${slug}`,
+                  url: link,
+                  guid: link,
                   custom_elements: [{ 'content:encoded': html }],
-                })
-              ),
+                };
+              }),
             title: config.title,
           },
         ],

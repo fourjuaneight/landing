@@ -22,11 +22,9 @@ export const query = graphql`
       edges {
         node {
           excerpt(pruneLength: 272)
-          fields {
-            slug
-          }
           frontmatter {
             date(formatString: "MMMM D, YYYY")
+            slug
             tag
             title
           }
@@ -56,16 +54,15 @@ const Taxonomies = ({ data, location }) => {
         {edges.map(({ node }, i) => {
           const {
             excerpt,
-            fields: { slug },
-            frontmatter: { date, tag, title },
+            frontmatter: { date, slug, tag, title },
           } = node;
 
           return (
             <Article
-              key={slug}
               date={date}
               html={excerpt}
               index={i}
+              key={slug}
               list={location.pathname !== '/'}
               slug={slug}
               tag={tag}

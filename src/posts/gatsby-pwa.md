@@ -1,0 +1,11 @@
+---
+title: 'Making Gatsby a PWA: Service Worker and Web App Manifest'
+date: '2019-07-18'
+tag: appearances
+slug: 'https://alligator.io/gatsbyjs/gatsby-pwa/'
+code: false
+appearance: true
+draft: false
+---
+
+Here's a brief guide I wrote for Alligator.io on how to add offline support to your Gatsby site with the help of gatsby-plugin-manifest and gatsby-plugin-offline.

@@ -278,6 +278,26 @@ const Permalink = styled(Link)`
   }
 `;
 
+const ExternalLink = styled('a')`
+  &,
+  span {
+    display: inline-block;
+  }
+
+  > h2 {
+    padding: 0;
+  }
+
+  span {
+    margin-left: 0.5rem;
+    transition: transform var(--duration) ease;
+  }
+
+  &:hover span {
+    transform: translateX(0.5rem);
+  }
+`;
+
 const MetaWrap = styled('section')`
   flex-wrap: wrap;
   margin-bottom: 0.75rem;
@@ -456,6 +476,7 @@ export {
   ErrSubtitle,
   ErrTitle,
   ErrWrap,
+  ExternalLink,
   FootBody,
   FooterCopy,
   FooterMain,

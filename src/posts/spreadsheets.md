@@ -4,6 +4,7 @@ date: '2019-09-08'
 tag: productivity
 slug: 'spreadsheets'
 code: false
+appearance: false
 draft: false
 ---
 

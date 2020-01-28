@@ -46,10 +46,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allMdx(
+      posts: allMdx(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
-          frontmatter: { draft: { eq: false } }
+          frontmatter: { appearance: { eq: false }, draft: { eq: false } }
         }
         sort: { fields: frontmatter___date, order: DESC }
       ) {
@@ -60,6 +60,14 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           }
         }
+      }
+      tags: allMdx(
+        filter: {
+          fileAbsolutePath: { regex: "/posts/" }
+          frontmatter: { draft: { eq: false } }
+        }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         group(field: frontmatter___tag) {
           fieldValue
         }
@@ -71,8 +79,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  const { edges } = result.data.allMdx;
-  const { group } = result.data.allMdx;
+  const { edges } = result.data.posts;
+  const { group } = result.data.tags;
   const { tweets } = result.data.erebor;
 
   // Create single template

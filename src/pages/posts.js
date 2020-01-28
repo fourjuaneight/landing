@@ -14,7 +14,7 @@ const Posts = ({ location }) => {
       allMdx(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
-          frontmatter: { draft: { eq: false } }
+          frontmatter: { appearance: { eq: false }, draft: { eq: false } }
         }
         sort: { fields: frontmatter___date, order: DESC }
       ) {
@@ -48,10 +48,10 @@ const Posts = ({ location }) => {
 
           return (
             <Article
-              key={slug}
               date={date}
               html={excerpt}
               index={i}
+              key={slug}
               list={location.pathname !== '/'}
               slug={slug}
               tag={tag}

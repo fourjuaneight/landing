@@ -4,6 +4,7 @@ date: 2020-01-01
 tag: yearly-theme
 slug: 'year-of-focus'
 code: false
+appearance: false
 draft: false
 ---
 
