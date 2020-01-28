@@ -4763,10 +4763,10 @@ eslint-config-airbnb@^18.0.1:
     object.assign "^4.1.0"
     object.entries "^1.1.0"
 
-eslint-config-jcv@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/eslint-config-jcv/-/eslint-config-jcv-0.0.5.tgz#f094bec86540d7db498e11d057309e6a4dfd5e16"
-  integrity sha512-UqnkIA4xt6K6nDzuPDNKglb7cWv97lCo+skve5Ivf9rAYvzx34dLflzLnP8qg7TJVzPMlZJoGHg4Ndl36EtMcg==
+eslint-config-jcv@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-jcv/-/eslint-config-jcv-0.1.0.tgz#03dd3d560ff5cc5fcddee70cc0b4d9b655f14b7c"
+  integrity sha512-KKQbdWqPTngeYeatwmyTd8sX9O7Lpxa/kP831UW6LqvsyOYtDyzy9WQuyDkth2MJu4byTc6jIg+Bup0wdMzFjw==
   dependencies:
     babel-eslint "^10.0.3"
     eslint-config-airbnb "^18.0.1"
