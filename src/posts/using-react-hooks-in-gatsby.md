@@ -1,5 +1,5 @@
 ---
-title: 'Using React Hooks in Gatsby'
+title: 'Alligator: Using React Hooks in Gatsby'
 date: '2020-01-22'
 tag: appearances
 slug: 'https://alligator.io/gatsbyjs/react-hooks-gatsby/'
@@ -8,4 +8,4 @@ appearance: true
 draft: false
 ---
 
-Here's an introduction I wrote for Alligator.io on how to use React Hooks with Gastsby. It uses a sticky header and dropdown menu as examples with `useSate` and `useEffect`.
+Writing functional components with? Here's an introduction to React Hooks with Gatsby. It uses a sticky header and dropdown menu as examples with `useState` and `useEffect`.
