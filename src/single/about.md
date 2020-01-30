@@ -4,58 +4,32 @@ slug: 'about'
 draft: false
 ---
 
-Hi there. I'm Juan and I like websites. Most of my time is spent making them. I work independently as a freelancer, helping businesses make accessible and reliable static sites. When I'm not working, I'm likely still coding. I do have a life. I just choose to ignore it and code all the time instead.
+Hi, I'm Juan and I like websites. Most of my time is spent making them for strangers online. When I'm not working, I'm probably still coding.
 
 ## Work
 
-Most of my development career has been with static-site generators. Primarily Hugo and Gatsby. I'm not very good at talking about myself, so here are some nice lists:
+Most of my development work is with the "JAMstack". Although these days I mostly jam with React. Here's a cool list of skills:
 
-**Languages:**
+### Stack:
+JavaScript, TypeScript, CSS, Sass, HTML
 
-- JavaScript
-- TypeScript
-- CSS
-- Sass
-- HTML
+### Frameworks:
+React, Gatsby, Hugo, Jekyll, Eleventy
 
-**Frameworks:**
+### Tooling:
+Node, Webpack, Gulp, Jest, Cypress, aXe, TravisCI, CircleCI, GitHub Actions, Gitlab/Bitbucket Pipeline
 
-- React
-- Gatsby
-- Hugo
-- Jekyll
-- Eleventy
-- Node
+### Design Tools:
+Sketch, Figma, InVision, Photoshop, Affinity Designer
 
-**Tooling:**
-
-- Webpack
-- Gulp
-- Babel
-- Jest
-- Cypress
-- aXe
-- TravisCI
-- CircleCI
-- GitHub Actions
-- Gitlab/Bitbucket Pipeline
-
-**Design Tools:**
-- Sketch
-- Figma
-- InVision
-- Photoshop
-- Affinity Designer
-
-There's likely several other stuff I know that I could list, but these are the main with which I work on a daily basis.
+### Other Skills:
+Nunchuck, Bo Hunting, Computer Hacking
 
 ## Personal
 
-There are many ways I could go about explaining who I am. But I feel a list is best. So here are some Juan facts for you:
+Here's a nice list with some Juan facts for you:
 
-- Born and raised in Florida. I live in DC now. I really miss the food and nicer people. Don't miss the heat. Or the fires. Or the hurricanes. But I don't like DC either.
-- I like automating stuff. Most of the time I don't need to. A lot of the times I spend more time automating then what it'll actually save me in time.
-- I consider myself to be great with Regular Expressions. I can't ever understand someone else's patterns though.
-- I love cooking. My wife says I'm great, but I think she's biased.
-- I was a paramedic some time ago. I delivered a baby once. It wasn't magical.
-- Married. She's pretty cool.
+- I automate all the things.
+- I like cooking. My partner says I'm great, but I think she's biased.
+- I was a paramedic once and delivered a baby. It wasn't magical.
+- Florida man.

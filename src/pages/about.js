@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 
-import Article from '../components/article';
 import Layout from '../components/layout';
+import Title from '../components/title';
+import { Content } from '../components/util/styleEl';
 
 const About = ({ location }) => {
   const {
@@ -26,7 +28,12 @@ const About = ({ location }) => {
 
   return (
     <Layout location={location} pageDescription={excerpt} pageTitle={title}>
-      <Article html={body} title={title} />
+      <article>
+        <Title text={title} />
+        <Content>
+          <MDXRenderer>{body}</MDXRenderer>
+        </Content>
+      </article>
     </Layout>
   );
 };
