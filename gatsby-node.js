@@ -43,7 +43,7 @@ exports.onCreateNode = ({ actions, node, getNode }) => {
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   const result = await graphql(`
     {
       posts: allMdx(
@@ -115,12 +115,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/status/${id}/`,
     });
   });
-};
 
-// Netlify redirects
-exports.createPages = ({ actions }) => {
-  const { createRedirect } = actions;
-
+  // Netlify redirects
   createRedirect({
     fromPath: '/tags/yearly-theme',
     toPath: '/yearly-theme/',
