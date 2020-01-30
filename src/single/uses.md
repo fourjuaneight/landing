@@ -47,7 +47,16 @@ I try my best to stay organized and mostly fail.
 - **[Jayson](https://jayson.app)** - Nice UI for JSON on iOS.
 - **[Scriptable](https://scriptable.app)** - Some times you just need a little JavaScript.
 
+### Tools
+- **[Alfred](https://www.alfredapp.com/)** - Spotlight is great and Launchbar is nicer looking, but you can't beat the customizability of Alfred.
+- **[Hazel](https://www.noodlesoft.com/)** - A computer should run itself. This does the trick.
+- **[Moom](https://manytricks.com/moom/)** - Nifty little window manager.
+- **[Bartender](https://www.macbartender.com/)** - Too much crap on the menu bar.
+
 ### Media
 - **[Overcast](https://overcast.fm)** - I always go back and forth between this and [Castro](https://castro.fm). I love the former for its quality build, but the latter has a terrific UI.
 - **[Reeder](https://reederapp.com)** - Paired with [Feed Wrangler](https://feedwrangler.net). But I'm missing [Feedbin's](https://feedbin.com) powerful filter.
 - **[Apollo](https://apolloapp.io)** (Reddit)
+
+
+For an even nerdier list, take a look at my [dotfiles](https://github.com/fourjuaneight/dotfiles) and see into the soul of my Mac.
