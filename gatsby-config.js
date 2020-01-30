@@ -11,7 +11,6 @@ module.exports = {
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
-    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     {
       options: {
@@ -64,7 +63,9 @@ module.exports = {
     {
       options: {
         host: config.siteUrl,
-        policy: [{ allow: '/', disallow: '/twitter/*', userAgent: '*' }],
+        policy: [
+          { allow: '/', disallow: ['/status/*', '/twitter/'], userAgent: '*' },
+        ],
         sitemap: `${config.siteUrl}sitemap.xml`,
       },
       resolve: 'gatsby-plugin-robots-txt',
@@ -189,11 +190,11 @@ module.exports = {
                 }
               }
             `,
-            serialize: ({ query: { site, allMdx } }) =>
+            serialize: ({ query: { allMdx } }) =>
               allMdx.edges.map(({ node: { excerpt, frontmatter, html } }) => {
                 const link = frontmatter.appearance
                   ? frontmatter.slug
-                  : `${site.siteMetadata.siteUrl}/posts${frontmatter.slug}`;
+                  : `${config.siteUrl}/posts${frontmatter.slug}`;
                 return {
                   ...frontmatter,
                   description: excerpt,
@@ -220,6 +221,12 @@ module.exports = {
         `,
       },
       resolve: 'gatsby-plugin-feed-mdx',
+    },
+    {
+      options: {
+        exclude: ['/twitter', '/status/*'],
+      },
+      resolve: 'gatsby-plugin-sitemap',
     },
   ],
   siteMetadata: {
