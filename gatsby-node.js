@@ -61,6 +61,21 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      singles: allMdx(
+        filter: {
+          fileAbsolutePath: { regex: "/single/" }
+          frontmatter: { draft: { eq: false } }
+        }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
       tags: allMdx(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
@@ -79,14 +94,15 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  const { edges } = result.data.posts;
+  const { posts } = result.data;
+  const { singles } = result.data;
   const { group } = result.data.tags;
   const { tweets } = result.data.erebor;
 
-  // Create single template
-  edges.forEach(({ node }) => {
+  // Create blog posts
+  posts.edges.forEach(({ node }) => {
     createPage({
-      component: resolve('./src/templates/single.js'),
+      component: resolve('./src/templates/post.js'),
       context: {
         slug: node.fields.slug,
       },
@@ -94,10 +110,21 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  // Create single pages
+  singles.edges.forEach(({ node }) => {
+    createPage({
+      component: resolve('./src/templates/single.js'),
+      context: {
+        slug: `/${node.frontmatter.slug}/`,
+      },
+      path: `/${node.frontmatter.slug}/`,
+    });
+  });
+
   // Create taxonomies template
   group.forEach(({ fieldValue }) => {
     createPage({
-      component: resolve('./src/templates/taxonomies.js'),
+      component: resolve('./src/templates/taxonomy.js'),
       context: {
         tag: fieldValue,
       },
@@ -108,7 +135,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create taxonomies template
   tweets.forEach(({ id }) => {
     createPage({
-      component: resolve('./src/templates/tweets.js'),
+      component: resolve('./src/templates/tweet.js'),
       context: {
         id,
       },
