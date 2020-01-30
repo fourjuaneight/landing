@@ -7,6 +7,7 @@ const config = require('./config/siteConfig');
 module.exports = {
   plugins: [
     'gatsby-plugin-goober',
+    'gatsby-plugin-netlify',
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
@@ -59,6 +60,14 @@ module.exports = {
         ],
       },
       resolve: 'gatsby-plugin-mdx',
+    },
+    {
+      options: {
+        host: config.siteUrl,
+        policy: [{ allow: '/', disallow: '/twitter/*', userAgent: '*' }],
+        sitemap: `${config.siteUrl}sitemap.xml`,
+      },
+      resolve: 'gatsby-plugin-robots-txt',
     },
     {
       options: {

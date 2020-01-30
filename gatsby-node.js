@@ -116,3 +116,57 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
+// Netlify redirects
+exports.createPages = ({ actions }) => {
+  const { createRedirect } = actions;
+
+  createRedirect({
+    fromPath: '/tags/yearly-theme',
+    toPath: '/yearly-theme/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/tags/life',
+    toPath: '/life/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/tags/development',
+    toPath: '/development/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/tags/productivity',
+    toPath: '/productivity/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/tags/procrastination',
+    toPath: '/procrastination/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/posts/success/',
+    toPath: '/posts/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/spreadsheets/',
+    toPath: '/posts/spreadsheets/',
+    isPermanent: true,
+    force: true,
+  });
+};
