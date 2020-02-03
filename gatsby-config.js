@@ -150,6 +150,12 @@ module.exports = {
           },
           {
             options: {
+              maxWidth: 512,
+            },
+            resolve: 'gatsby-remark-images',
+          },
+          {
+            options: {
               classPrefix: 'language-',
               noInlineHighlight: false,
               showLineNumbers: false,
