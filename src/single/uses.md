@@ -4,6 +4,8 @@ slug: 'uses'
 draft: false
 ---
 
+Here's some of the stuff I use for work and procrastination.
+
 ## Hardware
 ### Desktop
 - **iMac 27" (2019)** - A big Mac for making shiny squares look extra crispy.
@@ -55,8 +57,9 @@ I try my best to stay organized and mostly fail.
 
 ### Media
 - **[Overcast](https://overcast.fm)** - I always go back and forth between this and [Castro](https://castro.fm). I love the former for its quality build, but the latter has a terrific UI.
-- **[Reeder](https://reederapp.com)** - Paired with [Feed Wrangler](https://feedwrangler.net). But I'm missing [Feedbin's](https://feedbin.com) powerful filter.
+- **[Reeder](https://reederapp.com)** - Paired with [Feed Wrangler](https://feedwrangler.net), though I'm starting to miss [Feedbin's](https://feedbin.com) powerful filters.
 - **[Apollo](https://apolloapp.io)** (Reddit)
 
+---
 
 For an even nerdier list, take a look at my [dotfiles](https://github.com/fourjuaneight/dotfiles) and see into the soul of my Mac.
