@@ -270,6 +270,11 @@ const SocialLink = styled('a')`
 `;
 
 // Article
+const Subtitle = styled('h2')`
+  border-bottom: 1px solid var(--primary);
+  font-weight: normal;
+`;
+
 const Permalink = styled(Link)`
   display: inline-block;
 
@@ -521,6 +526,7 @@ export {
   Sep,
   SocialLink,
   Sr,
+  Subtitle,
   Toggle,
   TweetWrap,
 };

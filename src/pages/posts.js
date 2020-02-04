@@ -5,10 +5,11 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Article from '../components/article';
 import Layout from '../components/layout';
 import Title from '../components/title';
+import { Subtitle } from '../components/util/styleEl';
 
 const Posts = ({ location }) => {
   const {
-    allMdx: { edges },
+    allMdx: { group },
   } = useStaticQuery(graphql`
     query PostsQuery {
       allMdx(
@@ -16,21 +17,24 @@ const Posts = ({ location }) => {
           fileAbsolutePath: { regex: "/posts/" }
           frontmatter: { appearance: { eq: false }, draft: { eq: false } }
         }
-        sort: { fields: frontmatter___date, order: DESC }
+        sort: { fields: frontmatter___date, order: ASC }
       ) {
-        edges {
-          node {
-            excerpt(pruneLength: 272)
-            fields {
-              slug
+        group(field: fields___year) {
+          fieldValue
+          edges {
+            node {
+              excerpt(pruneLength: 272)
+              fields {
+                slug
+              }
+              frontmatter {
+                appearance
+                date(formatString: "YYYY-MM-DD")
+                tag
+                title
+              }
+              id
             }
-            frontmatter {
-              appearance
-              date(formatString: "YYYY-MM-DD")
-              tag
-              title
-            }
-            id
           }
         }
       }
@@ -41,28 +45,33 @@ const Posts = ({ location }) => {
     <Layout pageTitle="Posts" location={location}>
       <Title text="Posts" />
       <section>
-        {edges.map(({ node }, i) => {
-          const {
-            excerpt,
-            fields: { slug },
-            frontmatter: { appearance, date, tag, title },
-            id,
-          } = node;
+        {group.map(gp => (
+          <>
+            <Subtitle>{gp.fieldValue}</Subtitle>
+            {gp.edges.map(({ node }, i) => {
+              const {
+                excerpt,
+                fields: { slug },
+                frontmatter: { appearance, date, tag, title },
+                id,
+              } = node;
 
-          return (
-            <Article
-              appearance={appearance}
-              date={date}
-              html={excerpt}
-              index={i}
-              key={id}
-              list={location.pathname !== '/'}
-              slug={slug}
-              tag={tag}
-              title={title}
-            />
-          );
-        })}
+              return (
+                <Article
+                  appearance={appearance}
+                  date={date}
+                  html={excerpt}
+                  index={i}
+                  key={id}
+                  list={location.pathname !== '/'}
+                  slug={slug}
+                  tag={tag}
+                  title={title}
+                />
+              );
+            })}
+          </>
+        ))}
       </section>
     </Layout>
   );

@@ -4,21 +4,23 @@
 const { createFilePath } = require('gatsby-source-filesystem');
 const { resolve } = require('path');
 
-// Add Web Workers support and file name hashing
+// Add Web Workers support
 exports.onCreateWebpackConfig = ({
   actions: { replaceWebpackConfig },
   getConfig,
   stage,
 }) => {
+  // gets existing config
   const config = getConfig();
-
   let options = {};
 
+  // adds hash to worker
   if (stage === 'build-javascript') {
     config.optimization.moduleIds = 'total-size';
     options = { name: 'ww-[1]', regExp: '(\\w+).worker.js' };
   }
 
+  // uses workerize loader
   config.module.rules.push({
     test: /\.worker\.js$/,
     use: [{ loader: 'workerize-loader', options }],
@@ -39,11 +41,20 @@ exports.onCreateNode = ({ actions, getNode, node }) => {
     !node.fileAbsolutePath.match(/uses/g)
   ) {
     const slug = createFilePath({ getNode, node });
+    const year = node.frontmatter.date.substring(0, 4);
 
+    // creates post slug
     createNodeField({
       name: 'slug',
       node,
       value: `posts${slug}`,
+    });
+
+    // creates published year field; allows for grouping by year
+    createNodeField({
+      name: 'year',
+      node,
+      value: year,
     });
   }
 
@@ -55,6 +66,7 @@ exports.onCreateNode = ({ actions, getNode, node }) => {
   ) {
     const slug = createFilePath({ getNode, node });
 
+    // creates single page slug
     createNodeField({
       name: 'slug',
       node,
