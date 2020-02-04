@@ -44,7 +44,6 @@ const Post = ({ data, location }) => {
     >
       <Article
         appearance={appearance}
-        code={code}
         date={date}
         html={body}
         slug={slug}

@@ -27,7 +27,6 @@ const Index = ({ location }) => {
             }
             frontmatter {
               appearance
-              code
               date(formatString: "YYYY-MM-DD")
               url
               tag
@@ -48,14 +47,13 @@ const Index = ({ location }) => {
           const {
             excerpt,
             fields: { slug },
-            frontmatter: { appearance, code, date, url, tag, title },
+            frontmatter: { appearance, date, url, tag, title },
             id,
           } = node;
 
           return (
             <Article
               appearance={appearance}
-              code={code}
               date={date}
               html={excerpt}
               index={i}

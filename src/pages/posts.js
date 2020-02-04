@@ -26,7 +26,6 @@ const Posts = ({ location }) => {
             }
             frontmatter {
               appearance
-              code
               date(formatString: "YYYY-MM-DD")
               tag
               title
@@ -46,14 +45,13 @@ const Posts = ({ location }) => {
           const {
             excerpt,
             fields: { slug },
-            frontmatter: { appearance, code, date, tag, title },
+            frontmatter: { appearance, date, tag, title },
             id,
           } = node;
 
           return (
             <Article
               appearance={appearance}
-              code={code}
               date={date}
               html={excerpt}
               index={i}
