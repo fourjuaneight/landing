@@ -17,7 +17,7 @@ const Posts = ({ location }) => {
           fileAbsolutePath: { regex: "/posts/" }
           frontmatter: { draft: { eq: false }, url: { eq: null } }
         }
-        sort: { fields: frontmatter___date, order: ASC }
+        sort: { fields: frontmatter___date, order: DESC }
       ) {
         group(field: fields___year) {
           fieldValue
@@ -45,7 +45,7 @@ const Posts = ({ location }) => {
     <Layout pageTitle="Posts" location={location}>
       <Title text="Posts" />
       <section>
-        {group.map(gp => (
+        {group.reverse().map(gp => (
           <>
             <Subtitle>{gp.fieldValue}</Subtitle>
             {gp.edges.map(({ node }, i) => {

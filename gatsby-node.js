@@ -116,7 +116,6 @@ exports.createPages = async ({ graphql, actions }) => {
           fileAbsolutePath: { regex: "/posts/" }
           frontmatter: { draft: { eq: false } }
         }
-        sort: { fields: frontmatter___date, order: DESC }
       ) {
         group(field: frontmatter___tag) {
           fieldValue
