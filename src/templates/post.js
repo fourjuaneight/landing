@@ -9,7 +9,11 @@ export const query = graphql`
   query PostQuery($id: String!) {
     mdx(id: { eq: $id }) {
       excerpt(pruneLength: 272)
+      fields {
+        slug
+      }
       frontmatter {
+        appearance
         code
         date(formatString: "YYYY-MM-DD")
         tag
@@ -24,7 +28,8 @@ const Post = ({ data, location }) => {
   const {
     mdx: {
       excerpt,
-      frontmatter: { code, date, tag, title },
+      fields: { slug },
+      frontmatter: { appearance, code, date, tag, title },
       body,
     },
   } = data;
@@ -37,7 +42,15 @@ const Post = ({ data, location }) => {
       pageTitle={title}
       postPublishDate={date}
     >
-      <Article date={date} html={body} tag={tag} title={title} />
+      <Article
+        appearance={appearance}
+        code={code}
+        date={date}
+        html={body}
+        slug={slug}
+        tag={tag}
+        title={title}
+      />
     </Layout>
   );
 };

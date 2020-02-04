@@ -2,7 +2,7 @@
 title: 'Alligator: Making Gatsby a PWA: Service Worker and Web App Manifest'
 date: '2019-07-18'
 tag: appearances
-slug: 'https://alligator.io/gatsbyjs/gatsby-pwa/'
+url: 'https://alligator.io/gatsbyjs/gatsby-pwa/'
 code: false
 appearance: true
 draft: false

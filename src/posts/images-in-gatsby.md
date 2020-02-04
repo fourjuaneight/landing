@@ -2,7 +2,7 @@
 title: 'Alligator: Working with Images in Gatsby'
 date: '2019-07-29'
 tag: appearances
-slug: 'https://alligator.io/gatsbyjs/images-in-gatsby/'
+url: 'https://alligator.io/gatsbyjs/images-in-gatsby/'
 code: false
 appearance: true
 draft: false

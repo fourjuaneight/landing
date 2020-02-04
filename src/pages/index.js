@@ -22,13 +22,18 @@ const Index = ({ location }) => {
         edges {
           node {
             excerpt(pruneLength: 272)
+            fields {
+              slug
+            }
             frontmatter {
               appearance
+              code
               date(formatString: "YYYY-MM-DD")
-              slug
+              url
               tag
               title
             }
+            id
           }
         }
       }
@@ -42,18 +47,21 @@ const Index = ({ location }) => {
         {edges.map(({ node }, i) => {
           const {
             excerpt,
-            frontmatter: { appearance, date, slug, tag, title },
+            fields: { slug },
+            frontmatter: { appearance, code, date, url, tag, title },
+            id,
           } = node;
 
           return (
             <Article
               appearance={appearance}
+              code={code}
               date={date}
               html={excerpt}
               index={i}
-              key={slug}
+              key={id}
               list={location.pathname === '/'}
-              slug={slug}
+              slug={url || slug}
               tag={tag}
               title={title}
             />

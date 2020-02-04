@@ -1,7 +1,6 @@
 ---
 title: Spreadsheets Reloaded
 date: 2019-11-20
-slug: 'spreadsheets-reloaded'
 tag: productivity
 code: true
 appearance: false

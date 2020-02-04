@@ -2,7 +2,6 @@
 title: Comfort Zone
 date: '2018-06-29'
 tag: developement
-slug: 'comfort-zone'
 code: false
 appearance: false
 draft: false

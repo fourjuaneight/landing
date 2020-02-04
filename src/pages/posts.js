@@ -25,10 +25,13 @@ const Posts = ({ location }) => {
               slug
             }
             frontmatter {
+              appearance
+              code
               date(formatString: "YYYY-MM-DD")
               tag
               title
             }
+            id
           }
         }
       }
@@ -43,15 +46,18 @@ const Posts = ({ location }) => {
           const {
             excerpt,
             fields: { slug },
-            frontmatter: { date, tag, title },
+            frontmatter: { appearance, code, date, tag, title },
+            id,
           } = node;
 
           return (
             <Article
+              appearance={appearance}
+              code={code}
               date={date}
               html={excerpt}
               index={i}
-              key={slug}
+              key={id}
               list={location.pathname !== '/'}
               slug={slug}
               tag={tag}

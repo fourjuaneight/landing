@@ -67,7 +67,7 @@ const Article = ({
           </h2>
         </ExternalLink>
       ) : list && !appearance ? (
-        <Permalink to={`/posts/${slug}`}>
+        <Permalink to={slug}>
           <h2>{title}</h2>
         </Permalink>
       ) : (

@@ -2,7 +2,7 @@
 title: 'Alligator: Custom Fonts in Gatsby'
 date: '2019-10-21'
 tag: appearances
-slug: 'https://alligator.io/gatsbyjs/custom-fonts-in-gatsby/'
+url: 'https://alligator.io/gatsbyjs/custom-fonts-in-gatsby/'
 code: false
 appearance: true
 draft: false
