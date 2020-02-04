@@ -276,6 +276,10 @@ const Permalink = styled(Link)`
   > h2 {
     padding: 0;
   }
+
+  &:visited {
+    color: var(--font);
+  }
 `;
 
 const ExternalLink = styled('a')`
@@ -295,6 +299,10 @@ const ExternalLink = styled('a')`
 
   &:hover span {
     transform: translateX(0.5rem);
+  }
+
+  &:visited {
+    color: var(--font);
   }
 `;
 
@@ -390,12 +398,36 @@ const Content = styled('section')`
       color: var(--primary-light);
       font-size: 1.5rem;
       line-height: 1rem;
+      padding: 0 0.5rem;
       vertical-align: bottom;
 
       &:hover {
         color: var(--primary);
+        text-decoration: none;
       }
     }
+  }
+`;
+
+const CopyButton = styled('button')`
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: var(--primary-light);
+  border: none;
+  color: var(--bg-dark);
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 0.075em;
+  line-height: 1;
+  outline: none;
+  padding: 0.375rem 0.75rem;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  text-transform: uppercase;
+  top: 0;
+
+  &:hover {
+    background-color: var(--primary);
   }
 `;
 
@@ -470,6 +502,7 @@ const Sr = styled('span')`
 export {
   BgNoise,
   Content,
+  CopyButton,
   DD,
   DL,
   DT,

@@ -121,20 +121,24 @@ a {
   color: var(--font);
   text-decoration: none;
 
+  &:visited {
+    color: var(--font);
+  }
+
   &:hover {
     color: var(--font);
     text-decoration: underline;
     text-decoration-color: var(--primary) !important;
-  }
-
-  &:visited {
-    color: inherit;
   }
 }
 
 article a[rel='nofollow noreferrer'] {
   text-decoration: underline;
   text-decoration-color: var(--primary) !important;
+
+  &:visited {
+    color: var(--font);
+  }
 
   &:hover {
     color: var(--primary);
