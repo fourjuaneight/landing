@@ -314,7 +314,7 @@ const MetaWrap = styled('section')`
 
 const Meta = styled('p')`
   &,
-  > *,
+  & > *,
   a:visited {
     color: var(--meta);
   }

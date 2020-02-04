@@ -3,13 +3,20 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
 
-const SEO = ({ pageDescription, pageTitle, postPublishDate, location }) => {
+const SEO = ({
+  code,
+  pageDescription,
+  pageTitle,
+  postPublishDate,
+  location,
+}) => {
   const { icon, meta, spt } = useStaticQuery(graphql`
     query HelmetQuery {
       meta: site {
         siteMetadata {
           author
           description
+          language
           social
           theme
           title
@@ -27,7 +34,7 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, location }) => {
   `);
 
   const {
-    siteMetadata: { author, description, social, theme, title },
+    siteMetadata: { author, description, language, social, theme, title },
   } = meta;
   const dynamicTitle = pageTitle ? `${pageTitle} | ${title}` : title;
   const dynamicDesc = pageDescription || description;
@@ -67,8 +74,28 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, location }) => {
   }
   /* eslint-enable */
 
+  const fontFace = `
+    if ('fonts' in document) {
+      const regular = new FontFace(
+        'Rubik',
+        "url(/fonts/Rubik-Regular.woff2) format('woff2'), url(/fonts/Rubik-Regular.woff) format('woff')"
+      );
+      const bold = new FontFace(
+        'Rubik',
+        "url(/fonts/Rubik-Bold.woff2) format('woff2'), url(/fonts/Rubik-Bold.woff) format('woff')",
+        { weight: '700' }
+      );
+      Promise.all([bold.load(), regular.load()]).then(fonts => {
+        for (const font of fonts) {
+          document.fonts.add(font);
+        }
+      });
+    }
+  `;
+
   return (
     <Helmet defaultTitle={dynamicTitle}>
+      <html lang={language} />
       <meta
         name="viewport"
         content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=5.0,viewport-fit=cover"
@@ -82,6 +109,9 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, location }) => {
       </script>
       <meta property="og:description" content={dynamicDesc} />
       <meta property="og:image" content={`${baseURL}${icon.fixed.src}`} />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:width" content="512" />
+      <meta property="og:image:height" content="512" />
       <meta property="og:site_name" content={title} />
       <meta property="og:title" content={dynamicTitle} />
       <meta
@@ -98,11 +128,16 @@ const SEO = ({ pageDescription, pageTitle, postPublishDate, location }) => {
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
       <meta name="apple-mobile-web-app-title" content={dynamicTitle} />
       <link rel="mask-icon" color={theme} href={`${baseURL}${spt.publicURL}`} />
+      <script type="text/javascript">{fontFace}</script>
+      {code && (
+        <link rel="stylesheet" href={`${baseURL}/css/syntax.css`} media="all" />
+      )}
     </Helmet>
   );
 };
 
 SEO.propTypes = {
+  code: PropTypes.bool.isRequired,
   location: PropTypes.shape({
     origin: PropTypes.string.isRequired,
     pathname: PropTypes.string.isRequired,
