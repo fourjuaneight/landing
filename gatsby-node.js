@@ -47,7 +47,7 @@ exports.onCreateNode = ({ actions, getNode, node }) => {
     createNodeField({
       name: 'slug',
       node,
-      value: `posts${slug}`,
+      value: `/posts${slug}`,
     });
 
     // creates published year field; allows for grouping by year

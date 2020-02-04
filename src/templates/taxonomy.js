@@ -29,6 +29,7 @@ export const query = graphql`
             date(formatString: "MMMM D, YYYY")
             tag
             title
+            url
           }
         }
       }
@@ -57,17 +58,18 @@ const Taxonomies = ({ data, location }) => {
           const {
             excerpt,
             fields: { slug },
-            frontmatter: { date, tag, title },
+            frontmatter: { date, tag, title, url },
           } = node;
 
           return (
             <Article
+              appearance={url != null}
               date={date}
               html={excerpt}
               index={i}
               key={slug}
               list={location.pathname !== '/'}
-              slug={slug}
+              slug={url || slug}
               tag={tag}
               title={title}
             />

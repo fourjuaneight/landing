@@ -46,7 +46,7 @@ const Posts = ({ location }) => {
       <Title text="Posts" />
       <section>
         {group.reverse().map(gp => (
-          <>
+          <React.Fragment key={gp.fieldValue}>
             <Subtitle>{gp.fieldValue}</Subtitle>
             {gp.edges.map(({ node }, i) => {
               const {
@@ -70,7 +70,7 @@ const Posts = ({ location }) => {
                 />
               );
             })}
-          </>
+          </React.Fragment>
         ))}
       </section>
     </Layout>
