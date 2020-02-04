@@ -1,4 +1,7 @@
-import './src/styles/critical.scss';
+// Browser APIs
+// https://www.gatsbyjs.org/docs/browser-apis/
+
+require('./src/styles/critical.scss');
 
 const addButtons = elements => {
   const fragment = document.createDocumentFragment();
@@ -13,10 +16,17 @@ const addButtons = elements => {
   });
 };
 
-export const onInitialClientRender = () => {
+exports.onInitialClientRender = () => {
   const codeBlocks = document.querySelectorAll('div.gatsby-highlight > pre');
 
   addButtons(codeBlocks);
 };
 
-export const registerServiceWorker = () => true;
+// Load Service Worker on production only.
+exports.registerServiceWorker = () => {
+  if (process.env.NODE_ENV !== 'production') {
+    return null;
+  }
+
+  return true;
+};

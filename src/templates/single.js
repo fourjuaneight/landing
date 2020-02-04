@@ -8,8 +8,8 @@ import Title from '../components/title';
 import { Content } from '../components/util/styleEl';
 
 export const query = graphql`
-  query SingleQuery($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
+  query SingleQuery($id: String!) {
+    mdx(id: { eq: $id }) {
       excerpt(pruneLength: 272)
       frontmatter {
         title

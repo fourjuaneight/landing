@@ -1,9 +1,10 @@
-// APIs setup
+// Node APIs
 // https://www.gatsbyjs.org/docs/node-apis/
 
 const { createFilePath } = require('gatsby-source-filesystem');
 const { resolve } = require('path');
 
+// Add Web Workers support and file name hashing
 exports.onCreateWebpackConfig = ({
   actions: { replaceWebpackConfig },
   getConfig,
@@ -28,17 +29,37 @@ exports.onCreateWebpackConfig = ({
   replaceWebpackConfig(config);
 };
 
-exports.onCreateNode = ({ actions, node, getNode }) => {
+exports.onCreateNode = ({ actions, getNode, node }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === 'Mdx') {
-    /* eslint-disable sort-keys, quotes */
-    const slug = createFilePath({ node, getNode, basePath: `posts/` });
+
+  // Create node field for posts only
+  if (
+    node.internal.type === 'Mdx' &&
+    !node.fileAbsolutePath.match(/about/g) &&
+    !node.fileAbsolutePath.match(/uses/g)
+  ) {
+    const slug = createFilePath({ getNode, node });
+
     createNodeField({
-      node,
       name: 'slug',
+      node,
+      value: `posts${slug}`,
+    });
+  }
+
+  // Create node field for singles only
+  if (
+    node.internal.type === 'Mdx' &&
+    (node.fileAbsolutePath.match(/about/g) ||
+      node.fileAbsolutePath.match(/uses/g))
+  ) {
+    const slug = createFilePath({ getNode, node });
+
+    createNodeField({
+      name: 'slug',
+      node,
       value: slug,
     });
-    /* eslint-enable */
   }
 };
 
@@ -55,6 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
       ) {
         edges {
           node {
+            id
             fields {
               slug
             }
@@ -70,7 +92,8 @@ exports.createPages = async ({ graphql, actions }) => {
       ) {
         edges {
           node {
-            frontmatter {
+            id
+            fields {
               slug
             }
           }
@@ -94,6 +117,8 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
+
+  // Extract query results
   const { posts } = result.data;
   const { singles } = result.data;
   const { group } = result.data.tags;
@@ -104,9 +129,9 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       component: resolve('./src/templates/post.js'),
       context: {
-        slug: node.fields.slug,
+        id: node.id,
       },
-      path: `/posts${node.fields.slug}`,
+      path: node.fields.slug,
     });
   });
 
@@ -115,9 +140,9 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       component: resolve('./src/templates/single.js'),
       context: {
-        slug: `/${node.frontmatter.slug}/`,
+        id: node.id,
       },
-      path: `/${node.frontmatter.slug}/`,
+      path: node.fields.slug,
     });
   });
 

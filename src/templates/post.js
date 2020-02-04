@@ -6,8 +6,8 @@ import Article from '../components/article';
 import Layout from '../components/layout';
 
 export const query = graphql`
-  query PostQuery($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
+  query PostQuery($id: String!) {
+    mdx(id: { eq: $id }) {
       excerpt(pruneLength: 272)
       frontmatter {
         code
