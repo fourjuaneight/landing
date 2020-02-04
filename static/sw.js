@@ -58,7 +58,7 @@
     /* eslint-enable */
     const { request } = event;
     const url = new URL(request.url);
-    if (url.href.indexOf('https://www.juanvillela.dev') !== 0) return;
+    if (url.href.indexOf('baseURL') !== 0) return;
     if (request.method !== 'GET') return;
     if (url.href.indexOf('?') !== -1) return;
     if (request.headers.get('Accept').includes('text/html')) {
