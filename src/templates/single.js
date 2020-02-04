@@ -1,30 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Layout from '../components/layout';
 import Title from '../components/title';
 import { Content } from '../components/util/styleEl';
 
+const createMarkup = content => ({ __html: content });
+
 export const query = graphql`
   query SingleQuery($id: String!) {
-    mdx(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) {
       excerpt(pruneLength: 272)
       frontmatter {
         title
       }
-      body
+      html
     }
   }
 `;
 
 const Single = ({ data, location }) => {
   const {
-    mdx: {
+    markdownRemark: {
       excerpt,
       frontmatter: { title },
-      body,
+      html,
     },
   } = data;
 
@@ -32,9 +33,7 @@ const Single = ({ data, location }) => {
     <Layout location={location} pageDescription={excerpt} pageTitle={title}>
       <article>
         <Title text={title} />
-        <Content>
-          <MDXRenderer>{body}</MDXRenderer>
-        </Content>
+        <Content dangerouslySetInnerHTML={createMarkup(html)} />
       </article>
     </Layout>
   );
@@ -42,7 +41,7 @@ const Single = ({ data, location }) => {
 
 Single.propTypes = {
   data: PropTypes.shape({
-    mdx: PropTypes.object.isRequired,
+    markdownRemark: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.shape({}).isRequired,
 };

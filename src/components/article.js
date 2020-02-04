@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import Title from './title';
 import {
@@ -44,13 +43,11 @@ const Article = ({ appearance, date, html, index, list, slug, tag, title }) => (
     )}
     {list ? (
       <Content justify={list.toString()}>
-        {/* eslint-disable react/no-danger */}
+        {/* eslint-disable-next-line react/no-danger */}
         <p dangerouslySetInnerHTML={createMarkup(html)} />
       </Content>
     ) : (
-      <Content>
-        <MDXRenderer>{html}</MDXRenderer>
-      </Content>
+      <Content dangerouslySetInnerHTML={createMarkup(html)} />
     )}
   </article>
 );

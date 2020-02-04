@@ -26,42 +26,6 @@ module.exports = {
     },
     {
       options: {
-        defaultLayouts: {
-          default: resolve(__dirname, 'src/templates', 'single.js'),
-        },
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          'gatsby-remark-smartypants',
-          {
-            options: {
-              rel: 'nofollow noreferrer',
-              target: '_blank',
-            },
-            resolve: 'gatsby-remark-external-links',
-          },
-          {
-            options: {
-              footnoteBackRefDisplay: 'inline',
-              footnoteBackRefInnerText: '^',
-              footnoteBackRefPreviousElementDisplay: 'inline',
-              useFootnoteMarkerText: false,
-            },
-            resolve: 'gatsby-remark-footnotes',
-          },
-          {
-            options: {
-              classPrefix: 'language-',
-              noInlineHighlight: false,
-              showLineNumbers: false,
-            },
-            resolve: 'gatsby-remark-prismjs',
-          },
-        ],
-      },
-      resolve: 'gatsby-plugin-mdx',
-    },
-    {
-      options: {
         host: config.siteUrl,
         policy: [
           { allow: '/', disallow: ['/status/*', '/twitter/'], userAgent: '*' },
@@ -93,21 +57,21 @@ module.exports = {
     {
       options: {
         name: 'posts',
-        path: `${__dirname}/src/posts/`,
+        path: resolve(__dirname, 'src/posts/'),
       },
       resolve: 'gatsby-source-filesystem',
     },
     {
       options: {
         name: 'images',
-        path: `${__dirname}/src/images/`,
+        path: resolve(__dirname, 'src/images'),
       },
       resolve: 'gatsby-source-filesystem',
     },
     {
       options: {
         name: 'single',
-        path: `${__dirname}/src/single/`,
+        path: resolve(__dirname, 'src/single'),
       },
       resolve: 'gatsby-source-filesystem',
     },
@@ -173,7 +137,7 @@ module.exports = {
             output: '/index.xml',
             query: `
               {
-                allMdx(
+                allMarkdownRemark(
                   limit: 2000,
                   sort: { order: DESC, fields: [frontmatter___date] },
                   filter: {
@@ -184,11 +148,13 @@ module.exports = {
                   edges {
                     node {
                       excerpt(pruneLength: 272)
-                      frontmatter {
-                        appearance
-                        date(formatString: "YYYY-MM-DD")
+                      fields {
                         slug
+                      }
+                      frontmatter {
+                        date(formatString: "YYYY-MM-DD")
                         title
+                        url
                       }
                       html
                     }
@@ -196,20 +162,23 @@ module.exports = {
                 }
               }
             `,
-            serialize: ({ query: { allMdx } }) =>
-              allMdx.edges.map(({ node: { excerpt, frontmatter, html } }) => {
-                const link = frontmatter.appearance
-                  ? frontmatter.slug
-                  : `${config.siteUrl}/posts${frontmatter.slug}`;
-                return {
-                  ...frontmatter,
-                  description: excerpt,
-                  date: frontmatter.date,
-                  url: link,
-                  guid: link,
-                  custom_elements: [{ 'content:encoded': html }],
-                };
-              }),
+            serialize: ({ query: { allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map(
+                ({ node: { excerpt, fields, frontmatter, html } }) => {
+                  const link = frontmatter.url
+                    ? frontmatter.url
+                    : `${config.siteUrl}${fields.slug}`;
+
+                  return {
+                    ...frontmatter,
+                    description: excerpt,
+                    date: frontmatter.date,
+                    url: link,
+                    guid: link,
+                    custom_elements: [{ 'content:encoded': html }],
+                  };
+                }
+              ),
             title: config.title,
           },
         ],
@@ -226,7 +195,7 @@ module.exports = {
           }
         `,
       },
-      resolve: 'gatsby-plugin-feed-mdx',
+      resolve: 'gatsby-plugin-feed',
     },
     {
       options: {

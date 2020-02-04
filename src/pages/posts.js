@@ -9,13 +9,13 @@ import { Subtitle } from '../components/util/styleEl';
 
 const Posts = ({ location }) => {
   const {
-    allMdx: { group },
+    allMarkdownRemark: { group },
   } = useStaticQuery(graphql`
     query PostsQuery {
-      allMdx(
+      allMarkdownRemark(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
-          frontmatter: { appearance: { eq: false }, draft: { eq: false } }
+          frontmatter: { draft: { eq: false }, url: { eq: null } }
         }
         sort: { fields: frontmatter___date, order: ASC }
       ) {
@@ -28,10 +28,10 @@ const Posts = ({ location }) => {
                 slug
               }
               frontmatter {
-                appearance
                 date(formatString: "YYYY-MM-DD")
                 tag
                 title
+                url
               }
               id
             }
@@ -52,13 +52,13 @@ const Posts = ({ location }) => {
               const {
                 excerpt,
                 fields: { slug },
-                frontmatter: { appearance, date, tag, title },
+                frontmatter: { date, tag, title, url },
                 id,
               } = node;
 
               return (
                 <Article
-                  appearance={appearance}
+                  appearance={url != null}
                   date={date}
                   html={excerpt}
                   index={i}

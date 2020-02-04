@@ -2,7 +2,6 @@
 title: Quality
 date: '2019-01-01'
 tag: yearly-theme
-appearance: false
 draft: false
 ---
 

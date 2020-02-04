@@ -7,30 +7,30 @@ import Layout from '../components/layout';
 
 export const query = graphql`
   query PostQuery($id: String!) {
-    mdx(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) {
       excerpt(pruneLength: 272)
       fields {
         slug
       }
       frontmatter {
-        appearance
         code
         date(formatString: "YYYY-MM-DD")
         tag
         title
+        url
       }
-      body
+      html
     }
   }
 `;
 
 const Post = ({ data, location }) => {
   const {
-    mdx: {
+    markdownRemark: {
       excerpt,
       fields: { slug },
-      frontmatter: { appearance, code, date, tag, title },
-      body,
+      frontmatter: { code, date, tag, title, url },
+      html,
     },
   } = data;
 
@@ -43,9 +43,9 @@ const Post = ({ data, location }) => {
       postPublishDate={date}
     >
       <Article
-        appearance={appearance}
+        appearance={url != null}
         date={date}
-        html={body}
+        html={html}
         slug={slug}
         tag={tag}
         title={title}
@@ -56,7 +56,7 @@ const Post = ({ data, location }) => {
 
 Post.propTypes = {
   data: PropTypes.shape({
-    mdx: PropTypes.object.isRequired,
+    markdownRemark: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.shape({}).isRequired,
 };

@@ -34,8 +34,6 @@
     "ios >= 10.3"
   ],
   "dependencies": {
-    "@mdx-js/mdx": "^1.5.3",
-    "@mdx-js/react": "^1.5.3",
     "@svgr/webpack": "^4.3.3",
     "classnames": "^2.2.6",
     "css-loader": "^3.2.0",
@@ -44,10 +42,9 @@
     "gatsby": "2.18.17",
     "gatsby-cli": "^2.8.11",
     "gatsby-image": "^2.2.33",
-    "gatsby-plugin-feed-mdx": "^1.0.0",
+    "gatsby-plugin-feed": "^2.3.27",
     "gatsby-plugin-goober": "^1.0.0",
     "gatsby-plugin-manifest": "^2.2.23",
-    "gatsby-plugin-mdx": "^1.0.64",
     "gatsby-plugin-netlify": "^2.1.31",
     "gatsby-plugin-preact": "^3.1.22",
     "gatsby-plugin-react-helmet": "^3.1.13",

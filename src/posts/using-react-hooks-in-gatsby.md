@@ -3,7 +3,6 @@ title: 'Alligator: Using React Hooks in Gatsby'
 date: '2020-01-22'
 tag: appearances
 url: 'https://alligator.io/gatsbyjs/react-hooks-gatsby/'
-appearance: true
 draft: false
 ---
 

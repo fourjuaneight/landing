@@ -8,10 +8,10 @@ import Title from '../components/title';
 
 const Index = ({ location }) => {
   const {
-    allMdx: { edges },
+    allMarkdownRemark: { edges },
   } = useStaticQuery(graphql`
     query HomeQuery {
-      allMdx(
+      allMarkdownRemark(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
           frontmatter: { draft: { eq: false } }
@@ -26,11 +26,10 @@ const Index = ({ location }) => {
               slug
             }
             frontmatter {
-              appearance
               date(formatString: "YYYY-MM-DD")
-              url
               tag
               title
+              url
             }
             id
           }
@@ -47,13 +46,13 @@ const Index = ({ location }) => {
           const {
             excerpt,
             fields: { slug },
-            frontmatter: { appearance, date, url, tag, title },
+            frontmatter: { date, tag, title, url },
             id,
           } = node;
 
           return (
             <Article
-              appearance={appearance}
+              appearance={url != null}
               date={date}
               html={excerpt}
               index={i}

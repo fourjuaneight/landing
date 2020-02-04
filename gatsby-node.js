@@ -36,7 +36,7 @@ exports.onCreateNode = ({ actions, getNode, node }) => {
 
   // Create node field for posts only
   if (
-    node.internal.type === 'Mdx' &&
+    node.internal.type === 'MarkdownRemark' &&
     !node.fileAbsolutePath.match(/about/g) &&
     !node.fileAbsolutePath.match(/uses/g)
   ) {
@@ -60,7 +60,7 @@ exports.onCreateNode = ({ actions, getNode, node }) => {
 
   // Create node field for singles only
   if (
-    node.internal.type === 'Mdx' &&
+    node.internal.type === 'MarkdownRemark' &&
     (node.fileAbsolutePath.match(/about/g) ||
       node.fileAbsolutePath.match(/uses/g))
   ) {
@@ -79,23 +79,23 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
   const result = await graphql(`
     {
-      posts: allMdx(
+      posts: allMarkdownRemark(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
-          frontmatter: { appearance: { eq: false }, draft: { eq: false } }
+          frontmatter: { draft: { eq: false }, url: { eq: null } }
         }
         sort: { fields: frontmatter___date, order: DESC }
       ) {
         edges {
           node {
-            id
             fields {
               slug
             }
+            id
           }
         }
       }
-      singles: allMdx(
+      singles: allMarkdownRemark(
         filter: {
           fileAbsolutePath: { regex: "/single/" }
           frontmatter: { draft: { eq: false } }
@@ -104,14 +104,14 @@ exports.createPages = async ({ graphql, actions }) => {
       ) {
         edges {
           node {
-            id
             fields {
               slug
             }
+            id
           }
         }
       }
-      tags: allMdx(
+      tags: allMarkdownRemark(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
           frontmatter: { draft: { eq: false } }
@@ -130,7 +130,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  // Extract query results
+  // // Extract query results
   const { posts } = result.data;
   const { singles } = result.data;
   const { group } = result.data.tags;
