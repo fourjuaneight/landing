@@ -71,6 +71,7 @@
     "graphiql": "^0.15.1",
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.5",
+    "graphql-tools-fork": "^8.5.1",
     "node-sass": "^4.13.0",
     "preact": "^10.0.5",
     "preact-render-to-string": "^5.0.6",
