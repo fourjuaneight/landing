@@ -342,11 +342,6 @@ const Content = styled('section')`
 
   .gatsby-highlight {
     margin-bottom: 0.75rem;
-
-    pre {
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAG0lEQVR42mMIiyoTgWI+BmyAGAV8UMzJMFQBAJbJCuhzDiKQAAAAAElFTkSuQmCC');
-      background-repeat: repeat;
-    }
   }
 
   ${({ justify }) =>
