@@ -1,13 +1,15 @@
 {
   "name": "juan-dev",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "description": "Freelance Front-End Developer, automation nerd, and astronomy enthusiast.",
   "scripts": {
-    "build": "gatsby build && node cache-assets.js",
+    "build": "gatsby build || gatsby build",
+    "build:production": "npm run build && npm run js:sw",
     "clean:node": "rm -rf node_modules",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.js",
+    "js:sw": "node cache-assets.js",
     "lint": "eslint --fix src/**/*.js",
     "serve": "gatsby serve",
     "start": "gatsby develop"
