@@ -23,7 +23,7 @@ const Contact = ({ location }) => {
   const onSubmit = (data, evt) => {
     evt.target.reset();
 
-    fetch(process.env.BASIN_ENDPOINT, {
+    fetch('https://usebasin.com/f/56c75ba2ecb0', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: data,
