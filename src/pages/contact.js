@@ -31,7 +31,10 @@ const Contact = ({ location }) => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(data),
+      body: encode({
+        'form-name': 'contact',
+        ...data,
+      }),
     })
       .then(sendForm())
       .catch(error => console.error(error));
@@ -48,17 +51,12 @@ const Contact = ({ location }) => {
         <Form
           name="Contact"
           method="POST"
+          data-netlify="true"
           netlify-honeypot="bot-field"
-          netlify
           onSubmit={handleSubmit(onSubmit)}
         >
           <input type="hidden" name="bot-field" />
-          <input
-            type="hidden"
-            name="form-name"
-            value="contact"
-            ref={register}
-          />
+          <input type="hidden" name="form-name" value="contact" />
           <div>
             <label htmlFor="name">Name</label>
             <input
