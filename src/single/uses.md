@@ -62,4 +62,4 @@ I try my best to stay organized and mostly fail.
 
 ---
 
-For an even nerdier list, take a look at my [dotfiles](https://github.com/fourjuaneight/dotfiles) and see into the soul of my Mac.
+For an even nerdier list, take a look at my [dotfiles](https://github.com/fourjuaneight/dotfiles) and see into the soul of my Mac. Or even my [ESLint config](https://github.com/fourjuaneight/eslint-config-jcv), if you're into that sort of thing.

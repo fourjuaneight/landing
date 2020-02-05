@@ -21,13 +21,13 @@ As for the site, I wanted to work on backend optimizations and fixes before star
 - Missing props validation on certain components.
 
 **Optimized**
-- Goober for style components (smaller footprint).
+- [Goober](https://github.com/cristianbote/goober) for style components (smaller footprint).
 - Filtering Twitter archive from the sitemap.
-- Grouping posts by year in the archive.
+- Grouping posts by year in the [archive](/posts/).
 
 **Added**
 - Appearances section and links.
-- Uses page.
+- [Uses](/uses/) page.
 - Contact page.
 
 These changes mean a leaner codebase and faster site. And the few additions are to improve the UX as well.
