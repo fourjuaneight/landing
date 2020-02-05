@@ -28,7 +28,7 @@ const Contact = ({ location }) => {
   const onSubmit = (data, evt) => {
     evt.target.reset();
 
-    fetch('/contact/', {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode(data),
@@ -49,7 +49,7 @@ const Contact = ({ location }) => {
           name="Contact"
           method="POST"
           netlify-honeypot="bot-field"
-          data-netlify="true"
+          netlify
           onSubmit={handleSubmit(onSubmit)}
         >
           <input type="hidden" name="bot-field" />
