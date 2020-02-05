@@ -431,6 +431,35 @@ const CopyButton = styled('button')`
   }
 `;
 
+// Form
+const Form = styled('form')`
+  font-size: 1rem;
+  margin: 4.5rem auto;
+
+  @media screen and (max-width: 450px) {
+    margin: 2.25rem auto 0;
+  }
+
+  &,
+  & > div {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &,
+  & > div,
+  & input {
+    max-width: 24rem;
+  }
+
+  div {
+    margin-bottom: 0.75rem;
+    min-height: 4.5rem;
+  }
+`;
+
+// Tweets
 const TweetWrap = styled('article')`
   &:not(:last-child) {
     border-bottom: 0.05rem solid var(--primary-trans);
@@ -513,6 +542,7 @@ export {
   FootBody,
   FooterCopy,
   FooterMain,
+  Form,
   HeaderInner,
   HeaderMain,
   HomeLink,
