@@ -6,11 +6,6 @@ import Layout from '../components/layout';
 import Title from '../components/title';
 import { Form } from '../components/util/styleEl';
 
-const encode = data =>
-  Object.keys(data)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&');
-
 const Contact = ({ location }) => {
   const [sending, setSending] = useState(false);
   const { handleSubmit, register } = useForm({
@@ -28,13 +23,10 @@ const Contact = ({ location }) => {
   const onSubmit = (data, evt) => {
     evt.target.reset();
 
-    fetch('/', {
+    fetch(process.env.BASIN_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': 'contact',
-        ...data,
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: data,
     })
       .then(sendForm())
       .catch(error => console.error(error));
@@ -48,15 +40,8 @@ const Contact = ({ location }) => {
           of me, just shoot me a message and I&apos;ll get back to you within 24
           hours.
         </p>
-        <Form
-          name="Contact"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <Form name="Contact" onSubmit={handleSubmit(onSubmit)}>
           <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="contact" />
           <div>
             <label htmlFor="name">Name</label>
             <input
