@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { post } from 'axios';
 import { useForm } from 'react-hook-form';
 
 import Layout from '../components/layout';
@@ -13,7 +14,7 @@ const Contact = ({ location }) => {
     submitFocusError: true,
   });
 
-  const sendForm = () => {
+  const toggleSending = () => {
     setSending(true);
     setTimeout(() => {
       setSending(false);
@@ -23,12 +24,8 @@ const Contact = ({ location }) => {
   const onSubmit = (data, evt) => {
     evt.target.reset();
 
-    fetch('https://usebasin.com/f/56c75ba2ecb0', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: data,
-    })
-      .then(sendForm())
+    post('https://usebasin.com/f/56c75ba2ecb0', data)
+      .then(toggleSending())
       .catch(error => console.error(error));
   };
   return (
