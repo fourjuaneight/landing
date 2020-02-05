@@ -28,13 +28,10 @@ const Contact = ({ location }) => {
   const onSubmit = (data, evt) => {
     evt.target.reset();
 
-    fetch('/', {
+    fetch('/contact/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': 'contact',
-        ...data,
-      }),
+      body: encode(data),
     })
       .then(sendForm())
       .catch(error => console.error(error));
@@ -56,8 +53,8 @@ const Contact = ({ location }) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
           <div>
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="name">Name</label>
             <input
               id="name"
@@ -68,7 +65,6 @@ const Contact = ({ location }) => {
             />
           </div>
           <div>
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="email">Email</label>
             <input
               id="email"
@@ -79,7 +75,6 @@ const Contact = ({ location }) => {
             />
           </div>
           <div>
-            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="message">Message</label>
             <textarea
               id="message"
