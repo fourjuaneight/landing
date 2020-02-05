@@ -53,7 +53,12 @@ const Contact = ({ location }) => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <input type="hidden" name="bot-field" />
-          <input type="hidden" name="form-name" value="contact" />
+          <input
+            type="hidden"
+            name="form-name"
+            value="contact"
+            ref={register}
+          />
           <div>
             <label htmlFor="name">Name</label>
             <input
