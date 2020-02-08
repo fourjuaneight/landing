@@ -2,8 +2,6 @@
 title: Quality
 date: '2019-01-01'
 tag: yearly-theme
-slug: 'year-of-quality'
-code: false
 draft: false
 ---
 

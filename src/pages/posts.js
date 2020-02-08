@@ -2,32 +2,38 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
+import Article from '../components/article';
 import Layout from '../components/layout';
-import List from '../components/list';
 import Title from '../components/title';
+import { Subtitle } from '../components/util/styleEl';
 
 const Posts = ({ location }) => {
   const {
-    allMarkdownRemark: { edges },
+    allMarkdownRemark: { group },
   } = useStaticQuery(graphql`
     query PostsQuery {
       allMarkdownRemark(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
-          frontmatter: { draft: { eq: false } }
+          frontmatter: { draft: { eq: false }, url: { eq: null } }
         }
         sort: { fields: frontmatter___date, order: DESC }
       ) {
-        edges {
-          node {
-            excerpt(format: HTML, pruneLength: 256, truncate: false)
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM D, YYYY")
-              tag
-              title
+        group(field: fields___year) {
+          fieldValue
+          edges {
+            node {
+              excerpt(pruneLength: 272)
+              fields {
+                slug
+              }
+              frontmatter {
+                date(formatString: "YYYY-MM-DD")
+                tag
+                title
+                url
+              }
+              id
             }
           }
         }
@@ -38,13 +44,43 @@ const Posts = ({ location }) => {
   return (
     <Layout pageTitle="Posts" location={location}>
       <Title text="Posts" />
-      <List edges={edges} />
+      <section>
+        {group.reverse().map(gp => (
+          <React.Fragment key={gp.fieldValue}>
+            <Subtitle>{gp.fieldValue}</Subtitle>
+            {gp.edges.map(({ node }, i) => {
+              const {
+                excerpt,
+                fields: { slug },
+                frontmatter: { date, tag, title, url },
+                id,
+              } = node;
+
+              return (
+                <Article
+                  appearance={url != null}
+                  date={date}
+                  html={excerpt}
+                  index={i}
+                  key={id}
+                  list={location.pathname !== '/'}
+                  slug={slug}
+                  tag={tag}
+                  title={title}
+                />
+              );
+            })}
+          </React.Fragment>
+        ))}
+      </section>
     </Layout>
   );
 };
 
 Posts.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Posts;

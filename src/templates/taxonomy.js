@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
+import Article from '../components/article';
 import Layout from '../components/layout';
-import List from '../components/list';
 import Title from '../components/title';
 
 const titleCase = str =>
@@ -21,7 +21,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          excerpt(format: HTML, truncate: false)
+          excerpt(pruneLength: 272)
           fields {
             slug
           }
@@ -29,6 +29,7 @@ export const query = graphql`
             date(formatString: "MMMM D, YYYY")
             tag
             title
+            url
           }
         }
       }
@@ -44,15 +45,37 @@ export const query = graphql`
 const Taxonomies = ({ data, location }) => {
   const {
     allMarkdownRemark: { edges },
-    markdownRemark: { frontmatter: tag },
+    markdownRemark: { frontmatter },
   } = data;
 
-  const currentTag = tag.tag;
+  const currentTag = frontmatter.tag;
 
   return (
     <Layout pageTitle={titleCase(currentTag)} location={location}>
       <Title text={currentTag} />
-      <List edges={edges} />
+      <section>
+        {edges.map(({ node }, i) => {
+          const {
+            excerpt,
+            fields: { slug },
+            frontmatter: { date, tag, title, url },
+          } = node;
+
+          return (
+            <Article
+              appearance={url != null}
+              date={date}
+              html={excerpt}
+              index={i}
+              key={slug}
+              list={location.pathname !== '/'}
+              slug={url || slug}
+              tag={tag}
+              title={title}
+            />
+          );
+        })}
+      </section>
     </Layout>
   );
 };
@@ -61,8 +84,10 @@ Taxonomies.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.object.isRequired,
     markdownRemark: PropTypes.object.isRequired,
-  }),
-  location: PropTypes.object.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Taxonomies;

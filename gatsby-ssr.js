@@ -1,44 +1,55 @@
 const React = require('react');
 const globby = require('globby').sync;
 
-const publicFolder = './public';
+/*
+  Add preload links for subset font files.
 
-const scripts = {
-  fonts: [],
-  preload: [],
-  workers: [],
-};
+  Context on font loading strategy:
+  1. Preload subsets via link preloads. (THIS SETUP)
+  2. CSS loads subset in critically inlined styles.
+  3. FontFace API dynamically loads full Latin files.
+*/
+exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
+  const scripts = {
+    files: [],
+    workers: [],
+  };
+  // match subset fonts and web workers
+  const fonts = globby('static', {
+    expandDirectories: {
+      files: ['*-sub'],
+      extensions: ['woff2', 'woff'],
+    },
+  });
+  const workers = globby('public/*.worker.js');
+  // get existing head components
+  const headComponents = getHeadComponents();
 
-exports.onRenderBody = ({ pathPrefix = '', setHeadComponents }) => {
-  const fonts = globby(`${publicFolder}/fonts/*-sub.{woff2|woff}`);
-  const workers = globby(`${publicFolder}/*.worker.js`);
-
+  // for each found file, generate a link preload component
   if (fonts.length !== 0) {
-    scripts.fonts = fonts.map((file, key) => (
+    scripts.files = fonts.map(file => (
       <link
-        key={key}
+        key={file}
         rel="preload"
+        href={file.replace('static', '')}
         as="font"
         type={`font/${file.match(/woff2|woff/g)}`}
         crossOrigin="anonymous"
-        href={file.replace(publicFolder, pathPrefix)}
       />
     ));
   }
-
   if (workers.length !== 0) {
-    scripts.workers = workers.map((file, key) => (
+    scripts.workers = workers.map(file => (
       <link
-        key={key}
+        key={file}
         rel="preload"
+        href={file.replace('public', '')}
         as="worker"
         crossOrigin="anonymous"
-        href={file.replace(publicFolder, pathPrefix)}
       />
     ));
   }
 
-  scripts.preload = [...scripts.fonts, ...scripts.workers];
-
-  setHeadComponents(scripts.preload);
+  // push links before existing head components
+  replaceHeadComponents([...scripts.files, headComponents, ...scripts.workers]);
 };

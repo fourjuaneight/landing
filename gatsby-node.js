@@ -1,54 +1,76 @@
-// APIs setup
+// Node APIs
 // https://www.gatsbyjs.org/docs/node-apis/
 
-const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const { resolve } = require('path');
 
-exports.onCreateWebpackConfig = ({
-  actions: { replaceWebpackConfig },
-  getConfig,
-  stage,
-}) => {
-  const config = getConfig();
+exports.onCreateNode = ({ actions, getNode, node }) => {
+  const { createNodeField } = actions;
 
-  let options = {};
+  // Create node field for posts only
+  if (
+    node.internal.type === 'MarkdownRemark' &&
+    !node.fileAbsolutePath.match(/about/g) &&
+    !node.fileAbsolutePath.match(/uses/g)
+  ) {
+    const slug = createFilePath({ getNode, node });
+    const year = node.frontmatter.date.substring(0, 4);
 
-  if (stage === 'build-javascript') {
-    config.optimization.moduleIds = 'total-size';
-    options = { name: 'ww-[1]', regExp: '(\\w+).worker.js' };
+    // creates post slug
+    createNodeField({
+      name: 'slug',
+      node,
+      value: `/posts${slug}`,
+    });
+
+    // creates published year field; allows for grouping by year
+    createNodeField({
+      name: 'year',
+      node,
+      value: year,
+    });
   }
 
-  config.module.rules.push({
-    test: /\.worker\.js$/,
-    use: [{ loader: 'workerize-loader', options }],
-  });
+  // Create node field for singles only
+  if (
+    node.internal.type === 'MarkdownRemark' &&
+    (node.fileAbsolutePath.match(/about/g) ||
+      node.fileAbsolutePath.match(/uses/g))
+  ) {
+    const slug = createFilePath({ getNode, node });
 
-  config.output.globalObject = 'this';
-
-  replaceWebpackConfig(config);
-};
-
-exports.onCreateNode = ({ actions, node, getNode }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === 'MarkdownRemark') {
-    /* eslint-disable sort-keys, quotes */
-    const slug = createFilePath({ node, getNode, basePath: `posts/` });
+    // creates single page slug
     createNodeField({
-      node,
       name: 'slug',
+      node,
       value: slug,
     });
-    /* eslint-enable */
   }
 };
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   const result = await graphql(`
     {
-      allMarkdownRemark(
+      posts: allMarkdownRemark(
         filter: {
           fileAbsolutePath: { regex: "/posts/" }
+          frontmatter: { draft: { eq: false }, url: { eq: null } }
+        }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            id
+          }
+        }
+      }
+      singles: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/single/" }
           frontmatter: { draft: { eq: false } }
         }
         sort: { fields: frontmatter___date, order: DESC }
@@ -58,36 +80,125 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            id
           }
         }
+      }
+      tags: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/posts/" }
+          frontmatter: { draft: { eq: false } }
+        }
+      ) {
         group(field: frontmatter___tag) {
           fieldValue
         }
       }
+      erebor {
+        tweets {
+          id
+        }
+      }
     }
   `);
-  const posts = result.data.allMarkdownRemark.edges;
-  const taxonomies = result.data.allMarkdownRemark.group;
 
-  // Create single template
-  posts.forEach(({ node }) => {
+  // // Extract query results
+  const { posts } = result.data;
+  const { singles } = result.data;
+  const { group } = result.data.tags;
+  const { tweets } = result.data.erebor;
+
+  // Create blog posts
+  posts.edges.forEach(({ node }) => {
     createPage({
-      component: path.resolve('./src/templates/single.js'),
+      component: resolve('./src/templates/post.js'),
       context: {
-        slug: node.fields.slug,
+        id: node.id,
       },
-      path: `/posts${node.fields.slug}`,
+      path: node.fields.slug,
+    });
+  });
+
+  // Create single pages
+  singles.edges.forEach(({ node }) => {
+    createPage({
+      component: resolve('./src/templates/single.js'),
+      context: {
+        id: node.id,
+      },
+      path: node.fields.slug,
     });
   });
 
   // Create taxonomies template
-  taxonomies.forEach(({ fieldValue }) => {
+  group.forEach(({ fieldValue }) => {
     createPage({
-      component: path.resolve('./src/templates/taxonomies.js'),
+      component: resolve('./src/templates/taxonomy.js'),
       context: {
         tag: fieldValue,
       },
       path: `/${fieldValue}/`,
     });
+  });
+
+  // Create taxonomies template
+  tweets.forEach(({ id }) => {
+    createPage({
+      component: resolve('./src/templates/tweet.js'),
+      context: {
+        id,
+      },
+      path: `/status/${id}/`,
+    });
+  });
+
+  // Netlify redirects
+  createRedirect({
+    fromPath: '/tags/yearly-theme',
+    toPath: '/yearly-theme/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/tags/life',
+    toPath: '/life/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/tags/development',
+    toPath: '/development/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/tags/productivity',
+    toPath: '/productivity/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/tags/procrastination',
+    toPath: '/procrastination/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/posts/success/',
+    toPath: '/posts/',
+    isPermanent: true,
+    force: true,
+  });
+
+  createRedirect({
+    fromPath: '/spreadsheets/',
+    toPath: '/posts/spreadsheets/',
+    isPermanent: true,
+    force: true,
   });
 };

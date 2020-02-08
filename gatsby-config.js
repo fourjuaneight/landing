@@ -1,14 +1,16 @@
 // Site configuration options
 // https://www.gatsbyjs.org/docs/gatsby-config/
+require('dotenv').config();
+const { resolve } = require('path');
 const config = require('./config/siteConfig');
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-emotion',
+    'gatsby-plugin-goober',
+    'gatsby-plugin-netlify',
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
-    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
     {
       options: {
@@ -21,6 +23,16 @@ module.exports = {
         theme_color: config.theme,
       },
       resolve: 'gatsby-plugin-manifest',
+    },
+    {
+      options: {
+        host: config.siteUrl,
+        policy: [
+          { allow: '/', disallow: ['/status/*', '/twitter/'], userAgent: '*' },
+        ],
+        sitemap: `${config.siteUrl}sitemap.xml`,
+      },
+      resolve: 'gatsby-plugin-robots-txt',
     },
     {
       options: {
@@ -45,23 +57,36 @@ module.exports = {
     {
       options: {
         name: 'posts',
-        path: `${__dirname}/src/posts/`,
+        path: resolve(__dirname, 'src/posts/'),
       },
       resolve: 'gatsby-source-filesystem',
     },
     {
       options: {
         name: 'images',
-        path: `${__dirname}/src/images/`,
+        path: resolve(__dirname, 'src/images'),
       },
       resolve: 'gatsby-source-filesystem',
     },
     {
       options: {
         name: 'single',
-        path: `${__dirname}/src/single/`,
+        path: resolve(__dirname, 'src/single'),
       },
       resolve: 'gatsby-source-filesystem',
+    },
+    {
+      options: {
+        fieldName: 'erebor',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Hasura-Admin-Secret': process.env.EREBOR_KEY,
+        },
+        refetchInterval: 60,
+        typeName: 'Erebor',
+        url: process.env.EREBOR_ENDPOINT,
+      },
+      resolve: 'gatsby-source-graphql',
     },
     {
       options: {
@@ -89,6 +114,12 @@ module.exports = {
           },
           {
             options: {
+              maxWidth: 512,
+            },
+            resolve: 'gatsby-remark-images',
+          },
+          {
+            options: {
               classPrefix: 'language-',
               noInlineHighlight: false,
               showLineNumbers: false,
@@ -109,31 +140,45 @@ module.exports = {
                 allMarkdownRemark(
                   limit: 2000,
                   sort: { order: DESC, fields: [frontmatter___date] },
-                  filter: {frontmatter: { draft: { ne: true } }}
+                  filter: {
+                    fileAbsolutePath: { regex: "/posts/" }
+                    frontmatter: { draft: { eq: false } }
+                  }
                 ) {
                   edges {
                     node {
-                      excerpt
-                      html
-                      frontmatter {
-                        date
+                      excerpt(pruneLength: 272)
+                      fields {
                         slug
-                        title
                       }
+                      frontmatter {
+                        date(formatString: "YYYY-MM-DD")
+                        title
+                        url
+                      }
+                      html
                     }
                   }
                 }
               }
             `,
-            serialize: ({ query: { site, allMarkdownRemark } }) =>
-              allMarkdownRemark.edges.map(edge => ({
-                ...edge.node.frontmatter,
-                custom_elements: [{ 'content:encoded': edge.node.html }],
-                date: edge.node.frontmatter.date,
-                description: edge.node.excerpt,
-                guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-              })),
+            serialize: ({ query: { allMarkdownRemark } }) =>
+              allMarkdownRemark.edges.map(
+                ({ node: { excerpt, fields, frontmatter, html } }) => {
+                  const link = frontmatter.url
+                    ? frontmatter.url
+                    : `${config.siteUrl}${fields.slug}`;
+
+                  return {
+                    ...frontmatter,
+                    description: excerpt,
+                    date: frontmatter.date,
+                    url: link,
+                    guid: link,
+                    custom_elements: [{ 'content:encoded': html }],
+                  };
+                }
+              ),
             title: config.title,
           },
         ],
@@ -143,6 +188,7 @@ module.exports = {
               siteMetadata {
                 description
                 siteUrl
+                site_url: siteUrl
                 title
               }
             }
@@ -150,6 +196,12 @@ module.exports = {
         `,
       },
       resolve: 'gatsby-plugin-feed',
+    },
+    {
+      options: {
+        exclude: ['/twitter', '/status/*'],
+      },
+      resolve: 'gatsby-plugin-sitemap',
     },
   ],
   siteMetadata: {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
-import List from '../components/list';
+import Article from '../components/article';
 import Layout from '../components/layout';
 import Title from '../components/title';
 
@@ -21,15 +21,17 @@ const Index = ({ location }) => {
       ) {
         edges {
           node {
-            excerpt(format: HTML, pruneLength: 272, truncate: false)
+            excerpt(pruneLength: 272)
             fields {
               slug
             }
             frontmatter {
-              date(formatString: "MMMM D, YYYY")
+              date(formatString: "YYYY-MM-DD")
               tag
               title
+              url
             }
+            id
           }
         }
       }
@@ -39,13 +41,38 @@ const Index = ({ location }) => {
   return (
     <Layout location={location}>
       <Title text="Recent Posts" />
-      <List edges={edges} />
+      <section>
+        {edges.map(({ node }, i) => {
+          const {
+            excerpt,
+            fields: { slug },
+            frontmatter: { date, tag, title, url },
+            id,
+          } = node;
+
+          return (
+            <Article
+              appearance={url != null}
+              date={date}
+              html={excerpt}
+              index={i}
+              key={id}
+              list={location.pathname === '/'}
+              slug={url || slug}
+              tag={tag}
+              title={title}
+            />
+          );
+        })}
+      </section>
     </Layout>
   );
 };
 
 Index.propTypes = {
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Index;

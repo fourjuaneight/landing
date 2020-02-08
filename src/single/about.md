@@ -4,46 +4,32 @@ slug: 'about'
 draft: false
 ---
 
-Hi there. I'm Juan and I like websites. Most of my time is spent making them. I work independently as a freelancer, helping businesses make accessible and reliable static sites. When I'm not working, I'm likely still coding. There's always something for me to fix, optimize, or rebuild.
+Hi, I'm Juan and I like websites. Most of my time is spent making them for strangers online. When I'm not working, I'm probably still coding.
 
 ## Work
 
-Most of my development career has been with static-site generators. Primarily Hugo and Gatsby. I'm not very good at talking about myself, so here are some nice lists:
+Most of my development work is with the "JAMstack". Although these days I mostly jam with React. Here's a cool list of skills:
 
-**Languages:**
+### Stack:
+JavaScript, TypeScript, CSS, Sass, HTML
 
-- HTML
-- CSS
-- Sass
-- JavaScript
-- TypeScript
-- Python
+### Frameworks:
+React, Gatsby, Hugo, Jekyll, Eleventy
 
-**Frameworks:**
+### Tooling:
+Node, Webpack, Gulp, Jest, Cypress, aXe, TravisCI, CircleCI, GitHub Actions, Gitlab/Bitbucket Pipeline
 
-- Gatsby
-- Hugo
-- Eleventy
-- Jekyll
-- Node
+### Design Tools:
+Sketch, Figma, InVision, Photoshop, Affinity Designer
 
-**Tooling:**
-
-- Webpack
-- Gulp
-- Babel
-
-There's likely several other stuff I know that I could list, but these are the main with which I work on a daily basis.
+### Other Skills:
+Nunchuck, Bo Hunting, Computer Hacking
 
 ## Personal
 
-There are many ways I could go about explaining who I am. But I feel a list is best. So here are some Juan facts for you:
+Here's a nice list with some Juan facts for you:
 
-- Born and raised in Florida. I live in DC now. I really miss the food and nicer people. Don't miss the heat. Or the fires. Or the hurricanes.
-- If there's a remote chance I can automate it, I will try my hardest to do so. Even if it means I'll spend more time trying to automate the job than actually doing it. That's half the fun.
-- I often think about False Vacuum and how everything could cease to exist at any moment.
-- No other activity brings me more joy than cooking. My wife loves everything I make for her but I think she's biased.
-- I worked in IT (mostly Networking) for a brief period. I hated it. Not the field (it's wonderful), but the act of doing it for a living.
-- I was a paramedic some time ago. I delivered a baby once. It wasn't magical.
-- Even though I understand how Facebook tracks my every move online, I can't help but think Instagram is listening in on my conversations.
-- Married. She's pretty cool.
+- I automate all the things.
+- I like cooking. My partner says I'm great, but I think she's biased.
+- I was a paramedic once and delivered a baby. It wasn't magical.
+- Florida man.

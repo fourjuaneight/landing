@@ -1,22 +1,13 @@
-import './src/styles/critical.scss';
+// Browser APIs
+// https://www.gatsbyjs.org/docs/browser-apis/
 
-const addButtons = elements => {
-  const fragment = document.createDocumentFragment();
+require('./src/styles/critical.scss');
 
-  for (const el of elements) {
-    const button = document.createElement('button');
-
-    fragment.appendChild(button);
-    button.classList.add('copy-code');
-    button.innerHTML = 'Copy';
-    el.prepend(fragment);
+// Load Service Worker on production only.
+exports.registerServiceWorker = () => {
+  if (process.env.NODE_ENV !== 'production') {
+    return null;
   }
+
+  return true;
 };
-
-export const onInitialClientRender = () => {
-  const codeBlocks = document.querySelectorAll('div.gatsby-highlight > pre');
-
-  addButtons(codeBlocks);
-};
-
-export const registerServiceWorker = () => true;
