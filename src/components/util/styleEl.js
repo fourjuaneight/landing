@@ -533,7 +533,7 @@ const BgNoise = styled('div')`
   ${cover()};
 
   animation: fade calc(var(--duration) * 4);
-  background-image: url(${props => props.bg});
+  background-image: url('/images/noise-bg.png');
   background-size: calc(0.125em * 64);
   opacity: 0.012;
   pointer-events: none;

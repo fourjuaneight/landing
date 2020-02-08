@@ -4,33 +4,6 @@
 const { createFilePath } = require('gatsby-source-filesystem');
 const { resolve } = require('path');
 
-// Add Web Workers support
-exports.onCreateWebpackConfig = ({
-  actions: { replaceWebpackConfig },
-  getConfig,
-  stage,
-}) => {
-  // gets existing config
-  const config = getConfig();
-  let options = {};
-
-  // adds hash to worker
-  if (stage === 'build-javascript') {
-    config.optimization.moduleIds = 'total-size';
-    options = { name: 'ww-[1]', regExp: '(\\w+).worker.js' };
-  }
-
-  // uses workerize loader
-  config.module.rules.push({
-    test: /\.worker\.js$/,
-    use: [{ loader: 'workerize-loader', options }],
-  });
-
-  config.output.globalObject = 'this';
-
-  replaceWebpackConfig(config);
-};
-
 exports.onCreateNode = ({ actions, getNode, node }) => {
   const { createNodeField } = actions;
 
