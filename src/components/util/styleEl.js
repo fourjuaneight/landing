@@ -345,6 +345,26 @@ const Content = styled('section')`
   align-items: flex-start;
   flex-direction: column;
 
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration-color: var(--primary);
+    }
+  }
+
+  a[rel='nofollow noreferrer'] {
+    text-decoration-color: var(--primary);
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  > hr {
+    margin: 0.75rem 0;
+  }
+
   .gatsby-highlight {
     margin-bottom: 0.75rem;
   }
@@ -354,6 +374,11 @@ const Content = styled('section')`
     `p {
     text-align: justify;
   }`}
+
+  .footnote-backref,
+  .footnote-ref {
+    text-decoration: none !important;
+  }
 
   .footnote-ref {
     color: var(--primary);
@@ -385,10 +410,6 @@ const Content = styled('section')`
 
   .footnotes {
     margin-top: 0.75rem;
-
-    hr {
-      border-color: var(--primary-light);
-    }
 
     ol {
       margin-top: 0.75rem;

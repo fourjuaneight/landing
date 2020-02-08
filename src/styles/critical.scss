@@ -129,20 +129,7 @@ a {
   &:hover {
     color: var(--font);
     text-decoration: underline;
-    text-decoration-color: var(--primary) !important;
-  }
-}
-
-article a[rel='nofollow noreferrer'] {
-  text-decoration: underline;
-  text-decoration-color: var(--primary) !important;
-
-  &:visited {
-    color: var(--font);
-  }
-
-  &:hover {
-    color: var(--primary);
+    text-decoration-color: var(--primary);
   }
 }
 
@@ -189,6 +176,10 @@ button {
   &:hover {
     background-color: var(--primary);
   }
+}
+
+hr {
+  border-color: var(--primary-light);
 }
 
 img {
@@ -298,6 +289,7 @@ form div,
 form input,
 form textarea,
 header,
+hr,
 main,
 nav,
 picture,
