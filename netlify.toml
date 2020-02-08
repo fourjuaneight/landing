@@ -1,21 +1,21 @@
 [build]
   publish = "public"
-  command = "npm run build"
+  command = "npm run build:production"
 
 # Config for Github pull requests.
 [context.deploy-preview]
-  command = "npm run build"
+  command = "npm run build:production"
 
 # Default config for branch deploys.
 [context.branch-deploy]
   # Build without minification & optimization.
-  command = "npm run build"
+  command = "npm run build:production"
 
 # Custom config for the staging branch.
 [context.staging]
   # We want a production-like build.
-  command = "npm run build"
+  command = "npm run build:production"
 
 # Production config.
 [context.production]
-  command = "npm run build"
+  command = "npm run build:production"
