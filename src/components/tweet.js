@@ -1,48 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import cx from 'classnames';
 
 import A11yEmoji from './a11yEmoji';
 import CleanTweet from './util/cleanTweet';
-import { Meta, MetaWrap, Sr, TweetWrap } from './util/styleEl';
 import fmtDate from './util/fmtDate';
 
+import base from '../styles/base.module.css';
+import color from '../styles/color.module.css';
+import main from '../styles/main.module.css';
+
 const Tweet = ({ date, favorited, id, list, retweeted, tweet }) => (
-  <TweetWrap>
+  <article className={cx(base.w100, main.tweetWrap)}>
     <CleanTweet string={tweet} />
-    <MetaWrap tweets>
-      {list && (
-        <Meta>
-          <A11yEmoji symbol="🔗" />
-          <Link to={`/status/${id}`}>Permalink</Link>
-        </Meta>
+    <section
+      className={cx(
+        base.flex,
+        base.itemsCenter,
+        base.justifyStart,
+        base.w100,
+        main.metaWrap
       )}
-      <Meta>
+    >
+      {list && (
+        <p className={cx(main.meta, main.mainTweet)}>
+          <A11yEmoji symbol="🔗" />
+          <Link className={color.primary} to={`/status/${id}`}>
+            Permalink
+          </Link>
+        </p>
+      )}
+      <p className={cx(main.meta, main.mainTweet)}>
         <A11yEmoji symbol="↗️" />
         <a
+          className={color.primary}
           href={`https://twitter.com/fourjuaneight/status/${id}`}
           target="_blank"
           rel="noopener noreferrer"
         >
           Twitter
         </a>
-      </Meta>
-      <Meta>
-        <Sr>Retweets</Sr>
+      </p>
+      <p className={cx(main.meta, main.mainTweet)}>
+        <span className={main.sr}>Retweets</span>
         <A11yEmoji symbol="♻️" label="Retweeted" />
         {retweeted}
-      </Meta>
-      <Meta>
-        <Sr>Favorites</Sr>
+      </p>
+      <p className={cx(main.meta, main.mainTweet)}>
+        <span className={main.sr}>Favorites</span>
         <A11yEmoji symbol="❤️" label="Favorited" />
         {favorited}
-      </Meta>
-      <Meta>
+      </p>
+      <p className={cx(main.meta, main.mainTweet)}>
         <A11yEmoji symbol="📆" label="Posted" />
         <time dateTime={fmtDate(date).iso}>{fmtDate(date).standard}</time>
-      </Meta>
-    </MetaWrap>
-  </TweetWrap>
+      </p>
+    </section>
+  </article>
 );
 
 Tweet.propTypes = {

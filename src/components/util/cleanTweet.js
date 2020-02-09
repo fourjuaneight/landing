@@ -9,6 +9,7 @@ const CleanTweet = ({ string }) => {
     '<a href="https://twitter.com/$2" target="_blank" rel="noopener noreferrer">$1$2</a>'
   );
 
+  // eslint-disable-next-line react/no-danger
   return <p dangerouslySetInnerHTML={createMarkup(withAts)} />;
 };
 

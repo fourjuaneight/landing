@@ -2,28 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
+import cx from 'classnames';
 
 import { ReactComponent as GitHub } from '../images/github.svg';
 import { ReactComponent as Twitter } from '../images/twitter.svg';
 import { ReactComponent as RSS } from '../images/rss.svg';
-import {
-  DD,
-  DL,
-  DT,
-  FootBody,
-  FooterCopy,
-  FooterMain,
-  SocialLink,
-} from './util/styleEl';
+
+import base from '../styles/base.module.css';
+import color from '../styles/color.module.css';
+import main from '../styles/main.module.css';
 
 const size = {
   height: '6.75em',
   width: '6.75em',
 };
+
 const wrapStyles = {
   ...size,
-  margin: '0 auto',
+  margin: '0',
 };
+
 const imgStyles = {
   ...size,
   borderRadius: '50%',
@@ -43,7 +41,24 @@ const Footer = ({ description, social }) => {
   `);
 
   return (
-    <FooterMain>
+    <footer
+      className={cx(
+        base.contentEmptyA,
+        base.contentEmptyB,
+        base.grid,
+        base.relative,
+        base.w100,
+        color.bgBaseDark,
+        color.bgPrimaryB,
+        color.bgPrimaryLightA,
+        color.brdSecondary,
+        main.footer,
+        main.left0A,
+        main.left0B,
+        main.right0B,
+        main.rightAB
+      )}
+    >
       <Img
         fixed={fixed}
         alt="Juan's avatar."
@@ -52,41 +67,55 @@ const Footer = ({ description, social }) => {
         fadeIn
         durationFadeIn={1152}
       />
-      <FooterCopy>
+      <section className={cx(base.w100, main.footerCopy)}>
         <h3>Hi, I&rsquo;m Juan</h3>
-        <FootBody>A {description}</FootBody>
-      </FooterCopy>
-      <DL>
-        <DT>GitHub</DT>
-        <DD>
-          <SocialLink
+        <p className={main.footerBody}>A {description}</p>
+      </section>
+      <dl
+        className={cx(
+          base.flex,
+          base.itemsCenter,
+          base.justifyBetween,
+          base.w100,
+          main.dl
+        )}
+      >
+        <dt className={main.sr}>GitHub</dt>
+        <dd className={main.dd}>
+          <a
+            className={cx(base.relative, base.tdnH, main.socialLink)}
             href={`https://www.github.com/${social}`}
             title="Follow me on GitHub"
             target="_blank"
             rel="noopener noreferrer"
           >
             <GitHub />
-          </SocialLink>
-        </DD>
-        <DT>Twitter</DT>
-        <DD>
-          <SocialLink
+          </a>
+        </dd>
+        <dt className={main.sr}>Twitter</dt>
+        <dd className={main.dd}>
+          <a
+            className={cx(base.relative, base.tdnH, main.socialLink)}
             href={`https://www.twitter.com/${social}`}
             title="Follow me on Twitter"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Twitter />
-          </SocialLink>
-        </DD>
-        <DT>RSS</DT>
-        <DD>
-          <SocialLink href="/index.xml" title="View the RSS feed of this page">
+          </a>
+        </dd>
+        <dt className={main.sr}>RSS</dt>
+        <dd className={main.dd}>
+          <a
+            className={cx(base.relative, base.tdnH, main.socialLink)}
+            href="/index.xml"
+            title="View the RSS feed of this page"
+          >
             <RSS />
-          </SocialLink>
-        </DD>
-      </DL>
-    </FooterMain>
+          </a>
+        </dd>
+      </dl>
+    </footer>
   );
 };
 

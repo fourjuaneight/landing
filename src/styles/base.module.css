@@ -1,0 +1,61 @@
+.absolute {
+  position: absolute;
+}
+
+.content-empty-b::before,
+.content-empty-a::after {
+  content: '';
+}
+
+.dib {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.pa0 {
+  padding: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.tdn,
+.tdn-h {
+  text-decoration: none;
+}
+
+.tj {
+  text-align: justify;
+}
+
+.w-100 {
+  width: 100%;
+}

@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
+import cx from 'classnames';
 
 import Article from '../components/article';
 import Layout from '../components/layout';
 import Title from '../components/title';
-import { Subtitle } from '../components/util/styleEl';
+
+import base from '../styles/base.module.css';
+import color from '../styles/color.module.css';
+import main from '../styles/main.module.css';
 
 const Posts = ({ location }) => {
   const {
@@ -44,10 +48,12 @@ const Posts = ({ location }) => {
   return (
     <Layout pageTitle="Posts" location={location}>
       <Title text="Posts" />
-      <section>
+      <section className={base.w100}>
         {group.reverse().map(gp => (
           <React.Fragment key={gp.fieldValue}>
-            <Subtitle>{gp.fieldValue}</Subtitle>
+            <h2 className={cx(color.brdPrimary, main.subtitle)}>
+              {gp.fieldValue}
+            </h2>
             {gp.edges.map(({ node }, i) => {
               const {
                 excerpt,

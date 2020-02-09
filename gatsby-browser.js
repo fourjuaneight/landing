@@ -1,7 +1,7 @@
 // Browser APIs
 // https://www.gatsbyjs.org/docs/browser-apis/
 
-require('./src/styles/critical.scss');
+require('./src/styles/critical.css');
 
 // Load Service Worker on production only.
 exports.registerServiceWorker = () => {

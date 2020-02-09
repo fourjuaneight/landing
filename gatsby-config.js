@@ -6,11 +6,9 @@ const config = require('./config/siteConfig');
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-goober',
     'gatsby-plugin-netlify',
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
     'gatsby-transformer-sharp',
     {
       options: {
