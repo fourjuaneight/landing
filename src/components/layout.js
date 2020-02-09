@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
-
-import { BgNoise, Main } from './util/styleEl';
+import cx from 'classnames';
 
 import Footer from './footer';
 import Header from './header';
 import SEO from './seo';
+
+import base from '../styles/base.module.css';
+import main from '../styles/main.module.css';
 
 const Layout = ({
   children,
@@ -42,9 +44,9 @@ const Layout = ({
         postPublishDate={postPublishDate}
       />
       <Header title={title} />
-      <Main>{children}</Main>
+      <main className={cx(base.w100, main.main)}>{children}</main>
       <Footer description={description} social={social} />
-      <BgNoise />
+      <div className={cx(base.absolute, base.w100, main.noise)} />
     </>
   );
 };

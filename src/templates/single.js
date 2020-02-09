@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+import cx from 'classnames';
 
 import Layout from '../components/layout';
 import Title from '../components/title';
-import { Content } from '../components/util/styleEl';
+
+import base from '../styles/base.module.css';
+import main from '../styles/main.module.css';
 
 const createMarkup = content => ({ __html: content });
 
@@ -31,9 +34,20 @@ const Single = ({ data, location }) => {
 
   return (
     <Layout location={location} pageDescription={excerpt} pageTitle={title}>
-      <article>
+      <article className={base.w100}>
         <Title text={title} />
-        <Content dangerouslySetInnerHTML={createMarkup(html)} />
+        <section
+          className={cx(
+            base.flex,
+            base.flexColumn,
+            base.itemsStart,
+            base.justifyBetween,
+            base.w100,
+            main.content
+          )}
+          /* eslint-disable-next-line react/no-danger */
+          dangerouslySetInnerHTML={createMarkup(html)}
+        />
       </article>
     </Layout>
   );

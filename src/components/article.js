@@ -1,53 +1,87 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import cx from 'classnames';
 
 import Title from './title';
-import {
-  Content,
-  ExternalLink,
-  Meta,
-  MetaWrap,
-  Permalink,
-} from './util/styleEl';
+
+import base from '../styles/base.module.css';
+import main from '../styles/main.module.css';
 
 const createMarkup = content => ({ __html: content });
 
 const Article = ({ appearance, date, html, index, list, slug, tag, title }) => (
-  <article key={list && index}>
+  <article className={base.w100} key={list && index}>
     {/* eslint-disable-next-line no-nested-ternary */}
     {list && appearance ? (
-      <ExternalLink href={slug} target="_blank" rel="noopener noreferrer">
-        <h2>
+      <a
+        className={cx(base.dib, base.tdn, main.externalLink)}
+        href={slug}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <h2 className={base.pa0}>
           {title}
-          <span aria-hidden="true">{String.fromCharCode(8594)}</span>
+          <span className={base.dib} aria-hidden="true">
+            {String.fromCharCode(8594)}
+          </span>
         </h2>
-      </ExternalLink>
+      </a>
     ) : list && !appearance ? (
-      <Permalink to={slug}>
-        <h2>{title}</h2>
-      </Permalink>
+      <Link className={cx(base.dib, base.tdn)} to={slug}>
+        <h2 className={base.pa0}>{title}</h2>
+      </Link>
     ) : (
       <Title text={title} />
     )}
     {date && (
-      <MetaWrap>
-        <Meta>
+      <section
+        className={cx(
+          base.flex,
+          base.itemsCenter,
+          base.justifyBetween,
+          base.w100,
+          main.metaWrap
+        )}
+      >
+        <p className={main.meta}>
           <time dateTime={date}>{date}</time>
-        </Meta>
-        <Meta>
+        </p>
+        <p className={main.meta}>
           <span aria-hidden="true">#</span>
-          <Link to={`/${tag}/`}>{tag}</Link>
-        </Meta>
-      </MetaWrap>
+          <Link className={base.tdn} to={`/${tag}/`}>
+            {tag}
+          </Link>
+        </p>
+      </section>
     )}
     {list ? (
-      <Content justify={list.toString()}>
+      <section
+        className={cx(
+          base.flex,
+          base.flexColumn,
+          base.itemsStart,
+          base.justifyBetween,
+          base.w100,
+          main.content
+        )}
+      >
         {/* eslint-disable-next-line react/no-danger */}
-        <p dangerouslySetInnerHTML={createMarkup(html)} />
-      </Content>
+        <p className={base.tj} dangerouslySetInnerHTML={createMarkup(html)} />
+      </section>
     ) : (
-      <Content dangerouslySetInnerHTML={createMarkup(html)} />
+      <section
+        className={cx(
+          base.flex,
+          base.flexColumn,
+          base.itemsStart,
+          base.justifyBetween,
+          base.w100,
+          main.content
+        )}
+        /* eslint-disable-next-line react/no-danger */
+        dangerouslySetInnerHTML={createMarkup(html)}
+      />
     )}
   </article>
 );

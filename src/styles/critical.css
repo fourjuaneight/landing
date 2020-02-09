@@ -1,50 +1,39 @@
-@import './colors.scss';
-
-// Helpers
-@mixin light() {
-  --bg: #{$white};
-  --bg-dark: #{$dracula};
-  --font: #{$dracula-dark};
-  --meta: #{$meta};
-}
-
-@mixin dark() {
-  --bg: #{$dracula};
-  --bg-dark: #{$dracula-dark};
-  --font: #{$white};
-  --meta: #{$meta-light};
-}
-
-// THEME
 :root {
-  @include light();
-
-  --primary: #{$primary};
-  --primary-dark: #{$primary-dark};
-  --primary-light: #{$primary-light};
-  --primary-trans: #{$primary-trans};
-  --secondary: #{$secondary};
+  --bg: #f8f8f2;
+  --bg-dark: #22242f;
+  --font: #1a1b23;
+  --meta: #666;
+  --primary: #ab79f6;
+  --primary-dark: #873ff3;
+  --primary-light: #c39ff9;
+  --primary-trans: rgba(171, 121, 246, 0.25);
+  --secondary: #243c7f;
   --duration: 256ms;
   --transition: cubic-bezier(0.155, 0.64, 0.24, 1);
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    @include light();
+    --bg: #f8f8f2;
+    --bg-dark: #22242f;
+    --font: #1a1b23;
+    --meta: #666;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @include dark();
+    --bg: #22242f;
+    --bg-dark: #1a1b23;
+    --font: #f8f8f2;
+    --meta: #8f8f8f;
   }
 }
 
-// Fonts
 @font-face {
   font-family: Rubik;
-  src: url('/fonts/Rubik-Regular-sub.woff2') format('woff2'),
-    url('/fonts/Rubik-Regular-sub.woff') format('woff');
+  src: url(/fonts/Rubik-Regular-sub.woff2) format('woff2'),
+    url(/fonts/Rubik-Regular-sub.woff) format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -52,8 +41,8 @@
 
 @font-face {
   font-family: Rubik;
-  src: url('/fonts/Rubik-Bold-sub.woff2') format('woff2'),
-    url('/fonts/Rubik-Bold-sub.woff') format('woff');
+  src: url(/fonts/Rubik-Bold-sub.woff2) format('woff2'),
+    url(/fonts/Rubik-Bold-sub.woff) format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -61,20 +50,19 @@
 
 @font-face {
   font-family: Fira Code;
-  src: url('/fonts/FiraCode-Regular.woff2') format('woff2'),
-    url('/fonts/FiraCode-Regular.woff') format('woff');
+  src: url(/fonts/FiraCode-Regular.woff2) format('woff2'),
+    url(/fonts/FiraCode-Regular.woff) format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @keyframes fade {
-  from {
+  0% {
     opacity: 0;
   }
 }
 
-// RESET
 *,
 :after,
 :before {
@@ -108,29 +96,24 @@ body {
   font-family: Rubik, sans-serif;
   margin: 0;
   overflow-x: hidden;
-
-  #gatsby-focus-wrapper {
-    grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 57rem) minmax(
-        1.5rem,
-        1fr
-      );
-    grid-template-rows: repeat(3, auto);
-  }
 }
 
-a {
+body #gatsby-focus-wrapper {
+  grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 57rem) minmax(
+      1.5rem,
+      1fr
+    );
+  grid-template-rows: repeat(3, auto);
+}
+
+a,
+a:visited {
   color: var(--font);
-  text-decoration: none;
+}
 
-  &:visited {
-    color: var(--font);
-  }
-
-  &:hover {
-    color: var(--font);
-    text-decoration: underline;
-    text-decoration-color: var(--primary);
-  }
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
 }
 
 blockquote,
@@ -166,16 +149,16 @@ button {
   padding: 0.75rem 4.5rem;
   transition: background-color var(--duration) ease;
   width: 12rem;
+}
 
-  &:disabled {
-    background-color: var(--primary);
-    cursor: not-allowed;
-  }
+button:disabled {
+  cursor: not-allowed;
+}
 
-  &:focus,
-  &:hover {
-    background-color: var(--primary);
-  }
+button:disabled,
+button:focus,
+button:hover {
+  background-color: var(--primary);
 }
 
 hr {
@@ -201,76 +184,80 @@ sup {
   vertical-align: 0.1875rem;
 }
 
-// Typography
 h1,
 h2,
 h3 {
-  font-weight: bold;
+  font-weight: 700;
   text-transform: capitalize;
-
-  code {
-    margin-left: 0.5rem;
-  }
 }
 
-// aligns to 72px
+h1 code,
+h2 code,
+h3 code {
+  margin-left: 0.5rem;
+}
+
 h1 {
   display: inline-block;
-  font-size: 2.25rem; // 36px
+  font-size: 2.25rem;
   line-height: 1.166;
   margin-bottom: 1.875rem;
-
-  &::after {
-    background-color: var(--primary);
-    bottom: -0.5625rem;
-    content: '';
-    height: 0.1875rem;
-    left: 0;
-    position: absolute;
-    width: 3.75rem;
-    z-index: 1;
-  }
 }
 
-// aligns to 72px
+h1:after {
+  background-color: var(--primary);
+  bottom: -0.5625rem;
+  content: '';
+  height: 0.1875rem;
+  left: 0;
+  position: absolute;
+  width: 3.75rem;
+  z-index: 1;
+}
+
 h2 {
-  font-size: 1.875rem; // 30px
+  font-size: 1.875rem;
   line-height: 1.2;
   padding-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
 
-// aligns to 48px
 h3 {
-  font-size: 1.5rem; // 24px
+  font-size: 1.5rem;
   line-height: 1.25;
   padding-top: 0.75rem;
   margin-bottom: 0.375rem;
 }
 
+hr,
+picture {
+  width: 100%;
+}
+
 input,
 textarea {
-  -webkit-appearance: none;
   appearance: none;
-  border: 1.5px solid;
-  border-color: transparent;
+  border: 1.5px solid transparent;
   font-size: 1rem;
   outline: none;
   padding: 0.25rem;
   transition: border-color var(--duration) ease;
+}
 
-  &:active,
-  &:focus {
-    border-color: var(--primary);
-  }
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+  border-color: var(--primary);
+}
 
-  &:required:invalid {
-    border-color: var(--secondary);
-  }
+input:required:invalid,
+textarea:required:invalid {
+  border-color: var(--secondary);
 }
 
 label {
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 0.375rem;
 }
 
@@ -279,58 +266,11 @@ textarea {
   resize: none;
 }
 
-// DRY
-article,
-div,
-dl,
-footer,
-form,
-form div,
-form input,
-form textarea,
-header,
-hr,
-main,
-nav,
-picture,
-section {
-  width: 100%;
-}
-
-article > section,
-dl,
-header > div,
-nav {
-  justify-content: space-between;
-}
-
-article > section,
-dl,
-nav {
-  align-items: center;
-}
-
-article > section,
-dl,
-form,
-form div,
-nav {
-  display: flex;
-}
-
-dl a,
-footer,
-h1,
-header,
-header > div > a,
 .gatsby-highlight,
 #gatsby-focus-wrapper {
   position: relative;
 }
 
-footer,
-header,
-header > div,
 #gatsby-focus-wrapper {
   display: grid;
 }

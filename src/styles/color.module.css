@@ -1,0 +1,27 @@
+.bg-base-dark {
+  background-color: var(--bg-dark);
+}
+
+.bg-primary-b::before {
+  background-color: var(--primary);
+}
+
+.bg-primary-light-a::after {
+  background-color: var(--primary-light);
+}
+
+.brd-primary {
+  border-color: var(--primary);
+}
+
+.brd-secondary {
+  border-color: var(--secondary);
+}
+
+.meta {
+  color: var(--meta);
+}
+
+.primary {
+  color: var(--primary);
+}
