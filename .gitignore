@@ -69,5 +69,9 @@ public
 yarn-error.log
 .pnp/
 .pnp.js
+
 # Yarn Integrity file
 .yarn-integrity
+
+# Background Noise image file
+static/images/noise-bg.png
