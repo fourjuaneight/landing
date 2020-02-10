@@ -1,3 +1,7 @@
+.bg-base {
+  background-color: var(--bg);
+}
+
 .bg-base-dark {
   background-color: var(--bg-dark);
 }

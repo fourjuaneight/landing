@@ -37,6 +37,7 @@
     "ios >= 10.3"
   ],
   "dependencies": {
+    "@reach/skip-nav": "^0.8.2",
     "@svgr/webpack": "^4.3.3",
     "axios": "^0.19.2",
     "canvas": "^2.6.1",
