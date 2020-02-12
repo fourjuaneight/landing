@@ -7,17 +7,20 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13.8.0
+
       - name: Checkout
         uses: actions/checkout@v1
         with:
           fetch-depth: 1
-      - name: Install Node.js 13.8.0
-        uses: actions/setup-node@v1
-        with:
-          node-version: 13.8.0
+
       - name: Install dependencies
         run: npm ci
-      - name: End2End Test
-        run: npm run test:e2e
-      - name: Unit Test
-        run: npm run test:unit
+
+      - name: Cypress
+        uses: cypress-io/github-action@v1
+        with:
+          config-file: cypress.json
