@@ -19,6 +19,6 @@ jobs:
 
       - name: E2E Tests
         run: |
-          npm ci
+          npm install
           npm run build:production
           npm run cy:headless
