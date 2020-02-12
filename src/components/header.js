@@ -53,13 +53,13 @@ const Header = ({ title }) => (
           main.nav
         )}
       >
-        <Link className={cx(base.tdn)} to="/posts/">
+        <Link className={cx(base.tdn)} to="/posts/" data-testid="posts">
           <strong>Posts</strong>
         </Link>
         <span className={color.meta} aria-hidden="true">
           ::
         </span>
-        <Link className={cx(base.tdn)} to="/about/">
+        <Link className={cx(base.tdn)} to="/about/" data-testid="about">
           <strong>About</strong>
         </Link>
       </nav>

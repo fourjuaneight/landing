@@ -1,19 +1,28 @@
 {
   "name": "juan-dev",
-  "version": "4.2.1",
-  "description": "Freelance Front-End Developer, automation nerd, and astronomy enthusiast.",
+  "version": "4.2.2",
+  "description": "Freelance Front-End Developer, automation nerd, and Florida man.",
   "scripts": {
     "build": "gatsby build || gatsby build",
     "build:production": "npm run js:bg && npm run build && npm run js:sw",
     "clean:node": "rm -rf node_modules",
     "clean": "gatsby clean",
+    "cy:headless": "start-server-and-test start http://localhost:8000 cy:run",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.js",
+    "jest:coverage": "jest --coverage",
+    "jest:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
+    "jest:watch": "jest --watch",
     "js:bg": "node canvas-bg.js",
     "js:sw": "node cache-assets.js",
     "lint": "eslint --fix src/**/*.js",
     "serve": "gatsby serve",
-    "start": "npm run js:bg && gatsby develop"
+    "start": "npm run js:bg && gatsby develop",
+    "test:e2e": "is-ci \"cy:headless\" \"cy:open\"",
+    "test:unit": "is-ci \"jest:coverage\" \"jest:watch\"",
+    "test": "npm run test:e2e && npm run test:unit"
   },
   "husky": {
     "hooks": {
@@ -24,17 +33,19 @@
     "type": "git",
     "url": "git+https://fourjuaneight@github.com/fourjuaneight/juan-dev.git"
   },
-  "author": "Juan Villela",
+  "author": "Juan Villela <juan@villela.co>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fourjuaneight/juan-dev/issues"
   },
   "homepage": "https://github.com/fourjuaneight/juan-dev#readme",
   "browserslist": [
-    "> 3%",
+    ">3%",
+    "not dead",
     "defaults",
     "safari >= 10.1",
-    "ios >= 10.3"
+    "ios >= 10.3",
+    "ie >= 11"
   ],
   "dependencies": {
     "@reach/skip-nav": "^0.8.2",
@@ -72,6 +83,7 @@
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.5",
     "graphql-tools-fork": "^8.5.2",
+    "mutationobserver-shim": "^0.3.3",
     "preact": "^10.3.1",
     "preact-render-to-string": "^5.0.6",
     "prismjs": "^1.17.1",
@@ -86,11 +98,24 @@
     "sanitize-html": "^1.20.1"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^5.3.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
+    "axe-core": "^3.5.0",
     "babel-eslint": "^10.0.3",
+    "babel-jest": "^25.1.0",
+    "cypress": "^4.0.1",
+    "cypress-axe": "^0.5.3",
     "eslint": "^6.5.1",
     "eslint-config-jcv": "^0.1.1",
+    "eslint-plugin-cypress": "^2.9.0",
     "husky": "^3.0.9",
+    "identity-obj-proxy": "^3.0.0",
+    "is-ci-cli": "^2.0.0",
+    "jest": "^25.1.0",
+    "jest-in-case": "^1.0.2",
     "lint-staged": "^9.4.2",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "start-server-and-test": "^1.10.8"
   }
 }
