@@ -95,7 +95,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-hook-form": "^4.8.0",
+    "react-hook-form": "^4.9.3",
     "react-html-parser": "^2.0.2",
     "react-spring": "^8.0.27",
     "replace-in-file": "^4.2.0",
