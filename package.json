@@ -82,7 +82,7 @@
     "gatsby-transformer-remark": "^2.6.30",
     "gatsby-transformer-sharp": "^2.2.23",
     "glob": "^7.1.6",
-    "globby": "^10.0.1",
+    "globby": "^11.0.0",
     "graphiql": "^0.17.5",
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.5",
