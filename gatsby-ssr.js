@@ -1,5 +1,5 @@
 const React = require('react');
-const globby = require('globby').sync;
+const glob = require('glob').sync;
 
 /*
   Add preload links for subset font files.
@@ -10,46 +10,23 @@ const globby = require('globby').sync;
   3. FontFace API dynamically loads full Latin files.
 */
 exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
-  const scripts = {
-    files: [],
-    workers: [],
-  };
-  // match subset fonts and web workers
-  const fonts = globby('static', {
-    expandDirectories: {
-      files: ['*-sub'],
-      extensions: ['woff2', 'woff'],
-    },
-  });
-  const workers = globby('public/*.worker.js');
+  // match subset fonts
+  const fonts = glob('public/**/*-sub.{woff,woff2}').reverse();
   // get existing head components
   const headComponents = getHeadComponents();
 
   // for each found file, generate a link preload component
-  if (fonts.length !== 0) {
-    scripts.files = fonts.map(file => (
-      <link
-        key={file}
-        rel="preload"
-        href={file.replace('static', '')}
-        as="font"
-        type={`font/${file.match(/woff2|woff/g)}`}
-        crossOrigin="anonymous"
-      />
-    ));
-  }
-  if (workers.length !== 0) {
-    scripts.workers = workers.map(file => (
-      <link
-        key={file}
-        rel="preload"
-        href={file.replace('public', '')}
-        as="worker"
-        crossOrigin="anonymous"
-      />
-    ));
-  }
+  const files = fonts.map(file => (
+    <link
+      key={file}
+      rel="preload"
+      href={file.replace('public', '')}
+      as="font"
+      type={`font/${file.match(/woff2|woff/g)}`}
+      crossOrigin="anonymous"
+    />
+  ));
 
   // push links before existing head components
-  replaceHeadComponents([...scripts.files, headComponents, ...scripts.workers]);
+  replaceHeadComponents([...files, headComponents]);
 };
