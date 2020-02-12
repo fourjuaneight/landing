@@ -20,7 +20,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Cypress
-        uses: cypress-io/github-action@v1
-        with:
-          config-file: cypress.json
+      - name: E2E Tests
+        run: npm run cy:headless
