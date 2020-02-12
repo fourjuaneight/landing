@@ -1,15 +1,18 @@
-import { format } from 'date-fns';
-
 const fmtDate = date => {
   const raw = date.replace(/\+00:00/g, '');
   const clean = new Date(raw);
   const offset = clean.getTimezoneOffset() * 60000;
-  const estDate = new Date(clean - offset);
-  const ISOpattern = 'yyyy-MM-dd HH:mm:ssXXX';
-  const STDpattern = 'MMM d, YYY @ hh:mm a zzz';
+  const localDate = new Date(clean - offset);
 
-  const isoDate = format(estDate, ISOpattern).replace(/\s/g, 'T');
-  const standardDate = format(estDate, STDpattern);
+  const isoDate = localDate.toISOString().slice(0, -5);
+  const standardDate = clean.toLocaleString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  });
 
   const dates = {
     iso: isoDate,
