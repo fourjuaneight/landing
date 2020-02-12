@@ -1,14 +1,14 @@
 const { createCanvas, createImageData } = require('canvas');
-const { createWriteStream } = require('fs');
+const { createWriteStream, existsSync, mkdirSync } = require('fs');
 const { resolve } = require('path');
 
 // base dimensions
 const baseSize = 64;
 // save directory
-const cwd = resolve(__dirname, 'static/images');
+const cwd = resolve(__dirname, 'static');
 
 // Creates random noise background image on build
-const makeNoise = async (size = baseSize) => {
+const makeNoise = (size = baseSize) => {
   // create node canvas
   const canvas = createCanvas(baseSize, baseSize);
   const ctx = canvas.getContext('2d');
@@ -24,15 +24,25 @@ const makeNoise = async (size = baseSize) => {
     }
   }
 
+  // create images directory
+  try {
+    if (!existsSync(resolve(cwd, 'images'))) {
+      mkdirSync(resolve(cwd, 'images'));
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
   // create image file stream
   ctx.putImageData(createImageData(data, size, size), 0, 0);
-  const out = createWriteStream(resolve(cwd, 'noise-bg.png'));
+  const out = createWriteStream(resolve(cwd, 'images/noise-bg.png'));
   const stream = canvas.createPNGStream();
 
   // save image file
   stream.pipe(out);
   // eslint-disable-next-line no-console
   out.on('finish', () => console.info('Noise created successfully.'));
+  out.on('error', error => console.error(error));
 };
 
 makeNoise();

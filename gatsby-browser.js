@@ -11,3 +11,14 @@ exports.registerServiceWorker = () => {
 
   return true;
 };
+
+// Skip navigation link for screen reader and keyboard users
+exports.onRouteUpdate = ({ prevLocation }) => {
+  if (prevLocation !== null) {
+    const skipLink = document.querySelector('#reach-skip-nav');
+
+    if (skipLink) {
+      skipLink.focus();
+    }
+  }
+};

@@ -203,7 +203,7 @@
 
 .content sup a::before,
 .content sup a::after {
-  color: #f8f8f2;
+  color: var(--font);
 }
 
 .content sup a::before {
@@ -267,6 +267,12 @@
 .form div {
   margin-bottom: 0.75rem;
   min-height: 4.5rem;
+}
+
+.confirmation {
+  font-style: italic;
+  margin: 1rem 0 0 auto;
+  text-align: end;
 }
 
 /* Tweets */
