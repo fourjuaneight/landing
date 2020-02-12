@@ -18,8 +18,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: End2End Test
-        uses: cypress-io/github-action@v1
         run: npm run test:e2e
       - name: Unit Test
-        uses: stefanoeb/jest-action@1.0.2
         run: npm run test:unit
