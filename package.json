@@ -24,11 +24,23 @@
     "test:unit": "is-ci \"jest:coverage\" \"jest:watch\"",
     "test": "npm run test:e2e && npm run test:unit"
   },
+  "lint-staged": {
+    "*.+(js|css|ms)": ["prettier --write", "git add"],
+    "*.js": ["eslint --fix"]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "browserslist": [
+    ">3%",
+    "not dead",
+    "defaults",
+    "safari >= 10.1",
+    "ios >= 10.3",
+    "ie >= 11"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://fourjuaneight@github.com/fourjuaneight/juan-dev.git"
@@ -39,14 +51,6 @@
     "url": "https://github.com/fourjuaneight/juan-dev/issues"
   },
   "homepage": "https://github.com/fourjuaneight/juan-dev#readme",
-  "browserslist": [
-    ">3%",
-    "not dead",
-    "defaults",
-    "safari >= 10.1",
-    "ios >= 10.3",
-    "ie >= 11"
-  ],
   "dependencies": {
     "@reach/skip-nav": "^0.8.2",
     "@svgr/webpack": "^4.3.3",
