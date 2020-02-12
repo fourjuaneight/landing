@@ -5,12 +5,12 @@ on: [push]
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: 13.8.0
+          node-version: 12
 
       - name: Checkout
         uses: actions/checkout@v1
