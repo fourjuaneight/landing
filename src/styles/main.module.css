@@ -37,7 +37,7 @@
 .header-inner {
   grid-column: 2/3;
   grid-row-gap: 1.15rem;
-  grid-template-columns: repeat(auto-fit, 10.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 20rem));
 }
 
 .home-link {
@@ -47,8 +47,14 @@
 }
 
 .nav {
+  max-width: 20rem;
+  overflow-x: auto;
+}
+
+.nav-list {
+  list-style-type: none;
   max-height: 4.5rem;
-  max-width: 10.5rem;
+  width: 20rem;
 }
 
 /* Footer */

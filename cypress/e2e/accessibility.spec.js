@@ -20,6 +20,10 @@ describe('Accessibility (A11Y)', () => {
       .click()
       .checkA11y(A11Y_OPTIONS);
 
+    cy.findByTestId(/^microblog$/i, { selector: 'a' })
+      .click()
+      .checkA11y(A11Y_OPTIONS);
+
     cy.findByTestId(/^about$/i, { selector: 'a' })
       .click()
       .checkA11y(A11Y_OPTIONS);

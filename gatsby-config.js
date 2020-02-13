@@ -201,7 +201,7 @@ module.exports = {
     },
     {
       options: {
-        exclude: ['/microblog', '/microblog/*'],
+        exclude: ['/microblog/*'],
       },
       resolve: 'gatsby-plugin-sitemap',
     },
