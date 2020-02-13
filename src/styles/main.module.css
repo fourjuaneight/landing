@@ -276,16 +276,25 @@
 }
 
 /* Tweets */
+.tweet-wrap {
+  padding-bottom: 2.25rem;
+}
+
 .tweet-wrap:not(:last-child) {
   border-bottom: 0.05rem solid var(--primary-trans);
 }
 
-.tweet-wrap p {
+.tweet-wrap > p {
   font-size: 1.125rem;
   line-height: 1.5;
   padding-top: 0.75rem;
-  margin-bottom: 0.5625rem;
+  margin: 0;
   white-space: pre-line;
+}
+
+.tweet-meta p {
+  margin: 0;
+  white-space: nowrap;
 }
 
 /* Layout */

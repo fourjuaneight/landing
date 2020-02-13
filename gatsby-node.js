@@ -144,11 +144,11 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create taxonomies template
   tweets.forEach(({ id }) => {
     createPage({
-      component: resolve('./src/templates/tweet.js'),
+      component: resolve('./src/templates/status.js'),
       context: {
         id,
       },
-      path: `/status/${id}/`,
+      path: `/microblog/${id}/`,
     });
   });
 

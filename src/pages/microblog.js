@@ -4,9 +4,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import Layout from '../components/layout';
 import Title from '../components/title';
-import Tweet from '../components/tweet';
+import Update from '../components/update';
 
-const Twitter = ({ location }) => {
+const Microblog = ({ location }) => {
   const {
     erebor: { tweets },
   } = useStaticQuery(graphql`
@@ -14,9 +14,7 @@ const Twitter = ({ location }) => {
       erebor {
         tweets(order_by: { date: desc }, limit: 5) {
           date
-          favorited
           id
-          retweeted
           tweet
         }
       }
@@ -27,15 +25,12 @@ const Twitter = ({ location }) => {
     <Layout pageTitle="Recent Tweets" location={location}>
       <Title text="Recent Tweets" />
       <section>
-        {tweets.map(({ date, favorited, id, retweeted, tweet }) => (
-          <Tweet
+        {tweets.map(({ date, id, tweet }) => (
+          <Update
             key={id}
             date={date}
-            favorited={favorited}
             id={id}
-            list
             path={location.pathname}
-            retweeted={retweeted}
             tweet={tweet}
           />
         ))}
@@ -44,10 +39,10 @@ const Twitter = ({ location }) => {
   );
 };
 
-Twitter.propTypes = {
+Microblog.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default Twitter;
+export default Microblog;

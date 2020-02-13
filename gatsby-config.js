@@ -26,7 +26,11 @@ module.exports = {
       options: {
         host: config.siteUrl,
         policy: [
-          { allow: '/', disallow: ['/status/*', '/twitter/'], userAgent: '*' },
+          {
+            allow: '/',
+            disallow: ['/microblog/*', '/microblog/'],
+            userAgent: '*',
+          },
         ],
         sitemap: `${config.siteUrl}sitemap.xml`,
       },
@@ -197,7 +201,7 @@ module.exports = {
     },
     {
       options: {
-        exclude: ['/twitter', '/status/*'],
+        exclude: ['/microblog', '/microblog/*'],
       },
       resolve: 'gatsby-plugin-sitemap',
     },

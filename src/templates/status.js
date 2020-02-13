@@ -3,44 +3,36 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
-import Tweet from '../components/tweet';
+import Update from '../components/update';
 import fmtDate from '../components/util/fmtDate';
 
 export const query = graphql`
-  query TweetQuery($id: String!) {
+  query StatusQuery($id: String!) {
     erebor {
       tweets_by_pk(id: $id) {
         date
-        favorited
         id
-        retweet
-        retweeted
         tweet
       }
     }
   }
 `;
 
-const Twitter = ({ data, location }) => {
+const Status = ({ data, location }) => {
   const {
     erebor: {
-      tweets_by_pk: { date, favorited, id, retweeted, tweet },
+      tweets_by_pk: { date, id, tweet },
     },
   } = data;
 
   return (
-    <Layout
-      pageTitle={`Tweeted on ${fmtDate(date).standard}`}
-      location={location}
-    >
+    <Layout pageTitle={`Posted on ${fmtDate(date).micro}`} location={location}>
       <section>
-        <Tweet
+        <Update
           key={id}
           date={date}
-          favorited={favorited}
           id={id}
           path={location.pathname}
-          retweeted={retweeted}
           tweet={tweet}
         />
       </section>
@@ -48,11 +40,11 @@ const Twitter = ({ data, location }) => {
   );
 };
 
-Twitter.propTypes = {
+Status.propTypes = {
   data: PropTypes.shape.isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default Twitter;
+export default Status;
