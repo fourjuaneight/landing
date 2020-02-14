@@ -41,6 +41,7 @@ const Header = ({ title }) => (
         to="/"
         rel="me"
         id="title"
+        data-testid="home"
       >
         <strong>{title}</strong>
       </Link>

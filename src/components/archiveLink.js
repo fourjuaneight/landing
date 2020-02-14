@@ -11,7 +11,7 @@ const Archive = ({ link }) => {
     <div
       className={cx(base.flex, base.justifyEnd, base.w100, main.archiveLink)}
     >
-      <Link to={link}>
+      <Link data-testid="archive" to={link}>
         <h3 className={base.pa0}>
           Archive
           <span className={base.dib} aria-hidden="true">

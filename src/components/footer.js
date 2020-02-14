@@ -68,7 +68,7 @@ const Footer = ({ description, social }) => {
         durationFadeIn={1152}
       />
       <section className={cx(base.w100, main.footerCopy)}>
-        <h3>Hi, I&rsquo;m Juan</h3>
+        <h2 className={base.pa0}>Hi, I&rsquo;m Juan</h2>
         <p className={main.footerBody}>A {description}</p>
       </section>
       <dl
