@@ -36,7 +36,7 @@ const Post = ({ data, location }) => {
 
   return (
     <Layout
-      code={code}
+      code={code != null}
       location={location}
       pageDescription={excerpt}
       pageTitle={title}

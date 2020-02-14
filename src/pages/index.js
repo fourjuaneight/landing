@@ -41,7 +41,7 @@ const Index = ({ location }) => {
 
   return (
     <Layout location={location}>
-      <Title text="Recent Articles" />
+      <Title>Recent Articles</Title>
       <section>
         {edges.map(({ node }, i) => {
           const {

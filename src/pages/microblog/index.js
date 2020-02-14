@@ -24,7 +24,7 @@ const Microblog = ({ location }) => {
 
   return (
     <Layout pageTitle="Recent Updates" location={location}>
-      <Title text="Recent Updates" />
+      <Title>Recent Updates</Title>
       <section>
         {tweets.map(({ date, id, tweet }) => (
           <Update

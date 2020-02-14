@@ -35,7 +35,7 @@ const Single = ({ data, location }) => {
   return (
     <Layout location={location} pageDescription={excerpt} pageTitle={title}>
       <article className={base.w100}>
-        <Title text={title} />
+        <Title>{title}</Title>
         <section
           className={cx(
             base.flex,

@@ -32,7 +32,7 @@ const Article = ({ appearance, date, html, index, list, slug, tag, title }) => (
         <h2 className={base.pa0}>{title}</h2>
       </Link>
     ) : (
-      <Title text={title} />
+      <Title>{title}</Title>
     )}
     {date && (
       <section

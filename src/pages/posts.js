@@ -47,7 +47,7 @@ const Posts = ({ location }) => {
 
   return (
     <Layout pageTitle="Posts Archive" location={location}>
-      <Title text="Posts Archive" />
+      <Title>Posts Archive</Title>
       <section className={base.w100}>
         {group.reverse().map(gp => (
           <div key={gp.fieldValue}>

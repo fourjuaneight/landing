@@ -33,6 +33,7 @@ const Status = ({ data, location }) => {
           date={date}
           id={id}
           path={location.pathname}
+          single
           tweet={tweet}
         />
       </section>

@@ -42,7 +42,7 @@ const MicroblogArchive = ({ location }) => {
 
   return (
     <Layout pageTitle="Microblog Archive" location={location}>
-      <Title text="Microblog Archive" />
+      <Title>Microblog Archive</Title>
       <section>
         {years.map(year => (
           <div key={year}>

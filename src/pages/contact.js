@@ -11,7 +11,7 @@ const Contact = ({ location }) => {
   return (
     <Layout location={location}>
       <section className={base.w100}>
-        <Title text="Contact" />
+        <Title>Contact</Title>
         <p>
           If you want to get in contact to talk business or need to get a hold
           of me, just shoot me a message and I&apos;ll get back to you within 24
