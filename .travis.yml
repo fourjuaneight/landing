@@ -20,5 +20,5 @@ before_script:
   - npm ci
 
 script:
-  - nr ci "cypress run --record --key $CYPRESS_KEY"
+  - npm run ci "cypress run --record --key $CYPRESS_KEY"
   - npm run test:unit
