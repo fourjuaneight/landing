@@ -8,10 +8,6 @@ dist: xenial
 node_js:
   - 12.16.0
 
-env:
-  global:
-    - KEY: {{CYPRESS_KEY}}
-
 branches:
   only:
   - master
@@ -24,5 +20,5 @@ before_script:
   - npm ci
 
 script:
-  - npm run cypress run --record --key $KEY
+  - npm run cypress run --record --key $CYPRESS_KEY
   - npm run test:unit
