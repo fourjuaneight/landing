@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql, useStaticQuery } from 'gatsby';
-import cx from 'classnames';
+import { graphql, useStaticQuery } from 'gatsby';
 
+import Archive from '../../components/archiveLink';
 import Layout from '../../components/layout';
 import Title from '../../components/title';
 import Update from '../../components/update';
-
-import base from '../../styles/base.module.css';
-import main from '../../styles/main.module.css';
 
 const Microblog = ({ location }) => {
   const {
@@ -39,18 +36,7 @@ const Microblog = ({ location }) => {
           />
         ))}
       </section>
-      <div
-        className={cx(base.flex, base.justifyEnd, base.w100, main.microArchive)}
-      >
-        <Link to="/microblog/archive/">
-          <h3 className={base.pa0}>
-            Archive
-            <span className={base.dib} aria-hidden="true">
-              {String.fromCharCode(8594)}
-            </span>
-          </h3>
-        </Link>
-      </div>
+      <Archive link="/microblog/archive/" />
     </Layout>
   );
 };

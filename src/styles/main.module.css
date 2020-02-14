@@ -252,6 +252,19 @@
   text-decoration: none;
 }
 
+.archive-link a {
+  margin: 1rem 0;
+}
+
+.archive-link a span {
+  margin-left: 0.5rem;
+  transition: transform var(--duration) ease;
+}
+
+.archive-link a:hover span {
+  transform: translateX(0.25rem);
+}
+
 /* Form */
 .form {
   font-size: 1rem;
@@ -288,19 +301,6 @@
   padding-top: 0.75rem;
   margin: 0;
   white-space: pre-line;
-}
-
-.micro-archive a {
-  margin: 1rem 0;
-}
-
-.micro-archive a span {
-  margin-left: 0.5rem;
-  transition: transform var(--duration) ease;
-}
-
-.micro-archive a:hover span {
-  transform: translateX(0.25rem);
 }
 
 /* Layout */
