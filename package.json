@@ -7,6 +7,7 @@
     "build:production": "npm run js:bg && npm run build && npm run js:sw",
     "clean:node": "rm -rf node_modules",
     "clean": "gatsby clean",
+    "ci": "start-server-and-test http://localhost:8000",
     "cy:headless": "start-server-and-test start http://localhost:8000 cy:run",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
