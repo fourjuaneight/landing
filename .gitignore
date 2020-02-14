@@ -19,6 +19,7 @@ coverage
 
 # Cypress
 cypress/videos
+cypress/screenshots
 cypress/plugins/index.js
 
 # nyc test coverage
