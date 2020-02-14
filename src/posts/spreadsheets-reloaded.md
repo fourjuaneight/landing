@@ -18,7 +18,7 @@ To get a little more context on what's going on, go read [Part 1](/spreadsheets/
 ## Setup
 Getting this up and running was pretty straightforward. Hasura can run off a Docker container and be deployed on pretty much anything. I wanted to decouple the database from the API, so I opted for a [Managed Database](https://www.digitalocean.com/products/managed-databases/) on DigitalOcean. It's a relatively inexpensive solution. The Hasura API is also hosted there; they have a nice [one-click app](https://marketplace.digitalocean.com/apps/hasura-graphql).
 
-Once that was good to go, I just needed to edit the Docker Compose and update `HASURA_GRAPHQL_DATABASE_URL` with the new database.
+Once that was good to go, I just needed to edit the Docker Compose and update `HASURA_GRAPHQL_DATABASE_URL` with the new database[^1].
 
 ```bash
 cd /etc/hasura
