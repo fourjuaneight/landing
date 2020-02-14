@@ -282,15 +282,7 @@
 }
 
 /* Tweets */
-.tweet-wrap {
-  padding-bottom: 2.25rem;
-}
-
-.tweet-wrap:not(:last-child) {
-  border-bottom: 0.05rem solid var(--primary-trans);
-}
-
-.tweet-wrap > p {
+.micro-wrap > p {
   font-size: 1.125rem;
   line-height: 1.5;
   padding-top: 0.75rem;
@@ -298,9 +290,17 @@
   white-space: pre-line;
 }
 
-.tweet-meta p {
-  margin: 0;
-  white-space: nowrap;
+.micro-archive a {
+  margin: 1rem 0;
+}
+
+.micro-archive a span {
+  margin-left: 0.5rem;
+  transition: transform var(--duration) ease;
+}
+
+.micro-archive a:hover span {
+  transform: translateX(0.25rem);
 }
 
 /* Layout */
@@ -311,7 +311,7 @@
   padding: 3rem 0;
 }
 
-.main > section > article {
+.main > section article {
   margin-bottom: 2.25rem;
 }
 

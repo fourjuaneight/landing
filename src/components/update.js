@@ -10,7 +10,7 @@ import base from '../styles/base.module.css';
 import main from '../styles/main.module.css';
 
 const Update = ({ date, id, tweet }) => (
-  <article className={cx(base.w100, main.tweetWrap)}>
+  <article className={cx(base.w100, main.microWrap)}>
     <Link className={cx(base.dib, base.tdn)} to={`/microblog/${id}`}>
       <h2 className={base.pa0}>
         <span className={main.sr}>Published </span>

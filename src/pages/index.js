@@ -40,7 +40,7 @@ const Index = ({ location }) => {
 
   return (
     <Layout location={location}>
-      <Title text="Recent Posts" />
+      <Title text="Recent Articles" />
       <section>
         {edges.map(({ node }, i) => {
           const {
