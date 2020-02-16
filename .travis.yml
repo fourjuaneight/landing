@@ -22,3 +22,10 @@ before_script:
 script:
   - npm run ci "cypress run --record --key $CYPRESS_KEY"
   - npm run test:unit
+
+notifications:
+  webhooks:
+    urls:
+      - $PUSHCUT_ENDPOINT
+    on_success: never
+    on_failure: always
