@@ -112,7 +112,7 @@
     "axe-core": "^3.5.1",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^25.1.0",
-    "cypress": "^4.0.1",
+    "cypress": "^4.0.2",
     "cypress-axe": "^0.5.3",
     "eslint": "^6.5.1",
     "eslint-config-jcv": "^0.1.1",
