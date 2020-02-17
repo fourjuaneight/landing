@@ -58,7 +58,7 @@
   },
   "homepage": "https://github.com/fourjuaneight/juan-dev#readme",
   "dependencies": {
-    "@reach/skip-nav": "^0.8.2",
+    "@reach/skip-nav": "^0.8.4",
     "@svgr/webpack": "^5.1.0",
     "axios": "^0.19.2",
     "canvas": "^2.6.1",
