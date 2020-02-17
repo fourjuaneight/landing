@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import cx from 'classnames';
 
+import { ReactComponent as LinkIcon } from '../images/link.svg';
 import Title from './title';
 
 import base from '../styles/base.module.css';
@@ -23,7 +24,7 @@ const Article = ({ appearance, date, html, index, list, slug, tag, title }) => (
         <h2 className={base.pa0}>
           {title}
           <span className={base.dib} aria-hidden="true">
-            {String.fromCharCode(8594)}
+            <LinkIcon />
           </span>
         </h2>
       </a>

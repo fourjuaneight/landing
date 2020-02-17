@@ -135,13 +135,19 @@
 }
 
 /* Article */
-.external-link span {
-  margin-left: 0.5rem;
-  transition: transform var(--duration) ease;
+.external-link:hover {
+  color: var(--primary);
 }
 
-.external-link:hover span {
-  transform: translateX(0.5rem);
+.external-link svg {
+  fill: var(--font);
+  height: 1.15rem;
+  margin-left: 0.5rem;
+  width: 1.15rem;
+}
+
+.external-link:hover svg {
+  fill: var(--primary);
 }
 
 .subtitle {
@@ -258,11 +264,10 @@
 
 .archive-link a span {
   margin-left: 0.5rem;
-  transition: transform var(--duration) ease;
 }
 
 .archive-link a:hover span {
-  transform: translateX(0.25rem);
+  color: var(--primary);
 }
 
 /* Form */
