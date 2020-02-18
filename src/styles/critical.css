@@ -111,11 +111,11 @@ body #gatsby-focus-wrapper {
   grid-template-rows: repeat(4, auto);
 }
 
-body,
+/* body,
 footer {
   background-image: linear-gradient(hsla(0, 0%, 93%, 0.1) 1px, transparent 1px);
   background-size: 100% 12px;
-}
+} */
 
 a,
 a:visited {
