@@ -61,6 +61,8 @@
 }
 .gatsby-highlight {
   background-color: var(--bg-dark);
+  margin-bottom: 1.25rem;
+  width: 100%;
 }
 .gatsby-highlight pre {
   padding: 2.25rem 1.5rem 1.5rem;

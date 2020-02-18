@@ -52,7 +52,7 @@ const Taxonomies = ({ data, location }) => {
 
   return (
     <Layout pageTitle={titleCase(currentTag)} location={location}>
-      <Title text={currentTag} />
+      <Title>{currentTag}</Title>
       <section>
         {edges.map(({ node }, i) => {
           const {

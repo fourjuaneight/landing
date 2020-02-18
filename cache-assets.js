@@ -1,5 +1,5 @@
 const { resolve } = require('path');
-const glob = require('glob');
+const glob = require('glob').sync;
 const replace = require('replace-in-file');
 
 const config = require('./config/siteConfig');
@@ -9,7 +9,7 @@ const cwd = resolve(__dirname, 'public');
 const ignore = ['sw.js'];
 
 // Generate alphanumeric hash
-const makeid = length => {
+const makeId = length => {
   let result = '';
   const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -23,12 +23,9 @@ const makeid = length => {
 };
 
 // Find all JS, CSS, and font files in rendered output
-glob('**/*.{js,css,woff,woff2}', { cwd, ignore }, async (err, files) => {
-  if (err) {
-    throw err;
-  }
-
+const addFiles = async () => {
   // create matched files array
+  const files = glob('**/*.{js,css,woff,woff2}', { cwd, ignore });
   const newFiles = files.map(toCache => `'/${toCache}'`).toString();
 
   // find and replace options; add hash ID, files to cache array, and site base URL
@@ -41,7 +38,7 @@ glob('**/*.{js,css,woff,woff2}', { cwd, ignore }, async (err, files) => {
     ],
     to: [
       `const staticAssets = [${newFiles}];`,
-      `const version = '${makeid(6)}';`,
+      `const version = '${makeId(6)}';`,
       `${config.siteUrl}`,
     ],
   };
@@ -54,4 +51,6 @@ glob('**/*.{js,css,woff,woff2}', { cwd, ignore }, async (err, files) => {
   } catch (error) {
     console.error('Error occurred:', error);
   }
-});
+};
+
+addFiles();

@@ -41,27 +41,51 @@ const Header = ({ title }) => (
         to="/"
         rel="me"
         id="title"
+        data-testid="home"
       >
         <strong>{title}</strong>
       </Link>
-      <nav
-        className={cx(
-          base.flex,
-          base.itemsCenter,
-          base.justifyBetween,
-          base.w100,
-          main.nav
-        )}
-      >
-        <Link className={cx(base.tdn)} to="/posts/" data-testid="posts">
-          <strong>Posts</strong>
-        </Link>
-        <span className={color.meta} aria-hidden="true">
-          ::
-        </span>
-        <Link className={cx(base.tdn)} to="/about/" data-testid="about">
-          <strong>About</strong>
-        </Link>
+      <nav className={cx(base.w100, main.nav)}>
+        <ul
+          className={cx(
+            base.flex,
+            base.itemsCenter,
+            base.justifyBetween,
+            base.pa0,
+            base.w100,
+            main.navList
+          )}
+        >
+          <li className={base.ma0}>
+            <Link className={cx(base.tdn)} to="/posts/" data-testid="posts">
+              <strong>Posts</strong>
+            </Link>
+          </li>
+          <li className={base.ma0}>
+            <span className={color.meta} aria-hidden="true">
+              ::
+            </span>
+          </li>
+          <li className={base.ma0}>
+            <Link
+              className={cx(base.tdn)}
+              to="/microblog/"
+              data-testid="microblog"
+            >
+              <strong>Microblog</strong>
+            </Link>
+          </li>
+          <li className={base.ma0}>
+            <span className={color.meta} aria-hidden="true">
+              ::
+            </span>
+          </li>
+          <li className={base.ma0}>
+            <Link className={cx(base.tdn)} to="/about/" data-testid="about">
+              <strong>About</strong>
+            </Link>
+          </li>
+        </ul>
       </nav>
     </div>
   </header>

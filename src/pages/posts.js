@@ -46,11 +46,11 @@ const Posts = ({ location }) => {
   `);
 
   return (
-    <Layout pageTitle="Posts" location={location}>
-      <Title text="Posts" />
+    <Layout pageTitle="Posts Archive" location={location}>
+      <Title>Posts Archive</Title>
       <section className={base.w100}>
         {group.reverse().map(gp => (
-          <React.Fragment key={gp.fieldValue}>
+          <div key={gp.fieldValue}>
             <h2 className={cx(color.brdPrimary, main.subtitle)}>
               {gp.fieldValue}
             </h2>
@@ -76,7 +76,7 @@ const Posts = ({ location }) => {
                 />
               );
             })}
-          </React.Fragment>
+          </div>
         ))}
       </section>
     </Layout>

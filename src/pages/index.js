@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
+import Archive from '../components/archiveLink';
 import Article from '../components/article';
 import Layout from '../components/layout';
 import Title from '../components/title';
@@ -40,7 +41,7 @@ const Index = ({ location }) => {
 
   return (
     <Layout location={location}>
-      <Title text="Recent Posts" />
+      <Title>Recent Articles</Title>
       <section>
         {edges.map(({ node }, i) => {
           const {
@@ -65,6 +66,7 @@ const Index = ({ location }) => {
           );
         })}
       </section>
+      <Archive link="/posts/" />
     </Layout>
   );
 };

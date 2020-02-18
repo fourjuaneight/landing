@@ -37,7 +37,7 @@
 .header-inner {
   grid-column: 2/3;
   grid-row-gap: 1.15rem;
-  grid-template-columns: repeat(auto-fit, 10.5rem);
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 20rem));
 }
 
 .home-link {
@@ -47,8 +47,14 @@
 }
 
 .nav {
+  max-width: 20rem;
+  overflow-x: auto;
+}
+
+.nav-list {
+  list-style-type: none;
   max-height: 4.5rem;
-  max-width: 10.5rem;
+  width: 20rem;
 }
 
 /* Footer */
@@ -129,13 +135,19 @@
 }
 
 /* Article */
-.external-link span {
-  margin-left: 0.5rem;
-  transition: transform var(--duration) ease;
+.external-link:hover {
+  color: var(--primary);
 }
 
-.external-link:hover span {
-  transform: translateX(0.5rem);
+.external-link svg {
+  fill: var(--font);
+  height: 1.15rem;
+  margin-left: 0.5rem;
+  width: 1.15rem;
+}
+
+.external-link:hover svg {
+  fill: var(--primary);
 }
 
 .subtitle {
@@ -246,6 +258,18 @@
   text-decoration: none;
 }
 
+.archive-link a {
+  margin: 1rem 0;
+}
+
+.archive-link a span {
+  margin-left: 0.5rem;
+}
+
+.archive-link a:hover span {
+  color: var(--primary);
+}
+
 /* Form */
 .form {
   font-size: 1rem;
@@ -269,6 +293,11 @@
   min-height: 4.5rem;
 }
 
+.form input,
+.form textarea {
+  border: 1px solid var(--bg-dark);
+}
+
 .confirmation {
   font-style: italic;
   margin: 1rem 0 0 auto;
@@ -276,15 +305,11 @@
 }
 
 /* Tweets */
-.tweet-wrap:not(:last-child) {
-  border-bottom: 0.05rem solid var(--primary-trans);
-}
-
-.tweet-wrap p {
+.micro-wrap > p {
   font-size: 1.125rem;
   line-height: 1.5;
   padding-top: 0.75rem;
-  margin-bottom: 0.5625rem;
+  margin: 0;
   white-space: pre-line;
 }
 
@@ -296,7 +321,7 @@
   padding: 3rem 0;
 }
 
-.main > section > article {
+.main > section article {
   margin-bottom: 2.25rem;
 }
 

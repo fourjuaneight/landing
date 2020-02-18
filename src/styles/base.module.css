@@ -31,12 +31,20 @@
   align-items: flex-start;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-between {
   justify-content: space-between;
 }
 
 .justify-start {
   justify-content: flex-start;
+}
+
+.ma0 {
+  margin: 0;
 }
 
 .pa0 {
@@ -54,6 +62,10 @@
 
 .tj {
   text-align: justify;
+}
+
+.ttc {
+  text-transform: capitalize;
 }
 
 .w-100 {
