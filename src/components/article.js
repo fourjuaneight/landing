@@ -7,6 +7,7 @@ import { ReactComponent as LinkIcon } from '../images/link.svg';
 import Title from './title';
 
 import base from '../styles/base.module.css';
+import color from '../styles/color.module.css';
 import main from '../styles/main.module.css';
 
 const createMarkup = content => ({ __html: content });
@@ -45,15 +46,17 @@ const Article = ({ appearance, date, html, index, list, slug, tag, title }) => (
           main.metaWrap
         )}
       >
-        <p className={main.meta}>
+        <p className={cx(color.meta, main.meta)}>
+          <span aria-hidden="true">&tau;</span>
           <time dateTime={date}>{date}</time>
         </p>
-        <p className={main.meta}>
+        <Link
+          className={cx(base.tdnH, color.meta, main.meta, main.tag)}
+          to={`/${tag}/`}
+        >
           <span aria-hidden="true">#</span>
-          <Link className={base.tdn} to={`/${tag}/`}>
-            {tag}
-          </Link>
-        </p>
+          <p className={cx(base.dib)}>{tag}</p>
+        </Link>
       </section>
     )}
     {list ? (
