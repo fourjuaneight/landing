@@ -111,6 +111,12 @@ body #gatsby-focus-wrapper {
   grid-template-rows: repeat(4, auto);
 }
 
+body,
+footer {
+  background-image: linear-gradient(hsla(0, 0%, 93%, 0.1) 1px, transparent 1px);
+  background-size: 100% 12px;
+}
+
 a,
 a:visited {
   color: var(--font);
@@ -204,8 +210,8 @@ h3 code {
 h1 {
   display: inline-block;
   font-size: 2.25rem;
-  line-height: 1.166;
-  margin-bottom: 1.875rem;
+  line-height: 1.1666666;
+  margin: 0.75rem 0 2.625rem;
 }
 
 h1:after {
@@ -228,7 +234,7 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
-  line-height: 1.25;
+  line-height: 1.2555555;
   padding-top: 0.75rem;
   margin-bottom: 0.375rem;
 }

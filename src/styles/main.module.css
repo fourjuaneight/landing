@@ -135,6 +135,9 @@
 }
 
 /* Article */
+.section-title {
+}
+
 .external-link:hover {
   color: var(--primary);
 }
