@@ -22,10 +22,16 @@
   border-color: var(--secondary);
 }
 
-.meta {
-  color: var(--meta);
+.meta,
+.meta a,
+.meta a:visited {
+  color: var(--meta) !important;
+}
+
+.meta a:hover {
+  color: var(--font);
 }
 
 .primary {
-  color: var(--primary);
+  color: var(--primary) !important;
 }

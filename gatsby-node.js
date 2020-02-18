@@ -4,6 +4,22 @@
 const { createFilePath } = require('gatsby-source-filesystem');
 const { resolve } = require('path');
 
+// With CSS Modules, ignore class order
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+  if (stage === 'build-javascript') {
+    const config = getConfig();
+    const miniCssExtractPlugin = config.plugins.find(
+      plugin => plugin.constructor.name === 'MiniCssExtractPlugin'
+    );
+
+    if (miniCssExtractPlugin) {
+      miniCssExtractPlugin.options.ignoreOrder = true;
+    }
+
+    actions.replaceWebpackConfig(config);
+  }
+};
+
 exports.onCreateNode = ({ actions, getNode, node }) => {
   const { createNodeField } = actions;
 

@@ -11,13 +11,12 @@ const Archive = ({ link }) => {
     <div
       className={cx(base.flex, base.justifyEnd, base.w100, main.archiveLink)}
     >
-      <Link data-testid="archive" to={link}>
-        <h3 className={base.pa0}>
-          Archive
-          <span className={base.dib} aria-hidden="true">
-            {String.fromCharCode(8594)}
-          </span>
-        </h3>
+      <Link className={base.tdn} data-testid="archive" to={link}>
+        <span className={main.sr}>View</span>
+        Archive
+        <span className={base.dib} aria-hidden="true">
+          &gt;
+        </span>
       </Link>
     </div>
   );

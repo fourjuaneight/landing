@@ -56,7 +56,8 @@
 }
 
 .tdn,
-.tdn-h {
+.tdn-h,
+.tdn-h:hover {
   text-decoration: none;
 }
 
