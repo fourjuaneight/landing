@@ -6,7 +6,6 @@ const config = require('./config/siteConfig');
 
 module.exports = {
   plugins: [
-    'gatsby-plugin-netlify',
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
@@ -21,6 +20,18 @@ module.exports = {
         theme_color: config.theme,
       },
       resolve: 'gatsby-plugin-manifest',
+    },
+    {
+      options: {
+        headers: {
+          "/images/*": [
+            "Cache-Control: public, s-max-age=604800",
+          ],
+        },
+        mergeLinkHeaders: true,
+        mergeCachingHeaders: true,
+      },
+      resolve: 'gatsby-plugin-netlify',
     },
     {
       options: {
