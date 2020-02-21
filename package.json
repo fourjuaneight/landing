@@ -84,7 +84,7 @@
     "gatsby-remark-smartypants": "^2.1.14",
     "gatsby-source-filesystem": "^2.1.33",
     "gatsby-source-graphql": "^2.1.30",
-    "gatsby-transformer-remark": "^2.6.52",
+    "gatsby-transformer-remark": "^2.6.53",
     "gatsby-transformer-sharp": "^2.2.23",
     "glob": "^7.1.6",
     "graphiql": "^0.17.5",
