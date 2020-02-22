@@ -6,7 +6,7 @@ const CleanTweet = ({ string }) => {
   const unicode = string.replace(/U\+([a-zA-Z0-9]+)/g, '&#x$1;');
   const withAts = unicode.replace(
     /(@)([a-zA-Z0-9_]+)/g,
-    '<a href="https://twitter.com/$2" target="_blank" rel="noopener noreferrer">$1$2</a>'
+    '<a href="https://twitter.com/$2" target="_blank" rel="nofollow noreferrer">$1$2</a>'
   );
 
   // eslint-disable-next-line react/no-danger

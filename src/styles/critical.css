@@ -123,8 +123,13 @@ a:visited {
 }
 
 a:hover {
+  color: var(--font);
   text-decoration: underline;
   text-decoration-color: var(--primary);
+}
+
+a[rel='nofollow noreferrer']:hover {
+  color: var(--primary);
 }
 
 blockquote,

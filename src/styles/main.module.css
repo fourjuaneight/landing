@@ -184,16 +184,11 @@
 }
 
 .content a:hover {
-  color: var(--font);
   text-decoration-color: var(--primary);
 }
 
 .content a[rel='nofollow noreferrer'] {
   text-decoration-color: var(--primary);
-}
-
-.content a[rel='nofollow noreferrer']:hover {
-  color: var(--primary);
 }
 
 .content hr {
