@@ -1,31 +1,43 @@
-import React, { useState } from 'react';
-import { post } from 'axios';
-import { useForm } from 'react-hook-form';
+import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
+
+import getValues from './util/getValues';
+import usePost from './util/usePost';
 
 import base from '../styles/base.module.css';
 import main from '../styles/main.module.css';
 
 const Form = () => {
+  const [data, setData] = useState(null);
   const [sent, setSent] = useState(false);
-  const { handleSubmit, register } = useForm({
-    nativeValidation: true,
-    submitFocusError: true,
+  const { fetching, success, error } = usePost({
+    url: 'https://usebasin.com/f/56c75ba2ecb0',
+    data,
   });
-
-  const toggleSent = () => {
-    setSent(true);
+  const toggleSent = curr => {
+    setSent(curr);
     setTimeout(() => {
       setSent(false);
-    }, 3000);
+    }, 5000);
   };
 
-  const onSubmit = (data, evt) => {
-    evt.target.reset();
+  useEffect(() => {
+    if (fetching) {
+      return;
+    }
+    if (success) {
+      toggleSent(success);
+    }
+    if (error) {
+      console.error(error);
+      throw error;
+    }
+  }, [fetching, success, error]);
 
-    post('https://usebasin.com/f/56c75ba2ecb0', data)
-      .then(toggleSent())
-      .catch(error => console.error(error));
+  const handleSubmit = evt => {
+    evt.preventDefault();
+
+    setData(getValues(evt.target));
   };
 
   return (
@@ -39,7 +51,7 @@ const Form = () => {
         main.form
       )}
       name="Contact"
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit}
     >
       <input type="hidden" name="bot-field" />
       <div
@@ -59,7 +71,7 @@ const Form = () => {
           type="text"
           inputMode="text"
           data-testid="name"
-          ref={register({ required: true })}
+          required
         />
       </div>
       <div
@@ -79,7 +91,7 @@ const Form = () => {
           type="text"
           inputMode="email"
           data-testid="email"
-          ref={register({ required: true })}
+          required
         />
       </div>
       <div
@@ -99,7 +111,7 @@ const Form = () => {
           type="text"
           inputMode="text"
           data-testid="message"
-          ref={register({ required: true })}
+          required
         />
       </div>
       <button type="submit" data-testid="submit" disabled={sent}>
