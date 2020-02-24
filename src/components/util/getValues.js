@@ -3,7 +3,7 @@ const getValues = formNode => {
     const formControl = formNode.elements[key];
     const name = formControl.getAttribute('name');
 
-    if (name && name !== 'bots' && name !== 'resume' && !obj[name]) {
+    if (name && name !== 'bot-field' && !obj[name]) {
       // eslint-disable-next-line no-param-reassign
       obj[name] = formControl.value;
     }
