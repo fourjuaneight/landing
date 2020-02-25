@@ -1,5 +1,4 @@
-import { useEffect, useReducer } from 'react';
-import { post } from 'axios';
+import { useEffect, useReducer, useState } from 'react';
 
 const dataFetchReducer = (state, { type, error }) => {
   switch (type) {
@@ -33,6 +32,7 @@ const dataFetchReducer = (state, { type, error }) => {
 };
 
 const usePost = ({ url, data, content = 'application/json' }) => {
+  const [send, setSend] = useState(false);
   const [state, dispatch] = useReducer(dataFetchReducer, {
     fetching: false,
     success: false,
@@ -40,19 +40,35 @@ const usePost = ({ url, data, content = 'application/json' }) => {
   });
 
   useEffect(() => {
-    if (data) {
+    if (send) {
       dispatch({ type: 'fetching' });
-      post(url, data, {
-        headers: {
-          'Content-Type': content,
-        },
+
+      fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': content },
+        body: JSON.stringify(data),
       })
-        .then(() => dispatch({ type: 'fetched' }))
+        .then(response => {
+          if (!response.ok) {
+            dispatch({
+              type: 'error',
+              error: `${response.status} - ${response.type}`,
+            });
+
+            return;
+          }
+
+          dispatch({ type: 'fetched' });
+        })
         .catch(error => dispatch({ type: 'error', error }));
     }
-  }, [url, data]);
 
-  return state;
+    const cleanup = () => setSend(false);
+
+    return cleanup();
+  }, [send, url, data]);
+
+  return [state, setSend];
 };
 
 export default usePost;

@@ -1,21 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 
-import getValues from './util/getValues';
 import usePost from './util/usePost';
 
 import base from '../styles/base.module.css';
 import main from '../styles/main.module.css';
 
 const Form = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
   const [sent, setSent] = useState(false);
-  const { fetching, success, error } = usePost({
+  const [{ fetching, success, error }, doPost] = usePost({
     url: 'https://usebasin.com/f/56c75ba2ecb0',
     data,
   });
+
+  // update data values on input change
+  const updateData = event =>
+    setData({
+      ...data,
+      [event.target.name]: event.target.value,
+    });
   const toggleSent = curr => {
+    // reset form
+    setData({
+      ...data,
+      name: '',
+      email: '',
+      message: '',
+    });
+    // set send to current fetching status
     setSent(curr);
+    // reset send after 5 seconds
     setTimeout(() => {
       setSent(false);
     }, 5000);
@@ -37,7 +56,7 @@ const Form = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    setData(getValues(evt.target));
+    doPost(true);
   };
 
   return (
@@ -65,13 +84,16 @@ const Form = () => {
       >
         <label htmlFor="name">Name</label>
         <input
+          data-testid="name"
           className={cx(base.w100)}
           id="name"
           name="name"
           type="text"
           inputMode="text"
-          data-testid="name"
+          maxLength="256"
           required
+          value={data.name}
+          onChange={evt => updateData(evt)}
         />
       </div>
       <div
@@ -85,13 +107,16 @@ const Form = () => {
       >
         <label htmlFor="email">Email</label>
         <input
+          data-testid="email"
           className={cx(base.w100)}
           id="email"
           name="email"
-          type="text"
+          type="email"
           inputMode="email"
-          data-testid="email"
+          maxLength="256"
           required
+          value={data.email}
+          onChange={evt => updateData(evt)}
         />
       </div>
       <div
@@ -105,17 +130,21 @@ const Form = () => {
       >
         <label htmlFor="message">Message</label>
         <textarea
+          data-testid="message"
           className={cx(base.w100)}
           id="message"
           name="message"
           type="text"
           inputMode="text"
-          data-testid="message"
+          maxLength="256"
           required
+          value={data.message}
+          onChange={evt => updateData(evt)}
         />
       </div>
-      <button type="submit" data-testid="submit" disabled={sent}>
-        <strong>{sent ? 'Sent' : 'Send'}</strong>
+      <button type="submit" data-testid="submit" disabled={fetching || sent}>
+        {/* eslint-disable-next-line no-nested-ternary */}
+        <strong>{fetching ? 'Sending' : sent ? 'Sent' : 'Send'}</strong>
       </button>
       {sent && (
         <p className={main.confirmation} data-testid="confirmation">
