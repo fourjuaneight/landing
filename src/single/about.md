@@ -8,13 +8,13 @@ Hi, I'm Juan and I like websites. Most of my time is spent making them for stran
 
 ## Work
 
-Most of my development work is with the "JAMstack". Although these days I mostly jam with React. Here's a cool list of skills:
+Most of my development work is with the "[JAMstack](https://jamstack.org)". Although these days I mostly _jam_ with React. Here's a cool list of skills:
 
 ### Stack:
-JavaScript, TypeScript, CSS, Sass, HTML
+JavaScript, TypeScript, CSS, SCSS, HTML
 
 ### Frameworks:
-React, Gatsby, Hugo, Jekyll, Eleventy
+React, Gatsby, Next, Hugo, Eleventy, Jekyll
 
 ### Tooling:
 Node, Webpack, Gulp, Jest, Cypress, aXe, TravisCI, CircleCI, GitHub Actions, Gitlab/Bitbucket Pipeline
@@ -27,9 +27,9 @@ Nunchuck, Bo Hunting, Computer Hacking
 
 ## Personal
 
-Here's a nice list with some Juan facts for you:
+Here are some Juan facts:
 
 - I automate all the things.
-- I like cooking. My partner says I'm great, but I think she's biased.
+- I love cooking. My partner says I'm pretty good, but I think she's biased.
 - I was a paramedic once and delivered a baby. It wasn't magical.
 - Florida man.
