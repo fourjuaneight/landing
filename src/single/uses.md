@@ -10,7 +10,7 @@ Here's some of the stuff I use for work and procrastination.
 ### Desktop
 - **iMac 27" (2019)** - A big Mac for making shiny squares look extra crispy.
 - **[HHKB Pro 2](https://www.amazon.com/dp/B07K9QHF4P)** - I got the all-black keys and it took me a while to get used to the new layout without being able to tell which key is which. Worth every penny, though.
-- **Magic Trackpad 2** - I tried several mice and the clicking was always unbearable. I don't think there's anything wrong with any of them, but there's definitely wrong with my ears.
+- **Magic Trackpad 2** - I tried several mice and found the clicking unbearable. I don't think there was anything wrong with any of them, but there's definitely something wrong with my ears.
 - **[Audioengine A2+](https://audioengineusa.com/shop/poweredspeakers/a2-plus-desktop-speakers/)** - Not the best desktop speakers, but great for listening to podcasts while working.
 - **[UpDesk Standing Desk](https://updesk.com/products/updesk-electric-lift-standing-desk-upwrite-midnight-black-top-on-black-frame-closeout)** - The table is pretty good, but the customer service is literally nonexistent.
 - **[Secretlab Omega Chair](https://secretlab.co/collections/omega-series)** - Great chair.
@@ -26,14 +26,14 @@ Here's some of the stuff I use for work and procrastination.
 - **[Ubiquiti USG Pro](https://store.ui.com/collections/routing-switching/products/unifi-security-gateway-pro)** - The only reason I got the Pro was to mount it on a rack.
 - **[Ubiquiti UniFi Cloud Key Gen 2 Plus](https://store.ui.com/collections/surveillance/products/unifi-cloudkey-gen2-plus)** - I'm sure this is just a fancy overpriced Raspberry Pi.
 - **[Ubiquiti UniFi 16 Port PoE Gen 2](https://store.ui.com/collections/routing-switching/products/usw-16-poe)** - Solid switch.
-- **[Ubiquiti UniFi AC Pro](https://store.ui.com/collections/wireless/products/unifi-ac-pro)** - Solis access point.
-- **Raspberry Pi ([PiHole](https://pi-hole.net))** - This is the best decision I made for my home network.
+- **[Ubiquiti UniFi AC Pro](https://store.ui.com/collections/wireless/products/unifi-ac-pro)** - Solid access point.
+- **Raspberry Pi ([PiHole](https://pi-hole.net))** - This is the best decision I've made for my home network.
 
 ## Software
 ### Development
 [Dracula Theme](https://draculatheme.com) all the things.
 
-- **VS Code** - It's alright, but I'm curious to see what Panic does with [Nova](https://panic.com/nova/). Anything to get rid of another Electron app.
+- **VS Code** - It's pretty alright, but I'm curious to see what Panic does with [Nova](https://panic.com/nova/). Anything to get rid of another Electron app.
 - **[iTerm](https://iterm2.com)** - Best macOS terminal.
 - **[Blink](https://www.blink.sh)** - Best iOS terminal.
 - **[Working Copy](https://workingcopyapp.com)** - I can't believe this is an iOS app; paramount for mobile Git-ing.
@@ -47,18 +47,19 @@ I try my best to stay organized and mostly fail.
 - **[Things](https://culturedcode.com/things/)** - I've tried them all and this UI is simply the best for me.
 - **[Drafts](https://getdrafts.com)** - All text starts here.
 - **[Jayson](https://jayson.app)** - Nice UI for JSON on iOS.
-- **[Scriptable](https://scriptable.app)** - Some times you just need a little JavaScript.
+- **[Scriptable](https://scriptable.app)** - Some times you _just_ need a little JavaScript.
 
 ### Tools
-- **[Alfred](https://www.alfredapp.com/)** - Spotlight is great and Launchbar is nicer looking, but you can't beat the customizability of Alfred.
+- **[Alfred](https://www.alfredapp.com/)** - Spotlight is great and Launchbar looks nicer, but you just can't compare to the power of Alfred.
 - **[Hazel](https://www.noodlesoft.com/)** - A computer should run itself. This does the trick.
 - **[Moom](https://manytricks.com/moom/)** - Nifty little window manager.
 - **[Bartender](https://www.macbartender.com/)** - Too much crap on the menu bar.
 
 ### Media
-- **[Overcast](https://overcast.fm)** - I always go back and forth between this and [Castro](https://castro.fm). I love the former for its quality build, but the latter has a terrific UI.
+- **[Overcast](https://overcast.fm)** - I always go back and forth between this and [Castro](https://castro.fm). I love the former for its quality build, but the latter has a fantastic UI.
 - **[Reeder](https://reederapp.com)** - Paired with [Feed Wrangler](https://feedwrangler.net), though I'm starting to miss [Feedbin's](https://feedbin.com) powerful filters.
 - **[Apollo](https://apolloapp.io)** (Reddit)
+- **[Twitterrific](https://twitterrific.com/)** - That attention to detail 👌🏽
 
 ---
 
