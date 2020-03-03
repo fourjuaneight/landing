@@ -45,7 +45,6 @@ const Single = ({ data, location }) => {
             base.w100,
             main.content
           )}
-          /* eslint-disable-next-line react/no-danger */
           dangerouslySetInnerHTML={createMarkup(html)}
         />
       </article>

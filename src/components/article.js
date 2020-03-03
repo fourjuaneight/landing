@@ -14,7 +14,6 @@ const createMarkup = content => ({ __html: content });
 
 const Article = ({ appearance, date, html, index, list, slug, tag, title }) => (
   <article className={base.w100} key={list && index}>
-    {/* eslint-disable-next-line no-nested-ternary */}
     {list && appearance ? (
       <a
         className={cx(base.dib, base.tdn, main.externalLink)}
@@ -70,7 +69,6 @@ const Article = ({ appearance, date, html, index, list, slug, tag, title }) => (
           main.content
         )}
       >
-        {/* eslint-disable-next-line react/no-danger */}
         <p className={base.tj} dangerouslySetInnerHTML={createMarkup(html)} />
       </section>
     ) : (
@@ -83,7 +81,6 @@ const Article = ({ appearance, date, html, index, list, slug, tag, title }) => (
           base.w100,
           main.content
         )}
-        /* eslint-disable-next-line react/no-danger */
         dangerouslySetInnerHTML={createMarkup(html)}
       />
     )}

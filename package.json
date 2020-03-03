@@ -113,7 +113,7 @@
     "cypress": "^4.0.2",
     "cypress-axe": "^0.5.3",
     "eslint": "^6.5.1",
-    "eslint-config-jcv": "^0.1.1",
+    "eslint-config-jcv": "^0.1.2",
     "eslint-plugin-cypress": "^2.10.3",
     "husky": "^4.2.3",
     "identity-obj-proxy": "^3.0.0",
