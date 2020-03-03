@@ -143,7 +143,6 @@ const Form = () => {
         />
       </div>
       <button type="submit" data-testid="submit" disabled={fetching || sent}>
-        {/* eslint-disable-next-line no-nested-ternary */}
         <strong>{fetching ? 'Sending' : sent ? 'Sent' : 'Send'}</strong>
       </button>
       {sent && (
