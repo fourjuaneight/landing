@@ -12,7 +12,7 @@ I've been working on this new project for a client. Unfortunately, I can't share
 
 This time I'm working with [Eleventy](https://www.11ty.dev). This isn't the first time I've worked with it; I originally attempted to build this site with 11ty a while ago. Back then, I was looking to retrofit an assets pipeline to avoid having to run two processes at once (task runner/bundler + SSG). And I came up with a nice little setup that leveraged [JS class templates](https://www.11ty.dev/docs/languages/javascript/) to transpile SCSS and JS at build time. I think it'll make more sense if you see the code:
 
-- [11ty SCSS pipeline](https://github.com/fourjuaneight/static-templates/blob/master/templates/11ty/styles.11ty.js)
+- [SCSS pipeline](https://github.com/fourjuaneight/static-templates/blob/master/templates/11ty/styles.11ty.js)
 - [JS pipeline](https://github.com/fourjuaneight/static-templates/blob/master/templates/11ty/scripts.11ty.js)
 
 Then, any changes on the SCSS/JS will trigger an 11ty rebuild. And it's all done with a single CLI command: `npx @11ty/eleventy`.
