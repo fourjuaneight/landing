@@ -24,9 +24,7 @@ module.exports = {
     {
       options: {
         headers: {
-          "/images/*": [
-            "Cache-Control: public, s-max-age=604800",
-          ],
+          '/images/*': ['Cache-Control: public, s-max-age=604800'],
         },
         mergeLinkHeaders: true,
         mergeCachingHeaders: true,
@@ -59,10 +57,7 @@ module.exports = {
         prettier: true,
         svgo: true,
         svgoConfig: {
-          plugins: {
-            cleanupIDs: true,
-            removeViewBox: true,
-          },
+          plugins: [{ cleanupIDs: true }, { removeViewBox: true }],
         },
       },
       resolve: 'gatsby-plugin-svgr',
