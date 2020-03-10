@@ -10,15 +10,12 @@ import main from '../styles/main.module.css';
 const Header = ({ title }) => (
   <header
     className={cx(
-      base.contentEmptyA,
-      base.contentEmptyB,
       base.grid,
+      base.justifyBetween,
       base.relative,
       base.w100,
-      color.bgBaseDark,
       color.bgPrimaryB,
       color.bgPrimaryLightA,
-      color.brdSecondary,
       main.bottom0A,
       main.bottom0B,
       main.header,
@@ -28,66 +25,60 @@ const Header = ({ title }) => (
       main.rightAB
     )}
   >
-    <div
-      className={cx(
-        base.grid,
-        base.justifyBetween,
-        base.w100,
-        main.headerInner
-      )}
+    <p className={cx(base.absolute, base.ma0, main.lambda)} aria-hidden="true">
+      &lambda;
+    </p>
+    <Link
+      className={cx(base.relative, base.tdn, main.homeLink)}
+      to="/"
+      rel="me"
+      id="title"
+      data-testid="home"
     >
-      <Link
-        className={cx(base.relative, base.tdn, main.homeLink)}
-        to="/"
-        rel="me"
-        id="title"
-        data-testid="home"
+      <strong>{title}</strong>
+    </Link>
+    <nav className={cx(base.w100, main.nav)}>
+      <ul
+        className={cx(
+          base.flex,
+          base.itemsCenter,
+          base.justifyBetween,
+          base.pa0,
+          base.w100,
+          main.navList
+        )}
       >
-        <strong>{title}</strong>
-      </Link>
-      <nav className={cx(base.w100, main.nav)}>
-        <ul
-          className={cx(
-            base.flex,
-            base.itemsCenter,
-            base.justifyBetween,
-            base.pa0,
-            base.w100,
-            main.navList
-          )}
-        >
-          <li className={base.ma0}>
-            <Link className={cx(base.tdn)} to="/posts/" data-testid="posts">
-              <strong>Posts</strong>
-            </Link>
-          </li>
-          <li className={base.ma0}>
-            <span className={color.meta} aria-hidden="true">
-              ::
-            </span>
-          </li>
-          <li className={base.ma0}>
-            <Link
-              className={cx(base.tdn)}
-              to="/microblog/"
-              data-testid="microblog"
-            >
-              <strong>Microblog</strong>
-            </Link>
-          </li>
-          <li className={base.ma0}>
-            <span className={color.meta} aria-hidden="true">
-              ::
-            </span>
-          </li>
-          <li className={base.ma0}>
-            <Link className={cx(base.tdn)} to="/about/" data-testid="about">
-              <strong>About</strong>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+        <li className={base.ma0}>
+          <Link className={cx(base.tdn)} to="/posts/" data-testid="posts">
+            <strong>Posts</strong>
+          </Link>
+        </li>
+        <li className={base.ma0}>
+          <span className={color.primary} aria-hidden="true">
+            ::
+          </span>
+        </li>
+        <li className={base.ma0}>
+          <Link
+            className={cx(base.tdn)}
+            to="/microblog/"
+            data-testid="microblog"
+          >
+            <strong>Microblog</strong>
+          </Link>
+        </li>
+        <li className={base.ma0}>
+          <span className={color.primary} aria-hidden="true">
+            ::
+          </span>
+        </li>
+        <li className={base.ma0}>
+          <Link className={cx(base.tdn)} to="/about/" data-testid="about">
+            <strong>About</strong>
+          </Link>
+        </li>
+      </ul>
+    </nav>
   </header>
 );
 

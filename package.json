@@ -1,10 +1,10 @@
 {
   "name": "juan-dev",
-  "version": "4.2.2",
+  "version": "5.0.0",
   "description": "Freelance Front-End Developer, automation nerd, and Florida man.",
   "scripts": {
     "build": "gatsby build || gatsby build",
-    "build:production": "npm run js:bg && npm run build && npm run js:sw",
+    "build:production": "npm run build && npm run js:sw",
     "clean:node": "rm -rf node_modules",
     "clean": "gatsby clean",
     "ci": "start-server-and-test http://localhost:8000",
@@ -16,11 +16,10 @@
     "jest:coverage": "jest --coverage",
     "jest:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "jest:watch": "jest --watch",
-    "js:bg": "node canvas-bg.js",
     "js:sw": "node cache-assets.js",
     "lint": "eslint --fix src/**/*.js",
     "serve": "gatsby serve",
-    "start": "npm run js:bg && gatsby develop",
+    "start": "gatsby develop",
     "test:e2e": "is-ci \"cy:headless\" \"cy:open\"",
     "test:unit": "is-ci \"jest:coverage\" \"jest:watch\"",
     "test": "npm run test:e2e && npm run test:unit"
