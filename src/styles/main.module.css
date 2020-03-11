@@ -315,7 +315,8 @@
 
 .twt-link a {
   background-color: var(--primary-transparent);
-  padding: 0.375rem 0.75rem;
+  line-height: normal;
+  padding: 0.4rem 0.75rem;
 }
 
 .twt-link svg {
