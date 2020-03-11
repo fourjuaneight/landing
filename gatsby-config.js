@@ -179,6 +179,7 @@ module.exports = {
 
                   return {
                     ...frontmatter,
+                    author: 'Juan Villela',
                     description: excerpt,
                     date: frontmatter.date,
                     url: link,
