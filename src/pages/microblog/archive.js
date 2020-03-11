@@ -1,13 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
-import cx from 'classnames';
 
 import Layout from '../../components/layout';
 import Title from '../../components/title';
 import Update from '../../components/update';
 
-import color from '../../styles/color.module.css';
 import main from '../../styles/main.module.css';
 
 const MicroblogArchive = ({ location }) => {
@@ -46,7 +44,7 @@ const MicroblogArchive = ({ location }) => {
       <section>
         {years.map(year => (
           <div key={year}>
-            <h2 className={cx(color.brdPrimary, main.subtitle)}>{year}</h2>
+            <h2 className={main.subtitle}>{year}</h2>
             {yearGroup[year].map(tweet => {
               const date = tweet.created_at;
               return (
