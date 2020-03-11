@@ -147,7 +147,7 @@
 }
 
 .subtitle {
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 0.5px dashed var(--primary);
   font-weight: normal;
 }
 
@@ -293,7 +293,7 @@
 
 .form input,
 .form textarea {
-  border: 1px solid var(--bg);
+  border: 1px dashed var(--bg);
 }
 
 .confirmation {

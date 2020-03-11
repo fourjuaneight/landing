@@ -115,7 +115,7 @@
 
 .gatsby-highlight-code-line {
   background-color: rgba(189, 147, 249, 0.25);
-  border-left: 0.1875rem solid var(--primary);
+  border-left: 0.1875rem dashed var(--primary);
   display: block;
   margin: 0 -1rem;
   padding: 0 0.75rem;
