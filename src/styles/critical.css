@@ -286,7 +286,7 @@ textarea:focus {
 
 input:required:invalid,
 textarea:required:invalid {
-  border-color: var(--secondary);
+  border-color: var(--meta);
 }
 
 input:required:valid,
