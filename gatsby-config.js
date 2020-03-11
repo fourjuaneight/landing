@@ -106,7 +106,7 @@ module.exports = {
           'gatsby-remark-smartypants',
           {
             options: {
-              rel: 'nofollow noreferrer',
+              rel: 'noopener noreferrer',
               target: '_blank',
             },
             resolve: 'gatsby-remark-external-links',

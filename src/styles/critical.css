@@ -5,6 +5,7 @@
   --font: #1d1e26;
   --meta: #666;
   --primary: #9580ff;
+  --primary-transparent: rgba(149, 128, 255, 0.5);
   --secondary: #d61f81;
   --duration: 208ms;
   --reach-skip-nav: 1;
@@ -129,17 +130,21 @@ a:visited {
   color: var(--font);
 }
 
+a:focus,
 a:hover {
   color: var(--font);
+  outline: none;
   text-decoration: underline;
   text-decoration-color: var(--secondary);
 }
 
-a[rel='nofollow noreferrer']:hover {
+a[rel='noopener noreferrer']:focus,
+a[rel='noopener noreferrer']:hover {
   color: var(--secondary);
 }
 
-a[rel='nofollow noreferrer']:hover {
+a[rel='noopener noreferrer']:focus,
+a[rel='noopener noreferrer']:hover {
   color: var(--secondary);
 }
 

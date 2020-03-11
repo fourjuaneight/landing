@@ -111,6 +111,7 @@
   vertical-align: middle;
 }
 
+.social-link:focus svg,
 .social-link:hover svg {
   fill: var(--secondary);
 }
@@ -176,11 +177,12 @@
   text-decoration: underline;
 }
 
+.content a:focus,
 .content a:hover {
   text-decoration-color: var(--secondary);
 }
 
-.content a[rel='nofollow noreferrer'] {
+.content a[rel='noopener noreferrer'] {
   text-decoration-color: var(--secondary);
 }
 
@@ -197,6 +199,7 @@
   text-decoration: none !important;
 }
 
+.content sup a:focus,
 .content sup a:hover {
   color: var(--secondary);
 }
@@ -241,6 +244,7 @@
   vertical-align: middle;
 }
 
+.content > div a:focus,
 .content > div a:hover {
   color: var(--secondary);
   text-decoration: none;
@@ -259,6 +263,7 @@
   margin-left: 0.5rem;
 }
 
+.archive-link a:focus span,
 .archive-link a:hover span {
   color: var(--secondary);
 }
