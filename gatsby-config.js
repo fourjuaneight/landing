@@ -2,6 +2,8 @@
 // https://www.gatsbyjs.org/docs/gatsby-config/
 require('dotenv').config();
 const { resolve } = require('path');
+
+const { fmtDate } = require('./config/datefn');
 const config = require('./config/siteConfig');
 
 module.exports = {
@@ -189,6 +191,38 @@ module.exports = {
                 }
               ),
             title: config.title,
+          },
+          {
+            output: 'microblog/index.xml',
+            query: `
+              {
+                erebor {
+                  tweets(order_by: {date: desc}) {
+                    date
+                    id
+                    tweet
+                  }
+                }
+              }
+            `,
+            serialize: ({
+              query: {
+                erebor: { tweets },
+              },
+            }) =>
+              tweets.map(({ date, id, tweet }) => {
+                const link = `${config.siteUrl}microblog/${id}/`;
+
+                return {
+                  title: `${fmtDate(date)}`,
+                  author: 'Juan Villela',
+                  date,
+                  url: link,
+                  guid: link,
+                  custom_elements: [{ 'content:encoded': `<p>${tweet}</p>` }],
+                };
+              }),
+            title: `Microblog | ${config.title}`,
           },
           {
             output: 'bookmarks/index.xml',

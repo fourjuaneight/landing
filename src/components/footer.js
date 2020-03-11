@@ -107,6 +107,8 @@ const Footer = ({ description, location, social }) => {
             href={
               location.pathname.match(/bookmarks/g) !== null
                 ? '/bookmarks/index.xml'
+                : location.pathname.match(/microblog/g) !== null
+                ? '/microblog/index.xml'
                 : '/index.xml'
             }
             title="View the RSS feed of this page"
