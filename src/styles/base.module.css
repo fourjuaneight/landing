@@ -2,11 +2,6 @@
   position: absolute;
 }
 
-.content-empty-b::before,
-.content-empty-a::after {
-  content: '';
-}
-
 .dib {
   display: inline-block;
 }

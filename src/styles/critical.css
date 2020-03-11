@@ -1,14 +1,12 @@
 :root {
   --bg: #f8f8f2;
-  --bg-dark: #22242f;
-  --font: #1a1b23;
+  --bg-dark: #2e2c3a;
+  --bg-hf: #22212b;
+  --font: #1d1e26;
   --meta: #666;
-  --primary: #ab79f6;
-  --primary-dark: #873ff3;
-  --primary-light: #c39ff9;
-  --primary-trans: rgba(171, 121, 246, 0.25);
-  --secondary: #243c7f;
-  --duration: 256ms;
+  --primary: #9580ff;
+  --secondary: #d61f81;
+  --duration: 208ms;
   --reach-skip-nav: 1;
   --transition: cubic-bezier(0.155, 0.64, 0.24, 1);
 }
@@ -16,34 +14,36 @@
 @media (prefers-color-scheme: light) {
   :root {
     --bg: #f8f8f2;
-    --bg-dark: #22242f;
-    --font: #1a1b23;
+    --bg-dark: #2e2c3a;
+    --font: #14131f;
     --meta: #666;
+    --secondary: #d61f81;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #22242f;
-    --bg-dark: #1a1b23;
+    --bg: #14131f;
+    --bg-dark: #22212b;
     --font: #f8f8f2;
-    --meta: #8f8f8f;
+    --meta: #b3b3b3;
+    --secondary: #50fa7b;
   }
 }
 
 @font-face {
-  font-family: Rubik;
-  src: url(/fonts/Rubik-Regular-sub.woff2) format('woff2'),
-    url(/fonts/Rubik-Regular-sub.woff) format('woff');
+  font-family: Nunito;
+  src: url(/fonts/Nunito-Regular-sub.woff2) format('woff2'),
+    url(/fonts/Nunito-Regular-sub.woff) format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: Rubik;
-  src: url(/fonts/Rubik-Bold-sub.woff2) format('woff2'),
-    url(/fonts/Rubik-Bold-sub.woff) format('woff');
+  font-family: Nunito;
+  src: url(/fonts/Nunito-Bold-sub.woff2) format('woff2'),
+    url(/fonts/Nunito-Bold-sub.woff) format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -56,12 +56,6 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
 }
 
 *,
@@ -85,6 +79,11 @@
   outline-color: var(--primary);
 }
 
+html,
+body {
+  background-color: var(--bg-dark);
+}
+
 html {
   box-sizing: border-box;
   font-feature-settings: 'liga' 1;
@@ -96,22 +95,30 @@ html {
 }
 
 body {
-  background-color: var(--bg);
   color: var(--font);
-  font-family: Rubik, sans-serif;
+  font-family: Nunito, sans-serif;
   margin: 0;
   overflow-x: hidden;
 }
 
 body #gatsby-focus-wrapper {
-  grid-template-columns: minmax(1.5rem, 1fr) minmax(0.75rem, 57rem) minmax(
-      1.5rem,
-      1fr
-    );
+  grid-template-columns: auto;
   grid-template-rows: repeat(4, auto);
+  margin: 0 auto;
+  max-width: 60rem;
+  transition: padding var(--duration) var(--transition);
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  body #gatsby-focus-wrapper {
+    padding: 1.5rem;
+  }
 }
 
 /* body,
+main,
+header,
 footer {
   background-image: linear-gradient(hsla(0, 0%, 93%, 0.1) 1px, transparent 1px);
   background-size: 100% 12px;
@@ -125,7 +132,11 @@ a:visited {
 a:hover {
   color: var(--font);
   text-decoration: underline;
-  text-decoration-color: var(--primary);
+  text-decoration-color: var(--secondary);
+}
+
+a[rel='nofollow noreferrer']:hover {
+  color: var(--secondary);
 }
 
 a[rel='nofollow noreferrer']:hover {
@@ -154,7 +165,7 @@ blockquote {
 }
 
 button {
-  background-color: var(--primary-dark);
+  background-color: var(--primary);
   border: none;
   color: #f8f8f2;
   cursor: pointer;
@@ -174,11 +185,11 @@ button:disabled {
 button:disabled,
 button:focus,
 button:hover {
-  background-color: var(--primary);
+  background-color: var(--secondary);
 }
 
 hr {
-  border-color: var(--primary-light);
+  border-color: var(--primary);
 }
 
 img {
@@ -244,6 +255,17 @@ h3 {
   margin-bottom: 0.375rem;
 }
 
+header,
+main,
+footer {
+  box-shadow: 6px 6px 0px 0px rgb(20, 19, 31);
+}
+
+header,
+footer {
+  background-color: var(--bg-hf);
+}
+
 hr,
 picture {
   width: 100%;
@@ -268,7 +290,12 @@ textarea:focus {
 
 input:required:invalid,
 textarea:required:invalid {
-  border-color: var(--secondary);
+  border-color: var(--meta);
+}
+
+input:required:valid,
+textarea:required:valid {
+  border-color: var(--primary);
 }
 
 label {

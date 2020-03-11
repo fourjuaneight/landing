@@ -43,15 +43,11 @@ const Footer = ({ description, social }) => {
   return (
     <footer
       className={cx(
-        base.contentEmptyA,
-        base.contentEmptyB,
         base.grid,
         base.relative,
         base.w100,
-        color.bgBaseDark,
         color.bgPrimaryB,
         color.bgPrimaryLightA,
-        color.brdSecondary,
         main.footer,
         main.left0A,
         main.left0B,

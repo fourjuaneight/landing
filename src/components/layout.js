@@ -49,11 +49,14 @@ const Layout = ({
         Skip to main content
       </SkipNavLink>
       <Header title={title} />
-      <main id="reach-skip-nav" className={cx(base.w100, main.main)}>
+      <main
+        id="reach-skip-nav"
+        className={cx(base.w100, color.bgBase, main.main)}
+      >
         {children}
       </main>
       <Footer description={description} social={social} />
-      <div className={cx(base.absolute, base.w100, main.noise)} />
+      <div className={cx(base.w100, main.board)} />
     </>
   );
 };
