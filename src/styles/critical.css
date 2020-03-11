@@ -5,7 +5,7 @@
   --font: #1d1e26;
   --meta: #666;
   --primary: #9580ff;
-  --primary-transparent: rgba(149, 128, 255, 0.5);
+  --primary-transparent: rgba(149, 128, 255, 0.25);
   --secondary: #d61f81;
   --duration: 208ms;
   --reach-skip-nav: 1;

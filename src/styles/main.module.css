@@ -122,6 +122,7 @@
   grid-row: 2/3;
   max-width: 57rem;
   min-height: calc(100vh - 23.25rem);
+  overflow-x: hidden;
   padding: 1.5rem 0.75rem;
   z-index: 10;
 }
@@ -310,6 +311,55 @@
   margin: 0;
   overflow-wrap: break-word;
   white-space: pre-line;
+}
+
+/* Bookmarks */
+.bookmarks {
+  overflow-x: auto;
+}
+
+.bookmarks::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.bookmarks::-webkit-scrollbar-track,
+.bookmarks::-webkit-scrollbar-thumb {
+  border-radius: 0px;
+}
+
+.bookmarks::-webkit-scrollbar-track {
+  background-color: var(--bg-hf);
+}
+
+.bookmarks::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+.bookmarks-list {
+  min-width: 43.375rem;
+}
+
+.bookmarks-header {
+  background-color: var(--primary-transparent);
+  font-weight: bold;
+}
+
+.bookmarks-header p:not(:nth-of-type(3)) {
+  border-right: 0.5px dashed var(--primary-transparent);
+}
+
+.bookmarks-item {
+  border-top: 0.5px dashed var(--primary-transparent);
+  grid-template-columns: 2fr 1.25fr 0.5fr;
+  height: 2.28125rem;
+  padding: 0.375rem 0;
+}
+
+.bookmarks-item > * {
+  overflow: hidden;
+  padding: 0 0.75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* 404 */

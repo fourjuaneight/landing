@@ -27,7 +27,7 @@ const imgStyles = {
   borderRadius: '50%',
 };
 
-const Footer = ({ description, social }) => {
+const Footer = ({ description, location, social }) => {
   const {
     imageSharp: { fixed },
   } = useStaticQuery(graphql`
@@ -104,7 +104,11 @@ const Footer = ({ description, social }) => {
         <dd className={main.dd}>
           <a
             className={cx(base.relative, base.tdnH, main.socialLink)}
-            href="/index.xml"
+            href={
+              location.pathname.match(/bookmarks/g) !== null
+                ? '/bookmarks/index.xml'
+                : '/index.xml'
+            }
             title="View the RSS feed of this page"
           >
             <RSS />
@@ -117,6 +121,9 @@ const Footer = ({ description, social }) => {
 
 Footer.propTypes = {
   description: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   social: PropTypes.string.isRequired,
 };
 

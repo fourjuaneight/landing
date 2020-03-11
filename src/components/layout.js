@@ -55,7 +55,7 @@ const Layout = ({
       >
         {children}
       </main>
-      <Footer description={description} social={social} />
+      <Footer description={description} location={location} social={social} />
       <div className={cx(base.w100, main.board)} />
     </>
   );

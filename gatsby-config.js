@@ -190,6 +190,34 @@ module.exports = {
               ),
             title: config.title,
           },
+          {
+            output: 'bookmarks/index.xml',
+            query: `
+              {
+                erebor {
+                  bookmarks(order_by: { created_at: desc, creator: asc }) {
+                    createdAt: created_at
+                    creator
+                    title
+                    url
+                  }
+                }
+              }
+            `,
+            serialize: ({
+              query: {
+                erebor: { bookmarks },
+              },
+            }) =>
+              bookmarks.map(({ createdAt, creator, title, url }) => ({
+                title,
+                author: creator,
+                date: createdAt,
+                url,
+                guid: url,
+              })),
+            title: `Bookmarks | ${config.title}`,
+          },
         ],
         query: `
           {
