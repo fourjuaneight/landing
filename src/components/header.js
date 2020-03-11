@@ -25,7 +25,10 @@ const Header = ({ title }) => (
       main.rightAB
     )}
   >
-    <p className={cx(base.absolute, base.ma0, main.lambda)} aria-hidden="true">
+    <p
+      className={cx(base.absolute, base.ma0, color.primary, main.lambda)}
+      aria-hidden="true"
+    >
       &lambda;
     </p>
     <Link

@@ -1,10 +1,11 @@
 /* Header */
 .header {
   border: 0.375rem solid var(--primary);
-  grid-column: 2/3;
+  gap: 0.75rem 0;
   grid-row: 1/2;
   grid-template-columns: repeat(auto-fit, minmax(10.5rem, 20rem));
-  padding: 1.6875rem 1.5rem;
+  padding: 1.6875rem 0.75rem 1.4rem;
+  transition: padding var(--duration) var(--transition);
   z-index: 5;
 }
 
@@ -27,9 +28,9 @@
 }
 
 .lambda {
-  color: var(--primary);
-  left: 1.5rem;
+  left: 0.75rem;
   top: 1.6875rem;
+  transition: top var(--duration) var(--transition);
 }
 
 .nav {
@@ -44,17 +45,26 @@
   width: 20rem;
 }
 
+@media screen and (min-width: 675px) {
+  .header {
+    padding: 1.8rem 0.75rem 1.65rem;
+  }
+
+  .lambda {
+    top: 1.8rem;
+  }
+}
+
 /* Footer */
 .footer {
   border: 0.375rem solid var(--primary);
-  grid-column: 2/3;
   grid-gap: 1.5rem;
   grid-row: 3/4;
   grid-template-columns: 6.75rem minmax(10.5rem, 31.5rem);
   grid-template-rows: min-content 2.25rem;
   justify-content: center;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 1.5rem 0.75rem;
   z-index: 10;
 }
 
@@ -103,6 +113,20 @@
 
 .social-link:hover svg {
   fill: var(--secondary);
+}
+
+/* Layout */
+.main {
+  border: 0.375rem solid var(--primary);
+  grid-row: 2/3;
+  max-width: 57rem;
+  min-height: calc(100vh - 23.25rem);
+  padding: 1.5rem 0.75rem;
+  z-index: 10;
+}
+
+.main > section article {
+  margin-bottom: 2.25rem;
 }
 
 /* Article */
@@ -199,11 +223,6 @@
 
 .content sup a::before,
 .content sup a::after {
-  color: var(--primary);
-}
-
-.content sup a:hover::before,
-.content sup a:hover::after {
   color: var(--secondary);
 }
 
@@ -289,20 +308,6 @@
   white-space: pre-line;
 }
 
-/* Layout */
-.main {
-  border: 0.375rem solid var(--primary);
-  grid-column: 2/3;
-  grid-row: 2/3;
-  min-height: calc(100vh - 23.25rem);
-  padding: 3rem 1.5rem;
-  z-index: 10;
-}
-
-.main > section article {
-  margin-bottom: 2.25rem;
-}
-
 /* 404 */
 .err-wrap {
   margin: 4.5rem 0 0;
@@ -334,7 +339,7 @@
 
 /* Animations */
 .transition-all {
-  transition: all var(--duration) ease;
+  transition: all var(--duration) var(--transition);
 }
 
 /* Accessibility */

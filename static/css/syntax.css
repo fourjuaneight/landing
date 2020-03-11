@@ -127,10 +127,6 @@ pre[class*='language-'],
 code[class*='language-'] {
   color: #f8f8f2;
   background-color: var(--bg-hf);
-  background-image: url('/images/signal.svg');
-  background-position: -0.67rem;
-  background-repeat: repeat;
-  background-size: 5rem;
   text-shadow: none;
   font-family: 'Fira Code', monospace;
   text-align: left;

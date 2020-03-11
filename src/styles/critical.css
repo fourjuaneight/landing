@@ -4,8 +4,8 @@
   --bg-hf: #22212b;
   --font: #1d1e26;
   --meta: #666;
-  --primary: #6647ff;
-  --secondary: #e60067;
+  --primary: #9580ff;
+  --secondary: #d61f81;
   --duration: 208ms;
   --reach-skip-nav: 1;
   --transition: cubic-bezier(0.155, 0.64, 0.24, 1);
@@ -17,8 +17,7 @@
     --bg-dark: #2e2c3a;
     --font: #14131f;
     --meta: #666;
-    --primary: #6647ff;
-    --secondary: #e60067;
+    --secondary: #d61f81;
   }
 }
 
@@ -28,7 +27,6 @@
     --bg-dark: #22212b;
     --font: #f8f8f2;
     --meta: #b3b3b3;
-    --primary: #9580ff;
     --secondary: #50fa7b;
   }
 }
@@ -104,12 +102,18 @@ body {
 }
 
 body #gatsby-focus-wrapper {
-  grid-template-columns: minmax(1.5rem, 1fr) minmax(1.5rem, 60rem) minmax(
-      1.5rem,
-      1fr
-    );
+  grid-template-columns: auto;
   grid-template-rows: repeat(4, auto);
-  padding: 1.5rem 0;
+  margin: 0 auto;
+  max-width: 60rem;
+  transition: padding var(--duration) var(--transition);
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  body #gatsby-focus-wrapper {
+    padding: 1.5rem;
+  }
 }
 
 /* body,
@@ -283,6 +287,11 @@ textarea:focus {
 input:required:invalid,
 textarea:required:invalid {
   border-color: var(--secondary);
+}
+
+input:required:valid,
+textarea:required:valid {
+  border-color: var(--primary);
 }
 
 label {
