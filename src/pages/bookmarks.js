@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import LazyLoad from 'react-lazyload';
 import { graphql, useStaticQuery } from 'gatsby';
 import cx from 'classnames';
 
@@ -15,7 +16,7 @@ const Posts = ({ location }) => {
   } = useStaticQuery(graphql`
     query BookmarksQuery {
       erebor {
-        bookmarks(order_by: { created_at: desc, creator: asc }) {
+        bookmarks(order_by: { category: asc, creator: asc, title: asc }) {
           category
           creator
           id
@@ -61,29 +62,30 @@ const Posts = ({ location }) => {
           {bookmarks.map(item => {
             const { category, creator, id, title, url } = item;
             return (
-              <li
-                key={id}
-                className={cx(
-                  base.grid,
-                  base.itemsCenter,
-                  base.justifyBetween,
-                  base.ma0,
-                  base.pa0,
-                  base.w100,
-                  main.bookmarksItem
-                )}
-              >
-                <a
-                  className={base.ma0}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <LazyLoad key={id} height={36.5} once>
+                <li
+                  className={cx(
+                    base.grid,
+                    base.itemsCenter,
+                    base.justifyBetween,
+                    base.ma0,
+                    base.pa0,
+                    base.w100,
+                    main.bookmarksItem
+                  )}
                 >
-                  {title}
-                </a>
-                <p className={base.ma0}>{creator}</p>
-                <p className={base.ma0}>{category}</p>
-              </li>
+                  <a
+                    className={base.ma0}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {title}
+                  </a>
+                  <p className={base.ma0}>{creator}</p>
+                  <p className={base.ma0}>{category}</p>
+                </li>
+              </LazyLoad>
             );
           })}
         </ul>
