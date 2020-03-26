@@ -4,13 +4,13 @@ import LazyLoad from 'react-lazyload';
 import { graphql, useStaticQuery } from 'gatsby';
 import cx from 'classnames';
 
-import Layout from '../components/layout';
-import Title from '../components/title';
+import Layout from '../../components/layout';
+import Title from '../../components/title';
 
-import base from '../styles/base.module.css';
-import main from '../styles/main.module.css';
+import base from '../../styles/base.module.css';
+import main from '../../styles/main.module.css';
 
-const Posts = ({ location }) => {
+const Bookmarks = ({ location }) => {
   const {
     erebor: { bookmarks },
   } = useStaticQuery(graphql`
@@ -28,9 +28,9 @@ const Posts = ({ location }) => {
   `);
 
   return (
-    <Layout pageTitle="Bookmarks" location={location}>
+    <Layout pageTitle="Bookmarks List" location={location}>
       <Title>Bookmarks</Title>
-      <section className={cx(base.w100, main.bookmarks)}>
+      <section className={cx(base.w100, main.listMain)}>
         <ul
           className={cx(
             base.flex,
@@ -40,7 +40,7 @@ const Posts = ({ location }) => {
             base.ma0,
             base.pa0,
             base.w100,
-            main.bookmarksList
+            main.list
           )}
         >
           <li
@@ -51,8 +51,8 @@ const Posts = ({ location }) => {
               base.ma0,
               base.pa0,
               base.w100,
-              main.bookmarksItem,
-              main.bookmarksHeader
+              main.listItem,
+              main.listHeader
             )}
           >
             <p className={base.ma0}>Title</p>
@@ -71,7 +71,7 @@ const Posts = ({ location }) => {
                     base.ma0,
                     base.pa0,
                     base.w100,
-                    main.bookmarksItem
+                    main.listItem
                   )}
                 >
                   <a
@@ -94,10 +94,10 @@ const Posts = ({ location }) => {
   );
 };
 
-Posts.propTypes = {
+Bookmarks.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-export default Posts;
+export default Bookmarks;
