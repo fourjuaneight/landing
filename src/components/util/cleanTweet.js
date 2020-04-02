@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CleanTweet = ({ string }) => {
   const createMarkup = content => ({ __html: content });
-  const unicode = string.replace(/U\+([a-zA-Z0-9]+)/g, '&#x$1;');
+  const unicode = string.replace(/U\+([a-z0-9]{5})/g, '&#x$1;');
   const withLink = unicode.replace(
     /(https?:\/\/?[\w/\-+:?=%.#]+\.[\w/\-+:?=%.#]+)/g,
     '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
