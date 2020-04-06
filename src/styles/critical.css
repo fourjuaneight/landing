@@ -103,7 +103,7 @@ body {
 }
 
 body #gatsby-focus-wrapper {
-  grid-template-columns: minmax(0.75rem, 57rem);
+  grid-template-columns: minmax(0.75rem, 60rem);
   grid-template-rows: repeat(4, auto);
   margin: 0 auto;
   max-width: 60rem;
