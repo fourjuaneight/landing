@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, useStaticQuery } from 'gatsby';
 import cx from 'classnames';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import Article from '../components/article';
 import Layout from '../components/layout';

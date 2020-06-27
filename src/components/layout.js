@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { SkipNavLink } from '@reach/skip-nav';
 import { graphql, useStaticQuery } from 'gatsby';
-import cx from 'classnames';
 
 import Footer from './footer';
 import Header from './header';

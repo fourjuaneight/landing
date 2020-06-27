@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import cx from 'classnames';
+import { Link } from 'gatsby';
 
-import { ReactComponent as LinkIcon } from '../images/link.svg';
 import Title from './title';
 
 import base from '../styles/base.module.css';
 import color from '../styles/color.module.css';
 import main from '../styles/main.module.css';
+
+import { ReactComponent as LinkIcon } from '../images/link.svg';
 
 const createMarkup = content => ({ __html: content });
 

@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
-import { graphql, useStaticQuery } from 'gatsby';
 import cx from 'classnames';
-
-import { ReactComponent as GitHub } from '../images/github.svg';
-import { ReactComponent as Twitter } from '../images/twitter.svg';
-import { ReactComponent as RSS } from '../images/rss.svg';
+import { graphql, useStaticQuery } from 'gatsby';
 
 import base from '../styles/base.module.css';
 import color from '../styles/color.module.css';
 import main from '../styles/main.module.css';
+
+import { ReactComponent as GitHub } from '../images/github.svg';
+import { ReactComponent as Twitter } from '../images/twitter.svg';
+import { ReactComponent as RSS } from '../images/rss.svg';
 
 const size = {
   height: '6.75em',

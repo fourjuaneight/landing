@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import cx from 'classnames';
+import { Link } from 'gatsby';
 
 import base from '../styles/base.module.css';
 import main from '../styles/main.module.css';

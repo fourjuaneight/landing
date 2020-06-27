@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import cx from 'classnames';
+import { Link } from 'gatsby';
 
 import CleanTweet from './util/cleanTweet';
 import Title from './title';
