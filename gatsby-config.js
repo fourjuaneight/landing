@@ -8,6 +8,7 @@ const config = require('./config/siteConfig');
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-postcss',
     'gatsby-plugin-preact',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
