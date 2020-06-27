@@ -87,13 +87,12 @@ module.exports = {
     },
     {
       options: {
+        typeName: 'Erebor',
         fieldName: 'erebor',
         headers: {
           'Content-Type': 'application/json',
           'X-Hasura-Admin-Secret': process.env.EREBOR_KEY,
         },
-        refetchInterval: 60,
-        typeName: 'Erebor',
         url: process.env.EREBOR_ENDPOINT,
       },
       resolve: 'gatsby-source-graphql',

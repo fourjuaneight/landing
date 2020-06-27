@@ -118,7 +118,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  // // Extract query results
+  // Extract query results
   const { posts } = result.data;
   const { singles } = result.data;
   const { group } = result.data.tags;
