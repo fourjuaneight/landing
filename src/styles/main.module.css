@@ -345,7 +345,7 @@
 }
 
 .list::-webkit-scrollbar-track {
-  background-color: var(--bg-hf);
+  background-color: var(--darker);
 }
 
 .list::-webkit-scrollbar-thumb {
