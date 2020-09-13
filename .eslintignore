@@ -4,3 +4,4 @@ build
 coverage
 node_modules
 public
+src/typings.d.ts

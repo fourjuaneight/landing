@@ -67,6 +67,13 @@ module.exports = {
     },
     {
       options: {
+        isTSX: true,
+        allExtensions: true,
+      },
+      resolve: `gatsby-plugin-typescript`,
+    },
+    {
+      options: {
         name: 'posts',
         path: resolve(__dirname, 'src/posts/'),
       },
