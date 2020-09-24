@@ -12,12 +12,15 @@ import base from '../styles/base.module.css';
 import main from '../styles/main.module.css';
 
 export const query = graphql`
-  query StatusQuery($id: String!) {
-    erebor {
-      tweets_by_pk(id: $id) {
+  query StatusQuery($twtId: String!) {
+    airtable(fields: { twtId: { eq: $twtId } }) {
+      data {
         date
-        id
         tweet
+        url
+      }
+      fields {
+        twtId
       }
     }
   }
@@ -25,8 +28,9 @@ export const query = graphql`
 
 const Status = ({ data, location }) => {
   const {
-    erebor: {
-      tweets_by_pk: { date, id, tweet },
+    airtable: {
+      data: { date, tweet, url },
+      fields: { twtId },
     },
   } = data;
 
@@ -34,9 +38,9 @@ const Status = ({ data, location }) => {
     <Layout pageTitle={`Posted on ${fmtDate(date).micro}`} location={location}>
       <section>
         <Update
-          key={id}
+          key={twtId}
           date={date}
-          id={id}
+          id={twtId}
           path={location.pathname}
           single
           tweet={tweet}
@@ -46,7 +50,7 @@ const Status = ({ data, location }) => {
         <a
           className={base.tdnH}
           data-testid="archive"
-          href={`https://twitter.com/fourjuaneight/status/${id}`}
+          href={url}
           target="_blank"
           rel="noopener noreferrer"
         >

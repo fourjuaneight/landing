@@ -9,14 +9,18 @@ import Update from '../../components/update';
 
 const Microblog = ({ location }) => {
   const {
-    erebor: { tweets },
+    allAirtable: { nodes },
   } = useStaticQuery(graphql`
     query {
-      erebor {
-        tweets(order_by: { date: desc }, limit: 5) {
-          date
-          id
-          tweet
+      allAirtable(limit: 5, sort: { fields: data___date }) {
+        nodes {
+          fields {
+            twtId
+          }
+          data {
+            date
+            tweet
+          }
         }
       }
     }
@@ -26,11 +30,11 @@ const Microblog = ({ location }) => {
     <Layout pageTitle="Recent Updates" location={location}>
       <Title>Recent Updates</Title>
       <section>
-        {tweets.map(({ date, id, tweet }) => (
+        {nodes.map(({ data: { date, tweet }, fields: { twtId } }) => (
           <Update
-            key={id}
+            key={twtId}
             date={date}
-            id={id}
+            id={twtId}
             path={location.pathname}
             tweet={tweet}
           />

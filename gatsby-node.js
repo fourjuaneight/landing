@@ -62,6 +62,25 @@ exports.onCreateNode = ({ actions, getNode, node }) => {
       value: slug,
     });
   }
+
+  // Create node field for singles only
+  if (node.internal.type === 'Airtable') {
+    const id = node.data.url.replace(/(.*)\/status\/(\d+)/g, '$2');
+    const year = node.data.date.replace(/^(\d{4})-(.*)/g, '$1');
+
+    // creates tweet url based id
+    createNodeField({
+      name: 'twtId',
+      node,
+      value: id,
+    });
+
+    createNodeField({
+      name: 'year',
+      node,
+      value: year,
+    });
+  }
 };
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -110,9 +129,11 @@ exports.createPages = async ({ graphql, actions }) => {
           fieldValue
         }
       }
-      erebor {
-        tweets {
-          id
+      allAirtable {
+        nodes {
+          fields {
+            twtId
+          }
         }
       }
     }
@@ -122,7 +143,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { posts } = result.data;
   const { singles } = result.data;
   const { group } = result.data.tags;
-  const { tweets } = result.data.erebor;
+  const { nodes } = result.data.allAirtable;
 
   // Create blog posts
   posts.edges.forEach(({ node }) => {
@@ -158,13 +179,13 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create taxonomies template
-  tweets.forEach(({ id }) => {
+  nodes.forEach(({ fields: { twtId } }) => {
     createPage({
       component: resolve('./src/templates/status.js'),
       context: {
-        id,
+        twtId,
       },
-      path: `/microblog/${id}/`,
+      path: `/microblog/${twtId}/`,
     });
   });
 

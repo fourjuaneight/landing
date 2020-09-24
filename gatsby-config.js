@@ -80,7 +80,19 @@ module.exports = {
         isTSX: true,
         allExtensions: true,
       },
-      resolve: `gatsby-plugin-typescript`,
+      resolve: 'gatsby-plugin-typescript',
+    },
+    {
+      options: {
+        apiKey: process.env.AIRTABLE_KEY,
+        tables: [
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: process.env.AIRTABLE_TABLE_NAME,
+          },
+        ],
+      },
+      resolve: 'gatsby-source-airtable',
     },
     {
       options: {
@@ -102,18 +114,6 @@ module.exports = {
         path: resolve(__dirname, 'src/single'),
       },
       resolve: 'gatsby-source-filesystem',
-    },
-    {
-      options: {
-        typeName: 'Erebor',
-        fieldName: 'erebor',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Hasura-Admin-Secret': process.env.EREBOR_KEY,
-        },
-        url: process.env.EREBOR_ENDPOINT,
-      },
-      resolve: 'gatsby-source-graphql',
     },
     {
       options: {
@@ -213,22 +213,26 @@ module.exports = {
             output: 'microblog/index.xml',
             query: `
               {
-                erebor {
-                  tweets(order_by: {date: desc}) {
-                    date
-                    id
-                    tweet
+                allAirtable(sort: {fields: data___date, order: DESC}) {
+                  nodes {
+                    data {
+                      date
+                      tweet
+                    }
+                    fields {
+                      twtId
+                    }
                   }
                 }
               }
             `,
             serialize: ({
               query: {
-                erebor: { tweets },
+                allAirtable: { nodes },
               },
             }) =>
-              tweets.map(({ date, id, tweet }) => {
-                const link = `${config.siteUrl}microblog/${id}/`;
+              nodes.map(({ data: { date, tweet }, fields: { twtId } }) => {
+                const link = `${config.siteUrl}microblog/${twtId}/`;
 
                 return {
                   title: `${fmtDate(date)}`,
@@ -240,34 +244,6 @@ module.exports = {
                 };
               }),
             title: `Microblog | ${config.title}`,
-          },
-          {
-            output: 'bookmarks/index.xml',
-            query: `
-              {
-                erebor {
-                  bookmarks(order_by: { created_at: desc, creator: asc }) {
-                    createdAt: created_at
-                    creator
-                    title
-                    url
-                  }
-                }
-              }
-            `,
-            serialize: ({
-              query: {
-                erebor: { bookmarks },
-              },
-            }) =>
-              bookmarks.map(({ createdAt, creator, title, url }) => ({
-                title,
-                author: creator,
-                date: createdAt,
-                url,
-                guid: url,
-              })),
-            title: `Bookmarks | ${config.title}`,
           },
         ],
         query: `
