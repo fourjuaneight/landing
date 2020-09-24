@@ -12,7 +12,7 @@ const Microblog = ({ location }) => {
     allAirtable: { nodes },
   } = useStaticQuery(graphql`
     query {
-      allAirtable(limit: 5, sort: { fields: data___date }) {
+      allAirtable(limit: 5, sort: { fields: data___date, order: DESC }) {
         nodes {
           fields {
             twtId
