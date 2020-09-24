@@ -54,7 +54,7 @@ const Single = ({ data, location }) => {
 
 Single.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object.isRequired,
+    markdownRemark: PropTypes.shape({}).isRequired,
   }).isRequired,
   location: PropTypes.shape({}).isRequired,
 };

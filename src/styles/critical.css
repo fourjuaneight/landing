@@ -1,12 +1,12 @@
 :root {
-  --bg: #F8F8F2;
-  --dark: #2E2C3A;
-  --darker: #22212B;
-  --font: #22212C;
+  --bg: #f8f8f2;
+  --dark: #2e2c3a;
+  --darker: #22212b;
+  --font: #22212c;
   --meta: #666;
-  --primary: #9580FF;
+  --primary: #9580ff;
   --primary-transparent: rgba(149, 128, 255, 0.25);
-  --secondary: #FF80BF;
+  --secondary: #ff80bf;
   --duration: 208ms;
   --reach-skip-nav: 1;
   --transition: cubic-bezier(0.155, 0.64, 0.24, 1);
@@ -14,24 +14,23 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #F8F8F2;
-    --dark: #2E2C3A;
-    --font: #14131F;
+    --bg: #f8f8f2;
+    --dark: #2e2c3a;
+    --font: #14131f;
     --meta: #666;
-    --secondary: #FF80BF;
+    --secondary: #ff80bf;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #14131F;
-    --dark: #22212B;
-    --font: #F8F8F2;
-    --meta: #B3B3B3;
-    --secondary: #8AFF80;
+    --bg: #14131f;
+    --dark: #22212b;
+    --font: #f8f8f2;
+    --meta: #b3b3b3;
+    --secondary: #8aff80;
   }
 }
-
 
 @font-face {
   font-family: Nunito;

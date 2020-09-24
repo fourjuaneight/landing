@@ -82,8 +82,8 @@ const Taxonomies = ({ data, location }) => {
 
 Taxonomies.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.object.isRequired,
-    markdownRemark: PropTypes.object.isRequired,
+    allMarkdownRemark: PropTypes.shape({}).isRequired,
+    markdownRemark: PropTypes.shape({}).isRequired,
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
