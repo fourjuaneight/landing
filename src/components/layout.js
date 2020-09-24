@@ -8,7 +8,6 @@ import Footer from './footer';
 import Header from './header';
 import SEO from './seo';
 
-import base from '../styles/base.module.css';
 import color from '../styles/color.module.css';
 import main from '../styles/main.module.css';
 
@@ -45,18 +44,18 @@ const Layout = ({
         location={location}
         postPublishDate={postPublishDate}
       />
-      <SkipNavLink className={cx(color.bgBase, main.sr)}>
+      <SkipNavLink className={cx(color.bgBase, 'sr-only')}>
         Skip to main content
       </SkipNavLink>
       <Header title={title} />
       <main
         id="reach-skip-nav"
-        className={cx(base.w100, color.bgBase, main.main)}
+        className={cx(color.bgBase, main.main, 'w-full')}
       >
         {children}
       </main>
       <Footer description={description} location={location} social={social} />
-      <div className={cx(base.w100, main.board)} />
+      <div className={cx(main.board, 'w-full')} />
     </>
   );
 };

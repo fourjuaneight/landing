@@ -72,7 +72,7 @@ const widths = {
 };
 
 module.exports = {
-  purge: true,
+  purge: ['./src/**/*.js', './src/**/*.jsx', './src/**/*.ts', './src/**/*.tsx'],
   theme: {
     fontFamily: {
       nunito: ['Nunito', 'sans-serif'],

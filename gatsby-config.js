@@ -2,9 +2,11 @@
 // https://www.gatsbyjs.org/docs/gatsby-config/
 require('dotenv').config();
 const { resolve } = require('path');
+const tailwind = require('tailwindcss');
 
 const { fmtDate } = require('./config/datefn');
 const config = require('./config/siteConfig');
+const tailwindConfig = require('./tailwind.config.js');
 
 module.exports = {
   plugins: [
@@ -36,16 +38,6 @@ module.exports = {
     },
     {
       options: {
-        develop: false,
-        ignore: ['/src/styles/critical.css'],
-        keyframes: true,
-        printRejected: true,
-        tailwind: true,
-      },
-      resolve: 'gatsby-plugin-purgecss',
-    },
-    {
-      options: {
         host: config.siteUrl,
         policy: [
           {
@@ -57,6 +49,12 @@ module.exports = {
         sitemap: `${config.siteUrl}sitemap.xml`,
       },
       resolve: 'gatsby-plugin-robots-txt',
+    },
+    {
+      options: {
+        postCssPlugins: [tailwind, tailwindConfig],
+      },
+      resolve: 'gatsby-plugin-sass',
     },
     {
       options: {

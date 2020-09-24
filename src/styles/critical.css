@@ -59,8 +59,6 @@
   font-display: swap;
 }
 
-@tailwind utilities;
-
 *,
 :after,
 :before {
