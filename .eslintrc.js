@@ -34,7 +34,7 @@ module.exports = {
     'id-length': [
       2,
       {
-        exceptions: ['_', 'a', 'b', 'i', 'x', 'y', 'z'],
+        exceptions: ['_', 'a', 'b', 'c', 'i', 'x', 'y', 'z'],
       },
     ],
     'import/extensions': 0,
@@ -58,6 +58,8 @@ module.exports = {
     ],
     'no-case-declarations': 0,
     'no-nested-ternary': 0,
+    'no-use-before-define': 0,
+    'no-useless-constructor': 0,
     'prettier/prettier': [
       'error',
       {
@@ -102,6 +104,8 @@ module.exports = {
         varsIgnorePattern: '^(React|e|i|it|expect)$',
       },
     ],
+    '@typescript-eslint/no-use-before-define': 1,
+    '@typescript-eslint/no-useless-constructor': 'error',
   },
   settings: {
     'import/resolver': {
