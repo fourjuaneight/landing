@@ -1,44 +1,20 @@
 ---
-baseURL: https://www.cleverlaziness.com
-title: Clever Laziness
-# content
+baseURL: https://www.juanvillela.dev
+title: Juan Villela
 languageCode: en-us
 enableRobotsTXT: true
 publishdir: dist
 metaDataFormat: yaml
-disableKinds: ['taxonomyTerm']
-footnoteReturnLinkContents: ↩
-summarylength: 40
+disableKinds: ["RSS", "taxonomy", "taxonomyTerm"]
 enableEmoji: true
 canonifyURLs: true
 
-markup:
-  highlight:
-    codeFences: true
-    guessSyntax: false
-    style: dracula
-    tabWidth: 2
-
-taxonomies:
-  tags: 'tags'
-
-permalinks:
-  section: '/:filename/'
-  posts: '/posts/:filename/'
-  tags: '/tags/:slug/'
-
 outputs:
   home: ['html']
-  section: ['html', 'rss']
-
-sitemap:
-  changefreq: monthly
-  filename: sitemap.xml
-  priority: 0.5
 
 params:
   meta:
-    description: I like websites. Occasionally, I make them.
+    description: Freelance Front-End Developer, automation nerd, and Florida man.
     author: Juan Villela
     social: fourjuaneight
     theme: '#9580ff'
