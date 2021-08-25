@@ -23,6 +23,11 @@ a[rel='noopener noreferrer']:hover {
   text-decoration-color: var(--primary);
 }
 
+a:focus svg,
+a:hover svg {
+  fill: var(--primary);
+}
+
 blockquote,
 li,
 p {
