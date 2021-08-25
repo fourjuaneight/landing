@@ -1,6 +1,3 @@
-// Learn more about PostCSS:
-// https://github.com/postcss/postcss
-
 const cssnano = require('cssnano');
 const postcssPresetEnv = require('postcss-preset-env');
 const tailwind = require('tailwindcss');
@@ -14,6 +11,7 @@ module.exports = () => ({
           preserve: true,
           fallback: true,
         },
+        'nesting-rules': true,
       },
       autoprefixer: {
         flexbox: true,

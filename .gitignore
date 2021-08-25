@@ -22,15 +22,6 @@ cypress/videos
 cypress/screenshots
 cypress/plugins/index.js
 
-# nyc test coverage
-.nyc_output
-
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
-
-# Bower dependency directory (https://bower.io/)
-bower_components
-
 # node-waf configuration
 .lock-wscript
 
@@ -60,20 +51,30 @@ typings/
 .env
 .env.*
 
-# gatsby files
-.cache/
-public
+# production
+build
+dist
+dist-ssr
+.cache
 
 # Mac files
 .DS_Store
 
 # Yarn
 yarn-error.log
-.pnp/
+.pnp
 .pnp.js
 
 # Yarn Integrity file
 .yarn-integrity
 
-# Background Noise image file
-static/images/noise-bg.png
+# ESLint log file
+summary-eslint.log
+
+.idea
+test.js
+api/utils/template.html
+.stignore
+.nova
+assets/css/tw.css
+resources

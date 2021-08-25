@@ -3,15 +3,12 @@
 
 module.exports = api => {
   const plugins = [
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-proposal-optional-chaining',
-    'macros',
+    'module:@babel/plugin-proposal-class-properties',
+    'module:@babel/plugin-proposal-optional-chaining',
   ];
   const presets = [
-    'babel-preset-gatsby',
-    '@babel/preset-react',
     [
-      '@babel/preset-env',
+      'module:@babel/preset-env',
       {
         include: ['transform-arrow-functions'],
       },
