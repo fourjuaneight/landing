@@ -31,42 +31,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: MD Nichrome;
-  src: url(/fonts/MD-Nichrome-Black-Oblique-sub.woff2) format('woff2'),
-    url(/fonts/MD-Nichrome-Black-Oblique-sub.woff) format('woff');
-  font-weight: 900;
-  font-style: oblique;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: MD Nichrome;
-  src: url(/fonts/MD-Nichrome-Dark-sub.woff2) format('woff2'),
-    url(/fonts/MD-Nichrome-Dark-sub.woff) format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Nunito;
-  src: url(/fonts/Nunito-Regular-sub.woff2) format('woff2'),
-    url(/fonts/Nunito-Regular-sub.woff) format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Nunito;
-  src: url(/fonts/Nunito-Bold-sub.woff2) format('woff2'),
-    url(/fonts/Nunito-Bold-sub.woff) format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 ::-moz-selection {
   background-color: var(--selection);
 }
@@ -96,15 +60,8 @@ html {
 
 body {
   color: var(--foreground);
-  font-family: Nunito, sans-serif;
+  font-family: MD Nichrome, sans-serif;
   overflow-x: hidden;
-}
-
-code,
-kbd,
-pre,
-samp {
-  font-family: Dank Mono, monospace !important;
 }
 
 main {

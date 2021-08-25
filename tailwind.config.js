@@ -29,8 +29,6 @@ module.exports = {
     },
     fontFamily: {
       mdNichrome: ['MD Nichrome', 'serif'],
-      nunito: ['Nunito', 'sans-serif'],
-      dankMono: ['Dank Mono', 'monospace'],
     },
     zIndex: {
       hidden: -1,
