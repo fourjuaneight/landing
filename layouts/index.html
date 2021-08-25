@@ -1,2 +1,25 @@
 {{ define "main" }}
+<section
+  class="
+    flex
+    flex-col
+    items-center
+    justify-start
+    max-w-5xl
+    md:flex-row
+    mx-auto
+    my-4
+    w-full
+  "
+>
+  {{ partial "img.html" (dict "src" .Site.Data.landing.img "alt"
+  .Site.Data.landing.alt) }}
+  <div class="flex flex-col items-start justify-start w-full">
+    {{ $content := .Site.Data.landing.copy | markdownify }}
+    <h1 class="md:text-4xl text-3xl">
+      {{ $content | replaceRE "<a" "<a rel='noopener noreferrer'target='_blank'"
+      | safeHTML }}
+    </h1>
+  </div>
+</section>
 {{ end }}

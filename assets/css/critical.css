@@ -108,16 +108,10 @@ samp {
 }
 
 main {
-  grid-template-columns: minmax(1rem, 1fr) minmax(18rem, 60rem) minmax(
+  grid-template-columns: minmax(1rem, 1fr) minmax(18rem, 64rem) minmax(
     1rem,
     1fr
   );
   grid-template-rows: 0.5rem auto 0.5rem;
-  min-height: calc(100vh - 11rem);
-}
-
-@media screen and (min-width: 420px) {
-  main {
-    min-height: calc(100vh - 10rem);
-  }
+  min-height: 100vh;
 }
