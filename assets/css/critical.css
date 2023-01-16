@@ -61,6 +61,7 @@ html {
 body {
   color: var(--foreground);
   font-family: MD Nichrome, sans-serif;
+  letter-spacing: 0.025rem;
   overflow-x: hidden;
   position: relative;
 }
