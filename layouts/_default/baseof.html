@@ -9,6 +9,9 @@
         {{ block "main" . }}{{ end }}
       </div>
     </main>
+
+    {{ block "scripts" . }}{{ end }}
+
     {{ if hugo.Environment | eq "production" }}
       {{ partial "sw.html" . }}
     {{ end }}

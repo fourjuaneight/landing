@@ -64,3 +64,7 @@
   </div>
 </section>
 {{ end }}
+{{ define "scripts" }}
+{{ $contact := resources.Get "js/contact.js" | resources.Minify }}
+<script defer src="{{ $contact.Permalink }}"></script>
+{{ end }}

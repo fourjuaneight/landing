@@ -28,10 +28,7 @@
   "browserslist": [
     ">3%",
     "not dead",
-    "defaults",
-    "safari >= 10.1",
-    "ios >= 10.3",
-    "ie >= 11"
+    "defaults"
   ],
   "repository": {
     "type": "git",
