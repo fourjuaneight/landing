@@ -9,24 +9,30 @@ interface RequestParams {
   };
 }
 
-export const onRequestPost = async ({ data }: RequestParams) => {
+export const onRequestPost = async (context: RequestParams) => {
   try {
-    console.log('contact', { data });
+    console.log('contact', context);
 
-    if (data) {
-      return new Response(JSON.stringify({ success: true, data }), {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        ok: true,
-        status: 200,
-      });
+    if (context.data) {
+      return new Response(
+        JSON.stringify({ success: true, context }),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          ok: true,
+          status: 200,
+        }
+      );
     }
 
-    return new Response(JSON.stringify({ success: false, data }), {
-      ok: false,
-      status: 404,
-    });
+    return new Response(
+      JSON.stringify({ success: false, context }),
+      {
+        ok: false,
+        status: 404,
+      }
+    );
   } catch (error) {
     console.log('contact', { error });
 

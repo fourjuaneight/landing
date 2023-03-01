@@ -22,7 +22,7 @@ form.addEventListener('submit', async evt => {
       alert(errMsg);
     }
 
-    if (response.status === 'success') {
+    if (response.success) {
       form.reset();
       alert('Message sent successfully!');
     } else {
