@@ -1,0 +1,66 @@
+{{ define "main" }}
+<section
+  class="
+    flex flex-col
+    items-center
+    justify-start
+    max-w-5xl
+    md:flex-row
+    mx-auto
+    my-4
+    w-full
+  "
+>
+  <div class="flex flex-col items-start justify-center max-w-xl mx-auto w-full">
+    {{ $content := .Site.Data.contact.copy | markdownify }}
+    <h1 class="m-0 md:text-4xl text-3xl">
+      {{ .Site.Data.contact.title }}
+    </h1>
+    <p class="mx-0 my-4 text-xl">
+      {{ $content | replaceRE "<a" "<a rel='noopener noreferrer' target='_blank'" | safeHTML }}
+    </p>
+    <form id="contact" class="flex flex-col items-start justify-start mb-4 w-full">
+      {{ with .Site.Data.contact.form }}
+        {{ range . }}
+          {{ $name := .label | replaceRE " " "-" | lower }}
+          <label
+            for="{{ $name }}"
+            class="block mb-2 text-lg"
+          >
+            {{ .label }}
+          </label>
+          {{ if .textarea }}
+            <textarea
+              id="{{ $name }}"
+              name="{{ $name }}"
+              class="bg-foreground border border-foreground border-solid leading-none mb-2 outline-none p-4 text-background w-full"
+              style="font-family: sans-serif;"
+              rows="5"
+              required
+            ></textarea>
+          {{ else }}
+            <input
+              type="{{ .type }}"
+              id="{{ $name }}"
+              name="{{ $name }}"
+              class="bg-foreground border border-foreground border-solid leading-none mb-2 outline-none p-4 text-background w-full"
+              style="font-family: sans-serif; max-height: 40px;"
+              type="{{ .type }}"
+              required
+            />
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      <button
+        type="button"
+        id="contact-submit"
+        class="bg-primary border-0 leading-none mx-0 my-2 outline-none px-4 py-2 text-lg text-background uppercase w-full"
+        style="max-width: 260px;"
+      >
+        Submit
+      </button>
+    </form>
+    {{ partial "socials.html" . }}
+  </div>
+</section>
+{{ end }}
