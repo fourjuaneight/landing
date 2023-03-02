@@ -34,25 +34,30 @@
             class="block mb-2 text-lg"
           >
             {{ .label }}
+            <span class="ml-2 text-red-500">*</span>
           </label>
           {{ if .textarea }}
             <textarea
               id="{{ $name }}"
               name="{{ $name }}"
-              class="bg-foreground border border-foreground border-solid leading-none mb-2 outline-none p-4 text-background w-full"
+              class="bg-foreground border-2 border-foreground border-solid leading-none mb-2 outline-none p-2 text-background w-full"
               style="font-family: sans-serif;"
               rows="5"
               required
+              data-empty="true"
+              onchange="this.setAttribute('data-empty', !this.value);"
             ></textarea>
           {{ else }}
             <input
               type="{{ .type }}"
               id="{{ $name }}"
               name="{{ $name }}"
-              class="bg-foreground border border-foreground border-solid leading-none mb-2 outline-none p-4 text-background w-full"
+              class="bg-foreground border-2 border-foreground border-solid leading-none mb-2 outline-none px-2 py-1 text-background w-full"
               style="font-family: sans-serif; max-height: 40px;"
               type="{{ .type }}"
               required
+              data-empty="true"
+              onchange="this.setAttribute('data-empty', !this.value);"
             />
           {{ end }}
         {{ end }}

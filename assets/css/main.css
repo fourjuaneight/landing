@@ -145,10 +145,6 @@ picture {
 input,
 textarea {
   appearance: none;
-  border: 1.5px dashed transparent;
-  font-size: 1rem;
-  outline: none;
-  padding: 0.25rem;
   transition: border-color var(--duration) ease;
 }
 
@@ -156,17 +152,17 @@ input:active,
 input:focus,
 textarea:active,
 textarea:focus {
-  border-color: var(--secondary);
+  border-color: var(--primary);
 }
 
-input:required:invalid,
-textarea:required:invalid {
-  border-color: var(--meta);
+input[data-empty="false"]:required:invalid,
+textarea[data-empty="false"]:required:invalid {
+  border-color: #ff0000;
 }
 
 input:required:valid,
 textarea:required:valid {
-  border-color: var(--secondary);
+  border-color: var(--primary);
 }
 
 label {
