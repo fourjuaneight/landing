@@ -19,7 +19,13 @@
     <p class="mx-0 my-4 text-xl">
       {{ $content | replaceRE "<a" "<a rel='noopener noreferrer' target='_blank'" | safeHTML }}
     </p>
-    <form id="contact" class="flex flex-col items-start justify-start mb-4 w-full">
+    <form
+      id="contact"
+      class="flex flex-col items-start justify-start mb-4 w-full"
+      method="POST"
+      action="/api/contact"
+      enctype="multipart/form-data"
+    >
       {{ with .Site.Data.contact.form }}
         {{ range . }}
           {{ $name := .label | replaceRE " " "-" | lower }}
@@ -63,8 +69,4 @@
     {{ partial "socials.html" . }}
   </div>
 </section>
-{{ end }}
-{{ define "scripts" }}
-{{ $contact := resources.Get "js/contact.js" | resources.Minify }}
-<script defer src="{{ $contact.Permalink }}"></script>
 {{ end }}

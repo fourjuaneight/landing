@@ -7,15 +7,19 @@ interface RequestParams {
   data: {
     [key: string]: string;
   };
+  request: Request;
 }
 
 export const onRequestPost = async (context: RequestParams) => {
   try {
-    console.log('contact', context);
+    const input = await context.request.formData();
+    const data = Object.fromEntries(input.entries());
 
-    if (context.data) {
+    console.log('contact', data);
+
+    if (data) {
       return new Response(
-        JSON.stringify({ success: true, context }),
+        JSON.stringify({ success: true, data }),
         {
           headers: {
             'Content-Type': 'application/json',
