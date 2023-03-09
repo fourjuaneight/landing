@@ -41,6 +41,7 @@
   },
   "homepage": "https://github.com/fourjuaneight/juan-dev#readme",
   "dependencies": {
+    "@cloudflare/wrangler": "^1.21.0",
     "chalk": "^2.4.2",
     "glob": "^7.1.7",
     "replace-in-file": "^6.2.0",
@@ -54,6 +55,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.14.5",
     "@babel/preset-env": "^7.15.0",
     "@babel/register": "^7.15.3",
+    "@cloudflare/workers-types": "^4.20230307.0",
     "@types/glob": "^7.1.4",
     "@types/node": "^14.14.31",
     "@types/sharp": "^0.27.1",
