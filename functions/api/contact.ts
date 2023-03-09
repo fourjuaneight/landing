@@ -18,7 +18,7 @@ export const onRequestPost = async (context: RequestParams) => {
     const data = Object.fromEntries(input.entries());
 
     if (data) {
-      await CONTACT.put(timestamp, data);
+      await CONTACT.put(timestamp, JSON.stringify(data));
 
       return new Response(
         JSON.stringify({ success: true, data }),
