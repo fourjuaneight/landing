@@ -14,19 +14,23 @@ export const onRequestPost = async (context: RequestParams) => {
   try {
     const date = new Date();
     const timestamp = date.toISOString();
+    const base = 'https://juanvillela.dev';
+    const url = new URL(request.url);
+    // get fom data
     const input = await context.request.formData();
     const data = Object.fromEntries(input.entries());
-
+    console.log(url);
+    
     if (data) {
       await context.env.CONTACT.put(timestamp, JSON.stringify(data));
 
-      return Response.redirect('/contact/success');
+      return Response.redirect(`${base}/contact/success`);
     }
 
-    return Response.redirect('/contact/error');
+    return Response.redirect(`${base}/contact/error`);
   } catch (error) {
     console.log('contact', { error });
 
-    return Response.redirect('/contact/error');
+    return Response.redirect(`${base}/contact/error`);
   }
 };
