@@ -12,7 +12,7 @@ interface RequestParams {
 
 export const onRequestPost = async (context: RequestParams) => {
   const base = 'https://juanvillela.dev';
-  const url = new URL(request.url);
+  const url = new URL(context.request.url);
 
   try {
     const date = new Date();
