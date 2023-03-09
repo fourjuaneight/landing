@@ -11,11 +11,12 @@ interface RequestParams {
 }
 
 export const onRequestPost = async (context: RequestParams) => {
+  const base = 'https://juanvillela.dev';
+  const url = new URL(request.url);
+
   try {
     const date = new Date();
     const timestamp = date.toISOString();
-    const base = 'https://juanvillela.dev';
-    const url = new URL(request.url);
     // get fom data
     const input = await context.request.formData();
     const data = Object.fromEntries(input.entries());
