@@ -12,12 +12,14 @@ interface RequestParams {
 
 export const onRequestPost = async (context: RequestParams) => {
   try {
+    const date = new Date();
+    const timestamp = date.toISOString();
     const input = await context.request.formData();
     const data = Object.fromEntries(input.entries());
 
-    console.log('contact', data);
-
     if (data) {
+      await CONTACT.put(timestamp, data);
+
       return new Response(
         JSON.stringify({ success: true, data }),
         {
