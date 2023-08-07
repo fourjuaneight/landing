@@ -1,4 +1,9 @@
+User-agent: GPTBot
+Disallow: /
+
 User-agent: *
 Allow: /
+
 Sitemap: https://juanvillela.dev/sitemap.xml
+
 Host: https://juanvillela.dev
