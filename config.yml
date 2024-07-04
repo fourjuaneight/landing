@@ -19,7 +19,7 @@ outputs:
 
 params:
   meta:
-    description: Software Engineer, automation enthusiast, and amateur archivist.
+    description: Coder, automation nerd, and amateur archivist.
     author: Juan Villela
     social: fourjuaneight
     theme: '#9580ff'
