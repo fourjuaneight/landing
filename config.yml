@@ -17,6 +17,9 @@ security:
 outputs:
   home: ['html']
 
+sitemap:
+  disable: true
+
 params:
   meta:
     description: Coder, automation nerd, and amateur archivist.
