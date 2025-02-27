@@ -14,6 +14,45 @@
   <div class="flex flex-col items-start justify-center max-w-xl mx-auto w-full">
     <h1 class="m-0 md:text-4xl text-3xl">{{ .Title }}</h1>
     <div class="mx-0 my-4 text-2xl">{{ .Content }}</div>
+    <form
+      id="contact"
+      class="flex flex-col items-start justify-start mb-4 w-full"
+      method="POST"
+      action="/api/contact"
+      enctype="multipart/form-data"
+    >
+      {{ with .Site.Data.lostNfound.form }}
+        {{ range . }}
+          {{ $name := .label | replaceRE " " "-" | lower }}
+          <label
+            for="{{ $name }}"
+            class="block mb-2 text-lg"
+          >
+            {{ .label }}
+            <span class="ml-2 text-red-500">*</span>
+          </label>
+          <input
+            type="{{ .type }}"
+            id="{{ $name }}"
+            name="{{ $name }}"
+            class="bg-foreground border-2 border-foreground border-solid leading-none mb-2 outline-none px-2 py-1 text-background w-full"
+            style="font-family: sans-serif; max-height: 40px;"
+            type="{{ .type }}"
+            required
+            data-empty="true"
+            onchange="this.setAttribute('data-empty', !this.value);"
+          />
+        {{ end }}
+      {{ end }}
+      <button
+        type="sumbit"
+        id="contact-submit"
+        class="bg-primary border-0 leading-none mx-0 my-2 outline-none px-4 py-2 text-lg text-background uppercase w-full"
+        style="max-width: 260px;"
+      >
+        Submit
+      </button>
+    </form>
     {{ partial "socials.html" . }}
   </div>
 </section>

@@ -1,0 +1,8 @@
+---
+form:
+  - label: Name
+    type: text
+  - label: Email
+    type: email
+  - label: Item
+    type: text
